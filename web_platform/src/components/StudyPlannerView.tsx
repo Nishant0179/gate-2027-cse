@@ -1,5 +1,17 @@
-import React, { useState } from 'react';
-import { CalendarCheck, Clock, CheckCircle2, Circle, FileDown, AlertCircle, ArrowRight } from 'lucide-react';
+import React, { useState, useMemo } from 'react';
+import { 
+  CalendarCheck, 
+  Clock, 
+  CheckCircle2, 
+  Circle, 
+  FileDown, 
+  AlertCircle, 
+  Sparkles, 
+  Target, 
+  Award,
+  Filter,
+  CheckCircle
+} from 'lucide-react';
 
 interface StudyPlannerViewProps {
   studyPlans: any;
@@ -13,24 +25,36 @@ export const StudyPlannerView: React.FC<StudyPlannerViewProps> = ({
   toggleTaskCompletion,
 }) => {
   const [selectedTier, setSelectedTier] = useState<string>('4_hours');
+  const [phaseFilter, setPhaseFilter] = useState<string>('all');
+
   const schedules = studyPlans.schedules;
   const currentSchedule = schedules[selectedTier];
   const roadmap = studyPlans.weekly_roadmap;
+
+  // Filtered roadmap
+  const filteredRoadmap = useMemo(() => {
+    if (phaseFilter === 'all') return roadmap;
+    return roadmap.filter((w: any) => w.phase_category === phaseFilter);
+  }, [roadmap, phaseFilter]);
+
+  // Overall progress
+  const completedCount = completedTasks.filter((t: string) => t.startsWith('week-')).length;
+  const progressPercent = Math.min(100, Math.round((completedCount / roadmap.length) * 100));
 
   return (
     <div className="space-y-6 animate-fadeIn">
       {/* Header */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-slate-200 dark:border-slate-800">
         <div>
-          <div className="inline-flex items-center gap-1.5 text-xs font-semibold text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/60 px-2.5 py-1 rounded-full mb-2 border border-emerald-200 dark:border-emerald-800">
-            <CalendarCheck className="h-3.5 w-3.5" />
-            16-Week Target Roadmap
+          <div className="inline-flex items-center gap-1.5 text-xs font-semibold text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/60 px-3 py-1 rounded-full mb-2 border border-emerald-200 dark:border-emerald-800">
+            <Sparkles className="h-3.5 w-3.5 text-amber-500" />
+            <span>3-Month Early Completion Masterplan: Finish 100% by Nov 1, 2026</span>
           </div>
           <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">
             Personalized Study Timetable & Daily Targets
           </h1>
-          <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">
-            Tailored schedules for working professionals, college students, and full-time aspirants targeting Feb 6, 2027.
+          <p className="text-sm text-slate-500 dark:text-slate-400 mt-1 max-w-3xl">
+            Structured roadmap engineered to complete 100% of all 11 GATE CSE subjects <b>3 months prior to the exam</b>, leaving November, December, and January dedicated to 3 full revision cycles and 10+ CBT mock exams.
           </p>
         </div>
 
@@ -43,6 +67,37 @@ export const StudyPlannerView: React.FC<StudyPlannerViewProps> = ({
             <FileDown className="h-4 w-4" />
             <span>Download Complete Planner PDF</span>
           </a>
+        </div>
+      </div>
+
+      {/* 3-Month Buffer Strategy Banner */}
+      <div className="bg-gradient-to-r from-blue-500/10 via-emerald-500/10 to-teal-500/10 border border-blue-200/80 dark:border-blue-800/60 rounded-2xl p-5 shadow-sm">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+          <div className="space-y-1">
+            <div className="flex items-center gap-2">
+              <Award className="h-5 w-5 text-amber-500" />
+              <h3 className="font-extrabold text-sm sm:text-base text-slate-900 dark:text-white">
+                The 3-Month Pre-Exam Buffer Strategy
+              </h3>
+            </div>
+            <p className="text-xs text-slate-600 dark:text-slate-300">
+              <b>Milestone 1 (Weeks 1–16):</b> 100% syllabus completed by <b>November 1, 2026</b>.
+              <span className="mx-2 hidden sm:inline">•</span>
+              <b>Milestone 2 (Nov–Jan):</b> 90 days of dedicated Subject Tests, 10 Full CBT Mocks, and Weakness Elimination.
+            </p>
+          </div>
+          <div className="flex items-center gap-3 w-full sm:w-auto">
+            <div className="text-right hidden md:block">
+              <div className="text-xs text-slate-500 dark:text-slate-400 font-medium">Preparation Progress</div>
+              <div className="text-lg font-black text-emerald-600 dark:text-emerald-400">{progressPercent}%</div>
+            </div>
+            <div className="w-full sm:w-32 bg-slate-200 dark:bg-slate-700 h-2.5 rounded-full overflow-hidden">
+              <div 
+                className="bg-emerald-500 h-full rounded-full transition-all duration-500"
+                style={{ width: `${progressPercent}%` }}
+              />
+            </div>
+          </div>
         </div>
       </div>
 
@@ -111,27 +166,63 @@ export const StudyPlannerView: React.FC<StudyPlannerViewProps> = ({
         </p>
       </div>
 
-      {/* 16-Week Roadmap Checklist */}
+      {/* Master Calendar Roadmap */}
       <div className="space-y-4">
-        <div className="flex items-center justify-between">
-          <h2 className="text-lg font-bold text-slate-900 dark:text-white">
-            16-Week Master Calendar (October 2026 – February 2027)
-          </h2>
-          <span className="text-xs text-slate-500 font-semibold">
-            {completedTasks.length} of {roadmap.length} weeks checked off
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <div>
+            <h2 className="text-lg font-bold text-slate-900 dark:text-white">
+              Master Preparation Roadmap (Syllabus Finished 3 Months Early + 90-Day Mocks)
+            </h2>
+            <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
+              Check off each week as you complete target topics and weekly tests.
+            </p>
+          </div>
+          <span className="text-xs text-slate-500 font-semibold self-start sm:self-auto">
+            {completedCount} of {roadmap.length} weeks checked off
           </span>
         </div>
 
+        {/* Phase Filter Buttons */}
+        <div className="flex flex-wrap items-center gap-1.5 pt-1">
+          {[
+            { id: 'all', label: 'All Weeks (Full Plan)' },
+            { id: 'syllabus', label: '100% Syllabus (Weeks 1–16)' },
+            { id: 'revision', label: 'Month -3: Revision (Nov)' },
+            { id: 'mocks', label: 'Month -2: CBT Mocks (Dec)' },
+            { id: 'final_sprint', label: 'Month -1: Final Sprint (Jan)' },
+            { id: 'exam_week', label: 'Exam Week (Feb)' },
+          ].map((tab) => {
+            const isActive = phaseFilter === tab.id;
+            return (
+              <button
+                key={tab.id}
+                onClick={() => setPhaseFilter(tab.id)}
+                className={`text-xs px-3 py-1.5 rounded-lg font-medium transition ${
+                  isActive
+                    ? 'bg-blue-600 text-white shadow-xs font-bold'
+                    : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700'
+                }`}
+              >
+                {tab.label}
+              </button>
+            );
+          })}
+        </div>
+
+        {/* Roadmap Items List */}
         <div className="space-y-3">
-          {roadmap.map((weekItem: any) => {
+          {filteredRoadmap.map((weekItem: any) => {
             const taskId = `week-${weekItem.week}`;
             const isDone = completedTasks.includes(taskId);
+            const isMilestoneWeek = weekItem.week === 16;
 
             return (
               <div
                 key={weekItem.week}
                 className={`p-5 rounded-xl border transition ${
-                  isDone
+                  isMilestoneWeek
+                    ? 'bg-amber-50/70 dark:bg-amber-950/30 border-amber-400 dark:border-amber-700 ring-2 ring-amber-400/20'
+                    : isDone
                     ? 'bg-emerald-50/40 dark:bg-emerald-950/20 border-emerald-300 dark:border-emerald-800'
                     : 'bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800'
                 }`}
@@ -141,6 +232,7 @@ export const StudyPlannerView: React.FC<StudyPlannerViewProps> = ({
                     <button
                       onClick={() => toggleTaskCompletion(taskId)}
                       className="mt-0.5 text-slate-400 hover:text-emerald-600 transition"
+                      title={isDone ? 'Mark as Incomplete' : 'Mark as Completed'}
                     >
                       {isDone ? (
                         <CheckCircle2 className="h-5 w-5 text-emerald-500" />
@@ -150,13 +242,17 @@ export const StudyPlannerView: React.FC<StudyPlannerViewProps> = ({
                     </button>
                     <div>
                       <div className="flex flex-wrap items-center gap-2">
-                        <span className="text-xs font-extrabold px-2 py-0.5 rounded bg-blue-100 dark:bg-blue-950 text-blue-700 dark:text-blue-300">
+                        <span className={`text-xs font-extrabold px-2 py-0.5 rounded ${
+                          isMilestoneWeek
+                            ? 'bg-amber-500 text-white'
+                            : 'bg-blue-100 dark:bg-blue-950 text-blue-700 dark:text-blue-300'
+                        }`}>
                           Week {weekItem.week}
                         </span>
                         <span className="text-xs font-bold text-slate-900 dark:text-white">
                           {weekItem.phase}
                         </span>
-                        <span className="text-xs text-slate-500">
+                        <span className="text-xs text-slate-500 dark:text-slate-400">
                           ({weekItem.subjects.join(', ')})
                         </span>
                       </div>
@@ -167,10 +263,21 @@ export const StudyPlannerView: React.FC<StudyPlannerViewProps> = ({
                       <div className="mt-1 text-xs text-slate-500 dark:text-slate-400">
                         <b>Target:</b> {weekItem.targets}
                       </div>
+
+                      {isMilestoneWeek && (
+                        <div className="mt-2.5 inline-flex items-center gap-1.5 bg-amber-100 dark:bg-amber-900/60 text-amber-900 dark:text-amber-200 text-xs font-bold px-2.5 py-1 rounded-lg border border-amber-300 dark:border-amber-700">
+                          <Target className="h-3.5 w-3.5 text-amber-600" />
+                          <span>CRITICAL GOAL: 100% Complete Syllabus finished 3 months prior to GATE exam!</span>
+                        </div>
+                      )}
                     </div>
                   </div>
 
-                  <span className="text-[11px] font-semibold text-amber-700 dark:text-amber-400 bg-amber-50 dark:bg-amber-950/60 px-2.5 py-1 rounded-lg border border-amber-200 dark:border-amber-800 flex-shrink-0 hidden sm:inline-block">
+                  <span className={`text-[11px] font-semibold px-2.5 py-1 rounded-lg border flex-shrink-0 hidden sm:inline-block ${
+                    isMilestoneWeek
+                      ? 'bg-amber-500 text-white border-amber-600'
+                      : 'text-amber-700 dark:text-amber-400 bg-amber-50 dark:bg-amber-950/60 border-amber-200 dark:border-amber-800'
+                  }`}>
                     {weekItem.buffer_day}
                   </span>
                 </div>

@@ -36,7 +36,7 @@ export const StudyPlannerView: React.FC<StudyPlannerViewProps> = ({
 
         <div>
           <a
-            href="/16_Study_Plans/GATE_2027_Complete_Study_Planner.pdf"
+            href="./16_Study_Plans/GATE_2027_Complete_Study_Planner.pdf"
             download
             className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold text-xs px-4 py-2.5 rounded-xl shadow-sm transition"
           >

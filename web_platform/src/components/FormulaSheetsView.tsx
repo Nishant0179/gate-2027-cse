@@ -36,7 +36,7 @@ export const FormulaSheetsView: React.FC<FormulaSheetsViewProps> = ({ finalRevis
 
         <div>
           <a
-            href="/15_Quick_Revision/Master_Formula_and_Cheat_Sheet.pdf"
+            href="./15_Quick_Revision/Master_Formula_and_Cheat_Sheet.pdf"
             download
             className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold text-xs px-4 py-2.5 rounded-xl shadow-sm transition"
           >

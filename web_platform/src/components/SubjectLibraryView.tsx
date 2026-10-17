@@ -115,7 +115,7 @@ export const SubjectLibraryView: React.FC<SubjectLibraryViewProps> = ({
               High-resolution printable PDF with complete proofs and diagrams.
             </p>
             <a
-              href={`/${subject.folder}/Subject_Complete_Notes.pdf`}
+              href={`./${subject.folder}/Subject_Complete_Notes.pdf`}
               download
               className="block text-center w-full py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg text-xs font-semibold shadow-sm transition"
             >
@@ -151,7 +151,7 @@ export const SubjectLibraryView: React.FC<SubjectLibraryViewProps> = ({
               </button>
 
               <a
-                href={`/${subject.folder}/Topic_${activeChapterIndex + 1 < 10 ? '0' : ''}${activeChapterIndex + 1}_Notes.pdf`}
+                href={`./${subject.folder}/Topic_${activeChapterIndex + 1 < 10 ? '0' : ''}${activeChapterIndex + 1}_Notes.pdf`}
                 download
                 className="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 transition"
                 title="Download Chapter PDF"

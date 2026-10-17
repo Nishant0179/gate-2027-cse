@@ -65,7 +65,7 @@ export const PdfLibraryView: React.FC<PdfLibraryViewProps> = ({ pdfLibrary }) =>
         {/* Global Download Pack Button */}
         <div className="flex items-center gap-2">
           <a
-            href="/00_Official_Syllabus/CS_GATE2027_Syllabus.pdf"
+            href="./00_Official_Syllabus/CS_GATE2027_Syllabus.pdf"
             download
             className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold text-xs px-4 py-2.5 rounded-xl shadow-sm transition"
           >
@@ -121,7 +121,8 @@ export const PdfLibraryView: React.FC<PdfLibraryViewProps> = ({ pdfLibrary }) =>
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
         {filteredPdfs.map((pdf) => {
           const fileSizeKb = Math.round(pdf.file_size_bytes / 1024);
-          const relativeDownloadUrl = `/${pdf.file_path.replace(/\\/g, '/')}`;
+          const cleanPath = pdf.file_path.replace(/\\/g, '/').replace(/^\/+/, '');
+          const relativeDownloadUrl = `./${cleanPath}`;
 
           return (
             <div

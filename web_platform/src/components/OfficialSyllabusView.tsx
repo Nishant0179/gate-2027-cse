@@ -29,7 +29,7 @@ export const OfficialSyllabusView: React.FC<OfficialSyllabusViewProps> = ({ gate
         {/* Download Buttons for Official Syllabi */}
         <div className="flex items-center gap-3">
           <a
-            href="/00_Official_Syllabus/CS_GATE2027_Syllabus.pdf"
+            href="./00_Official_Syllabus/CS_GATE2027_Syllabus.pdf"
             download
             className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold text-xs px-3.5 py-2 rounded-lg shadow-sm transition"
           >
@@ -37,7 +37,7 @@ export const OfficialSyllabusView: React.FC<OfficialSyllabusViewProps> = ({ gate
             <span>Download CS Syllabus PDF</span>
           </a>
           <a
-            href="/00_Official_Syllabus/GA_GATE2027_Syllabus.pdf"
+            href="./00_Official_Syllabus/GA_GATE2027_Syllabus.pdf"
             download
             className="flex items-center gap-2 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 font-semibold text-xs px-3.5 py-2 rounded-lg border border-slate-300 dark:border-slate-700 transition"
           >

@@ -28,7 +28,7 @@ export const QuickRevisionView: React.FC<QuickRevisionViewProps> = ({ finalRevis
 
         <div>
           <a
-            href="/17_Final_Revision/Final_Week_and_Last_Day_Pack.pdf"
+            href="./17_Final_Revision/Final_Week_and_Last_Day_Pack.pdf"
             download
             className="flex items-center gap-2 bg-rose-600 hover:bg-rose-700 text-white font-semibold text-xs px-4 py-2.5 rounded-xl shadow-sm transition"
           >

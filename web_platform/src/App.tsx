@@ -33,6 +33,17 @@ export function App() {
     return saved ? JSON.parse(saved) : [];
   });
 
+  // Active Subject and Chapter for deep-linking
+  const [selectedSubjectId, setSelectedSubjectId] = useState<string>(gateData.subjects[0]?.id || 'EM');
+  const [activeChapterIndex, setActiveChapterIndex] = useState<number>(0);
+
+  const navigateToTopic = (subjectId: string, chapterIndex: number = 0) => {
+    setSelectedSubjectId(subjectId);
+    setActiveChapterIndex(chapterIndex);
+    setCurrentTab('subject_library');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   useEffect(() => {
     if (darkMode) {
       document.documentElement.classList.add('dark');
@@ -99,6 +110,11 @@ export function App() {
               gateData={gateData}
               completedTopics={completedTopics}
               toggleTopicCompletion={toggleTopicCompletion}
+              selectedSubjectId={selectedSubjectId}
+              setSelectedSubjectId={setSelectedSubjectId}
+              activeChapterIndex={activeChapterIndex}
+              setActiveChapterIndex={setActiveChapterIndex}
+              setCurrentTab={setCurrentTab}
             />
           )}
 
@@ -134,6 +150,7 @@ export function App() {
               studyPlans={gateData.studyPlans}
               completedTasks={completedTasks}
               toggleTaskCompletion={toggleTaskCompletion}
+              navigateToTopic={navigateToTopic}
             />
           )}
 

@@ -676,6 +676,35 @@
                 ]
               ]
             }
+          ],
+          "video_resources": [
+            {
+              "title": "Mathematical Logic & Quantifiers Masterclass",
+              "channel": "Gate Smashers",
+              "url": "https://www.youtube.com/results?search_query=gate+cse+propositional+logic+quantifiers+gate+smashers"
+            },
+            {
+              "title": "Set Theory, Relations & Equivalence Relations",
+              "channel": "Amit Khurana",
+              "url": "https://www.youtube.com/results?search_query=gate+discrete+mathematics+relations+equivalence+amit+khurana"
+            },
+            {
+              "title": "Lattices & Boolean Algebras Complete",
+              "channel": "NPTEL IIT",
+              "url": "https://www.youtube.com/results?search_query=nptel+discrete+mathematics+lattices+boolean+algebra"
+            }
+          ],
+          "solved_examples": [
+            {
+              "question": "Which of the following propositions is a TAUTOLOGY?\n(A) (P -> Q) -> P\n(B) P -> (Q -> P)\n(C) (P v Q) -> (P ^ Q)\n(D) (P -> Q) -> (Q -> P)",
+              "solution": "Step 1: Expand conditional P -> (Q -> P) using implication equivalence A -> B \u2261 ~A v B.\nStep 2: P -> (~Q v P) \u2261 ~P v (~Q v P).\nStep 3: By Associativity and Commutativity: (~P v P) v ~Q.\nStep 4: Since (~P v P) is always True (T), T v ~Q \u2261 True (Tautology).\nAnswer: (B).",
+              "takeaway": "Always use implication identity (A -> B \u2261 ~A v B) and look for (P v ~P \u2261 True) or (P ^ ~P \u2261 False)."
+            },
+            {
+              "question": "On a set A with n elements, how many symmetric relations are possible that are also reflexive?",
+              "solution": "Step 1: Total elements in A x A is n^2.\nStep 2: A reflexive relation MUST contain all n diagonal pairs (a_i, a_i), so diagonal pairs have only 1 choice.\nStep 3: The non-diagonal pairs come in symmetric pairs {(a_i, a_j), (a_j, a_i)} where i < j.\nStep 4: Number of such pairs is (n^2 - n) / 2 = n(n - 1) / 2.\nStep 5: For each pair, it can either be in the relation or not (2 choices).\nTotal = 2^(n(n-1)/2).",
+              "takeaway": "Divide relation matrix into 3 parts: n diagonal elements, and two symmetric halves of n(n-1)/2 elements each."
+            }
           ]
         },
         {
@@ -734,6 +763,30 @@
                 ]
               ]
             }
+          ],
+          "video_resources": [
+            {
+              "title": "Graph Theory Full Playlist for GATE CSE",
+              "channel": "Gate Smashers",
+              "url": "https://www.youtube.com/results?search_query=gate+cse+graph+theory+full+playlist+gate+smashers"
+            },
+            {
+              "title": "Euler's Formula & Planar Graphs with Proofs",
+              "channel": "Abdul Bari",
+              "url": "https://www.youtube.com/results?search_query=euler+formula+planar+graphs+abdul+bari"
+            },
+            {
+              "title": "Combinatorics, Permutations & Generating Functions",
+              "channel": "Amit Khurana",
+              "url": "https://www.youtube.com/results?search_query=gate+combinatorics+generating+functions+amit+khurana"
+            }
+          ],
+          "solved_examples": [
+            {
+              "question": "A connected planar graph has 10 vertices each of degree 3. Into how many regions/faces does it divide the plane?",
+              "solution": "Step 1: Use Handshaking Lemma: \u2211 deg(v) = 2|E|.\n10 * 3 = 2|E| => 30 = 2|E| => |E| = 15 edges.\nStep 2: Apply Euler's Planar Formula: V - E + R = 2.\n10 - 15 + R = 2 => -5 + R = 2 => R = 7 regions.\nAnswer: 7 regions (including the outer unbounded face).",
+              "takeaway": "Euler's formula V - E + R = 2 holds for all CONNECTED planar graphs. Always find |E| first using Handshaking Lemma."
+            }
           ]
         },
         {
@@ -752,7 +805,26 @@
               "formula"
             ]
           ],
-          "tables": []
+          "tables": [],
+          "video_resources": [
+            {
+              "title": "Eigenvalues and Eigenvectors Shortcuts for GATE",
+              "channel": "Gate Smashers",
+              "url": "https://www.youtube.com/results?search_query=eigenvalues+eigenvectors+shortcuts+gate+smashers"
+            },
+            {
+              "title": "Systems of Linear Equations & Matrix Rank",
+              "channel": "Amit Khurana",
+              "url": "https://www.youtube.com/results?search_query=linear+algebra+system+of+equations+rank+amit+khurana"
+            }
+          ],
+          "solved_examples": [
+            {
+              "question": "For a 3x3 matrix A, Trace(A) = 6 and Det(A) = 6. If one eigenvalue is 1, find the other two eigenvalues.",
+              "solution": "Step 1: Let eigenvalues be \u03bb1, \u03bb2, \u03bb3 with \u03bb1 = 1.\nStep 2: Sum of eigenvalues = Trace(A) => 1 + \u03bb2 + \u03bb3 = 6 => \u03bb2 + \u03bb3 = 5.\nStep 3: Product of eigenvalues = Det(A) => 1 * \u03bb2 * \u03bb3 = 6 => \u03bb2 * \u03bb3 = 6.\nStep 4: Solve \u03bb^2 - 5\u03bb + 6 = 0 => (\u03bb - 2)(\u03bb - 3) = 0.\nAnswer: The other two eigenvalues are 2 and 3.",
+              "takeaway": "Never compute characteristic polynomial det(A - \u03bbI) if Trace and Determinant properties give immediate quadratic equations!"
+            }
+          ]
         },
         {
           "title": "Calculus & Probability - Distributions and Bayes Theorem",
@@ -770,7 +842,26 @@
               "warn"
             ]
           ],
-          "tables": []
+          "tables": [],
+          "video_resources": [
+            {
+              "title": "Bayes' Theorem & Conditional Probability Made Easy",
+              "channel": "Gate Smashers",
+              "url": "https://www.youtube.com/results?search_query=bayes+theorem+conditional+probability+gate+smashers"
+            },
+            {
+              "title": "Probability Distributions: Poisson, Normal & Exponential",
+              "channel": "Knowledge Gate",
+              "url": "https://www.youtube.com/results?search_query=poisson+normal+exponential+distribution+gate+cse"
+            }
+          ],
+          "solved_examples": [
+            {
+              "question": "If a random variable X follows a Poisson distribution such that P(X = 1) = P(X = 2), what is the Mean and Variance of X?",
+              "solution": "Step 1: Poisson formula P(X = k) = (e^(-\u03bb) * \u03bb^k) / k!.\nStep 2: P(X = 1) = e^(-\u03bb) * \u03bb^1 / 1! = \u03bb e^(-\u03bb).\nStep 3: P(X = 2) = e^(-\u03bb) * \u03bb^2 / 2! = (\u03bb^2 / 2) e^(-\u03bb).\nStep 4: Equating both: \u03bb e^(-\u03bb) = (\u03bb^2 / 2) e^(-\u03bb) => 1 = \u03bb / 2 => \u03bb = 2.\nStep 5: For Poisson distribution, Mean = Variance = \u03bb = 2.",
+              "takeaway": "In Poisson distribution, Mean == Variance == \u03bb. If question equates two probabilities, cancel e^(-\u03bb) and solve for \u03bb."
+            }
+          ]
         }
       ],
       "questionCount": 5
@@ -838,6 +929,25 @@
                 ]
               ]
             }
+          ],
+          "video_resources": [
+            {
+              "title": "Number Systems & Signed Representations",
+              "channel": "Gate Smashers",
+              "url": "https://www.youtube.com/results?search_query=number+systems+signed+binary+2s+complement+gate+smashers"
+            },
+            {
+              "title": "IEEE 754 Floating Point Representation",
+              "channel": "Knowledge Gate",
+              "url": "https://www.youtube.com/results?search_query=ieee+754+floating+point+single+precision+gate+cse"
+            }
+          ],
+          "solved_examples": [
+            {
+              "question": "What is the 8-bit 2's complement representation of decimal integer -43?",
+              "solution": "Step 1: Write +43 in 8-bit binary: 43 = 32 + 8 + 2 + 1 = 00101011_2.\nStep 2: Take 1's complement (invert all bits): 11010100.\nStep 3: Add 1: 11010100 + 1 = 11010101_2.\nAnswer: 11010101 (Hex: 0xD5).",
+              "takeaway": "Shortcut for 2's complement: Starting from right (LSB), copy all bits up to and including the first '1', then flip all remaining bits to the left."
+            }
           ]
         },
         {
@@ -856,7 +966,26 @@
               "tip"
             ]
           ],
-          "tables": []
+          "tables": [],
+          "video_resources": [
+            {
+              "title": "Karnaugh Map (K-Map) Minimization Complete",
+              "channel": "Gate Smashers",
+              "url": "https://www.youtube.com/results?search_query=k-map+minimization+gate+smashers"
+            },
+            {
+              "title": "Logic Gates & Universal Gates Realization",
+              "channel": "Neso Academy",
+              "url": "https://www.youtube.com/results?search_query=logic+gates+universal+gates+neso+academy"
+            }
+          ],
+          "solved_examples": [
+            {
+              "question": "How many 2-to-1 Multiplexers are needed to implement an arbitrary 2-input XOR gate?",
+              "solution": "Step 1: XOR equation: Y = A'B + AB'.\nStep 2: Use 2-to-1 MUX equation: Y = S' * I0 + S * I1.\nStep 3: Set select line S = A. When A = 0, Y = B. When A = 1, Y = B'.\nStep 4: If inverted input B' is available, 1 MUX suffices. If an inverter must be built using MUX, 2 MUXes are required.\nAnswer: 1 MUX (with inverted input) or 2 MUXes total.",
+              "takeaway": "To build an inverter with a 2-to-1 MUX: Set I0 = 1, I1 = 0, select = input X. Output = X'."
+            }
+          ]
         },
         {
           "title": "Sequential Circuits - Flip-Flops, Counters & State Machines",
@@ -874,7 +1003,26 @@
               "warn"
             ]
           ],
-          "tables": []
+          "tables": [],
+          "video_resources": [
+            {
+              "title": "Multiplexers, Decoders & Priority Encoders",
+              "channel": "Gate Smashers",
+              "url": "https://www.youtube.com/results?search_query=multiplexers+decoders+combinational+circuits+gate+smashers"
+            },
+            {
+              "title": "Full Adder & Carry Lookahead Adders",
+              "channel": "Neso Academy",
+              "url": "https://www.youtube.com/results?search_query=carry+lookahead+adder+gate+cse+neso+academy"
+            }
+          ],
+          "solved_examples": [
+            {
+              "question": "A 4-to-1 MUX has inputs I0=1, I1=0, I2=C, I3=C' with select lines S1=A, S0=B. Find the minimized Boolean function F(A, B, C).",
+              "solution": "Step 1: MUX equation F = A'B'I0 + A'B I1 + A B' I2 + A B I3.\nStep 2: Substitute inputs: F = A'B'(1) + A'B(0) + A B'(C) + A B(C') = A'B' + A B' C + A B C'.\nStep 3: Simplify: B'(A' + AC) + ABC' = B'(A' + C) + ABC' = A'B' + B'C + ABC'.\nStep 4: K-Map minimization yields minterms m(0, 1, 4, 6) = A'B' + BC' + AC.",
+              "takeaway": "Always expand MUX output to canonical minterms sum before minimizing to prevent missing adjacent grouping cells."
+            }
+          ]
         },
         {
           "title": "Number Representation & Floating Point (IEEE 754)",
@@ -892,7 +1040,26 @@
               "warn"
             ]
           ],
-          "tables": []
+          "tables": [],
+          "video_resources": [
+            {
+              "title": "Flip-Flops (SR, JK, D, T) & Excitation Tables",
+              "channel": "Gate Smashers",
+              "url": "https://www.youtube.com/results?search_query=flip+flops+excitation+tables+gate+smashers"
+            },
+            {
+              "title": "Synchronous & Mod-N Counters Design",
+              "channel": "Neso Academy",
+              "url": "https://www.youtube.com/results?search_query=synchronous+counters+mod+n+counters+gate+cse"
+            }
+          ],
+          "solved_examples": [
+            {
+              "question": "In a 4-bit synchronous binary counter, what is the frequency of the MSB flip-flop output if clock frequency is 16 MHz?",
+              "solution": "Step 1: Each stage of a binary ripple/synchronous counter divides the input clock frequency by 2.\nStep 2: For 4 flip-flops, division factor = 2^4 = 16.\nStep 3: Output frequency at MSB = 16 MHz / 16 = 1 MHz.\nAnswer: 1 MHz.",
+              "takeaway": "Any mod-N counter divides clock frequency by N at its terminal count / MSB output: f_out = f_in / N."
+            }
+          ]
         }
       ],
       "questionCount": 5
@@ -966,6 +1133,25 @@
                 ]
               ]
             }
+          ],
+          "video_resources": [
+            {
+              "title": "Addressing Modes with Numerical Examples",
+              "channel": "Gate Smashers",
+              "url": "https://www.youtube.com/results?search_query=addressing+modes+gate+smashers"
+            },
+            {
+              "title": "Instruction Formats & Machine Code",
+              "channel": "Vishvadeep Gothi",
+              "url": "https://www.youtube.com/results?search_query=instruction+formats+vishvadeep+gothi+gate"
+            }
+          ],
+          "solved_examples": [
+            {
+              "question": "A system has 32-bit instructions with 4-byte words. If memory is byte-addressable and PC holds address 1000, what is the PC value after fetching one instruction?",
+              "solution": "Step 1: Instruction length = 32 bits = 4 bytes.\nStep 2: In byte-addressable memory, each address refers to 1 byte.\nStep 3: Fetching 4 bytes advances PC by 4.\nAnswer: PC = 1000 + 4 = 1004.",
+              "takeaway": "Always check whether memory is BYTE-addressable or WORD-addressable! In byte-addressable, PC increments by instruction length in bytes."
+            }
           ]
         },
         {
@@ -984,7 +1170,26 @@
               "formula"
             ]
           ],
-          "tables": []
+          "tables": [],
+          "video_resources": [
+            {
+              "title": "Hardwired vs Microprogrammed Control Unit",
+              "channel": "Gate Smashers",
+              "url": "https://www.youtube.com/results?search_query=control+unit+hardwired+microprogrammed+gate+smashers"
+            },
+            {
+              "title": "ALU Datapath & CPU Bus Architecture",
+              "channel": "Vishvadeep Gothi",
+              "url": "https://www.youtube.com/results?search_query=alu+datapath+cpu+bus+architecture+vishvadeep+gothi"
+            }
+          ],
+          "solved_examples": [
+            {
+              "question": "A control store has 128 microinstructions. Each microinstruction contains 26 control signals and a branch address field. Find the size of the control word in bits.",
+              "solution": "Step 1: Number of microinstructions = 128 = 2^7.\nStep 2: Branch address field needs ceil(log2(128)) = 7 bits.\nStep 3: Control signals = 26 bits.\nStep 4: Total control word size = 26 + 7 = 33 bits.\nAnswer: 33 bits.",
+              "takeaway": "Horizontal microinstruction size = (Control signals) + log2(Control store memory words)."
+            }
+          ]
         },
         {
           "title": "Memory Hierarchy, Cache Mapping & AMAT",
@@ -1002,7 +1207,26 @@
               "warn"
             ]
           ],
-          "tables": []
+          "tables": [],
+          "video_resources": [
+            {
+              "title": "Cache Memory Mapping (Direct, Set-Associative)",
+              "channel": "Gate Smashers",
+              "url": "https://www.youtube.com/results?search_query=cache+memory+mapping+direct+associative+gate+smashers"
+            },
+            {
+              "title": "Average Memory Access Time (AMAT) Numericals",
+              "channel": "Vishvadeep Gothi",
+              "url": "https://www.youtube.com/results?search_query=average+memory+access+time+amat+numericals+vishvadeep+gothi"
+            }
+          ],
+          "solved_examples": [
+            {
+              "question": "A 4-way set-associative cache has 64 KB capacity with 32-byte cache lines. In a 32-bit byte-addressable system, find the Tag bits.",
+              "solution": "Step 1: Cache size = 64 KB = 2^16 bytes. Line size = 32 bytes = 2^5 bytes.\nStep 2: Total cache lines = 2^16 / 2^5 = 2^11 lines = 2048 lines.\nStep 3: 4-way set-associative => Sets = 2048 / 4 = 512 sets = 2^9 sets.\nStep 4: Offset bits = log2(32) = 5 bits. Set index bits = log2(512) = 9 bits.\nStep 5: Tag bits = 32 - 9 - 5 = 18 bits.\nAnswer: Tag = 18 bits, Set Index = 9 bits, Offset = 5 bits.",
+              "takeaway": "Number of sets = (Total Cache Capacity) / (Line Size * Set Associativity). Tag = Address Bits - Set Bits - Word Offset Bits."
+            }
+          ]
         },
         {
           "title": "Instruction Pipelining, Hazards & Performance",
@@ -1020,7 +1244,26 @@
               "formula"
             ]
           ],
-          "tables": []
+          "tables": [],
+          "video_resources": [
+            {
+              "title": "Instruction Pipelining & Speedup Calculations",
+              "channel": "Gate Smashers",
+              "url": "https://www.youtube.com/results?search_query=instruction+pipelining+speedup+cpi+gate+smashers"
+            },
+            {
+              "title": "Pipeline Hazards: RAW, Structural & Branch",
+              "channel": "Vishvadeep Gothi",
+              "url": "https://www.youtube.com/results?search_query=pipeline+hazards+raw+branch+data+forwarding+vishvadeep+gothi"
+            }
+          ],
+          "solved_examples": [
+            {
+              "question": "A 5-stage pipeline has stage delays 5ns, 7ns, 10ns, 8ns, and 6ns. Pipeline registers have 1ns delay. Find clock cycle time and speedup for 1000 instructions compared to non-pipelined execution.",
+              "solution": "Step 1: Pipeline clock cycle time t_pipe = max(stage delays) + register delay = 10ns + 1ns = 11ns.\nStep 2: Pipelined time T_pipe = (k + n - 1) * t_pipe = (5 + 1000 - 1) * 11ns = 1004 * 11 = 11044 ns.\nStep 3: Non-pipelined time per instruction t_non = 5+7+10+8+6 = 36ns. For 1000 instructions = 36000 ns.\nStep 4: Speedup = 36000 / 11044 \u2248 3.26.\nAnswer: Cycle time = 11ns, Speedup = 3.26.",
+              "takeaway": "The slowest stage limits the pipeline clock frequency: Cycle time = max(Stage Delays) + Register Delay."
+            }
+          ]
         }
       ],
       "questionCount": 5
@@ -1052,7 +1295,26 @@
               "tip"
             ]
           ],
-          "tables": []
+          "tables": [],
+          "video_resources": [
+            {
+              "title": "Pointers and Memory Layout in C",
+              "channel": "Jenny's Lectures",
+              "url": "https://www.youtube.com/results?search_query=c+programming+pointers+memory+jenny+lectures"
+            },
+            {
+              "title": "Recursion Call Stack & Output Tracing",
+              "channel": "Gate Smashers",
+              "url": "https://www.youtube.com/results?search_query=recursion+output+tracing+gate+cse+gate+smashers"
+            }
+          ],
+          "solved_examples": [
+            {
+              "question": "What is the output of the following C code?\nint a[] = {10, 20, 30, 40};\nint *p = a;\nprintf(\"%d\", *(p++) + *++p);",
+              "solution": "Step 1: *(p++) evaluates to *p (which is 10), and then p is incremented to point to a[1] (20).\nStep 2: *++p increments p first to point to a[2] (30), and dereferences to 30.\nStep 3: Sum = 10 + 30 = 40.\nAnswer: 40.",
+              "takeaway": "Post-increment p++ returns original pointer before incrementing; pre-increment ++p increments first before evaluating."
+            }
+          ]
         },
         {
           "title": "Linear Data Structures - Stacks, Queues & Linked Lists",
@@ -1070,7 +1332,26 @@
               "warn"
             ]
           ],
-          "tables": []
+          "tables": [],
+          "video_resources": [
+            {
+              "title": "Stack Applications: Infix to Postfix & Evaluation",
+              "channel": "Gate Smashers",
+              "url": "https://www.youtube.com/results?search_query=infix+to+postfix+conversion+stack+gate+smashers"
+            },
+            {
+              "title": "Circular Queues & Linked Lists Operations",
+              "channel": "Jenny's Lectures",
+              "url": "https://www.youtube.com/results?search_query=circular+queue+linked+list+jenny+lectures"
+            }
+          ],
+          "solved_examples": [
+            {
+              "question": "What is the postfix evaluation of the expression: 6 3 2 + * 5 - ?",
+              "solution": "Step 1: Read '6', push to stack: [6].\nStep 2: Read '3', push: [6, 3].\nStep 3: Read '2', push: [6, 3, 2].\nStep 4: Read '+', pop 2 and 3, compute 3+2=5, push: [6, 5].\nStep 5: Read '*', pop 5 and 6, compute 6*5=30, push: [30].\nStep 6: Read '5', push: [30, 5].\nStep 7: Read '-', pop 5 and 30, compute 30-5=25, push: [25].\nAnswer: 25.",
+              "takeaway": "When operator arrives: op2 = pop(), op1 = pop(), push(op1 <op> op2). Order of operands matters for division and subtraction!"
+            }
+          ]
         },
         {
           "title": "Trees, BST & Binary Heaps",
@@ -1088,7 +1369,26 @@
               "warn"
             ]
           ],
-          "tables": []
+          "tables": [],
+          "video_resources": [
+            {
+              "title": "Binary Search Tree Operations & Traversals",
+              "channel": "Abdul Bari",
+              "url": "https://www.youtube.com/results?search_query=binary+search+tree+bst+abdul+bari"
+            },
+            {
+              "title": "Binary Heap & Heapify Linear Time Proof",
+              "channel": "Abdul Bari",
+              "url": "https://www.youtube.com/results?search_query=binary+heap+heapify+abdul+bari+algorithms"
+            }
+          ],
+          "solved_examples": [
+            {
+              "question": "In a max-heap of n elements, what is the worst-case time complexity to find the MINIMUM element?",
+              "solution": "Step 1: In a max-heap, parent is greater than children. Root holds maximum.\nStep 2: The minimum element MUST be present at one of the leaf nodes.\nStep 3: In a complete binary tree of n elements, there are ceil(n/2) leaf nodes.\nStep 4: To find the minimum among ceil(n/2) leaves requires linear search over the leaves: O(n/2) = O(n).\nAnswer: O(n).",
+              "takeaway": "In a Max-Heap, finding Maximum is O(1), but finding Minimum requires searching all leaf nodes: O(n) time!"
+            }
+          ]
         }
       ],
       "questionCount": 5
@@ -1121,7 +1421,26 @@
               "formula"
             ]
           ],
-          "tables": []
+          "tables": [],
+          "video_resources": [
+            {
+              "title": "Master Theorem for Asymptotic Recurrences",
+              "channel": "Abdul Bari",
+              "url": "https://www.youtube.com/results?search_query=master+theorem+abdul+bari+algorithms"
+            },
+            {
+              "title": "Asymptotic Notations (Big-O, Omega, Theta)",
+              "channel": "Gate Smashers",
+              "url": "https://www.youtube.com/results?search_query=asymptotic+notations+big+o+omega+theta+gate+smashers"
+            }
+          ],
+          "solved_examples": [
+            {
+              "question": "Solve recurrence: T(n) = 2T(n/2) + n log n using Master Theorem.",
+              "solution": "Step 1: Form T(n) = a T(n/b) + f(n) where a = 2, b = 2, f(n) = n log n.\nStep 2: Compute n^(log_b(a)) = n^(log2(2)) = n^1 = n.\nStep 3: Compare f(n) with n^(log_b(a)): f(n) = n log n = n * (log n)^1.\nStep 4: This matches Extended Master Theorem Case 2: f(n) = \u0398(n^(log_b(a)) * (log n)^k) with k = 1.\nStep 5: T(n) = \u0398(n^(log_b(a)) * (log n)^(k+1)) = \u0398(n (log n)^2).\nAnswer: \u0398(n log^2 n).",
+              "takeaway": "When f(n) differs from n^(log_b a) only by a poly-logarithmic factor (log n)^k, use Extended Master Theorem: multiply by log n."
+            }
+          ]
         },
         {
           "title": "Sorting, Searching & Hashing",
@@ -1192,6 +1511,25 @@
                 ]
               ]
             }
+          ],
+          "video_resources": [
+            {
+              "title": "Quick Sort & Merge Sort Complexity Analysis",
+              "channel": "Abdul Bari",
+              "url": "https://www.youtube.com/results?search_query=quick+sort+merge+sort+abdul+bari+algorithms"
+            },
+            {
+              "title": "Hashing Techniques & Hash Collisions",
+              "channel": "Gate Smashers",
+              "url": "https://www.youtube.com/results?search_query=hashing+open+addressing+collision+resolution+gate+smashers"
+            }
+          ],
+          "solved_examples": [
+            {
+              "question": "What is the worst-case number of comparisons to find BOTH the maximum and minimum elements in an unsorted array of n elements?",
+              "solution": "Step 1: Standard naive search does 2n - 2 comparisons.\nStep 2: Tournament / Pairwise comparison method:\n- Compare elements in pairs: n/2 comparisons.\n- Compare winners for max: n/2 - 1 comparisons.\n- Compare losers for min: n/2 - 1 comparisons.\nStep 3: Total = n/2 + 2(n/2 - 1) = 3n/2 - 2 comparisons.\nAnswer: ceil(3n/2) - 2 comparisons.",
+              "takeaway": "Optimal simultaneous max & min finding takes 3n/2 - 2 comparisons via pairwise comparison."
+            }
           ]
         },
         {
@@ -1210,7 +1548,26 @@
               "formula"
             ]
           ],
-          "tables": []
+          "tables": [],
+          "video_resources": [
+            {
+              "title": "0/1 Knapsack Problem Dynamic Programming",
+              "channel": "Abdul Bari",
+              "url": "https://www.youtube.com/results?search_query=0+1+knapsack+dynamic+programming+abdul+bari"
+            },
+            {
+              "title": "Longest Common Subsequence (LCS) & Matrix Chain",
+              "channel": "Abdul Bari",
+              "url": "https://www.youtube.com/results?search_query=longest+common+subsequence+lcs+abdul+bari"
+            }
+          ],
+          "solved_examples": [
+            {
+              "question": "What is the optimal substructure recurrence for 0/1 Knapsack with item weights w_i and values v_i?",
+              "solution": "Step 1: Let K(i, w) be maximum value achievable using a subset of first i items with capacity w.\nStep 2: If w_i > w, cannot include item i: K(i, w) = K(i-1, w).\nStep 3: If w_i <= w, take max of excluding vs including:\nK(i, w) = max( K(i-1, w), v_i + K(i-1, w - w_i) ).\nStep 4: Time complexity = O(n * W) which is pseudo-polynomial.",
+              "takeaway": "0/1 Knapsack is solved in O(n*W) using Dynamic Programming. Fractional Knapsack is solved in O(n log n) using Greedy (sort by v_i/w_i)."
+            }
+          ]
         },
         {
           "title": "Graph Algorithms - Traversals, MST & Shortest Paths",
@@ -1228,7 +1585,26 @@
               "tip"
             ]
           ],
-          "tables": []
+          "tables": [],
+          "video_resources": [
+            {
+              "title": "Dijkstra & Bellman-Ford Shortest Path Algorithms",
+              "channel": "Abdul Bari",
+              "url": "https://www.youtube.com/results?search_query=dijkstra+bellman+ford+shortest+path+abdul+bari"
+            },
+            {
+              "title": "Minimum Spanning Tree (Prim & Kruskal)",
+              "channel": "Abdul Bari",
+              "url": "https://www.youtube.com/results?search_query=prims+kruskals+minimum+spanning+tree+abdul+bari"
+            }
+          ],
+          "solved_examples": [
+            {
+              "question": "Why does Dijkstra's algorithm fail on graphs with negative weight edges, whereas Bellman-Ford succeeds?",
+              "solution": "Step 1: Dijkstra is a GREEDY algorithm. Once a vertex is marked visited / finalized, Dijkstra assumes its shortest path is permanently fixed and never re-visits it.\nStep 2: A negative edge explored later could offer a shorter path through a previously finalized vertex, violating Dijkstra's greedy invariant.\nStep 3: Bellman-Ford relaxes all |E| edges |V|-1 times, guaranteeing that even negative edges are propagated, and can detect negative cycles.",
+              "takeaway": "Dijkstra: O((V+E) log V), non-negative weights only. Bellman-Ford: O(V*E), handles negative weights and detects negative weight cycles."
+            }
+          ]
         }
       ],
       "questionCount": 5
@@ -1261,7 +1637,26 @@
               "tip"
             ]
           ],
-          "tables": []
+          "tables": [],
+          "video_resources": [
+            {
+              "title": "DFA and NFA Construction Masterclass",
+              "channel": "Gate Smashers",
+              "url": "https://www.youtube.com/results?search_query=dfa+nfa+construction+gate+smashers"
+            },
+            {
+              "title": "Minimization of DFA with Myhill-Nerode",
+              "channel": "Amit Khurana",
+              "url": "https://www.youtube.com/results?search_query=dfa+minimization+myhill+nerode+amit+khurana"
+            }
+          ],
+          "solved_examples": [
+            {
+              "question": "How many states are in the minimal DFA that accepts all binary strings containing '101' as a substring?",
+              "solution": "Step 1: States needed represent progress in matching '101':\nq0: Initial state (matched '')\nq1: Matched '1'\nq2: Matched '10'\nq3: Matched '101' (Trap accepting state).\nStep 2: Transitions: From q3, on '0' or '1' loop to q3.\nStep 3: Total minimal states = 4 states.\nAnswer: 4 states.",
+              "takeaway": "For substring of length k over binary alphabet, minimal DFA requires (k + 1) states. For subsequence, minimal DFA requires (k + 1) states."
+            }
+          ]
         },
         {
           "title": "Grammars, Pushdown Automata & Pumping Lemma",
@@ -1340,6 +1735,25 @@
                 ]
               ]
             }
+          ],
+          "video_resources": [
+            {
+              "title": "Context-Free Grammars & Ambiguity",
+              "channel": "Gate Smashers",
+              "url": "https://www.youtube.com/results?search_query=context+free+grammar+ambiguity+gate+smashers"
+            },
+            {
+              "title": "Pushdown Automata (DPDA vs NPDA)",
+              "channel": "Amit Khurana",
+              "url": "https://www.youtube.com/results?search_query=pushdown+automata+dpda+npda+amit+khurana"
+            }
+          ],
+          "solved_examples": [
+            {
+              "question": "Is the language L = { a^n b^n c^n | n >= 1 } Context-Free?",
+              "solution": "Step 1: A Pushdown Automata has only ONE stack.\nStep 2: PDA can push 'a's and match them against 'b's, but by the time 'c's arrive, stack is empty and has forgotten n.\nStep 3: By Pumping Lemma for CFLs, pumping causes unequal counts of a, b, and c.\nAnswer: No, L is Context-Sensitive (Recursive), not Context-Free.",
+              "takeaway": "Single stack can compare 2 counts (e.g. a^n b^n is CFL). Comparing 3 counts (a^n b^n c^n) requires 2 stacks (Turing Machine capability)."
+            }
           ]
         },
         {
@@ -1412,6 +1826,25 @@
                 ]
               ]
             }
+          ],
+          "video_resources": [
+            {
+              "title": "Turing Machines & Chomsky Hierarchy",
+              "channel": "Gate Smashers",
+              "url": "https://www.youtube.com/results?search_query=turing+machines+chomsky+hierarchy+gate+smashers"
+            },
+            {
+              "title": "Decidability, Halting Problem & Reductions",
+              "channel": "Knowledge Gate",
+              "url": "https://www.youtube.com/results?search_query=decidability+undecidability+halting+problem+knowledge+gate"
+            }
+          ],
+          "solved_examples": [
+            {
+              "question": "Which of the following problems is DECIDABLE?\n(A) Emptiness of a Context-Free Language\n(B) Equivalence of two Context-Free Languages\n(C) Ambiguity of a Context-Free Grammar\n(D) Halting problem of a Turing Machine",
+              "solution": "Step 1: For CFLs, Emptiness (is L(G) = \u2205?) is DECIDABLE (check if start symbol can derive any terminal string).\nStep 2: Equivalence (L(G1) == L(G2)?) is UNDECIDABLE for CFLs.\nStep 3: Ambiguity is UNDECIDABLE for CFGs.\nStep 4: Halting problem of TM is UNDECIDABLE.\nAnswer: (A).",
+              "takeaway": "For CFL: Emptiness, Finiteness, and Membership are Decidable. Equivalence, Intersection-Emptiness, and Ambiguity are Undecidable."
+            }
           ]
         }
       ],
@@ -1446,7 +1879,26 @@
               "warn"
             ]
           ],
-          "tables": []
+          "tables": [],
+          "video_resources": [
+            {
+              "title": "Lexical Analysis, Tokens & Lexical Errors",
+              "channel": "Gate Smashers",
+              "url": "https://www.youtube.com/results?search_query=lexical+analysis+tokens+gate+smashers"
+            },
+            {
+              "title": "FIRST and FOLLOW Sets Computation with Rules",
+              "channel": "Gate Smashers",
+              "url": "https://www.youtube.com/results?search_query=first+and+follow+computation+compiler+gate+smashers"
+            }
+          ],
+          "solved_examples": [
+            {
+              "question": "Given grammar: S -> A B, A -> a | \u03b5, B -> b. Find FOLLOW(A).",
+              "solution": "Step 1: A appears on RHS of S -> A B.\nStep 2: Rule: FOLLOW(A) includes FIRST(B) except \u03b5.\nStep 3: FIRST(B) = {b}.\nStep 4: Since B does not derive \u03b5, no need to add FOLLOW(S).\nAnswer: FOLLOW(A) = {b}.",
+              "takeaway": "In A -> \u03b1 B \u03b2: FOLLOW(B) includes FIRST(\u03b2) - {\u03b5}. If \u03b2 =>* \u03b5, then FOLLOW(B) also includes FOLLOW(A)."
+            }
+          ]
         },
         {
           "title": "Bottom-Up Parsing (LR Parsers) & Parser Comparisons",
@@ -1499,6 +1951,25 @@
                 ]
               ]
             }
+          ],
+          "video_resources": [
+            {
+              "title": "LL(1) Parsing Table Construction & Conflicts",
+              "channel": "Gate Smashers",
+              "url": "https://www.youtube.com/results?search_query=ll1+parsing+table+compiler+design+gate+smashers"
+            },
+            {
+              "title": "Bottom-Up Parsing: LR(0), SLR(1), LALR(1), CLR(1)",
+              "channel": "Gate Smashers",
+              "url": "https://www.youtube.com/results?search_query=lr0+slr1+lalr1+clr1+parsing+gate+smashers"
+            }
+          ],
+          "solved_examples": [
+            {
+              "question": "Order the following parsers in terms of strictly increasing parsing power: LR(0), SLR(1), LALR(1), CLR(1).",
+              "solution": "Step 1: LR(0) is the weakest, places reductions in all columns.\nStep 2: SLR(1) uses FOLLOW sets to place reductions, resolving many conflicts.\nStep 3: LALR(1) merges states with identical core items, strictly more powerful than SLR(1).\nStep 4: CLR(1) has full lookahead items, strictly most powerful LR parser.\nOrder: LR(0) \u2282 SLR(1) \u2282 LALR(1) \u2282 CLR(1).",
+              "takeaway": "Number of states in LR(0) == SLR(1) == LALR(1) <= CLR(1). LALR(1) can never produce Shift-Reduce conflicts if CLR(1) has none (only Reduce-Reduce conflicts can arise from merging)."
+            }
           ]
         },
         {
@@ -1517,7 +1988,26 @@
               "warn"
             ]
           ],
-          "tables": []
+          "tables": [],
+          "video_resources": [
+            {
+              "title": "Syntax Directed Translation (S-Attributed vs L-Attributed)",
+              "channel": "Gate Smashers",
+              "url": "https://www.youtube.com/results?search_query=s-attributed+l-attributed+sdt+gate+smashers"
+            },
+            {
+              "title": "Code Optimization: Liveness, Common Subexpressions",
+              "channel": "Ravindrababu Ravula",
+              "url": "https://www.youtube.com/results?search_query=code+optimization+liveness+analysis+compiler+ravula"
+            }
+          ],
+          "solved_examples": [
+            {
+              "question": "What is the difference between S-Attributed and L-Attributed SDT definitions?",
+              "solution": "Step 1: S-Attributed uses ONLY synthesized attributes (values calculated from children up to parent).\nStep 2: L-Attributed allows both synthesized attributes AND inherited attributes from parent and LEFT siblings only (never right siblings).\nStep 3: Every S-attributed definition is automatically L-attributed, but not vice-versa.\nStep 4: S-attributed SDDs can be evaluated bottom-up during LR parsing.",
+              "takeaway": "S-attributed \u2286 L-attributed. L-attributed enforces strict left-to-right dependency for inherited attributes."
+            }
+          ]
         }
       ],
       "questionCount": 5
@@ -1551,7 +2041,26 @@
               "formula"
             ]
           ],
-          "tables": []
+          "tables": [],
+          "video_resources": [
+            {
+              "title": "Processes, Threads & System Calls (fork, exec)",
+              "channel": "Gate Smashers",
+              "url": "https://www.youtube.com/results?search_query=processes+threads+system+calls+fork+exec+gate+smashers"
+            },
+            {
+              "title": "CPU Scheduling Algorithms (FCFS, SJF, SRTF, RR)",
+              "channel": "Gate Smashers",
+              "url": "https://www.youtube.com/results?search_query=cpu+scheduling+algorithms+srtf+round+robin+gate+smashers"
+            }
+          ],
+          "solved_examples": [
+            {
+              "question": "How many child processes are created by the following code?\nfor (int i = 0; i < 3; i++) fork();",
+              "solution": "Step 1: Each fork() call doubles the number of active processes.\nStep 2: After k fork() calls, total active processes = 2^k.\nStep 3: For k = 3, total processes = 2^3 = 8.\nStep 4: One process is the original parent process.\nStep 5: Number of child processes created = 2^3 - 1 = 7.\nAnswer: 7 child processes.",
+              "takeaway": "Formula for n consecutive fork() calls in a loop: Total processes = 2^n; Child processes created = 2^n - 1."
+            }
+          ]
         },
         {
           "title": "CPU Scheduling, I/O Scheduling & Deadlocks",
@@ -1569,7 +2078,26 @@
               "tip"
             ]
           ],
-          "tables": []
+          "tables": [],
+          "video_resources": [
+            {
+              "title": "Process Synchronization & Semaphores (Counting, Binary)",
+              "channel": "Gate Smashers",
+              "url": "https://www.youtube.com/results?search_query=process+synchronization+semaphores+gate+smashers"
+            },
+            {
+              "title": "Deadlock Detection & Banker's Algorithm",
+              "channel": "Gate Smashers",
+              "url": "https://www.youtube.com/results?search_query=bankers+algorithm+deadlock+gate+smashers"
+            }
+          ],
+          "solved_examples": [
+            {
+              "question": "A counting semaphore S is initialized to 10. Then 6 P(wait) and 4 V(signal) operations are performed on S. What is the final value of S?",
+              "solution": "Step 1: Initial value S = 10.\nStep 2: P(wait) decrements semaphore by 1: 6 P operations => S = 10 - 6 = 4.\nStep 3: V(signal) increments semaphore by 1: 4 V operations => S = 4 + 4 = 8.\nAnswer: 8.",
+              "takeaway": "Semaphore value formula: Final_S = Initial_S - count(P) + count(V). If S < 0, |S| processes are currently blocked in wait queue."
+            }
+          ]
         },
         {
           "title": "Memory Management, Virtual Memory & File Systems",
@@ -1587,7 +2115,26 @@
               "warn"
             ]
           ],
-          "tables": []
+          "tables": [],
+          "video_resources": [
+            {
+              "title": "Paging, Multi-Level Paging & Page Tables",
+              "channel": "Gate Smashers",
+              "url": "https://www.youtube.com/results?search_query=paging+multi+level+paging+page+table+gate+smashers"
+            },
+            {
+              "title": "TLB & Effective Memory Access Time (EMAT)",
+              "channel": "Gate Smashers",
+              "url": "https://www.youtube.com/results?search_query=effective+memory+access+time+emat+tlb+gate+smashers"
+            }
+          ],
+          "solved_examples": [
+            {
+              "question": "In a paged virtual memory system with TLB, TLB access time = 20ns, Main memory access time = 100ns. If TLB hit ratio is 90%, find Effective Memory Access Time (EMAT).",
+              "solution": "Step 1: On TLB Hit (90%): TLB access (20ns) + Memory access for data (100ns) = 120ns.\nStep 2: On TLB Miss (10%): TLB access (20ns) + Memory access for page table (100ns) + Memory access for data (100ns) = 220ns.\nStep 3: EMAT = (0.90 * 120ns) + (0.10 * 220ns) = 108 + 22 = 130ns.\nAnswer: 130 ns.",
+              "takeaway": "EMAT = Hit_Ratio * (t_TLB + t_mem) + (1 - Hit_Ratio) * (t_TLB + 2*t_mem). For 2-level paging on miss, it requires 3*t_mem."
+            }
+          ]
         }
       ],
       "questionCount": 5
@@ -1620,7 +2167,26 @@
               "warn"
             ]
           ],
-          "tables": []
+          "tables": [],
+          "video_resources": [
+            {
+              "title": "ER Model to Relational Schema Mapping",
+              "channel": "Gate Smashers",
+              "url": "https://www.youtube.com/results?search_query=er+model+to+relational+table+mapping+gate+smashers"
+            },
+            {
+              "title": "Relational Algebra & SQL Nested Queries",
+              "channel": "Knowledge Gate",
+              "url": "https://www.youtube.com/results?search_query=relational+algebra+sql+queries+gate+cse"
+            }
+          ],
+          "solved_examples": [
+            {
+              "question": "What is the result of applying division operator R / S where R(A, B) and S(B)?",
+              "solution": "Step 1: Relational division R / S returns all values of attribute A that are associated with EVERY value of B in S.\nStep 2: In SQL, division corresponds to 'NOT EXISTS (SELECT B FROM S WHERE NOT EXISTS (SELECT * FROM R WHERE R.A = X.A AND R.B = S.B))'.\nStep 3: Commonly used for 'Find students who have enrolled in ALL courses'.",
+              "takeaway": "Relational division (\u00f7) corresponds to universal quantification: 'for all elements in divisor S'."
+            }
+          ]
         },
         {
           "title": "Functional Dependencies & Normalization (1NF to BCNF)",
@@ -1638,7 +2204,26 @@
               "tip"
             ]
           ],
-          "tables": []
+          "tables": [],
+          "video_resources": [
+            {
+              "title": "Functional Dependencies & Finding Candidate Keys",
+              "channel": "Gate Smashers",
+              "url": "https://www.youtube.com/results?search_query=functional+dependencies+candidate+keys+gate+smashers"
+            },
+            {
+              "title": "Normalization (1NF, 2NF, 3NF, BCNF) Masterclass",
+              "channel": "Gate Smashers",
+              "url": "https://www.youtube.com/results?search_query=normalization+1nf+2nf+3nf+bcnf+gate+smashers"
+            }
+          ],
+          "solved_examples": [
+            {
+              "question": "Relation R(A, B, C, D) has FDs: { A -> B, B -> C, C -> D, D -> A }. What is the highest normal form of R?",
+              "solution": "Step 1: Compute closure of each attribute: A+ = ABCD, B+ = ABCD, C+ = ABCD, D+ = ABCD.\nStep 2: Every single attribute (A, B, C, D) is a CANDIDATE KEY.\nStep 3: For every FD X -> Y, the determinant X is a Superkey.\nStep 4: Therefore, R satisfies BCNF (and also 3NF, 2NF, 1NF).\nAnswer: BCNF.",
+              "takeaway": "If every determinant in the FD set is a candidate key / superkey, the relation is strictly in BCNF."
+            }
+          ]
         },
         {
           "title": "B/B+ Trees, Transactions & Concurrency Control",
@@ -1656,7 +2241,26 @@
               "formula"
             ]
           ],
-          "tables": []
+          "tables": [],
+          "video_resources": [
+            {
+              "title": "Transactions & Conflict Serializability (Precedence Graph)",
+              "channel": "Gate Smashers",
+              "url": "https://www.youtube.com/results?search_query=transactions+conflict+serializability+precedence+graph+gate+smashers"
+            },
+            {
+              "title": "B-Trees and B+ Trees Index Calculations",
+              "channel": "Abdul Bari",
+              "url": "https://www.youtube.com/results?search_query=b+tree+b%2B+tree+indexing+abdul+bari"
+            }
+          ],
+          "solved_examples": [
+            {
+              "question": "A B+ tree leaf node has block size 1024 bytes, record pointer 8 bytes, search key 10 bytes, block pointer 6 bytes. What is the maximum order p of the leaf node?",
+              "solution": "Step 1: In a leaf node, entries are (key, record pointer) pairs, plus 1 block pointer to the next leaf node.\nStep 2: Formula: p * (key_size + record_ptr) + block_ptr <= Block_Size.\nStep 3: p * (10 + 8) + 6 <= 1024 => 18p + 6 <= 1024 => 18p <= 1018.\nStep 4: p <= 1018 / 18 = 56.55 => Maximum order p = 56.\nAnswer: 56.",
+              "takeaway": "Leaf node holds record pointers: p * (K + Rp) + Bp <= Block_Size. Internal node holds only child block pointers: p * Bp + (p-1) * K <= Block_Size."
+            }
+          ]
         }
       ],
       "questionCount": 5
@@ -1690,7 +2294,26 @@
               "tip"
             ]
           ],
-          "tables": []
+          "tables": [],
+          "video_resources": [
+            {
+              "title": "Network Delays & Bandwidth-Delay Product",
+              "channel": "Gate Smashers",
+              "url": "https://www.youtube.com/results?search_query=transmission+propagation+queuing+delay+gate+smashers"
+            },
+            {
+              "title": "CSMA/CD Minimum Frame Size & Efficiency",
+              "channel": "Gate Smashers",
+              "url": "https://www.youtube.com/results?search_query=csma+cd+minimum+frame+size+gate+smashers"
+            }
+          ],
+          "solved_examples": [
+            {
+              "question": "In CSMA/CD network with bandwidth 100 Mbps and cable length 1 km (velocity 2 * 10^8 m/s), find minimum frame size to detect collisions.",
+              "solution": "Step 1: Propagation delay T_p = Distance / Velocity = 1000m / (2 * 10^8 m/s) = 5 * 10^(-6) s = 5 \u03bcs.\nStep 2: Condition for CSMA/CD collision detection: Transmission time T_t >= 2 * T_p.\nStep 3: T_t = L / Bandwidth >= 2 * 5 \u03bcs = 10 \u03bcs.\nStep 4: L >= 10 \u03bcs * 100 Mbps = 10 * 10^(-6) * 100 * 10^6 = 1000 bits = 125 bytes.\nAnswer: 1000 bits (125 bytes).",
+              "takeaway": "Collision detection invariant in CSMA/CD: T_t >= 2 * T_p, which gives L_min = 2 * (Distance / Velocity) * Bandwidth."
+            }
+          ]
         },
         {
           "title": "Data Link Layer, CRC & Medium Access Control (CSMA/CD)",
@@ -1708,7 +2331,26 @@
               "tip"
             ]
           ],
-          "tables": []
+          "tables": [],
+          "video_resources": [
+            {
+              "title": "IPv4 Addressing, Subnetting & CIDR Notation",
+              "channel": "Gate Smashers",
+              "url": "https://www.youtube.com/results?search_query=ipv4+addressing+subnetting+cidr+gate+smashers"
+            },
+            {
+              "title": "IP Packet Header & Fragmentation Numericals",
+              "channel": "Gate Smashers",
+              "url": "https://www.youtube.com/results?search_query=ip+fragmentation+offset+identification+gate+smashers"
+            }
+          ],
+          "solved_examples": [
+            {
+              "question": "An IPv4 datagram of 4000 bytes (with 20-byte IP header) enters an Ethernet MTU of 1500 bytes. How many fragments are created, and what is the Fragment Offset of the second fragment?",
+              "solution": "Step 1: Data payload = 4000 - 20 = 3980 bytes.\nStep 2: MTU = 1500 bytes. Maximum payload per fragment = (1500 - 20) = 1480 bytes (divisible by 8).\nStep 3: Fragment 1: 1480 data bytes (offset = 0). Fragment 2: 1480 data bytes (offset = 1480/8 = 185). Fragment 3: 3980 - 2960 = 1020 data bytes (offset = 2960/8 = 370).\nStep 4: Total fragments = 3. Fragment offset of 2nd fragment = 185.\nAnswer: 3 fragments, Offset = 185.",
+              "takeaway": "Fragment offset measures 8-byte blocks: Offset = (cumulative data bytes before this fragment) / 8."
+            }
+          ]
         },
         {
           "title": "Routing Protocols & IPv4 Addressing (CIDR, Fragmentation, NAT)",
@@ -1726,7 +2368,26 @@
               "warn"
             ]
           ],
-          "tables": []
+          "tables": [],
+          "video_resources": [
+            {
+              "title": "Distance Vector vs Link State Routing",
+              "channel": "Gate Smashers",
+              "url": "https://www.youtube.com/results?search_query=distance+vector+link+state+routing+count+to+infinity+gate+smashers"
+            },
+            {
+              "title": "TCP Flow Control & Congestion Control State Machine",
+              "channel": "Gate Smashers",
+              "url": "https://www.youtube.com/results?search_query=tcp+congestion+control+slow+start+congestion+avoidance+gate+smashers"
+            }
+          ],
+          "solved_examples": [
+            {
+              "question": "In TCP, slow-start threshold (ssthresh) is 32 KB. The current congestion window is 16 KB and reaches 32 KB via slow start. How many RTTs does it take to grow from 32 KB to 36 KB if MSS = 1 KB?",
+              "solution": "Step 1: At 32 KB, cwnd reaches ssthresh. TCP switches from Exponential Slow-Start to Linear Congestion Avoidance.\nStep 2: In Congestion Avoidance, cwnd increases by 1 MSS (1 KB) per RTT.\nStep 3: Growth from 32 KB to 36 KB is an increase of 4 KB.\nStep 4: At 1 KB per RTT, it takes 4 RTTs.\nAnswer: 4 RTTs.",
+              "takeaway": "Slow start: cwnd doubles every RTT (exponential). Congestion avoidance: cwnd increments by 1 MSS every RTT (linear additive increase)."
+            }
+          ]
         },
         {
           "title": "Transport Layer (TCP), Sockets & Application Protocols (DNS, HTTP)",
@@ -1744,7 +2405,21 @@
               "formula"
             ]
           ],
-          "tables": []
+          "tables": [],
+          "video_resources": [
+            {
+              "title": "DNS, HTTP, SMTP, FTP Application Protocols",
+              "channel": "Gate Smashers",
+              "url": "https://www.youtube.com/results?search_query=dns+http+smtp+application+layer+protocols+gate+smashers"
+            }
+          ],
+          "solved_examples": [
+            {
+              "question": "What transport layer protocol and default port numbers are used by DNS, HTTP, and SMTP?",
+              "solution": "Step 1: DNS uses UDP port 53 for standard queries (and TCP 53 for zone transfers > 512 bytes).\nStep 2: HTTP uses TCP port 80 (HTTPS uses TCP 443).\nStep 3: SMTP uses TCP port 25.\nAnswer: DNS (UDP 53), HTTP (TCP 80), SMTP (TCP 25).",
+              "takeaway": "DNS queries use UDP because DNS transactions are short, lightweight request-response pairs that do not need 3-way handshake overhead."
+            }
+          ]
         }
       ],
       "questionCount": 5
@@ -1777,7 +2452,21 @@
               "warn"
             ]
           ],
-          "tables": []
+          "tables": [],
+          "video_resources": [
+            {
+              "title": "GATE Verbal Ability: Grammar & Vocabulary",
+              "channel": "CareerRide",
+              "url": "https://www.youtube.com/results?search_query=gate+verbal+ability+grammar+sentence+completion+careerride"
+            }
+          ],
+          "solved_examples": [
+            {
+              "question": "Fill in the blank: 'Neither the manager nor the employees _____ present at the conference.' (was / were)",
+              "solution": "Step 1: Rule of Proximity for 'Neither...nor': The verb agrees with the subject CLOSER to it.\nStep 2: 'employees' is plural and is closest to the verb.\nAnswer: were.",
+              "takeaway": "With 'either...or' and 'neither...nor', the verb agrees in number with the noun closest to it."
+            }
+          ]
         },
         {
           "title": "Quantitative Aptitude - Arithmetic, Algebra & Mensuration",
@@ -1795,7 +2484,21 @@
               "tip"
             ]
           ],
-          "tables": []
+          "tables": [],
+          "video_resources": [
+            {
+              "title": "Quantitative Aptitude: Work, Time, Speed & Percentages",
+              "channel": "CareerRide",
+              "url": "https://www.youtube.com/results?search_query=quantitative+aptitude+work+time+speed+distance+careerride"
+            }
+          ],
+          "solved_examples": [
+            {
+              "question": "A can finish a work in 12 days, and B can finish it in 24 days. Working together, in how many days will they finish the work?",
+              "solution": "Step 1: 1 day work of A = 1/12.\nStep 2: 1 day work of B = 1/24.\nStep 3: Combined 1 day work = 1/12 + 1/24 = 3/24 = 1/8.\nStep 4: Total days required = 8 days.\nAnswer: 8 days.",
+              "takeaway": "Combined time = (A * B) / (A + B) = (12 * 24) / (36) = 288 / 36 = 8 days."
+            }
+          ]
         },
         {
           "title": "Analytical & Spatial Aptitude - Logic, Reasoning & 2D/3D Shapes",
@@ -1813,7 +2516,21 @@
               "warn"
             ]
           ],
-          "tables": []
+          "tables": [],
+          "video_resources": [
+            {
+              "title": "Spatial Aptitude: Paper Folding, Mirrors & Rotations",
+              "channel": "Gate Smashers",
+              "url": "https://www.youtube.com/results?search_query=spatial+aptitude+paper+folding+rotation+3d+gate+smashers"
+            }
+          ],
+          "solved_examples": [
+            {
+              "question": "In a dice, numbers 1 through 6 are marked. If 1 is opposite to 6, 2 is opposite to 5, and 3 is opposite to 4, what is the sum of opposite faces?",
+              "solution": "Step 1: Standard dice opposite face sum = 1+6 = 7, 2+5 = 7, 3+4 = 7.\nAnswer: 7.",
+              "takeaway": "In any standard fair die, opposite faces always sum to 7."
+            }
+          ]
         }
       ],
       "questionCount": 5
@@ -2407,7 +3124,79 @@
           "Lattices & Boolean Algebras"
         ],
         "targets": "Study notes, solve 50 practice questions, 15 verified PYQs",
-        "buffer_day": "Sunday Evening: Backlog recovery and 30-min weekly quiz"
+        "buffer_day": "Sunday Evening: Backlog recovery and 30-min weekly quiz",
+        "daily_plan": [
+          {
+            "day": 1,
+            "day_name": "Day 1 (Monday)",
+            "topic": "Propositional & First Order Logic",
+            "subject_id": "EM",
+            "chapter_index": 0,
+            "task": "Study theory notes on Propositional & First Order Logic. Solve 12-15 practice problems and note down any errors.",
+            "video_title": "Lecture: Propositional & First Order Logic",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+EM+Propositional+%26+First+Order+Logic+lecture"
+          },
+          {
+            "day": 2,
+            "day_name": "Day 2 (Tuesday)",
+            "topic": "Sets, Relations, Functions, Equivalence Relations",
+            "subject_id": "EM",
+            "chapter_index": 0,
+            "task": "Study theory notes on Sets, Relations, Functions, Equivalence Relations. Solve 12-15 practice problems and note down any errors.",
+            "video_title": "Lecture: Sets, Relations, Functions, Equivalence Relations",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+EM+Sets%2C+Relations%2C+Functions%2C+Equivalence+Relations+lecture"
+          },
+          {
+            "day": 3,
+            "day_name": "Day 3 (Wednesday)",
+            "topic": "Lattices & Boolean Algebras",
+            "subject_id": "EM",
+            "chapter_index": 0,
+            "task": "Study theory notes on Lattices & Boolean Algebras. Solve 12-15 practice problems and note down any errors.",
+            "video_title": "Lecture: Lattices & Boolean Algebras",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+EM+Lattices+%26+Boolean+Algebras+lecture"
+          },
+          {
+            "day": 4,
+            "day_name": "Day 4 (Thursday)",
+            "topic": "Sunday Evening: Backlog recovery and 30-min weekly quiz",
+            "subject_id": "EM",
+            "chapter_index": 0,
+            "task": "Sunday Evening: Backlog recovery and 30-min weekly quiz. Audit error log notebook and revise formula sheets.",
+            "video_title": "Revision & Weekly Assessment: Syllabus Phase: Discrete Mathematics",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+revision+quiz+Syllabus+Phase%3A+Discrete+Mathematics"
+          },
+          {
+            "day": 5,
+            "day_name": "Day 5 (Friday)",
+            "topic": "Sunday Evening: Backlog recovery and 30-min weekly quiz",
+            "subject_id": "EM",
+            "chapter_index": 0,
+            "task": "Sunday Evening: Backlog recovery and 30-min weekly quiz. Audit error log notebook and revise formula sheets.",
+            "video_title": "Revision & Weekly Assessment: Syllabus Phase: Discrete Mathematics",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+revision+quiz+Syllabus+Phase%3A+Discrete+Mathematics"
+          },
+          {
+            "day": 6,
+            "day_name": "Day 6 (Saturday)",
+            "topic": "Weekly Practice Drill & PYQ Solving",
+            "subject_id": "EM",
+            "chapter_index": 0,
+            "task": "Solve 25 verified previous year GATE questions on Syllabus Phase: Discrete Mathematics under timed conditions.",
+            "video_title": "PYQ Solving Session: Syllabus Phase: Discrete Mathematics",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+pyq+solutions+Syllabus+Phase%3A+Discrete+Mathematics"
+          },
+          {
+            "day": 7,
+            "day_name": "Day 7 (Sunday)",
+            "topic": "Sunday Evening: Backlog recovery and 30-min weekly quiz",
+            "subject_id": "EM",
+            "chapter_index": 0,
+            "task": "Sunday Evening: Backlog recovery and 30-min weekly quiz. Audit error log notebook and revise formula sheets.",
+            "video_title": "Revision & Weekly Assessment: Syllabus Phase: Discrete Mathematics",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+revision+quiz+Syllabus+Phase%3A+Discrete+Mathematics"
+          }
+        ]
       },
       {
         "week": 2,
@@ -2422,7 +3211,79 @@
           "Matrices, Determinants, Systems of Equations, Eigenvalues"
         ],
         "targets": "Master Handshaking lemma, Planar graphs, Matrix rank & diagonalization, solve 60 questions",
-        "buffer_day": "Sunday Evening: Linear algebra & discrete math quiz"
+        "buffer_day": "Sunday Evening: Linear algebra & discrete math quiz",
+        "daily_plan": [
+          {
+            "day": 1,
+            "day_name": "Day 1 (Monday)",
+            "topic": "Graph Theory (Euler formula, coloring, trees)",
+            "subject_id": "EM",
+            "chapter_index": 1,
+            "task": "Study theory notes on Graph Theory (Euler formula, coloring, trees). Solve 12-15 practice problems and note down any errors.",
+            "video_title": "Lecture: Graph Theory (Euler formula, coloring, trees)",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+EM+Graph+Theory+%28Euler+formula%2C+coloring%2C+trees%29+lecture"
+          },
+          {
+            "day": 2,
+            "day_name": "Day 2 (Tuesday)",
+            "topic": "Combinatorics & Generating Functions",
+            "subject_id": "EM",
+            "chapter_index": 1,
+            "task": "Study theory notes on Combinatorics & Generating Functions. Solve 12-15 practice problems and note down any errors.",
+            "video_title": "Lecture: Combinatorics & Generating Functions",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+EM+Combinatorics+%26+Generating+Functions+lecture"
+          },
+          {
+            "day": 3,
+            "day_name": "Day 3 (Wednesday)",
+            "topic": "Matrices, Determinants, Systems of Equations, Eigenvalues",
+            "subject_id": "EM",
+            "chapter_index": 1,
+            "task": "Study theory notes on Matrices, Determinants, Systems of Equations, Eigenvalues. Solve 12-15 practice problems and note down any errors.",
+            "video_title": "Lecture: Matrices, Determinants, Systems of Equations, Eigenvalues",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+EM+Matrices%2C+Determinants%2C+Systems+of+Equations%2C+Eigenvalues+lecture"
+          },
+          {
+            "day": 4,
+            "day_name": "Day 4 (Thursday)",
+            "topic": "Sunday Evening: Linear algebra & discrete math quiz",
+            "subject_id": "EM",
+            "chapter_index": 1,
+            "task": "Sunday Evening: Linear algebra & discrete math quiz. Audit error log notebook and revise formula sheets.",
+            "video_title": "Revision & Weekly Assessment: Syllabus Phase: Discrete Math & Linear Algebra",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+revision+quiz+Syllabus+Phase%3A+Discrete+Math+%26+Linear+Algebra"
+          },
+          {
+            "day": 5,
+            "day_name": "Day 5 (Friday)",
+            "topic": "Sunday Evening: Linear algebra & discrete math quiz",
+            "subject_id": "EM",
+            "chapter_index": 1,
+            "task": "Sunday Evening: Linear algebra & discrete math quiz. Audit error log notebook and revise formula sheets.",
+            "video_title": "Revision & Weekly Assessment: Syllabus Phase: Discrete Math & Linear Algebra",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+revision+quiz+Syllabus+Phase%3A+Discrete+Math+%26+Linear+Algebra"
+          },
+          {
+            "day": 6,
+            "day_name": "Day 6 (Saturday)",
+            "topic": "Weekly Practice Drill & PYQ Solving",
+            "subject_id": "EM",
+            "chapter_index": 1,
+            "task": "Solve 25 verified previous year GATE questions on Syllabus Phase: Discrete Math & Linear Algebra under timed conditions.",
+            "video_title": "PYQ Solving Session: Syllabus Phase: Discrete Math & Linear Algebra",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+pyq+solutions+Syllabus+Phase%3A+Discrete+Math+%26+Linear+Algebra"
+          },
+          {
+            "day": 7,
+            "day_name": "Day 7 (Sunday)",
+            "topic": "Sunday Evening: Linear algebra & discrete math quiz",
+            "subject_id": "EM",
+            "chapter_index": 1,
+            "task": "Sunday Evening: Linear algebra & discrete math quiz. Audit error log notebook and revise formula sheets.",
+            "video_title": "Revision & Weekly Assessment: Syllabus Phase: Discrete Math & Linear Algebra",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+revision+quiz+Syllabus+Phase%3A+Discrete+Math+%26+Linear+Algebra"
+          }
+        ]
       },
       {
         "week": 3,
@@ -2438,7 +3299,79 @@
           "Calculus (Limits, Maxima/Minima) & Conditional Probability"
         ],
         "targets": "Build MUX implementations, practice K-map grouping, solve 45 PYQs",
-        "buffer_day": "Sunday: Full subject test on Digital Logic"
+        "buffer_day": "Sunday: Full subject test on Digital Logic",
+        "daily_plan": [
+          {
+            "day": 1,
+            "day_name": "Day 1 (Monday)",
+            "topic": "Boolean Algebra, K-Maps, Logic Gates",
+            "subject_id": "DL",
+            "chapter_index": 1,
+            "task": "Study theory notes on Boolean Algebra, K-Maps, Logic Gates. Solve 12-15 practice problems and note down any errors.",
+            "video_title": "Lecture: Boolean Algebra, K-Maps, Logic Gates",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+DL+Boolean+Algebra%2C+K-Maps%2C+Logic+Gates+lecture"
+          },
+          {
+            "day": 2,
+            "day_name": "Day 2 (Tuesday)",
+            "topic": "Combinational Circuits (Multiplexers, Decoders, Adders)",
+            "subject_id": "DL",
+            "chapter_index": 1,
+            "task": "Study theory notes on Combinational Circuits (Multiplexers, Decoders, Adders). Solve 12-15 practice problems and note down any errors.",
+            "video_title": "Lecture: Combinational Circuits (Multiplexers, Decoders, Adders)",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+DL+Combinational+Circuits+%28Multiplexers%2C+Decoders%2C+Adders%29+lecture"
+          },
+          {
+            "day": 3,
+            "day_name": "Day 3 (Wednesday)",
+            "topic": "Calculus (Limits, Maxima/Minima) & Conditional Probability",
+            "subject_id": "DL",
+            "chapter_index": 1,
+            "task": "Study theory notes on Calculus (Limits, Maxima/Minima) & Conditional Probability. Solve 12-15 practice problems and note down any errors.",
+            "video_title": "Lecture: Calculus (Limits, Maxima/Minima) & Conditional Probability",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+DL+Calculus+%28Limits%2C+Maxima%2FMinima%29+%26+Conditional+Probability+lecture"
+          },
+          {
+            "day": 4,
+            "day_name": "Day 4 (Thursday)",
+            "topic": "Sunday: Full subject test on Digital Logic",
+            "subject_id": "DL",
+            "chapter_index": 1,
+            "task": "Sunday: Full subject test on Digital Logic. Audit error log notebook and revise formula sheets.",
+            "video_title": "Revision & Weekly Assessment: Syllabus Phase: Calculus & Digital Hardware",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+revision+quiz+Syllabus+Phase%3A+Calculus+%26+Digital+Hardware"
+          },
+          {
+            "day": 5,
+            "day_name": "Day 5 (Friday)",
+            "topic": "Sunday: Full subject test on Digital Logic",
+            "subject_id": "DL",
+            "chapter_index": 1,
+            "task": "Sunday: Full subject test on Digital Logic. Audit error log notebook and revise formula sheets.",
+            "video_title": "Revision & Weekly Assessment: Syllabus Phase: Calculus & Digital Hardware",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+revision+quiz+Syllabus+Phase%3A+Calculus+%26+Digital+Hardware"
+          },
+          {
+            "day": 6,
+            "day_name": "Day 6 (Saturday)",
+            "topic": "Weekly Practice Drill & PYQ Solving",
+            "subject_id": "DL",
+            "chapter_index": 1,
+            "task": "Solve 25 verified previous year GATE questions on Syllabus Phase: Calculus & Digital Hardware under timed conditions.",
+            "video_title": "PYQ Solving Session: Syllabus Phase: Calculus & Digital Hardware",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+pyq+solutions+Syllabus+Phase%3A+Calculus+%26+Digital+Hardware"
+          },
+          {
+            "day": 7,
+            "day_name": "Day 7 (Sunday)",
+            "topic": "Sunday: Full subject test on Digital Logic",
+            "subject_id": "DL",
+            "chapter_index": 1,
+            "task": "Sunday: Full subject test on Digital Logic. Audit error log notebook and revise formula sheets.",
+            "video_title": "Revision & Weekly Assessment: Syllabus Phase: Calculus & Digital Hardware",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+revision+quiz+Syllabus+Phase%3A+Calculus+%26+Digital+Hardware"
+          }
+        ]
       },
       {
         "week": 4,
@@ -2454,7 +3387,79 @@
           "Instruction Sets & Addressing Modes"
         ],
         "targets": "Design mod-N synchronous counters, practice IEEE 754 single precision conversions",
-        "buffer_day": "Sunday: Combined Hardware & Digital Assessment"
+        "buffer_day": "Sunday: Combined Hardware & Digital Assessment",
+        "daily_plan": [
+          {
+            "day": 1,
+            "day_name": "Day 1 (Monday)",
+            "topic": "Sequential Circuits (Flip-Flops, Counters, FSM)",
+            "subject_id": "DL",
+            "chapter_index": 3,
+            "task": "Study theory notes on Sequential Circuits (Flip-Flops, Counters, FSM). Solve 12-15 practice problems and note down any errors.",
+            "video_title": "Lecture: Sequential Circuits (Flip-Flops, Counters, FSM)",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+DL+Sequential+Circuits+%28Flip-Flops%2C+Counters%2C+FSM%29+lecture"
+          },
+          {
+            "day": 2,
+            "day_name": "Day 2 (Tuesday)",
+            "topic": "Number Representation (2's complement, IEEE 754)",
+            "subject_id": "DL",
+            "chapter_index": 3,
+            "task": "Study theory notes on Number Representation (2's complement, IEEE 754). Solve 12-15 practice problems and note down any errors.",
+            "video_title": "Lecture: Number Representation (2's complement, IEEE 754)",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+DL+Number+Representation+%282%27s+complement%2C+IEEE+754%29+lecture"
+          },
+          {
+            "day": 3,
+            "day_name": "Day 3 (Wednesday)",
+            "topic": "Instruction Sets & Addressing Modes",
+            "subject_id": "DL",
+            "chapter_index": 3,
+            "task": "Study theory notes on Instruction Sets & Addressing Modes. Solve 12-15 practice problems and note down any errors.",
+            "video_title": "Lecture: Instruction Sets & Addressing Modes",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+DL+Instruction+Sets+%26+Addressing+Modes+lecture"
+          },
+          {
+            "day": 4,
+            "day_name": "Day 4 (Thursday)",
+            "topic": "Sunday: Combined Hardware & Digital Assessment",
+            "subject_id": "DL",
+            "chapter_index": 3,
+            "task": "Sunday: Combined Hardware & Digital Assessment. Audit error log notebook and revise formula sheets.",
+            "video_title": "Revision & Weekly Assessment: Syllabus Phase: Sequential Circuits & Architecture",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+revision+quiz+Syllabus+Phase%3A+Sequential+Circuits+%26+Architecture"
+          },
+          {
+            "day": 5,
+            "day_name": "Day 5 (Friday)",
+            "topic": "Sunday: Combined Hardware & Digital Assessment",
+            "subject_id": "DL",
+            "chapter_index": 3,
+            "task": "Sunday: Combined Hardware & Digital Assessment. Audit error log notebook and revise formula sheets.",
+            "video_title": "Revision & Weekly Assessment: Syllabus Phase: Sequential Circuits & Architecture",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+revision+quiz+Syllabus+Phase%3A+Sequential+Circuits+%26+Architecture"
+          },
+          {
+            "day": 6,
+            "day_name": "Day 6 (Saturday)",
+            "topic": "Weekly Practice Drill & PYQ Solving",
+            "subject_id": "DL",
+            "chapter_index": 3,
+            "task": "Solve 25 verified previous year GATE questions on Syllabus Phase: Sequential Circuits & Architecture under timed conditions.",
+            "video_title": "PYQ Solving Session: Syllabus Phase: Sequential Circuits & Architecture",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+pyq+solutions+Syllabus+Phase%3A+Sequential+Circuits+%26+Architecture"
+          },
+          {
+            "day": 7,
+            "day_name": "Day 7 (Sunday)",
+            "topic": "Sunday: Combined Hardware & Digital Assessment",
+            "subject_id": "DL",
+            "chapter_index": 3,
+            "task": "Sunday: Combined Hardware & Digital Assessment. Audit error log notebook and revise formula sheets.",
+            "video_title": "Revision & Weekly Assessment: Syllabus Phase: Sequential Circuits & Architecture",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+revision+quiz+Syllabus+Phase%3A+Sequential+Circuits+%26+Architecture"
+          }
+        ]
       },
       {
         "week": 5,
@@ -2470,7 +3475,79 @@
           "I/O Interface & DMA"
         ],
         "targets": "Solve 35 numericals on cache tags, set associativity, and AMAT",
-        "buffer_day": "Sunday: Cache memory deep-dive test"
+        "buffer_day": "Sunday: Cache memory deep-dive test",
+        "daily_plan": [
+          {
+            "day": 1,
+            "day_name": "Day 1 (Monday)",
+            "topic": "Cache Memory Mapping (Direct, Set-Associative, Fully-Associative)",
+            "subject_id": "COA",
+            "chapter_index": 2,
+            "task": "Study theory notes on Cache Memory Mapping (Direct, Set-Associative, Fully-Associative). Solve 12-15 practice problems and note down any errors.",
+            "video_title": "Lecture: Cache Memory Mapping (Direct, Set-Associative, Fully-Associative)",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+COA+Cache+Memory+Mapping+%28Direct%2C+Set-Associative%2C+Fully-Associative%29+lecture"
+          },
+          {
+            "day": 2,
+            "day_name": "Day 2 (Tuesday)",
+            "topic": "AMAT & Cache Miss Latency",
+            "subject_id": "COA",
+            "chapter_index": 2,
+            "task": "Study theory notes on AMAT & Cache Miss Latency. Solve 12-15 practice problems and note down any errors.",
+            "video_title": "Lecture: AMAT & Cache Miss Latency",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+COA+AMAT+%26+Cache+Miss+Latency+lecture"
+          },
+          {
+            "day": 3,
+            "day_name": "Day 3 (Wednesday)",
+            "topic": "ALU & Control Unit (Hardwired vs Microprogrammed)",
+            "subject_id": "COA",
+            "chapter_index": 2,
+            "task": "Study theory notes on ALU & Control Unit (Hardwired vs Microprogrammed). Solve 12-15 practice problems and note down any errors.",
+            "video_title": "Lecture: ALU & Control Unit (Hardwired vs Microprogrammed)",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+COA+ALU+%26+Control+Unit+%28Hardwired+vs+Microprogrammed%29+lecture"
+          },
+          {
+            "day": 4,
+            "day_name": "Day 4 (Thursday)",
+            "topic": "I/O Interface & DMA",
+            "subject_id": "COA",
+            "chapter_index": 2,
+            "task": "Study theory notes on I/O Interface & DMA. Solve 12-15 practice problems and note down any errors.",
+            "video_title": "Lecture: I/O Interface & DMA",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+COA+I%2FO+Interface+%26+DMA+lecture"
+          },
+          {
+            "day": 5,
+            "day_name": "Day 5 (Friday)",
+            "topic": "Sunday: Cache memory deep-dive test",
+            "subject_id": "COA",
+            "chapter_index": 2,
+            "task": "Sunday: Cache memory deep-dive test. Audit error log notebook and revise formula sheets.",
+            "video_title": "Revision & Weekly Assessment: Syllabus Phase: Memory Hierarchy & ALU",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+revision+quiz+Syllabus+Phase%3A+Memory+Hierarchy+%26+ALU"
+          },
+          {
+            "day": 6,
+            "day_name": "Day 6 (Saturday)",
+            "topic": "Weekly Practice Drill & PYQ Solving",
+            "subject_id": "COA",
+            "chapter_index": 2,
+            "task": "Solve 25 verified previous year GATE questions on Syllabus Phase: Memory Hierarchy & ALU under timed conditions.",
+            "video_title": "PYQ Solving Session: Syllabus Phase: Memory Hierarchy & ALU",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+pyq+solutions+Syllabus+Phase%3A+Memory+Hierarchy+%26+ALU"
+          },
+          {
+            "day": 7,
+            "day_name": "Day 7 (Sunday)",
+            "topic": "Sunday: Cache memory deep-dive test",
+            "subject_id": "COA",
+            "chapter_index": 2,
+            "task": "Sunday: Cache memory deep-dive test. Audit error log notebook and revise formula sheets.",
+            "video_title": "Revision & Weekly Assessment: Syllabus Phase: Memory Hierarchy & ALU",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+revision+quiz+Syllabus+Phase%3A+Memory+Hierarchy+%26+ALU"
+          }
+        ]
       },
       {
         "week": 6,
@@ -2486,7 +3563,79 @@
           "Verbal Aptitude: Grammar, Vocabulary, Sentence Completion"
         ],
         "targets": "Master pipeline speedup and stall cycle calculations, solve 40 aptitude items",
-        "buffer_day": "Sunday: COA Subject Test (50 Marks)"
+        "buffer_day": "Sunday: COA Subject Test (50 Marks)",
+        "daily_plan": [
+          {
+            "day": 1,
+            "day_name": "Day 1 (Monday)",
+            "topic": "Instruction Pipelining & Hazards (RAW, WAR, Structural, Branch)",
+            "subject_id": "COA",
+            "chapter_index": 3,
+            "task": "Study theory notes on Instruction Pipelining & Hazards (RAW, WAR, Structural, Branch). Solve 12-15 practice problems and note down any errors.",
+            "video_title": "Lecture: Instruction Pipelining & Hazards (RAW, WAR, Structural, Branch)",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+COA+Instruction+Pipelining+%26+Hazards+%28RAW%2C+WAR%2C+Structural%2C+Branch%29+lecture"
+          },
+          {
+            "day": 2,
+            "day_name": "Day 2 (Tuesday)",
+            "topic": "Pipeline Speedup & CPI Calculations",
+            "subject_id": "COA",
+            "chapter_index": 3,
+            "task": "Study theory notes on Pipeline Speedup & CPI Calculations. Solve 12-15 practice problems and note down any errors.",
+            "video_title": "Lecture: Pipeline Speedup & CPI Calculations",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+COA+Pipeline+Speedup+%26+CPI+Calculations+lecture"
+          },
+          {
+            "day": 3,
+            "day_name": "Day 3 (Wednesday)",
+            "topic": "Verbal Aptitude: Grammar, Vocabulary, Sentence Completion",
+            "subject_id": "COA",
+            "chapter_index": 3,
+            "task": "Study theory notes on Verbal Aptitude: Grammar, Vocabulary, Sentence Completion. Solve 12-15 practice problems and note down any errors.",
+            "video_title": "Lecture: Verbal Aptitude: Grammar, Vocabulary, Sentence Completion",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+COA+Verbal+Aptitude%3A+Grammar%2C+Vocabulary%2C+Sentence+Completion+lecture"
+          },
+          {
+            "day": 4,
+            "day_name": "Day 4 (Thursday)",
+            "topic": "Sunday: COA Subject Test (50 Marks)",
+            "subject_id": "COA",
+            "chapter_index": 3,
+            "task": "Sunday: COA Subject Test (50 Marks). Audit error log notebook and revise formula sheets.",
+            "video_title": "Revision & Weekly Assessment: Syllabus Phase: Pipelining & Verbal Aptitude",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+revision+quiz+Syllabus+Phase%3A+Pipelining+%26+Verbal+Aptitude"
+          },
+          {
+            "day": 5,
+            "day_name": "Day 5 (Friday)",
+            "topic": "Sunday: COA Subject Test (50 Marks)",
+            "subject_id": "COA",
+            "chapter_index": 3,
+            "task": "Sunday: COA Subject Test (50 Marks). Audit error log notebook and revise formula sheets.",
+            "video_title": "Revision & Weekly Assessment: Syllabus Phase: Pipelining & Verbal Aptitude",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+revision+quiz+Syllabus+Phase%3A+Pipelining+%26+Verbal+Aptitude"
+          },
+          {
+            "day": 6,
+            "day_name": "Day 6 (Saturday)",
+            "topic": "Weekly Practice Drill & PYQ Solving",
+            "subject_id": "COA",
+            "chapter_index": 3,
+            "task": "Solve 25 verified previous year GATE questions on Syllabus Phase: Pipelining & Verbal Aptitude under timed conditions.",
+            "video_title": "PYQ Solving Session: Syllabus Phase: Pipelining & Verbal Aptitude",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+pyq+solutions+Syllabus+Phase%3A+Pipelining+%26+Verbal+Aptitude"
+          },
+          {
+            "day": 7,
+            "day_name": "Day 7 (Sunday)",
+            "topic": "Sunday: COA Subject Test (50 Marks)",
+            "subject_id": "COA",
+            "chapter_index": 3,
+            "task": "Sunday: COA Subject Test (50 Marks). Audit error log notebook and revise formula sheets.",
+            "video_title": "Revision & Weekly Assessment: Syllabus Phase: Pipelining & Verbal Aptitude",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+revision+quiz+Syllabus+Phase%3A+Pipelining+%26+Verbal+Aptitude"
+          }
+        ]
       },
       {
         "week": 7,
@@ -2502,7 +3651,79 @@
           "Arrays, Stacks (Infix to Postfix), Queues (Circular)"
         ],
         "targets": "Trace 30 tricky C code snippets, implement stack evaluation & recursion dry-runs",
-        "buffer_day": "Sunday: C Output Tracing Challenge"
+        "buffer_day": "Sunday: C Output Tracing Challenge",
+        "daily_plan": [
+          {
+            "day": 1,
+            "day_name": "Day 1 (Monday)",
+            "topic": "Pointers, Pointer Arithmetic, Operator Precedence",
+            "subject_id": "PDS",
+            "chapter_index": 0,
+            "task": "Study theory notes on Pointers, Pointer Arithmetic, Operator Precedence. Solve 12-15 practice problems and note down any errors.",
+            "video_title": "Lecture: Pointers, Pointer Arithmetic, Operator Precedence",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+PDS+Pointers%2C+Pointer+Arithmetic%2C+Operator+Precedence+lecture"
+          },
+          {
+            "day": 2,
+            "day_name": "Day 2 (Tuesday)",
+            "topic": "Recursion & Call Stack Tracing",
+            "subject_id": "PDS",
+            "chapter_index": 0,
+            "task": "Study theory notes on Recursion & Call Stack Tracing. Solve 12-15 practice problems and note down any errors.",
+            "video_title": "Lecture: Recursion & Call Stack Tracing",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+PDS+Recursion+%26+Call+Stack+Tracing+lecture"
+          },
+          {
+            "day": 3,
+            "day_name": "Day 3 (Wednesday)",
+            "topic": "Arrays, Stacks (Infix to Postfix), Queues (Circular)",
+            "subject_id": "PDS",
+            "chapter_index": 0,
+            "task": "Study theory notes on Arrays, Stacks (Infix to Postfix), Queues (Circular). Solve 12-15 practice problems and note down any errors.",
+            "video_title": "Lecture: Arrays, Stacks (Infix to Postfix), Queues (Circular)",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+PDS+Arrays%2C+Stacks+%28Infix+to+Postfix%29%2C+Queues+%28Circular%29+lecture"
+          },
+          {
+            "day": 4,
+            "day_name": "Day 4 (Thursday)",
+            "topic": "Sunday: C Output Tracing Challenge",
+            "subject_id": "PDS",
+            "chapter_index": 0,
+            "task": "Sunday: C Output Tracing Challenge. Audit error log notebook and revise formula sheets.",
+            "video_title": "Revision & Weekly Assessment: Syllabus Phase: Programming in C",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+revision+quiz+Syllabus+Phase%3A+Programming+in+C"
+          },
+          {
+            "day": 5,
+            "day_name": "Day 5 (Friday)",
+            "topic": "Sunday: C Output Tracing Challenge",
+            "subject_id": "PDS",
+            "chapter_index": 0,
+            "task": "Sunday: C Output Tracing Challenge. Audit error log notebook and revise formula sheets.",
+            "video_title": "Revision & Weekly Assessment: Syllabus Phase: Programming in C",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+revision+quiz+Syllabus+Phase%3A+Programming+in+C"
+          },
+          {
+            "day": 6,
+            "day_name": "Day 6 (Saturday)",
+            "topic": "Weekly Practice Drill & PYQ Solving",
+            "subject_id": "PDS",
+            "chapter_index": 0,
+            "task": "Solve 25 verified previous year GATE questions on Syllabus Phase: Programming in C under timed conditions.",
+            "video_title": "PYQ Solving Session: Syllabus Phase: Programming in C",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+pyq+solutions+Syllabus+Phase%3A+Programming+in+C"
+          },
+          {
+            "day": 7,
+            "day_name": "Day 7 (Sunday)",
+            "topic": "Sunday: C Output Tracing Challenge",
+            "subject_id": "PDS",
+            "chapter_index": 0,
+            "task": "Sunday: C Output Tracing Challenge. Audit error log notebook and revise formula sheets.",
+            "video_title": "Revision & Weekly Assessment: Syllabus Phase: Programming in C",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+revision+quiz+Syllabus+Phase%3A+Programming+in+C"
+          }
+        ]
       },
       {
         "week": 8,
@@ -2518,7 +3739,79 @@
           "Asymptotic Analysis (Big-O, Omega, Theta) & Master Theorem"
         ],
         "targets": "Master BST deletion, heapify linear time proof, solve 45 PYQs",
-        "buffer_day": "Sunday: Data Structures Full Subject Test"
+        "buffer_day": "Sunday: Data Structures Full Subject Test",
+        "daily_plan": [
+          {
+            "day": 1,
+            "day_name": "Day 1 (Monday)",
+            "topic": "Linked Lists & Cycle Finding (Floyd's Algorithm)",
+            "subject_id": "PDS",
+            "chapter_index": 2,
+            "task": "Study theory notes on Linked Lists & Cycle Finding (Floyd's Algorithm). Solve 12-15 practice problems and note down any errors.",
+            "video_title": "Lecture: Linked Lists & Cycle Finding (Floyd's Algorithm)",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+PDS+Linked+Lists+%26+Cycle+Finding+%28Floyd%27s+Algorithm%29+lecture"
+          },
+          {
+            "day": 2,
+            "day_name": "Day 2 (Tuesday)",
+            "topic": "Binary Trees, BST, Binary Heaps",
+            "subject_id": "PDS",
+            "chapter_index": 2,
+            "task": "Study theory notes on Binary Trees, BST, Binary Heaps. Solve 12-15 practice problems and note down any errors.",
+            "video_title": "Lecture: Binary Trees, BST, Binary Heaps",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+PDS+Binary+Trees%2C+BST%2C+Binary+Heaps+lecture"
+          },
+          {
+            "day": 3,
+            "day_name": "Day 3 (Wednesday)",
+            "topic": "Asymptotic Analysis (Big-O, Omega, Theta) & Master Theorem",
+            "subject_id": "PDS",
+            "chapter_index": 2,
+            "task": "Study theory notes on Asymptotic Analysis (Big-O, Omega, Theta) & Master Theorem. Solve 12-15 practice problems and note down any errors.",
+            "video_title": "Lecture: Asymptotic Analysis (Big-O, Omega, Theta) & Master Theorem",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+PDS+Asymptotic+Analysis+%28Big-O%2C+Omega%2C+Theta%29+%26+Master+Theorem+lecture"
+          },
+          {
+            "day": 4,
+            "day_name": "Day 4 (Thursday)",
+            "topic": "Sunday: Data Structures Full Subject Test",
+            "subject_id": "PDS",
+            "chapter_index": 2,
+            "task": "Sunday: Data Structures Full Subject Test. Audit error log notebook and revise formula sheets.",
+            "video_title": "Revision & Weekly Assessment: Syllabus Phase: Data Structures & Asymptotic Analysis",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+revision+quiz+Syllabus+Phase%3A+Data+Structures+%26+Asymptotic+Analysis"
+          },
+          {
+            "day": 5,
+            "day_name": "Day 5 (Friday)",
+            "topic": "Sunday: Data Structures Full Subject Test",
+            "subject_id": "PDS",
+            "chapter_index": 2,
+            "task": "Sunday: Data Structures Full Subject Test. Audit error log notebook and revise formula sheets.",
+            "video_title": "Revision & Weekly Assessment: Syllabus Phase: Data Structures & Asymptotic Analysis",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+revision+quiz+Syllabus+Phase%3A+Data+Structures+%26+Asymptotic+Analysis"
+          },
+          {
+            "day": 6,
+            "day_name": "Day 6 (Saturday)",
+            "topic": "Weekly Practice Drill & PYQ Solving",
+            "subject_id": "PDS",
+            "chapter_index": 2,
+            "task": "Solve 25 verified previous year GATE questions on Syllabus Phase: Data Structures & Asymptotic Analysis under timed conditions.",
+            "video_title": "PYQ Solving Session: Syllabus Phase: Data Structures & Asymptotic Analysis",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+pyq+solutions+Syllabus+Phase%3A+Data+Structures+%26+Asymptotic+Analysis"
+          },
+          {
+            "day": 7,
+            "day_name": "Day 7 (Sunday)",
+            "topic": "Sunday: Data Structures Full Subject Test",
+            "subject_id": "PDS",
+            "chapter_index": 2,
+            "task": "Sunday: Data Structures Full Subject Test. Audit error log notebook and revise formula sheets.",
+            "video_title": "Revision & Weekly Assessment: Syllabus Phase: Data Structures & Asymptotic Analysis",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+revision+quiz+Syllabus+Phase%3A+Data+Structures+%26+Asymptotic+Analysis"
+          }
+        ]
       },
       {
         "week": 9,
@@ -2533,7 +3826,79 @@
           "Dynamic Programming (0/1 Knapsack, LCS, Matrix Chain Multiplication)"
         ],
         "targets": "Formulate recurrence relations for DP problems, solve 50 practice questions",
-        "buffer_day": "Sunday: Algorithms Subject Test"
+        "buffer_day": "Sunday: Algorithms Subject Test",
+        "daily_plan": [
+          {
+            "day": 1,
+            "day_name": "Day 1 (Monday)",
+            "topic": "Divide-and-Conquer (Merge Sort, Quick Sort)",
+            "subject_id": "ALGO",
+            "chapter_index": 2,
+            "task": "Study theory notes on Divide-and-Conquer (Merge Sort, Quick Sort). Solve 12-15 practice problems and note down any errors.",
+            "video_title": "Lecture: Divide-and-Conquer (Merge Sort, Quick Sort)",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+ALGO+Divide-and-Conquer+%28Merge+Sort%2C+Quick+Sort%29+lecture"
+          },
+          {
+            "day": 2,
+            "day_name": "Day 2 (Tuesday)",
+            "topic": "Greedy Strategies (Activity Selection, Huffman Coding)",
+            "subject_id": "ALGO",
+            "chapter_index": 2,
+            "task": "Study theory notes on Greedy Strategies (Activity Selection, Huffman Coding). Solve 12-15 practice problems and note down any errors.",
+            "video_title": "Lecture: Greedy Strategies (Activity Selection, Huffman Coding)",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+ALGO+Greedy+Strategies+%28Activity+Selection%2C+Huffman+Coding%29+lecture"
+          },
+          {
+            "day": 3,
+            "day_name": "Day 3 (Wednesday)",
+            "topic": "Dynamic Programming (0/1 Knapsack, LCS, Matrix Chain Multiplication)",
+            "subject_id": "ALGO",
+            "chapter_index": 2,
+            "task": "Study theory notes on Dynamic Programming (0/1 Knapsack, LCS, Matrix Chain Multiplication). Solve 12-15 practice problems and note down any errors.",
+            "video_title": "Lecture: Dynamic Programming (0/1 Knapsack, LCS, Matrix Chain Multiplication)",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+ALGO+Dynamic+Programming+%280%2F1+Knapsack%2C+LCS%2C+Matrix+Chain+Multiplication%29+lecture"
+          },
+          {
+            "day": 4,
+            "day_name": "Day 4 (Thursday)",
+            "topic": "Sunday: Algorithms Subject Test",
+            "subject_id": "ALGO",
+            "chapter_index": 2,
+            "task": "Sunday: Algorithms Subject Test. Audit error log notebook and revise formula sheets.",
+            "video_title": "Revision & Weekly Assessment: Syllabus Phase: Algorithm Design Techniques",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+revision+quiz+Syllabus+Phase%3A+Algorithm+Design+Techniques"
+          },
+          {
+            "day": 5,
+            "day_name": "Day 5 (Friday)",
+            "topic": "Sunday: Algorithms Subject Test",
+            "subject_id": "ALGO",
+            "chapter_index": 2,
+            "task": "Sunday: Algorithms Subject Test. Audit error log notebook and revise formula sheets.",
+            "video_title": "Revision & Weekly Assessment: Syllabus Phase: Algorithm Design Techniques",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+revision+quiz+Syllabus+Phase%3A+Algorithm+Design+Techniques"
+          },
+          {
+            "day": 6,
+            "day_name": "Day 6 (Saturday)",
+            "topic": "Weekly Practice Drill & PYQ Solving",
+            "subject_id": "ALGO",
+            "chapter_index": 2,
+            "task": "Solve 25 verified previous year GATE questions on Syllabus Phase: Algorithm Design Techniques under timed conditions.",
+            "video_title": "PYQ Solving Session: Syllabus Phase: Algorithm Design Techniques",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+pyq+solutions+Syllabus+Phase%3A+Algorithm+Design+Techniques"
+          },
+          {
+            "day": 7,
+            "day_name": "Day 7 (Sunday)",
+            "topic": "Sunday: Algorithms Subject Test",
+            "subject_id": "ALGO",
+            "chapter_index": 2,
+            "task": "Sunday: Algorithms Subject Test. Audit error log notebook and revise formula sheets.",
+            "video_title": "Revision & Weekly Assessment: Syllabus Phase: Algorithm Design Techniques",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+revision+quiz+Syllabus+Phase%3A+Algorithm+Design+Techniques"
+          }
+        ]
       },
       {
         "week": 10,
@@ -2549,7 +3914,79 @@
           "DFA, NFA, Minimization & Regular Expressions"
         ],
         "targets": "Construct minimal DFAs, practice Dijkstra and Bellman-Ford algorithms",
-        "buffer_day": "Sunday: TOC Foundations Quiz"
+        "buffer_day": "Sunday: TOC Foundations Quiz",
+        "daily_plan": [
+          {
+            "day": 1,
+            "day_name": "Day 1 (Monday)",
+            "topic": "Graph Traversals (BFS, DFS, Topological Sort)",
+            "subject_id": "ALGO",
+            "chapter_index": 3,
+            "task": "Study theory notes on Graph Traversals (BFS, DFS, Topological Sort). Solve 12-15 practice problems and note down any errors.",
+            "video_title": "Lecture: Graph Traversals (BFS, DFS, Topological Sort)",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+ALGO+Graph+Traversals+%28BFS%2C+DFS%2C+Topological+Sort%29+lecture"
+          },
+          {
+            "day": 2,
+            "day_name": "Day 2 (Tuesday)",
+            "topic": "MST (Prim, Kruskal) & Shortest Paths (Dijkstra, Bellman-Ford)",
+            "subject_id": "ALGO",
+            "chapter_index": 3,
+            "task": "Study theory notes on MST (Prim, Kruskal) & Shortest Paths (Dijkstra, Bellman-Ford). Solve 12-15 practice problems and note down any errors.",
+            "video_title": "Lecture: MST (Prim, Kruskal) & Shortest Paths (Dijkstra, Bellman-Ford)",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+ALGO+MST+%28Prim%2C+Kruskal%29+%26+Shortest+Paths+%28Dijkstra%2C+Bellman-Ford%29+lecture"
+          },
+          {
+            "day": 3,
+            "day_name": "Day 3 (Wednesday)",
+            "topic": "DFA, NFA, Minimization & Regular Expressions",
+            "subject_id": "ALGO",
+            "chapter_index": 3,
+            "task": "Study theory notes on DFA, NFA, Minimization & Regular Expressions. Solve 12-15 practice problems and note down any errors.",
+            "video_title": "Lecture: DFA, NFA, Minimization & Regular Expressions",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+ALGO+DFA%2C+NFA%2C+Minimization+%26+Regular+Expressions+lecture"
+          },
+          {
+            "day": 4,
+            "day_name": "Day 4 (Thursday)",
+            "topic": "Sunday: TOC Foundations Quiz",
+            "subject_id": "ALGO",
+            "chapter_index": 3,
+            "task": "Sunday: TOC Foundations Quiz. Audit error log notebook and revise formula sheets.",
+            "video_title": "Revision & Weekly Assessment: Syllabus Phase: Graph Algorithms & Automata",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+revision+quiz+Syllabus+Phase%3A+Graph+Algorithms+%26+Automata"
+          },
+          {
+            "day": 5,
+            "day_name": "Day 5 (Friday)",
+            "topic": "Sunday: TOC Foundations Quiz",
+            "subject_id": "ALGO",
+            "chapter_index": 3,
+            "task": "Sunday: TOC Foundations Quiz. Audit error log notebook and revise formula sheets.",
+            "video_title": "Revision & Weekly Assessment: Syllabus Phase: Graph Algorithms & Automata",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+revision+quiz+Syllabus+Phase%3A+Graph+Algorithms+%26+Automata"
+          },
+          {
+            "day": 6,
+            "day_name": "Day 6 (Saturday)",
+            "topic": "Weekly Practice Drill & PYQ Solving",
+            "subject_id": "ALGO",
+            "chapter_index": 3,
+            "task": "Solve 25 verified previous year GATE questions on Syllabus Phase: Graph Algorithms & Automata under timed conditions.",
+            "video_title": "PYQ Solving Session: Syllabus Phase: Graph Algorithms & Automata",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+pyq+solutions+Syllabus+Phase%3A+Graph+Algorithms+%26+Automata"
+          },
+          {
+            "day": 7,
+            "day_name": "Day 7 (Sunday)",
+            "topic": "Sunday: TOC Foundations Quiz",
+            "subject_id": "ALGO",
+            "chapter_index": 3,
+            "task": "Sunday: TOC Foundations Quiz. Audit error log notebook and revise formula sheets.",
+            "video_title": "Revision & Weekly Assessment: Syllabus Phase: Graph Algorithms & Automata",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+revision+quiz+Syllabus+Phase%3A+Graph+Algorithms+%26+Automata"
+          }
+        ]
       },
       {
         "week": 11,
@@ -2566,7 +4003,79 @@
           "Lexical Analysis & LL(1) Parsing (FIRST and FOLLOW)"
         ],
         "targets": "Compute FIRST/FOLLOW sets, prove non-regularity with Pumping Lemma",
-        "buffer_day": "Sunday: TOC & Compiler Design Test"
+        "buffer_day": "Sunday: TOC & Compiler Design Test",
+        "daily_plan": [
+          {
+            "day": 1,
+            "day_name": "Day 1 (Monday)",
+            "topic": "Pumping Lemma (Regular & CFL)",
+            "subject_id": "TOC",
+            "chapter_index": 0,
+            "task": "Study theory notes on Pumping Lemma (Regular & CFL). Solve 12-15 practice problems and note down any errors.",
+            "video_title": "Lecture: Pumping Lemma (Regular & CFL)",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+TOC+Pumping+Lemma+%28Regular+%26+CFL%29+lecture"
+          },
+          {
+            "day": 2,
+            "day_name": "Day 2 (Tuesday)",
+            "topic": "Pushdown Automata (DPDA vs NPDA)",
+            "subject_id": "TOC",
+            "chapter_index": 0,
+            "task": "Study theory notes on Pushdown Automata (DPDA vs NPDA). Solve 12-15 practice problems and note down any errors.",
+            "video_title": "Lecture: Pushdown Automata (DPDA vs NPDA)",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+TOC+Pushdown+Automata+%28DPDA+vs+NPDA%29+lecture"
+          },
+          {
+            "day": 3,
+            "day_name": "Day 3 (Wednesday)",
+            "topic": "Turing Machines & Decidability",
+            "subject_id": "TOC",
+            "chapter_index": 0,
+            "task": "Study theory notes on Turing Machines & Decidability. Solve 12-15 practice problems and note down any errors.",
+            "video_title": "Lecture: Turing Machines & Decidability",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+TOC+Turing+Machines+%26+Decidability+lecture"
+          },
+          {
+            "day": 4,
+            "day_name": "Day 4 (Thursday)",
+            "topic": "Lexical Analysis & LL(1) Parsing (FIRST and FOLLOW)",
+            "subject_id": "TOC",
+            "chapter_index": 0,
+            "task": "Study theory notes on Lexical Analysis & LL(1) Parsing (FIRST and FOLLOW). Solve 12-15 practice problems and note down any errors.",
+            "video_title": "Lecture: Lexical Analysis & LL(1) Parsing (FIRST and FOLLOW)",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+TOC+Lexical+Analysis+%26+LL%281%29+Parsing+%28FIRST+and+FOLLOW%29+lecture"
+          },
+          {
+            "day": 5,
+            "day_name": "Day 5 (Friday)",
+            "topic": "Sunday: TOC & Compiler Design Test",
+            "subject_id": "TOC",
+            "chapter_index": 0,
+            "task": "Sunday: TOC & Compiler Design Test. Audit error log notebook and revise formula sheets.",
+            "video_title": "Revision & Weekly Assessment: Syllabus Phase: Formal Languages & Compilers",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+revision+quiz+Syllabus+Phase%3A+Formal+Languages+%26+Compilers"
+          },
+          {
+            "day": 6,
+            "day_name": "Day 6 (Saturday)",
+            "topic": "Weekly Practice Drill & PYQ Solving",
+            "subject_id": "TOC",
+            "chapter_index": 0,
+            "task": "Solve 25 verified previous year GATE questions on Syllabus Phase: Formal Languages & Compilers under timed conditions.",
+            "video_title": "PYQ Solving Session: Syllabus Phase: Formal Languages & Compilers",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+pyq+solutions+Syllabus+Phase%3A+Formal+Languages+%26+Compilers"
+          },
+          {
+            "day": 7,
+            "day_name": "Day 7 (Sunday)",
+            "topic": "Sunday: TOC & Compiler Design Test",
+            "subject_id": "TOC",
+            "chapter_index": 0,
+            "task": "Sunday: TOC & Compiler Design Test. Audit error log notebook and revise formula sheets.",
+            "video_title": "Revision & Weekly Assessment: Syllabus Phase: Formal Languages & Compilers",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+revision+quiz+Syllabus+Phase%3A+Formal+Languages+%26+Compilers"
+          }
+        ]
       },
       {
         "week": 12,
@@ -2582,7 +4091,79 @@
           "Local Optimization & Data Flow Analysis (Constant Propagation, Liveness)"
         ],
         "targets": "Solve parsing table conflict problems, trace data flow liveness",
-        "buffer_day": "Sunday: Compiler Design Subject Test"
+        "buffer_day": "Sunday: Compiler Design Subject Test",
+        "daily_plan": [
+          {
+            "day": 1,
+            "day_name": "Day 1 (Monday)",
+            "topic": "Bottom-Up Parsing (LR(0), SLR(1), LALR(1), CLR(1))",
+            "subject_id": "CD",
+            "chapter_index": 1,
+            "task": "Study theory notes on Bottom-Up Parsing (LR(0), SLR(1), LALR(1), CLR(1)). Solve 12-15 practice problems and note down any errors.",
+            "video_title": "Lecture: Bottom-Up Parsing (LR(0), SLR(1), LALR(1), CLR(1))",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+CD+Bottom-Up+Parsing+%28LR%280%29%2C+SLR%281%29%2C+LALR%281%29%2C+CLR%281%29%29+lecture"
+          },
+          {
+            "day": 2,
+            "day_name": "Day 2 (Tuesday)",
+            "topic": "Syntax Directed Translation (SDT - S-attributed vs L-attributed)",
+            "subject_id": "CD",
+            "chapter_index": 1,
+            "task": "Study theory notes on Syntax Directed Translation (SDT - S-attributed vs L-attributed). Solve 12-15 practice problems and note down any errors.",
+            "video_title": "Lecture: Syntax Directed Translation (SDT - S-attributed vs L-attributed)",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+CD+Syntax+Directed+Translation+%28SDT+-+S-attributed+vs+L-attributed%29+lecture"
+          },
+          {
+            "day": 3,
+            "day_name": "Day 3 (Wednesday)",
+            "topic": "Intermediate Code Generation & Basic Blocks",
+            "subject_id": "CD",
+            "chapter_index": 1,
+            "task": "Study theory notes on Intermediate Code Generation & Basic Blocks. Solve 12-15 practice problems and note down any errors.",
+            "video_title": "Lecture: Intermediate Code Generation & Basic Blocks",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+CD+Intermediate+Code+Generation+%26+Basic+Blocks+lecture"
+          },
+          {
+            "day": 4,
+            "day_name": "Day 4 (Thursday)",
+            "topic": "Local Optimization & Data Flow Analysis (Constant Propagation, Liveness)",
+            "subject_id": "CD",
+            "chapter_index": 1,
+            "task": "Study theory notes on Local Optimization & Data Flow Analysis (Constant Propagation, Liveness). Solve 12-15 practice problems and note down any errors.",
+            "video_title": "Lecture: Local Optimization & Data Flow Analysis (Constant Propagation, Liveness)",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+CD+Local+Optimization+%26+Data+Flow+Analysis+%28Constant+Propagation%2C+Liveness%29+lecture"
+          },
+          {
+            "day": 5,
+            "day_name": "Day 5 (Friday)",
+            "topic": "Sunday: Compiler Design Subject Test",
+            "subject_id": "CD",
+            "chapter_index": 1,
+            "task": "Sunday: Compiler Design Subject Test. Audit error log notebook and revise formula sheets.",
+            "video_title": "Revision & Weekly Assessment: Syllabus Phase: Bottom-Up Parsing & Optimization",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+revision+quiz+Syllabus+Phase%3A+Bottom-Up+Parsing+%26+Optimization"
+          },
+          {
+            "day": 6,
+            "day_name": "Day 6 (Saturday)",
+            "topic": "Weekly Practice Drill & PYQ Solving",
+            "subject_id": "CD",
+            "chapter_index": 1,
+            "task": "Solve 25 verified previous year GATE questions on Syllabus Phase: Bottom-Up Parsing & Optimization under timed conditions.",
+            "video_title": "PYQ Solving Session: Syllabus Phase: Bottom-Up Parsing & Optimization",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+pyq+solutions+Syllabus+Phase%3A+Bottom-Up+Parsing+%26+Optimization"
+          },
+          {
+            "day": 7,
+            "day_name": "Day 7 (Sunday)",
+            "topic": "Sunday: Compiler Design Subject Test",
+            "subject_id": "CD",
+            "chapter_index": 1,
+            "task": "Sunday: Compiler Design Subject Test. Audit error log notebook and revise formula sheets.",
+            "video_title": "Revision & Weekly Assessment: Syllabus Phase: Bottom-Up Parsing & Optimization",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+revision+quiz+Syllabus+Phase%3A+Bottom-Up+Parsing+%26+Optimization"
+          }
+        ]
       },
       {
         "week": 13,
@@ -2598,7 +4179,79 @@
           "Deadlocks (Banker's Algorithm, Resource Allocation Graphs)"
         ],
         "targets": "Solve Gantt chart scheduling numericals, trace semaphore synchronization primitives",
-        "buffer_day": "Sunday: OS Scheduling & Concurrency Assessment"
+        "buffer_day": "Sunday: OS Scheduling & Concurrency Assessment",
+        "daily_plan": [
+          {
+            "day": 1,
+            "day_name": "Day 1 (Monday)",
+            "topic": "System Calls, Processes & Threads",
+            "subject_id": "OS",
+            "chapter_index": 1,
+            "task": "Study theory notes on System Calls, Processes & Threads. Solve 12-15 practice problems and note down any errors.",
+            "video_title": "Lecture: System Calls, Processes & Threads",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+OS+System+Calls%2C+Processes+%26+Threads+lecture"
+          },
+          {
+            "day": 2,
+            "day_name": "Day 2 (Tuesday)",
+            "topic": "CPU Scheduling (FCFS, SJF, SRTF, Round Robin)",
+            "subject_id": "OS",
+            "chapter_index": 1,
+            "task": "Study theory notes on CPU Scheduling (FCFS, SJF, SRTF, Round Robin). Solve 12-15 practice problems and note down any errors.",
+            "video_title": "Lecture: CPU Scheduling (FCFS, SJF, SRTF, Round Robin)",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+OS+CPU+Scheduling+%28FCFS%2C+SJF%2C+SRTF%2C+Round+Robin%29+lecture"
+          },
+          {
+            "day": 3,
+            "day_name": "Day 3 (Wednesday)",
+            "topic": "Process Synchronization (Peterson's Algorithm, Semaphores, Producer-Consumer)",
+            "subject_id": "OS",
+            "chapter_index": 1,
+            "task": "Study theory notes on Process Synchronization (Peterson's Algorithm, Semaphores, Producer-Consumer). Solve 12-15 practice problems and note down any errors.",
+            "video_title": "Lecture: Process Synchronization (Peterson's Algorithm, Semaphores, Producer-Consumer)",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+OS+Process+Synchronization+%28Peterson%27s+Algorithm%2C+Semaphores%2C+Producer-Consumer%29+lecture"
+          },
+          {
+            "day": 4,
+            "day_name": "Day 4 (Thursday)",
+            "topic": "Deadlocks (Banker's Algorithm, Resource Allocation Graphs)",
+            "subject_id": "OS",
+            "chapter_index": 1,
+            "task": "Study theory notes on Deadlocks (Banker's Algorithm, Resource Allocation Graphs). Solve 12-15 practice problems and note down any errors.",
+            "video_title": "Lecture: Deadlocks (Banker's Algorithm, Resource Allocation Graphs)",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+OS+Deadlocks+%28Banker%27s+Algorithm%2C+Resource+Allocation+Graphs%29+lecture"
+          },
+          {
+            "day": 5,
+            "day_name": "Day 5 (Friday)",
+            "topic": "Sunday: OS Scheduling & Concurrency Assessment",
+            "subject_id": "OS",
+            "chapter_index": 1,
+            "task": "Sunday: OS Scheduling & Concurrency Assessment. Audit error log notebook and revise formula sheets.",
+            "video_title": "Revision & Weekly Assessment: Syllabus Phase: Operating Systems (CPU & Concurrency)",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+revision+quiz+Syllabus+Phase%3A+Operating+Systems+%28CPU+%26+Concurrency%29"
+          },
+          {
+            "day": 6,
+            "day_name": "Day 6 (Saturday)",
+            "topic": "Weekly Practice Drill & PYQ Solving",
+            "subject_id": "OS",
+            "chapter_index": 1,
+            "task": "Solve 25 verified previous year GATE questions on Syllabus Phase: Operating Systems (CPU & Concurrency) under timed conditions.",
+            "video_title": "PYQ Solving Session: Syllabus Phase: Operating Systems (CPU & Concurrency)",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+pyq+solutions+Syllabus+Phase%3A+Operating+Systems+%28CPU+%26+Concurrency%29"
+          },
+          {
+            "day": 7,
+            "day_name": "Day 7 (Sunday)",
+            "topic": "Sunday: OS Scheduling & Concurrency Assessment",
+            "subject_id": "OS",
+            "chapter_index": 1,
+            "task": "Sunday: OS Scheduling & Concurrency Assessment. Audit error log notebook and revise formula sheets.",
+            "video_title": "Revision & Weekly Assessment: Syllabus Phase: Operating Systems (CPU & Concurrency)",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+revision+quiz+Syllabus+Phase%3A+Operating+Systems+%28CPU+%26+Concurrency%29"
+          }
+        ]
       },
       {
         "week": 14,
@@ -2614,7 +4267,79 @@
           "ER Modeling, Relational Algebra & SQL (Joins, Nested Queries, Aggregates)"
         ],
         "targets": "Calculate EMAT with TLB, solve 30 complex relational algebra and SQL queries",
-        "buffer_day": "Sunday: OS & SQL Mixed Subject Test"
+        "buffer_day": "Sunday: OS & SQL Mixed Subject Test",
+        "daily_plan": [
+          {
+            "day": 1,
+            "day_name": "Day 1 (Monday)",
+            "topic": "Virtual Memory, Paging, Multi-level Paging, TLB & Effective Access Time",
+            "subject_id": "OS",
+            "chapter_index": 2,
+            "task": "Study theory notes on Virtual Memory, Paging, Multi-level Paging, TLB & Effective Access Time. Solve 12-15 practice problems and note down any errors.",
+            "video_title": "Lecture: Virtual Memory, Paging, Multi-level Paging, TLB & Effective Access Time",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+OS+Virtual+Memory%2C+Paging%2C+Multi-level+Paging%2C+TLB+%26+Effective+Access+Time+lecture"
+          },
+          {
+            "day": 2,
+            "day_name": "Day 2 (Tuesday)",
+            "topic": "Page Replacement Algorithms (FIFO, LRU, Optimal)",
+            "subject_id": "OS",
+            "chapter_index": 2,
+            "task": "Study theory notes on Page Replacement Algorithms (FIFO, LRU, Optimal). Solve 12-15 practice problems and note down any errors.",
+            "video_title": "Lecture: Page Replacement Algorithms (FIFO, LRU, Optimal)",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+OS+Page+Replacement+Algorithms+%28FIFO%2C+LRU%2C+Optimal%29+lecture"
+          },
+          {
+            "day": 3,
+            "day_name": "Day 3 (Wednesday)",
+            "topic": "ER Modeling, Relational Algebra & SQL (Joins, Nested Queries, Aggregates)",
+            "subject_id": "OS",
+            "chapter_index": 2,
+            "task": "Study theory notes on ER Modeling, Relational Algebra & SQL (Joins, Nested Queries, Aggregates). Solve 12-15 practice problems and note down any errors.",
+            "video_title": "Lecture: ER Modeling, Relational Algebra & SQL (Joins, Nested Queries, Aggregates)",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+OS+ER+Modeling%2C+Relational+Algebra+%26+SQL+%28Joins%2C+Nested+Queries%2C+Aggregates%29+lecture"
+          },
+          {
+            "day": 4,
+            "day_name": "Day 4 (Thursday)",
+            "topic": "Sunday: OS & SQL Mixed Subject Test",
+            "subject_id": "OS",
+            "chapter_index": 2,
+            "task": "Sunday: OS & SQL Mixed Subject Test. Audit error log notebook and revise formula sheets.",
+            "video_title": "Revision & Weekly Assessment: Syllabus Phase: OS Memory Management & Relational DBMS",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+revision+quiz+Syllabus+Phase%3A+OS+Memory+Management+%26+Relational+DBMS"
+          },
+          {
+            "day": 5,
+            "day_name": "Day 5 (Friday)",
+            "topic": "Sunday: OS & SQL Mixed Subject Test",
+            "subject_id": "OS",
+            "chapter_index": 2,
+            "task": "Sunday: OS & SQL Mixed Subject Test. Audit error log notebook and revise formula sheets.",
+            "video_title": "Revision & Weekly Assessment: Syllabus Phase: OS Memory Management & Relational DBMS",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+revision+quiz+Syllabus+Phase%3A+OS+Memory+Management+%26+Relational+DBMS"
+          },
+          {
+            "day": 6,
+            "day_name": "Day 6 (Saturday)",
+            "topic": "Weekly Practice Drill & PYQ Solving",
+            "subject_id": "OS",
+            "chapter_index": 2,
+            "task": "Solve 25 verified previous year GATE questions on Syllabus Phase: OS Memory Management & Relational DBMS under timed conditions.",
+            "video_title": "PYQ Solving Session: Syllabus Phase: OS Memory Management & Relational DBMS",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+pyq+solutions+Syllabus+Phase%3A+OS+Memory+Management+%26+Relational+DBMS"
+          },
+          {
+            "day": 7,
+            "day_name": "Day 7 (Sunday)",
+            "topic": "Sunday: OS & SQL Mixed Subject Test",
+            "subject_id": "OS",
+            "chapter_index": 2,
+            "task": "Sunday: OS & SQL Mixed Subject Test. Audit error log notebook and revise formula sheets.",
+            "video_title": "Revision & Weekly Assessment: Syllabus Phase: OS Memory Management & Relational DBMS",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+revision+quiz+Syllabus+Phase%3A+OS+Memory+Management+%26+Relational+DBMS"
+          }
+        ]
       },
       {
         "week": 15,
@@ -2630,7 +4355,79 @@
           "Transactions, ACID Properties, Serializability & 2PL"
         ],
         "targets": "Find candidate keys, test serializability using precedence graphs",
-        "buffer_day": "Sunday: Databases Full Subject Test (50 Marks)"
+        "buffer_day": "Sunday: Databases Full Subject Test (50 Marks)",
+        "daily_plan": [
+          {
+            "day": 1,
+            "day_name": "Day 1 (Monday)",
+            "topic": "Functional Dependencies & Normal Forms (1NF, 2NF, 3NF, BCNF)",
+            "subject_id": "DB",
+            "chapter_index": 1,
+            "task": "Study theory notes on Functional Dependencies & Normal Forms (1NF, 2NF, 3NF, BCNF). Solve 12-15 practice problems and note down any errors.",
+            "video_title": "Lecture: Functional Dependencies & Normal Forms (1NF, 2NF, 3NF, BCNF)",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+DB+Functional+Dependencies+%26+Normal+Forms+%281NF%2C+2NF%2C+3NF%2C+BCNF%29+lecture"
+          },
+          {
+            "day": 2,
+            "day_name": "Day 2 (Tuesday)",
+            "topic": "Lossless Decomposition & Dependency Preservation",
+            "subject_id": "DB",
+            "chapter_index": 1,
+            "task": "Study theory notes on Lossless Decomposition & Dependency Preservation. Solve 12-15 practice problems and note down any errors.",
+            "video_title": "Lecture: Lossless Decomposition & Dependency Preservation",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+DB+Lossless+Decomposition+%26+Dependency+Preservation+lecture"
+          },
+          {
+            "day": 3,
+            "day_name": "Day 3 (Wednesday)",
+            "topic": "B-Trees & B+ Trees (Node capacity, Index depth)",
+            "subject_id": "DB",
+            "chapter_index": 1,
+            "task": "Study theory notes on B-Trees & B+ Trees (Node capacity, Index depth). Solve 12-15 practice problems and note down any errors.",
+            "video_title": "Lecture: B-Trees & B+ Trees (Node capacity, Index depth)",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+DB+B-Trees+%26+B%2B+Trees+%28Node+capacity%2C+Index+depth%29+lecture"
+          },
+          {
+            "day": 4,
+            "day_name": "Day 4 (Thursday)",
+            "topic": "Transactions, ACID Properties, Serializability & 2PL",
+            "subject_id": "DB",
+            "chapter_index": 1,
+            "task": "Study theory notes on Transactions, ACID Properties, Serializability & 2PL. Solve 12-15 practice problems and note down any errors.",
+            "video_title": "Lecture: Transactions, ACID Properties, Serializability & 2PL",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+DB+Transactions%2C+ACID+Properties%2C+Serializability+%26+2PL+lecture"
+          },
+          {
+            "day": 5,
+            "day_name": "Day 5 (Friday)",
+            "topic": "Sunday: Databases Full Subject Test (50 Marks)",
+            "subject_id": "DB",
+            "chapter_index": 1,
+            "task": "Sunday: Databases Full Subject Test (50 Marks). Audit error log notebook and revise formula sheets.",
+            "video_title": "Revision & Weekly Assessment: Syllabus Phase: Normalization & Storage",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+revision+quiz+Syllabus+Phase%3A+Normalization+%26+Storage"
+          },
+          {
+            "day": 6,
+            "day_name": "Day 6 (Saturday)",
+            "topic": "Weekly Practice Drill & PYQ Solving",
+            "subject_id": "DB",
+            "chapter_index": 1,
+            "task": "Solve 25 verified previous year GATE questions on Syllabus Phase: Normalization & Storage under timed conditions.",
+            "video_title": "PYQ Solving Session: Syllabus Phase: Normalization & Storage",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+pyq+solutions+Syllabus+Phase%3A+Normalization+%26+Storage"
+          },
+          {
+            "day": 7,
+            "day_name": "Day 7 (Sunday)",
+            "topic": "Sunday: Databases Full Subject Test (50 Marks)",
+            "subject_id": "DB",
+            "chapter_index": 1,
+            "task": "Sunday: Databases Full Subject Test (50 Marks). Audit error log notebook and revise formula sheets.",
+            "video_title": "Revision & Weekly Assessment: Syllabus Phase: Normalization & Storage",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+revision+quiz+Syllabus+Phase%3A+Normalization+%26+Storage"
+          }
+        ]
       },
       {
         "week": 16,
@@ -2648,7 +4445,79 @@
           "Quantitative & Spatial Aptitude"
         ],
         "targets": "Solve IP fragmentation numericals, TCP congestion window problems, finish remaining syllabus",
-        "buffer_day": "\ud83c\udfaf OFFICIAL MILESTONE: 100% SYLLABUS COMPLETED (3 MONTHS BEFORE EXAM)!"
+        "buffer_day": "\ud83c\udfaf OFFICIAL MILESTONE: 100% SYLLABUS COMPLETED (3 MONTHS BEFORE EXAM)!",
+        "daily_plan": [
+          {
+            "day": 1,
+            "day_name": "Day 1 (Monday)",
+            "topic": "Layering & Delay Calculations, CSMA/CD Minimum Frame Size",
+            "subject_id": "CN",
+            "chapter_index": 1,
+            "task": "Study theory notes on Layering & Delay Calculations, CSMA/CD Minimum Frame Size. Solve 12-15 practice problems and note down any errors.",
+            "video_title": "Lecture: Layering & Delay Calculations, CSMA/CD Minimum Frame Size",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+CN+Layering+%26+Delay+Calculations%2C+CSMA%2FCD+Minimum+Frame+Size+lecture"
+          },
+          {
+            "day": 2,
+            "day_name": "Day 2 (Tuesday)",
+            "topic": "IPv4 Addressing, Subnetting, CIDR & Fragmentation",
+            "subject_id": "CN",
+            "chapter_index": 1,
+            "task": "Study theory notes on IPv4 Addressing, Subnetting, CIDR & Fragmentation. Solve 12-15 practice problems and note down any errors.",
+            "video_title": "Lecture: IPv4 Addressing, Subnetting, CIDR & Fragmentation",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+CN+IPv4+Addressing%2C+Subnetting%2C+CIDR+%26+Fragmentation+lecture"
+          },
+          {
+            "day": 3,
+            "day_name": "Day 3 (Wednesday)",
+            "topic": "Routing (Distance Vector vs Link State)",
+            "subject_id": "CN",
+            "chapter_index": 1,
+            "task": "Study theory notes on Routing (Distance Vector vs Link State). Solve 12-15 practice problems and note down any errors.",
+            "video_title": "Lecture: Routing (Distance Vector vs Link State)",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+CN+Routing+%28Distance+Vector+vs+Link+State%29+lecture"
+          },
+          {
+            "day": 4,
+            "day_name": "Day 4 (Thursday)",
+            "topic": "TCP Flow & Congestion Control (Slow Start, Congestion Avoidance)",
+            "subject_id": "CN",
+            "chapter_index": 1,
+            "task": "Study theory notes on TCP Flow & Congestion Control (Slow Start, Congestion Avoidance). Solve 12-15 practice problems and note down any errors.",
+            "video_title": "Lecture: TCP Flow & Congestion Control (Slow Start, Congestion Avoidance)",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+CN+TCP+Flow+%26+Congestion+Control+%28Slow+Start%2C+Congestion+Avoidance%29+lecture"
+          },
+          {
+            "day": 5,
+            "day_name": "Day 5 (Friday)",
+            "topic": "Quantitative & Spatial Aptitude",
+            "subject_id": "CN",
+            "chapter_index": 1,
+            "task": "Study theory notes on Quantitative & Spatial Aptitude. Solve 12-15 practice problems and note down any errors.",
+            "video_title": "Lecture: Quantitative & Spatial Aptitude",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+CN+Quantitative+%26+Spatial+Aptitude+lecture"
+          },
+          {
+            "day": 6,
+            "day_name": "Day 6 (Saturday)",
+            "topic": "Weekly Practice Drill & PYQ Solving",
+            "subject_id": "CN",
+            "chapter_index": 1,
+            "task": "Solve 25 verified previous year GATE questions on Syllabus Phase: Computer Networks & Quantitative Aptitude under timed conditions.",
+            "video_title": "PYQ Solving Session: Syllabus Phase: Computer Networks & Quantitative Aptitude",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+pyq+solutions+Syllabus+Phase%3A+Computer+Networks+%26+Quantitative+Aptitude"
+          },
+          {
+            "day": 7,
+            "day_name": "Day 7 (Sunday)",
+            "topic": "\ud83c\udfaf OFFICIAL MILESTONE: 100% SYLLABUS COMPLETED (3 MONTHS BEFORE EXAM)!",
+            "subject_id": "CN",
+            "chapter_index": 1,
+            "task": "\ud83c\udfaf OFFICIAL MILESTONE: 100% SYLLABUS COMPLETED (3 MONTHS BEFORE EXAM)!. Audit error log notebook and revise formula sheets.",
+            "video_title": "Revision & Weekly Assessment: Syllabus Phase: Computer Networks & Quantitative Aptitude",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+revision+quiz+Syllabus+Phase%3A+Computer+Networks+%26+Quantitative+Aptitude"
+          }
+        ]
       },
       {
         "week": 17,
@@ -2666,7 +4535,79 @@
           "Subject Test 1 (Math), Subject Test 2 (Digital), Subject Test 3 (COA)"
         ],
         "targets": "Re-solve all starred PYQs, complete 3 subject-level timed tests, log errors in mistake notebook",
-        "buffer_day": "Sunday: Complete Revision Assessment (Math + Hardware)"
+        "buffer_day": "Sunday: Complete Revision Assessment (Math + Hardware)",
+        "daily_plan": [
+          {
+            "day": 1,
+            "day_name": "Day 1 (Monday)",
+            "topic": "Formula consolidation across Linear Algebra, Calculus & Discrete Math",
+            "subject_id": "EM",
+            "chapter_index": 0,
+            "task": "Study theory notes on Formula consolidation across Linear Algebra, Calculus & Discrete Math. Solve 12-15 practice problems and note down any errors.",
+            "video_title": "Lecture: Formula consolidation across Linear Algebra, Calculus & Discrete Math",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+EM+Formula+consolidation+across+Linear+Algebra%2C+Calculus+%26+Discrete+Math+lecture"
+          },
+          {
+            "day": 2,
+            "day_name": "Day 2 (Tuesday)",
+            "topic": "K-Map minimization & mod-N counter error correction",
+            "subject_id": "EM",
+            "chapter_index": 0,
+            "task": "Study theory notes on K-Map minimization & mod-N counter error correction. Solve 12-15 practice problems and note down any errors.",
+            "video_title": "Lecture: K-Map minimization & mod-N counter error correction",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+EM+K-Map+minimization+%26+mod-N+counter+error+correction+lecture"
+          },
+          {
+            "day": 3,
+            "day_name": "Day 3 (Wednesday)",
+            "topic": "Cache mapping & pipelining hazard rapid problem solving",
+            "subject_id": "EM",
+            "chapter_index": 0,
+            "task": "Study theory notes on Cache mapping & pipelining hazard rapid problem solving. Solve 12-15 practice problems and note down any errors.",
+            "video_title": "Lecture: Cache mapping & pipelining hazard rapid problem solving",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+EM+Cache+mapping+%26+pipelining+hazard+rapid+problem+solving+lecture"
+          },
+          {
+            "day": 4,
+            "day_name": "Day 4 (Thursday)",
+            "topic": "Subject Test 1 (Math), Subject Test 2 (Digital), Subject Test 3 (COA)",
+            "subject_id": "EM",
+            "chapter_index": 0,
+            "task": "Study theory notes on Subject Test 1 (Math), Subject Test 2 (Digital), Subject Test 3 (COA). Solve 12-15 practice problems and note down any errors.",
+            "video_title": "Lecture: Subject Test 1 (Math), Subject Test 2 (Digital), Subject Test 3 (COA)",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+EM+Subject+Test+1+%28Math%29%2C+Subject+Test+2+%28Digital%29%2C+Subject+Test+3+%28COA%29+lecture"
+          },
+          {
+            "day": 5,
+            "day_name": "Day 5 (Friday)",
+            "topic": "Sunday: Complete Revision Assessment (Math + Hardware)",
+            "subject_id": "EM",
+            "chapter_index": 0,
+            "task": "Sunday: Complete Revision Assessment (Math + Hardware). Audit error log notebook and revise formula sheets.",
+            "video_title": "Revision & Weekly Assessment: Month -3 Revision: Engineering Math, Digital & COA",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+revision+quiz+Month+-3+Revision%3A+Engineering+Math%2C+Digital+%26+COA"
+          },
+          {
+            "day": 6,
+            "day_name": "Day 6 (Saturday)",
+            "topic": "Weekly Practice Drill & PYQ Solving",
+            "subject_id": "EM",
+            "chapter_index": 0,
+            "task": "Solve 25 verified previous year GATE questions on Month -3 Revision: Engineering Math, Digital & COA under timed conditions.",
+            "video_title": "PYQ Solving Session: Month -3 Revision: Engineering Math, Digital & COA",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+pyq+solutions+Month+-3+Revision%3A+Engineering+Math%2C+Digital+%26+COA"
+          },
+          {
+            "day": 7,
+            "day_name": "Day 7 (Sunday)",
+            "topic": "Sunday: Complete Revision Assessment (Math + Hardware)",
+            "subject_id": "EM",
+            "chapter_index": 0,
+            "task": "Sunday: Complete Revision Assessment (Math + Hardware). Audit error log notebook and revise formula sheets.",
+            "video_title": "Revision & Weekly Assessment: Month -3 Revision: Engineering Math, Digital & COA",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+revision+quiz+Month+-3+Revision%3A+Engineering+Math%2C+Digital+%26+COA"
+          }
+        ]
       },
       {
         "week": 18,
@@ -2684,7 +4625,79 @@
           "Subject Test 4 (C & DS), Subject Test 5 (Algorithms)"
         ],
         "targets": "Solve 75 high-difficulty questions, re-test tricky C pointers, 2 full subject tests",
-        "buffer_day": "Sunday: Coding & Algorithms Marathon Review"
+        "buffer_day": "Sunday: Coding & Algorithms Marathon Review",
+        "daily_plan": [
+          {
+            "day": 1,
+            "day_name": "Day 1 (Monday)",
+            "topic": "Pointers & recursion dry-run drills",
+            "subject_id": "PDS",
+            "chapter_index": 0,
+            "task": "Study theory notes on Pointers & recursion dry-run drills. Solve 12-15 practice problems and note down any errors.",
+            "video_title": "Lecture: Pointers & recursion dry-run drills",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+PDS+Pointers+%26+recursion+dry-run+drills+lecture"
+          },
+          {
+            "day": 2,
+            "day_name": "Day 2 (Tuesday)",
+            "topic": "BST, Heapify & Graph traversal edge cases",
+            "subject_id": "PDS",
+            "chapter_index": 0,
+            "task": "Study theory notes on BST, Heapify & Graph traversal edge cases. Solve 12-15 practice problems and note down any errors.",
+            "video_title": "Lecture: BST, Heapify & Graph traversal edge cases",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+PDS+BST%2C+Heapify+%26+Graph+traversal+edge+cases+lecture"
+          },
+          {
+            "day": 3,
+            "day_name": "Day 3 (Wednesday)",
+            "topic": "Dynamic Programming recurrence practice & Greedy correctness",
+            "subject_id": "PDS",
+            "chapter_index": 0,
+            "task": "Study theory notes on Dynamic Programming recurrence practice & Greedy correctness. Solve 12-15 practice problems and note down any errors.",
+            "video_title": "Lecture: Dynamic Programming recurrence practice & Greedy correctness",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+PDS+Dynamic+Programming+recurrence+practice+%26+Greedy+correctness+lecture"
+          },
+          {
+            "day": 4,
+            "day_name": "Day 4 (Thursday)",
+            "topic": "Subject Test 4 (C & DS), Subject Test 5 (Algorithms)",
+            "subject_id": "PDS",
+            "chapter_index": 0,
+            "task": "Study theory notes on Subject Test 4 (C & DS), Subject Test 5 (Algorithms). Solve 12-15 practice problems and note down any errors.",
+            "video_title": "Lecture: Subject Test 4 (C & DS), Subject Test 5 (Algorithms)",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+PDS+Subject+Test+4+%28C+%26+DS%29%2C+Subject+Test+5+%28Algorithms%29+lecture"
+          },
+          {
+            "day": 5,
+            "day_name": "Day 5 (Friday)",
+            "topic": "Sunday: Coding & Algorithms Marathon Review",
+            "subject_id": "PDS",
+            "chapter_index": 0,
+            "task": "Sunday: Coding & Algorithms Marathon Review. Audit error log notebook and revise formula sheets.",
+            "video_title": "Revision & Weekly Assessment: Month -3 Revision: Programming, Data Structures & Algorithms",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+revision+quiz+Month+-3+Revision%3A+Programming%2C+Data+Structures+%26+Algorithms"
+          },
+          {
+            "day": 6,
+            "day_name": "Day 6 (Saturday)",
+            "topic": "Weekly Practice Drill & PYQ Solving",
+            "subject_id": "PDS",
+            "chapter_index": 0,
+            "task": "Solve 25 verified previous year GATE questions on Month -3 Revision: Programming, Data Structures & Algorithms under timed conditions.",
+            "video_title": "PYQ Solving Session: Month -3 Revision: Programming, Data Structures & Algorithms",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+pyq+solutions+Month+-3+Revision%3A+Programming%2C+Data+Structures+%26+Algorithms"
+          },
+          {
+            "day": 7,
+            "day_name": "Day 7 (Sunday)",
+            "topic": "Sunday: Coding & Algorithms Marathon Review",
+            "subject_id": "PDS",
+            "chapter_index": 0,
+            "task": "Sunday: Coding & Algorithms Marathon Review. Audit error log notebook and revise formula sheets.",
+            "video_title": "Revision & Weekly Assessment: Month -3 Revision: Programming, Data Structures & Algorithms",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+revision+quiz+Month+-3+Revision%3A+Programming%2C+Data+Structures+%26+Algorithms"
+          }
+        ]
       },
       {
         "week": 19,
@@ -2702,7 +4715,79 @@
           "Subject Test 6 (TOC & CD), Subject Test 7 (OS)"
         ],
         "targets": "Master closure property tables, solve 10 tricky parsing conflict questions",
-        "buffer_day": "Sunday: Systems & Automata Full Test"
+        "buffer_day": "Sunday: Systems & Automata Full Test",
+        "daily_plan": [
+          {
+            "day": 1,
+            "day_name": "Day 1 (Monday)",
+            "topic": "DFA construction shortcuts, undecidability closure tables",
+            "subject_id": "TOC",
+            "chapter_index": 0,
+            "task": "Study theory notes on DFA construction shortcuts, undecidability closure tables. Solve 12-15 practice problems and note down any errors.",
+            "video_title": "Lecture: DFA construction shortcuts, undecidability closure tables",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+TOC+DFA+construction+shortcuts%2C+undecidability+closure+tables+lecture"
+          },
+          {
+            "day": 2,
+            "day_name": "Day 2 (Tuesday)",
+            "topic": "FIRST/FOLLOW computation & LR parsing conflicts",
+            "subject_id": "TOC",
+            "chapter_index": 0,
+            "task": "Study theory notes on FIRST/FOLLOW computation & LR parsing conflicts. Solve 12-15 practice problems and note down any errors.",
+            "video_title": "Lecture: FIRST/FOLLOW computation & LR parsing conflicts",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+TOC+FIRST%2FFOLLOW+computation+%26+LR+parsing+conflicts+lecture"
+          },
+          {
+            "day": 3,
+            "day_name": "Day 3 (Wednesday)",
+            "topic": "Deadlocks, Bankers algorithm & Paging EMAT speed calculations",
+            "subject_id": "TOC",
+            "chapter_index": 0,
+            "task": "Study theory notes on Deadlocks, Bankers algorithm & Paging EMAT speed calculations. Solve 12-15 practice problems and note down any errors.",
+            "video_title": "Lecture: Deadlocks, Bankers algorithm & Paging EMAT speed calculations",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+TOC+Deadlocks%2C+Bankers+algorithm+%26+Paging+EMAT+speed+calculations+lecture"
+          },
+          {
+            "day": 4,
+            "day_name": "Day 4 (Thursday)",
+            "topic": "Subject Test 6 (TOC & CD), Subject Test 7 (OS)",
+            "subject_id": "TOC",
+            "chapter_index": 0,
+            "task": "Study theory notes on Subject Test 6 (TOC & CD), Subject Test 7 (OS). Solve 12-15 practice problems and note down any errors.",
+            "video_title": "Lecture: Subject Test 6 (TOC & CD), Subject Test 7 (OS)",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+TOC+Subject+Test+6+%28TOC+%26+CD%29%2C+Subject+Test+7+%28OS%29+lecture"
+          },
+          {
+            "day": 5,
+            "day_name": "Day 5 (Friday)",
+            "topic": "Sunday: Systems & Automata Full Test",
+            "subject_id": "TOC",
+            "chapter_index": 0,
+            "task": "Sunday: Systems & Automata Full Test. Audit error log notebook and revise formula sheets.",
+            "video_title": "Revision & Weekly Assessment: Month -3 Revision: TOC, Compilers & OS",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+revision+quiz+Month+-3+Revision%3A+TOC%2C+Compilers+%26+OS"
+          },
+          {
+            "day": 6,
+            "day_name": "Day 6 (Saturday)",
+            "topic": "Weekly Practice Drill & PYQ Solving",
+            "subject_id": "TOC",
+            "chapter_index": 0,
+            "task": "Solve 25 verified previous year GATE questions on Month -3 Revision: TOC, Compilers & OS under timed conditions.",
+            "video_title": "PYQ Solving Session: Month -3 Revision: TOC, Compilers & OS",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+pyq+solutions+Month+-3+Revision%3A+TOC%2C+Compilers+%26+OS"
+          },
+          {
+            "day": 7,
+            "day_name": "Day 7 (Sunday)",
+            "topic": "Sunday: Systems & Automata Full Test",
+            "subject_id": "TOC",
+            "chapter_index": 0,
+            "task": "Sunday: Systems & Automata Full Test. Audit error log notebook and revise formula sheets.",
+            "video_title": "Revision & Weekly Assessment: Month -3 Revision: TOC, Compilers & OS",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+revision+quiz+Month+-3+Revision%3A+TOC%2C+Compilers+%26+OS"
+          }
+        ]
       },
       {
         "week": 20,
@@ -2720,7 +4805,79 @@
           "Subject Test 8 (DBMS), Subject Test 9 (Networks), Subject Test 10 (Aptitude)"
         ],
         "targets": "Complete Month -3 revision cycle with all 10 subject tests submitted and reviewed",
-        "buffer_day": "Sunday: Month -3 Comprehensive Review & Error Log Audit"
+        "buffer_day": "Sunday: Month -3 Comprehensive Review & Error Log Audit",
+        "daily_plan": [
+          {
+            "day": 1,
+            "day_name": "Day 1 (Monday)",
+            "topic": "Normalization algorithm review, serializability test graphs",
+            "subject_id": "DB",
+            "chapter_index": 0,
+            "task": "Study theory notes on Normalization algorithm review, serializability test graphs. Solve 12-15 practice problems and note down any errors.",
+            "video_title": "Lecture: Normalization algorithm review, serializability test graphs",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+DB+Normalization+algorithm+review%2C+serializability+test+graphs+lecture"
+          },
+          {
+            "day": 2,
+            "day_name": "Day 2 (Tuesday)",
+            "topic": "IP subnetting speed drills, TCP congestion control state machine",
+            "subject_id": "DB",
+            "chapter_index": 0,
+            "task": "Study theory notes on IP subnetting speed drills, TCP congestion control state machine. Solve 12-15 practice problems and note down any errors.",
+            "video_title": "Lecture: IP subnetting speed drills, TCP congestion control state machine",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+DB+IP+subnetting+speed+drills%2C+TCP+congestion+control+state+machine+lecture"
+          },
+          {
+            "day": 3,
+            "day_name": "Day 3 (Wednesday)",
+            "topic": "Spatial & Analytical reasoning drills",
+            "subject_id": "DB",
+            "chapter_index": 0,
+            "task": "Study theory notes on Spatial & Analytical reasoning drills. Solve 12-15 practice problems and note down any errors.",
+            "video_title": "Lecture: Spatial & Analytical reasoning drills",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+DB+Spatial+%26+Analytical+reasoning+drills+lecture"
+          },
+          {
+            "day": 4,
+            "day_name": "Day 4 (Thursday)",
+            "topic": "Subject Test 8 (DBMS), Subject Test 9 (Networks), Subject Test 10 (Aptitude)",
+            "subject_id": "DB",
+            "chapter_index": 0,
+            "task": "Study theory notes on Subject Test 8 (DBMS), Subject Test 9 (Networks), Subject Test 10 (Aptitude). Solve 12-15 practice problems and note down any errors.",
+            "video_title": "Lecture: Subject Test 8 (DBMS), Subject Test 9 (Networks), Subject Test 10 (Aptitude)",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+DB+Subject+Test+8+%28DBMS%29%2C+Subject+Test+9+%28Networks%29%2C+Subject+Test+10+%28Aptitude%29+lecture"
+          },
+          {
+            "day": 5,
+            "day_name": "Day 5 (Friday)",
+            "topic": "Sunday: Month -3 Comprehensive Review & Error Log Audit",
+            "subject_id": "DB",
+            "chapter_index": 0,
+            "task": "Sunday: Month -3 Comprehensive Review & Error Log Audit. Audit error log notebook and revise formula sheets.",
+            "video_title": "Revision & Weekly Assessment: Month -3 Revision: Databases, Networks & Aptitude Grand Review",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+revision+quiz+Month+-3+Revision%3A+Databases%2C+Networks+%26+Aptitude+Grand+Review"
+          },
+          {
+            "day": 6,
+            "day_name": "Day 6 (Saturday)",
+            "topic": "Weekly Practice Drill & PYQ Solving",
+            "subject_id": "DB",
+            "chapter_index": 0,
+            "task": "Solve 25 verified previous year GATE questions on Month -3 Revision: Databases, Networks & Aptitude Grand Review under timed conditions.",
+            "video_title": "PYQ Solving Session: Month -3 Revision: Databases, Networks & Aptitude Grand Review",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+pyq+solutions+Month+-3+Revision%3A+Databases%2C+Networks+%26+Aptitude+Grand+Review"
+          },
+          {
+            "day": 7,
+            "day_name": "Day 7 (Sunday)",
+            "topic": "Sunday: Month -3 Comprehensive Review & Error Log Audit",
+            "subject_id": "DB",
+            "chapter_index": 0,
+            "task": "Sunday: Month -3 Comprehensive Review & Error Log Audit. Audit error log notebook and revise formula sheets.",
+            "video_title": "Revision & Weekly Assessment: Month -3 Revision: Databases, Networks & Aptitude Grand Review",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+revision+quiz+Month+-3+Revision%3A+Databases%2C+Networks+%26+Aptitude+Grand+Review"
+          }
+        ]
       },
       {
         "week": 21,
@@ -2736,7 +4893,79 @@
           "Remediation of identified weak areas"
         ],
         "targets": "Score > 60/100, analyze negative marks, eliminate unforced errors",
-        "buffer_day": "Sunday: Virtual Calculator calculation drill (30 minutes)"
+        "buffer_day": "Sunday: Virtual Calculator calculation drill (30 minutes)",
+        "daily_plan": [
+          {
+            "day": 1,
+            "day_name": "Day 1 (Monday)",
+            "topic": "Full-Length Mock Test 1 (Under strict 3-hour timer, exact negative marking)",
+            "subject_id": "EM",
+            "chapter_index": 0,
+            "task": "Study theory notes on Full-Length Mock Test 1 (Under strict 3-hour timer, exact negative marking). Solve 12-15 practice problems and note down any errors.",
+            "video_title": "Lecture: Full-Length Mock Test 1 (Under strict 3-hour timer, exact negative marking)",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+EM+Full-Length+Mock+Test+1+%28Under+strict+3-hour+timer%2C+exact+negative+marking%29+lecture"
+          },
+          {
+            "day": 2,
+            "day_name": "Day 2 (Tuesday)",
+            "topic": "Deep 4-Hour Post-Exam Diagnostic (Segregate conceptual vs silly vs calculation errors)",
+            "subject_id": "EM",
+            "chapter_index": 0,
+            "task": "Study theory notes on Deep 4-Hour Post-Exam Diagnostic (Segregate conceptual vs silly vs calculation errors). Solve 12-15 practice problems and note down any errors.",
+            "video_title": "Lecture: Deep 4-Hour Post-Exam Diagnostic (Segregate conceptual vs silly vs calculation errors)",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+EM+Deep+4-Hour+Post-Exam+Diagnostic+%28Segregate+conceptual+vs+silly+vs+calculation+errors%29+lecture"
+          },
+          {
+            "day": 3,
+            "day_name": "Day 3 (Wednesday)",
+            "topic": "Full-Length Mock Test 2",
+            "subject_id": "EM",
+            "chapter_index": 0,
+            "task": "Study theory notes on Full-Length Mock Test 2. Solve 12-15 practice problems and note down any errors.",
+            "video_title": "Lecture: Full-Length Mock Test 2",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+EM+Full-Length+Mock+Test+2+lecture"
+          },
+          {
+            "day": 4,
+            "day_name": "Day 4 (Thursday)",
+            "topic": "Remediation of identified weak areas",
+            "subject_id": "EM",
+            "chapter_index": 0,
+            "task": "Study theory notes on Remediation of identified weak areas. Solve 12-15 practice problems and note down any errors.",
+            "video_title": "Lecture: Remediation of identified weak areas",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+EM+Remediation+of+identified+weak+areas+lecture"
+          },
+          {
+            "day": 5,
+            "day_name": "Day 5 (Friday)",
+            "topic": "Sunday: Virtual Calculator calculation drill (30 minutes)",
+            "subject_id": "EM",
+            "chapter_index": 0,
+            "task": "Sunday: Virtual Calculator calculation drill (30 minutes). Audit error log notebook and revise formula sheets.",
+            "video_title": "Revision & Weekly Assessment: Month -2 Mocks: Full-Length CBT Simulation 1 & 2",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+revision+quiz+Month+-2+Mocks%3A+Full-Length+CBT+Simulation+1+%26+2"
+          },
+          {
+            "day": 6,
+            "day_name": "Day 6 (Saturday)",
+            "topic": "Weekly Practice Drill & PYQ Solving",
+            "subject_id": "EM",
+            "chapter_index": 0,
+            "task": "Solve 25 verified previous year GATE questions on Month -2 Mocks: Full-Length CBT Simulation 1 & 2 under timed conditions.",
+            "video_title": "PYQ Solving Session: Month -2 Mocks: Full-Length CBT Simulation 1 & 2",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+pyq+solutions+Month+-2+Mocks%3A+Full-Length+CBT+Simulation+1+%26+2"
+          },
+          {
+            "day": 7,
+            "day_name": "Day 7 (Sunday)",
+            "topic": "Sunday: Virtual Calculator calculation drill (30 minutes)",
+            "subject_id": "EM",
+            "chapter_index": 0,
+            "task": "Sunday: Virtual Calculator calculation drill (30 minutes). Audit error log notebook and revise formula sheets.",
+            "video_title": "Revision & Weekly Assessment: Month -2 Mocks: Full-Length CBT Simulation 1 & 2",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+revision+quiz+Month+-2+Mocks%3A+Full-Length+CBT+Simulation+1+%26+2"
+          }
+        ]
       },
       {
         "week": 22,
@@ -2752,7 +4981,79 @@
           "Multi-Select Questions (MSQ) high-precision practice"
         ],
         "targets": "Simulate exact exam hall conditions, optimize question-skipping strategy",
-        "buffer_day": "Sunday: Multi-concept MSQ mastery session"
+        "buffer_day": "Sunday: Multi-concept MSQ mastery session",
+        "daily_plan": [
+          {
+            "day": 1,
+            "day_name": "Day 1 (Monday)",
+            "topic": "Full-Length Mock Test 3",
+            "subject_id": "COA",
+            "chapter_index": 2,
+            "task": "Study theory notes on Full-Length Mock Test 3. Solve 12-15 practice problems and note down any errors.",
+            "video_title": "Lecture: Full-Length Mock Test 3",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+COA+Full-Length+Mock+Test+3+lecture"
+          },
+          {
+            "day": 2,
+            "day_name": "Day 2 (Tuesday)",
+            "topic": "Time Allocation Strategy Calibration (60m Aptitude & Math, 90m CS Core, 30m Review)",
+            "subject_id": "COA",
+            "chapter_index": 2,
+            "task": "Study theory notes on Time Allocation Strategy Calibration (60m Aptitude & Math, 90m CS Core, 30m Review). Solve 12-15 practice problems and note down any errors.",
+            "video_title": "Lecture: Time Allocation Strategy Calibration (60m Aptitude & Math, 90m CS Core, 30m Review)",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+COA+Time+Allocation+Strategy+Calibration+%2860m+Aptitude+%26+Math%2C+90m+CS+Core%2C+30m+Review%29+lecture"
+          },
+          {
+            "day": 3,
+            "day_name": "Day 3 (Wednesday)",
+            "topic": "Full-Length Mock Test 4",
+            "subject_id": "COA",
+            "chapter_index": 2,
+            "task": "Study theory notes on Full-Length Mock Test 4. Solve 12-15 practice problems and note down any errors.",
+            "video_title": "Lecture: Full-Length Mock Test 4",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+COA+Full-Length+Mock+Test+4+lecture"
+          },
+          {
+            "day": 4,
+            "day_name": "Day 4 (Thursday)",
+            "topic": "Multi-Select Questions (MSQ) high-precision practice",
+            "subject_id": "COA",
+            "chapter_index": 2,
+            "task": "Study theory notes on Multi-Select Questions (MSQ) high-precision practice. Solve 12-15 practice problems and note down any errors.",
+            "video_title": "Lecture: Multi-Select Questions (MSQ) high-precision practice",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+COA+Multi-Select+Questions+%28MSQ%29+high-precision+practice+lecture"
+          },
+          {
+            "day": 5,
+            "day_name": "Day 5 (Friday)",
+            "topic": "Sunday: Multi-concept MSQ mastery session",
+            "subject_id": "COA",
+            "chapter_index": 2,
+            "task": "Sunday: Multi-concept MSQ mastery session. Audit error log notebook and revise formula sheets.",
+            "video_title": "Revision & Weekly Assessment: Month -2 Mocks: Full-Length CBT Simulation 3 & 4",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+revision+quiz+Month+-2+Mocks%3A+Full-Length+CBT+Simulation+3+%26+4"
+          },
+          {
+            "day": 6,
+            "day_name": "Day 6 (Saturday)",
+            "topic": "Weekly Practice Drill & PYQ Solving",
+            "subject_id": "COA",
+            "chapter_index": 2,
+            "task": "Solve 25 verified previous year GATE questions on Month -2 Mocks: Full-Length CBT Simulation 3 & 4 under timed conditions.",
+            "video_title": "PYQ Solving Session: Month -2 Mocks: Full-Length CBT Simulation 3 & 4",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+pyq+solutions+Month+-2+Mocks%3A+Full-Length+CBT+Simulation+3+%26+4"
+          },
+          {
+            "day": 7,
+            "day_name": "Day 7 (Sunday)",
+            "topic": "Sunday: Multi-concept MSQ mastery session",
+            "subject_id": "COA",
+            "chapter_index": 2,
+            "task": "Sunday: Multi-concept MSQ mastery session. Audit error log notebook and revise formula sheets.",
+            "video_title": "Revision & Weekly Assessment: Month -2 Mocks: Full-Length CBT Simulation 3 & 4",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+revision+quiz+Month+-2+Mocks%3A+Full-Length+CBT+Simulation+3+%26+4"
+          }
+        ]
       },
       {
         "week": 23,
@@ -2768,7 +5069,79 @@
           "Cross-subject mixed revision (Engg Math + Algorithms + OS)"
         ],
         "targets": "Zero negative marks in 1-mark questions, NAT numerical precision check",
-        "buffer_day": "Sunday: High-yield formula sheet review"
+        "buffer_day": "Sunday: High-yield formula sheet review",
+        "daily_plan": [
+          {
+            "day": 1,
+            "day_name": "Day 1 (Monday)",
+            "topic": "Full-Length Mock Test 5",
+            "subject_id": "ALGO",
+            "chapter_index": 2,
+            "task": "Study theory notes on Full-Length Mock Test 5. Solve 12-15 practice problems and note down any errors.",
+            "video_title": "Lecture: Full-Length Mock Test 5",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+ALGO+Full-Length+Mock+Test+5+lecture"
+          },
+          {
+            "day": 2,
+            "day_name": "Day 2 (Tuesday)",
+            "topic": "Speed Tuning for Numerical Answer Type (NAT) Questions",
+            "subject_id": "ALGO",
+            "chapter_index": 2,
+            "task": "Study theory notes on Speed Tuning for Numerical Answer Type (NAT) Questions. Solve 12-15 practice problems and note down any errors.",
+            "video_title": "Lecture: Speed Tuning for Numerical Answer Type (NAT) Questions",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+ALGO+Speed+Tuning+for+Numerical+Answer+Type+%28NAT%29+Questions+lecture"
+          },
+          {
+            "day": 3,
+            "day_name": "Day 3 (Wednesday)",
+            "topic": "Full-Length Mock Test 6",
+            "subject_id": "ALGO",
+            "chapter_index": 2,
+            "task": "Study theory notes on Full-Length Mock Test 6. Solve 12-15 practice problems and note down any errors.",
+            "video_title": "Lecture: Full-Length Mock Test 6",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+ALGO+Full-Length+Mock+Test+6+lecture"
+          },
+          {
+            "day": 4,
+            "day_name": "Day 4 (Thursday)",
+            "topic": "Cross-subject mixed revision (Engg Math + Algorithms + OS)",
+            "subject_id": "ALGO",
+            "chapter_index": 2,
+            "task": "Study theory notes on Cross-subject mixed revision (Engg Math + Algorithms + OS). Solve 12-15 practice problems and note down any errors.",
+            "video_title": "Lecture: Cross-subject mixed revision (Engg Math + Algorithms + OS)",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+ALGO+Cross-subject+mixed+revision+%28Engg+Math+%2B+Algorithms+%2B+OS%29+lecture"
+          },
+          {
+            "day": 5,
+            "day_name": "Day 5 (Friday)",
+            "topic": "Sunday: High-yield formula sheet review",
+            "subject_id": "ALGO",
+            "chapter_index": 2,
+            "task": "Sunday: High-yield formula sheet review. Audit error log notebook and revise formula sheets.",
+            "video_title": "Revision & Weekly Assessment: Month -2 Mocks: Full-Length CBT Simulation 5 & 6",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+revision+quiz+Month+-2+Mocks%3A+Full-Length+CBT+Simulation+5+%26+6"
+          },
+          {
+            "day": 6,
+            "day_name": "Day 6 (Saturday)",
+            "topic": "Weekly Practice Drill & PYQ Solving",
+            "subject_id": "ALGO",
+            "chapter_index": 2,
+            "task": "Solve 25 verified previous year GATE questions on Month -2 Mocks: Full-Length CBT Simulation 5 & 6 under timed conditions.",
+            "video_title": "PYQ Solving Session: Month -2 Mocks: Full-Length CBT Simulation 5 & 6",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+pyq+solutions+Month+-2+Mocks%3A+Full-Length+CBT+Simulation+5+%26+6"
+          },
+          {
+            "day": 7,
+            "day_name": "Day 7 (Sunday)",
+            "topic": "Sunday: High-yield formula sheet review",
+            "subject_id": "ALGO",
+            "chapter_index": 2,
+            "task": "Sunday: High-yield formula sheet review. Audit error log notebook and revise formula sheets.",
+            "video_title": "Revision & Weekly Assessment: Month -2 Mocks: Full-Length CBT Simulation 5 & 6",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+revision+quiz+Month+-2+Mocks%3A+Full-Length+CBT+Simulation+5+%26+6"
+          }
+        ]
       },
       {
         "week": 24,
@@ -2784,7 +5157,79 @@
           "Mistake notebook consolidation"
         ],
         "targets": "Consolidate 8 completed full-length tests into one master weak-point sheet",
-        "buffer_day": "Sunday: Rest, mental recharge, and strategy review"
+        "buffer_day": "Sunday: Rest, mental recharge, and strategy review",
+        "daily_plan": [
+          {
+            "day": 1,
+            "day_name": "Day 1 (Monday)",
+            "topic": "Full-Length Mock Test 7",
+            "subject_id": "OS",
+            "chapter_index": 1,
+            "task": "Study theory notes on Full-Length Mock Test 7. Solve 12-15 practice problems and note down any errors.",
+            "video_title": "Lecture: Full-Length Mock Test 7",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+OS+Full-Length+Mock+Test+7+lecture"
+          },
+          {
+            "day": 2,
+            "day_name": "Day 2 (Tuesday)",
+            "topic": "Full-Length Mock Test 8",
+            "subject_id": "OS",
+            "chapter_index": 1,
+            "task": "Study theory notes on Full-Length Mock Test 8. Solve 12-15 practice problems and note down any errors.",
+            "video_title": "Lecture: Full-Length Mock Test 8",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+OS+Full-Length+Mock+Test+8+lecture"
+          },
+          {
+            "day": 3,
+            "day_name": "Day 3 (Wednesday)",
+            "topic": "Comprehensive performance trajectory audit (Targeting consistent 70+ marks)",
+            "subject_id": "OS",
+            "chapter_index": 1,
+            "task": "Study theory notes on Comprehensive performance trajectory audit (Targeting consistent 70+ marks). Solve 12-15 practice problems and note down any errors.",
+            "video_title": "Lecture: Comprehensive performance trajectory audit (Targeting consistent 70+ marks)",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+OS+Comprehensive+performance+trajectory+audit+%28Targeting+consistent+70%2B+marks%29+lecture"
+          },
+          {
+            "day": 4,
+            "day_name": "Day 4 (Thursday)",
+            "topic": "Mistake notebook consolidation",
+            "subject_id": "OS",
+            "chapter_index": 1,
+            "task": "Study theory notes on Mistake notebook consolidation. Solve 12-15 practice problems and note down any errors.",
+            "video_title": "Lecture: Mistake notebook consolidation",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+OS+Mistake+notebook+consolidation+lecture"
+          },
+          {
+            "day": 5,
+            "day_name": "Day 5 (Friday)",
+            "topic": "Sunday: Rest, mental recharge, and strategy review",
+            "subject_id": "OS",
+            "chapter_index": 1,
+            "task": "Sunday: Rest, mental recharge, and strategy review. Audit error log notebook and revise formula sheets.",
+            "video_title": "Revision & Weekly Assessment: Month -2 Mocks: Full-Length CBT Simulation 7 & 8",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+revision+quiz+Month+-2+Mocks%3A+Full-Length+CBT+Simulation+7+%26+8"
+          },
+          {
+            "day": 6,
+            "day_name": "Day 6 (Saturday)",
+            "topic": "Weekly Practice Drill & PYQ Solving",
+            "subject_id": "OS",
+            "chapter_index": 1,
+            "task": "Solve 25 verified previous year GATE questions on Month -2 Mocks: Full-Length CBT Simulation 7 & 8 under timed conditions.",
+            "video_title": "PYQ Solving Session: Month -2 Mocks: Full-Length CBT Simulation 7 & 8",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+pyq+solutions+Month+-2+Mocks%3A+Full-Length+CBT+Simulation+7+%26+8"
+          },
+          {
+            "day": 7,
+            "day_name": "Day 7 (Sunday)",
+            "topic": "Sunday: Rest, mental recharge, and strategy review",
+            "subject_id": "OS",
+            "chapter_index": 1,
+            "task": "Sunday: Rest, mental recharge, and strategy review. Audit error log notebook and revise formula sheets.",
+            "video_title": "Revision & Weekly Assessment: Month -2 Mocks: Full-Length CBT Simulation 7 & 8",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+revision+quiz+Month+-2+Mocks%3A+Full-Length+CBT+Simulation+7+%26+8"
+          }
+        ]
       },
       {
         "week": 25,
@@ -2799,7 +5244,79 @@
           "Deep dive into top 25 high-probability GATE concepts (Cache AMAT, Pipeline Hazards, Paging, Normalization, LL/LR parsing, Graph algorithms)"
         ],
         "targets": "Lock in final mock test scoring baseline, review every single error across all 10 mocks",
-        "buffer_day": "Sunday: Final full-length exam retrospective"
+        "buffer_day": "Sunday: Final full-length exam retrospective",
+        "daily_plan": [
+          {
+            "day": 1,
+            "day_name": "Day 1 (Monday)",
+            "topic": "Full-Length Mock Test 9 (Official exam environment)",
+            "subject_id": "EM",
+            "chapter_index": 0,
+            "task": "Study theory notes on Full-Length Mock Test 9 (Official exam environment). Solve 12-15 practice problems and note down any errors.",
+            "video_title": "Lecture: Full-Length Mock Test 9 (Official exam environment)",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+EM+Full-Length+Mock+Test+9+%28Official+exam+environment%29+lecture"
+          },
+          {
+            "day": 2,
+            "day_name": "Day 2 (Tuesday)",
+            "topic": "Full-Length Mock Test 10 (Last full-length mock)",
+            "subject_id": "EM",
+            "chapter_index": 0,
+            "task": "Study theory notes on Full-Length Mock Test 10 (Last full-length mock). Solve 12-15 practice problems and note down any errors.",
+            "video_title": "Lecture: Full-Length Mock Test 10 (Last full-length mock)",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+EM+Full-Length+Mock+Test+10+%28Last+full-length+mock%29+lecture"
+          },
+          {
+            "day": 3,
+            "day_name": "Day 3 (Wednesday)",
+            "topic": "Deep dive into top 25 high-probability GATE concepts (Cache AMAT, Pipeline Hazards, Paging, Normalization, LL/LR parsing, Graph algorithms)",
+            "subject_id": "EM",
+            "chapter_index": 0,
+            "task": "Study theory notes on Deep dive into top 25 high-probability GATE concepts (Cache AMAT, Pipeline Hazards, Paging, Normalization, LL/LR parsing, Graph algorithms). Solve 12-15 practice problems and note down any errors.",
+            "video_title": "Lecture: Deep dive into top 25 high-probability GATE concepts (Cache AMAT, Pipeline Hazards, Paging, Normalization, LL/LR parsing, Graph algorithms)",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+EM+Deep+dive+into+top+25+high-probability+GATE+concepts+%28Cache+AMAT%2C+Pipeline+Hazards%2C+Paging%2C+Normalization%2C+LL%2FLR+parsing%2C+Graph+algorithms%29+lecture"
+          },
+          {
+            "day": 4,
+            "day_name": "Day 4 (Thursday)",
+            "topic": "Sunday: Final full-length exam retrospective",
+            "subject_id": "EM",
+            "chapter_index": 0,
+            "task": "Sunday: Final full-length exam retrospective. Audit error log notebook and revise formula sheets.",
+            "video_title": "Revision & Weekly Assessment: Month -1 Final Sprint: CBT Mock 9 & 10 + High-Yield Concepts",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+revision+quiz+Month+-1+Final+Sprint%3A+CBT+Mock+9+%26+10+%2B+High-Yield+Concepts"
+          },
+          {
+            "day": 5,
+            "day_name": "Day 5 (Friday)",
+            "topic": "Sunday: Final full-length exam retrospective",
+            "subject_id": "EM",
+            "chapter_index": 0,
+            "task": "Sunday: Final full-length exam retrospective. Audit error log notebook and revise formula sheets.",
+            "video_title": "Revision & Weekly Assessment: Month -1 Final Sprint: CBT Mock 9 & 10 + High-Yield Concepts",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+revision+quiz+Month+-1+Final+Sprint%3A+CBT+Mock+9+%26+10+%2B+High-Yield+Concepts"
+          },
+          {
+            "day": 6,
+            "day_name": "Day 6 (Saturday)",
+            "topic": "Weekly Practice Drill & PYQ Solving",
+            "subject_id": "EM",
+            "chapter_index": 0,
+            "task": "Solve 25 verified previous year GATE questions on Month -1 Final Sprint: CBT Mock 9 & 10 + High-Yield Concepts under timed conditions.",
+            "video_title": "PYQ Solving Session: Month -1 Final Sprint: CBT Mock 9 & 10 + High-Yield Concepts",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+pyq+solutions+Month+-1+Final+Sprint%3A+CBT+Mock+9+%26+10+%2B+High-Yield+Concepts"
+          },
+          {
+            "day": 7,
+            "day_name": "Day 7 (Sunday)",
+            "topic": "Sunday: Final full-length exam retrospective",
+            "subject_id": "EM",
+            "chapter_index": 0,
+            "task": "Sunday: Final full-length exam retrospective. Audit error log notebook and revise formula sheets.",
+            "video_title": "Revision & Weekly Assessment: Month -1 Final Sprint: CBT Mock 9 & 10 + High-Yield Concepts",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+revision+quiz+Month+-1+Final+Sprint%3A+CBT+Mock+9+%26+10+%2B+High-Yield+Concepts"
+          }
+        ]
       },
       {
         "week": 26,
@@ -2814,7 +5331,79 @@
           "Zero-calculation conceptual sanity checks"
         ],
         "targets": "Memorize and reproduce all essential formulas on blank paper within 90 minutes",
-        "buffer_day": "Sunday: 60-Minute rapid-fire formula quiz"
+        "buffer_day": "Sunday: 60-Minute rapid-fire formula quiz",
+        "daily_plan": [
+          {
+            "day": 1,
+            "day_name": "Day 1 (Monday)",
+            "topic": "Master Formula Sheet & Cheat Sheet rapid drills",
+            "subject_id": "COA",
+            "chapter_index": 2,
+            "task": "Study theory notes on Master Formula Sheet & Cheat Sheet rapid drills. Solve 12-15 practice problems and note down any errors.",
+            "video_title": "Lecture: Master Formula Sheet & Cheat Sheet rapid drills",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+COA+Master+Formula+Sheet+%26+Cheat+Sheet+rapid+drills+lecture"
+          },
+          {
+            "day": 2,
+            "day_name": "Day 2 (Tuesday)",
+            "topic": "Handshaking lemma, Planar graphs, Eigenvalues, Paging formulas, AMAT equations, Minimum frame size",
+            "subject_id": "COA",
+            "chapter_index": 2,
+            "task": "Study theory notes on Handshaking lemma, Planar graphs, Eigenvalues, Paging formulas, AMAT equations, Minimum frame size. Solve 12-15 practice problems and note down any errors.",
+            "video_title": "Lecture: Handshaking lemma, Planar graphs, Eigenvalues, Paging formulas, AMAT equations, Minimum frame size",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+COA+Handshaking+lemma%2C+Planar+graphs%2C+Eigenvalues%2C+Paging+formulas%2C+AMAT+equations%2C+Minimum+frame+size+lecture"
+          },
+          {
+            "day": 3,
+            "day_name": "Day 3 (Wednesday)",
+            "topic": "Zero-calculation conceptual sanity checks",
+            "subject_id": "COA",
+            "chapter_index": 2,
+            "task": "Study theory notes on Zero-calculation conceptual sanity checks. Solve 12-15 practice problems and note down any errors.",
+            "video_title": "Lecture: Zero-calculation conceptual sanity checks",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+COA+Zero-calculation+conceptual+sanity+checks+lecture"
+          },
+          {
+            "day": 4,
+            "day_name": "Day 4 (Thursday)",
+            "topic": "Sunday: 60-Minute rapid-fire formula quiz",
+            "subject_id": "COA",
+            "chapter_index": 2,
+            "task": "Sunday: 60-Minute rapid-fire formula quiz. Audit error log notebook and revise formula sheets.",
+            "video_title": "Revision & Weekly Assessment: Month -1 Final Sprint: Master Formula Sheet Drills",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+revision+quiz+Month+-1+Final+Sprint%3A+Master+Formula+Sheet+Drills"
+          },
+          {
+            "day": 5,
+            "day_name": "Day 5 (Friday)",
+            "topic": "Sunday: 60-Minute rapid-fire formula quiz",
+            "subject_id": "COA",
+            "chapter_index": 2,
+            "task": "Sunday: 60-Minute rapid-fire formula quiz. Audit error log notebook and revise formula sheets.",
+            "video_title": "Revision & Weekly Assessment: Month -1 Final Sprint: Master Formula Sheet Drills",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+revision+quiz+Month+-1+Final+Sprint%3A+Master+Formula+Sheet+Drills"
+          },
+          {
+            "day": 6,
+            "day_name": "Day 6 (Saturday)",
+            "topic": "Weekly Practice Drill & PYQ Solving",
+            "subject_id": "COA",
+            "chapter_index": 2,
+            "task": "Solve 25 verified previous year GATE questions on Month -1 Final Sprint: Master Formula Sheet Drills under timed conditions.",
+            "video_title": "PYQ Solving Session: Month -1 Final Sprint: Master Formula Sheet Drills",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+pyq+solutions+Month+-1+Final+Sprint%3A+Master+Formula+Sheet+Drills"
+          },
+          {
+            "day": 7,
+            "day_name": "Day 7 (Sunday)",
+            "topic": "Sunday: 60-Minute rapid-fire formula quiz",
+            "subject_id": "COA",
+            "chapter_index": 2,
+            "task": "Sunday: 60-Minute rapid-fire formula quiz. Audit error log notebook and revise formula sheets.",
+            "video_title": "Revision & Weekly Assessment: Month -1 Final Sprint: Master Formula Sheet Drills",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+revision+quiz+Month+-1+Final+Sprint%3A+Master+Formula+Sheet+Drills"
+          }
+        ]
       },
       {
         "week": 27,
@@ -2829,7 +5418,79 @@
           "Identify latest examination style nuances, tricky MSQs, and trap NATs"
         ],
         "targets": "Achieve 75+ in recent actual exam papers to build peak exam-day confidence",
-        "buffer_day": "Sunday: Error log final clearance"
+        "buffer_day": "Sunday: Error log final clearance",
+        "daily_plan": [
+          {
+            "day": 1,
+            "day_name": "Day 1 (Monday)",
+            "topic": "Solve official GATE 2026 CS paper in one sitting",
+            "subject_id": "PDS",
+            "chapter_index": 0,
+            "task": "Study theory notes on Solve official GATE 2026 CS paper in one sitting. Solve 12-15 practice problems and note down any errors.",
+            "video_title": "Lecture: Solve official GATE 2026 CS paper in one sitting",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+PDS+Solve+official+GATE+2026+CS+paper+in+one+sitting+lecture"
+          },
+          {
+            "day": 2,
+            "day_name": "Day 2 (Tuesday)",
+            "topic": "Solve official GATE 2025 & 2024 CS papers",
+            "subject_id": "PDS",
+            "chapter_index": 0,
+            "task": "Study theory notes on Solve official GATE 2025 & 2024 CS papers. Solve 12-15 practice problems and note down any errors.",
+            "video_title": "Lecture: Solve official GATE 2025 & 2024 CS papers",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+PDS+Solve+official+GATE+2025+%26+2024+CS+papers+lecture"
+          },
+          {
+            "day": 3,
+            "day_name": "Day 3 (Wednesday)",
+            "topic": "Identify latest examination style nuances, tricky MSQs, and trap NATs",
+            "subject_id": "PDS",
+            "chapter_index": 0,
+            "task": "Study theory notes on Identify latest examination style nuances, tricky MSQs, and trap NATs. Solve 12-15 practice problems and note down any errors.",
+            "video_title": "Lecture: Identify latest examination style nuances, tricky MSQs, and trap NATs",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+PDS+Identify+latest+examination+style+nuances%2C+tricky+MSQs%2C+and+trap+NATs+lecture"
+          },
+          {
+            "day": 4,
+            "day_name": "Day 4 (Thursday)",
+            "topic": "Sunday: Error log final clearance",
+            "subject_id": "PDS",
+            "chapter_index": 0,
+            "task": "Sunday: Error log final clearance. Audit error log notebook and revise formula sheets.",
+            "video_title": "Revision & Weekly Assessment: Month -1 Final Sprint: Recent 5-Year PYQs (2022-2026)",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+revision+quiz+Month+-1+Final+Sprint%3A+Recent+5-Year+PYQs+%282022-2026%29"
+          },
+          {
+            "day": 5,
+            "day_name": "Day 5 (Friday)",
+            "topic": "Sunday: Error log final clearance",
+            "subject_id": "PDS",
+            "chapter_index": 0,
+            "task": "Sunday: Error log final clearance. Audit error log notebook and revise formula sheets.",
+            "video_title": "Revision & Weekly Assessment: Month -1 Final Sprint: Recent 5-Year PYQs (2022-2026)",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+revision+quiz+Month+-1+Final+Sprint%3A+Recent+5-Year+PYQs+%282022-2026%29"
+          },
+          {
+            "day": 6,
+            "day_name": "Day 6 (Saturday)",
+            "topic": "Weekly Practice Drill & PYQ Solving",
+            "subject_id": "PDS",
+            "chapter_index": 0,
+            "task": "Solve 25 verified previous year GATE questions on Month -1 Final Sprint: Recent 5-Year PYQs (2022-2026) under timed conditions.",
+            "video_title": "PYQ Solving Session: Month -1 Final Sprint: Recent 5-Year PYQs (2022-2026)",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+pyq+solutions+Month+-1+Final+Sprint%3A+Recent+5-Year+PYQs+%282022-2026%29"
+          },
+          {
+            "day": 7,
+            "day_name": "Day 7 (Sunday)",
+            "topic": "Sunday: Error log final clearance",
+            "subject_id": "PDS",
+            "chapter_index": 0,
+            "task": "Sunday: Error log final clearance. Audit error log notebook and revise formula sheets.",
+            "video_title": "Revision & Weekly Assessment: Month -1 Final Sprint: Recent 5-Year PYQs (2022-2026)",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+revision+quiz+Month+-1+Final+Sprint%3A+Recent+5-Year+PYQs+%282022-2026%29"
+          }
+        ]
       },
       {
         "week": 28,
@@ -2844,7 +5505,79 @@
           "Zero new learning: Only revision of proven strengths and high-yield anchors"
         ],
         "targets": "Achieve complete peace of mind with 100% preparation, 10 mocks, and 14 years of PYQs completed",
-        "buffer_day": "Sunday: Light review and transition to Exam Week"
+        "buffer_day": "Sunday: Light review and transition to Exam Week",
+        "daily_plan": [
+          {
+            "day": 1,
+            "day_name": "Day 1 (Monday)",
+            "topic": "30-Day sprint protocol execution",
+            "subject_id": "OS",
+            "chapter_index": 2,
+            "task": "Study theory notes on 30-Day sprint protocol execution. Solve 12-15 practice problems and note down any errors.",
+            "video_title": "Lecture: 30-Day sprint protocol execution",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+OS+30-Day+sprint+protocol+execution+lecture"
+          },
+          {
+            "day": 2,
+            "day_name": "Day 2 (Tuesday)",
+            "topic": "Read Quick Revision Notes across all 11 subjects",
+            "subject_id": "OS",
+            "chapter_index": 2,
+            "task": "Study theory notes on Read Quick Revision Notes across all 11 subjects. Solve 12-15 practice problems and note down any errors.",
+            "video_title": "Lecture: Read Quick Revision Notes across all 11 subjects",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+OS+Read+Quick+Revision+Notes+across+all+11+subjects+lecture"
+          },
+          {
+            "day": 3,
+            "day_name": "Day 3 (Wednesday)",
+            "topic": "Zero new learning: Only revision of proven strengths and high-yield anchors",
+            "subject_id": "OS",
+            "chapter_index": 2,
+            "task": "Study theory notes on Zero new learning: Only revision of proven strengths and high-yield anchors. Solve 12-15 practice problems and note down any errors.",
+            "video_title": "Lecture: Zero new learning: Only revision of proven strengths and high-yield anchors",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+OS+Zero+new+learning%3A+Only+revision+of+proven+strengths+and+high-yield+anchors+lecture"
+          },
+          {
+            "day": 4,
+            "day_name": "Day 4 (Thursday)",
+            "topic": "Sunday: Light review and transition to Exam Week",
+            "subject_id": "OS",
+            "chapter_index": 2,
+            "task": "Sunday: Light review and transition to Exam Week. Audit error log notebook and revise formula sheets.",
+            "video_title": "Revision & Weekly Assessment: Month -1 Final Sprint: 30-Day Battle Plan & Weakness Elimination",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+revision+quiz+Month+-1+Final+Sprint%3A+30-Day+Battle+Plan+%26+Weakness+Elimination"
+          },
+          {
+            "day": 5,
+            "day_name": "Day 5 (Friday)",
+            "topic": "Sunday: Light review and transition to Exam Week",
+            "subject_id": "OS",
+            "chapter_index": 2,
+            "task": "Sunday: Light review and transition to Exam Week. Audit error log notebook and revise formula sheets.",
+            "video_title": "Revision & Weekly Assessment: Month -1 Final Sprint: 30-Day Battle Plan & Weakness Elimination",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+revision+quiz+Month+-1+Final+Sprint%3A+30-Day+Battle+Plan+%26+Weakness+Elimination"
+          },
+          {
+            "day": 6,
+            "day_name": "Day 6 (Saturday)",
+            "topic": "Weekly Practice Drill & PYQ Solving",
+            "subject_id": "OS",
+            "chapter_index": 2,
+            "task": "Solve 25 verified previous year GATE questions on Month -1 Final Sprint: 30-Day Battle Plan & Weakness Elimination under timed conditions.",
+            "video_title": "PYQ Solving Session: Month -1 Final Sprint: 30-Day Battle Plan & Weakness Elimination",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+pyq+solutions+Month+-1+Final+Sprint%3A+30-Day+Battle+Plan+%26+Weakness+Elimination"
+          },
+          {
+            "day": 7,
+            "day_name": "Day 7 (Sunday)",
+            "topic": "Sunday: Light review and transition to Exam Week",
+            "subject_id": "OS",
+            "chapter_index": 2,
+            "task": "Sunday: Light review and transition to Exam Week. Audit error log notebook and revise formula sheets.",
+            "video_title": "Revision & Weekly Assessment: Month -1 Final Sprint: 30-Day Battle Plan & Weakness Elimination",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+revision+quiz+Month+-1+Final+Sprint%3A+30-Day+Battle+Plan+%26+Weakness+Elimination"
+          }
+        ]
       },
       {
         "week": 29,
@@ -2860,7 +5593,79 @@
           "Positive mindset calibration and stress reduction"
         ],
         "targets": "Review 1-page cheat sheets, sleep 8+ hours nightly, arrive at test center with absolute clarity",
-        "buffer_day": "February 6, 2027: GATE 2027 Examination Day \u2014 Peak Performance!"
+        "buffer_day": "February 6, 2027: GATE 2027 Examination Day \u2014 Peak Performance!",
+        "daily_plan": [
+          {
+            "day": 1,
+            "day_name": "Day 1 (Monday)",
+            "topic": "Final-week and last-day revision pack review",
+            "subject_id": "EM",
+            "chapter_index": 0,
+            "task": "Study theory notes on Final-week and last-day revision pack review. Solve 12-15 practice problems and note down any errors.",
+            "video_title": "Lecture: Final-week and last-day revision pack review",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+EM+Final-week+and+last-day+revision+pack+review+lecture"
+          },
+          {
+            "day": 2,
+            "day_name": "Day 2 (Tuesday)",
+            "topic": "Admit card, photo ID, station verification",
+            "subject_id": "EM",
+            "chapter_index": 0,
+            "task": "Study theory notes on Admit card, photo ID, station verification. Solve 12-15 practice problems and note down any errors.",
+            "video_title": "Lecture: Admit card, photo ID, station verification",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+EM+Admit+card%2C+photo+ID%2C+station+verification+lecture"
+          },
+          {
+            "day": 3,
+            "day_name": "Day 3 (Wednesday)",
+            "topic": "Circadian rhythm synchronization: Match wake-up and peak mental alertness to GATE exam shift time",
+            "subject_id": "EM",
+            "chapter_index": 0,
+            "task": "Study theory notes on Circadian rhythm synchronization: Match wake-up and peak mental alertness to GATE exam shift time. Solve 12-15 practice problems and note down any errors.",
+            "video_title": "Lecture: Circadian rhythm synchronization: Match wake-up and peak mental alertness to GATE exam shift time",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+EM+Circadian+rhythm+synchronization%3A+Match+wake-up+and+peak+mental+alertness+to+GATE+exam+shift+time+lecture"
+          },
+          {
+            "day": 4,
+            "day_name": "Day 4 (Thursday)",
+            "topic": "Positive mindset calibration and stress reduction",
+            "subject_id": "EM",
+            "chapter_index": 0,
+            "task": "Study theory notes on Positive mindset calibration and stress reduction. Solve 12-15 practice problems and note down any errors.",
+            "video_title": "Lecture: Positive mindset calibration and stress reduction",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+EM+Positive+mindset+calibration+and+stress+reduction+lecture"
+          },
+          {
+            "day": 5,
+            "day_name": "Day 5 (Friday)",
+            "topic": "February 6, 2027: GATE 2027 Examination Day \u2014 Peak Performance!",
+            "subject_id": "EM",
+            "chapter_index": 0,
+            "task": "February 6, 2027: GATE 2027 Examination Day \u2014 Peak Performance!. Audit error log notebook and revise formula sheets.",
+            "video_title": "Revision & Weekly Assessment: Exam Week: Final-Week and Last-Day Revision Pack",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+revision+quiz+Exam+Week%3A+Final-Week+and+Last-Day+Revision+Pack"
+          },
+          {
+            "day": 6,
+            "day_name": "Day 6 (Saturday)",
+            "topic": "Weekly Practice Drill & PYQ Solving",
+            "subject_id": "EM",
+            "chapter_index": 0,
+            "task": "Solve 25 verified previous year GATE questions on Exam Week: Final-Week and Last-Day Revision Pack under timed conditions.",
+            "video_title": "PYQ Solving Session: Exam Week: Final-Week and Last-Day Revision Pack",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+pyq+solutions+Exam+Week%3A+Final-Week+and+Last-Day+Revision+Pack"
+          },
+          {
+            "day": 7,
+            "day_name": "Day 7 (Sunday)",
+            "topic": "February 6, 2027: GATE 2027 Examination Day \u2014 Peak Performance!",
+            "subject_id": "EM",
+            "chapter_index": 0,
+            "task": "February 6, 2027: GATE 2027 Examination Day \u2014 Peak Performance!. Audit error log notebook and revise formula sheets.",
+            "video_title": "Revision & Weekly Assessment: Exam Week: Final-Week and Last-Day Revision Pack",
+            "video_url": "https://www.youtube.com/results?search_query=gate+cse+revision+quiz+Exam+Week%3A+Final-Week+and+Last-Day+Revision+Pack"
+          }
+        ]
       }
     ]
   },

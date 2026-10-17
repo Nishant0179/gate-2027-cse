@@ -35,11 +35,29 @@ def main():
     subjects_data = []
     all_practice_questions = []
 
+    import chapter_resources_data as cr_mod
+
     for sub in ALL_SUBJECTS:
         meta = sub.SUBJECT_META
         chapters = sub.CHAPTERS
         questions = sub.PRACTICE_QUESTIONS
         all_practice_questions.extend(questions)
+
+        sub_id = meta["id"]
+        res_list = cr_mod.CHAPTER_RESOURCES.get(sub_id, [])
+
+        enriched_chapters = []
+        for idx, chap in enumerate(chapters):
+            chap_copy = dict(chap)
+            if idx < len(res_list):
+                chap_copy["video_resources"] = res_list[idx].get("videos", [])
+                chap_copy["solved_examples"] = res_list[idx].get("solved_examples", [])
+            else:
+                chap_copy["video_resources"] = [
+                    {"title": f"GATE Lecture: {chap['title']}", "channel": "Gate Smashers", "url": cr_mod.yt_link(f"gate cse {meta['name']} {chap['title']}")}
+                ]
+                chap_copy["solved_examples"] = []
+            enriched_chapters.append(chap_copy)
 
         subjects_data.append({
             "id": meta["id"],
@@ -47,7 +65,7 @@ def main():
             "folder": meta["folder"],
             "weightage": meta["weightage"],
             "topics": meta["topics"],
-            "chapters": chapters,
+            "chapters": enriched_chapters,
             "questionCount": len(questions)
         })
 

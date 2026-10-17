@@ -225,7 +225,40 @@ def get_custom_stylesheet():
         spaceAfter=4
     ))
 
+    styles.add(ParagraphStyle(
+        name='SectionSubhead',
+        fontName='Helvetica-Oblique',
+        fontSize=9,
+        leading=13,
+        textColor=HexColor("#475569"),
+        spaceBefore=1,
+        spaceAfter=6,
+        keepWithNext=True
+    ))
+
     return styles
+
+def create_real_life_box(title, text, styles=None):
+    if styles is None:
+        styles = get_custom_stylesheet()
+
+    content = [
+        Paragraph(f"<b>{title}</b>", styles['BodyBold']),
+        Spacer(1, 3),
+        Paragraph(text, styles['BodyCustom'])
+    ]
+
+    t = Table([[content]], colWidths=[487])
+    t.setStyle(TableStyle([
+        ('BACKGROUND', (0,0), (-1,-1), HexColor("#FFFBEB")),
+        ('BOX', (0,0), (-1,-1), 1, HexColor("#F59E0B")),
+        ('LINEBEFORE', (0,0), (-1,-1), 4, HexColor("#D97706")),
+        ('LEFTPADDING', (0,0), (-1,-1), 12),
+        ('RIGHTPADDING', (0,0), (-1,-1), 10),
+        ('TOPPADDING', (0,0), (-1,-1), 7),
+        ('BOTTOMPADDING', (0,0), (-1,-1), 7),
+    ]))
+    return t
 
 def create_callout(title, text, callout_type="note", styles=None):
     if styles is None:
@@ -283,3 +316,4 @@ def create_code_block(code_text, styles=None):
         ('BOTTOMPADDING', (0,0), (-1,-1), 6),
     ]))
     return t
+

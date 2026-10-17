@@ -9,9 +9,9 @@
       "Calculus: Limits, Continuity, Differentiability, Maxima/Minima, Mean Value Theorem, Integration",
       "Probability and Statistics: Random Variables, Distributions, Bayes Theorem, Central Tendency"
     ],
-    "page_count": 5,
+    "page_count": 11,
     "file_path": "01_Engineering_Mathematics\\Subject_Complete_Notes.pdf",
-    "file_size_bytes": 14341,
+    "file_size_bytes": 35059,
     "generation_status": "Completed",
     "validation_status": "Valid",
     "category": "Complete Notes"
@@ -23,9 +23,9 @@
     "topics_covered": [
       "Discrete Mathematics - Mathematical Logic & Set Theory"
     ],
-    "page_count": 2,
+    "page_count": 4,
     "file_path": "01_Engineering_Mathematics\\Topic_01_Notes.pdf",
-    "file_size_bytes": 5899,
+    "file_size_bytes": 12428,
     "generation_status": "Completed",
     "validation_status": "Valid",
     "category": "Topic Notes"
@@ -37,9 +37,37 @@
     "topics_covered": [
       "Discrete Mathematics - Graph Theory & Combinatorics"
     ],
-    "page_count": 2,
+    "page_count": 4,
     "file_path": "01_Engineering_Mathematics\\Topic_02_Notes.pdf",
-    "file_size_bytes": 6209,
+    "file_size_bytes": 11703,
+    "generation_status": "Completed",
+    "validation_status": "Valid",
+    "category": "Topic Notes"
+  },
+  {
+    "pdf_id": "EM_TOPIC_03",
+    "title": "Engineering Mathematics - Linear Algebra - Systems, Eigenvalues & LU Decomposition",
+    "subject": "Engineering Mathematics",
+    "topics_covered": [
+      "Linear Algebra - Systems, Eigenvalues & LU Decomposition"
+    ],
+    "page_count": 4,
+    "file_path": "01_Engineering_Mathematics\\Topic_03_Notes.pdf",
+    "file_size_bytes": 10911,
+    "generation_status": "Completed",
+    "validation_status": "Valid",
+    "category": "Topic Notes"
+  },
+  {
+    "pdf_id": "EM_TOPIC_04",
+    "title": "Engineering Mathematics - Calculus & Probability - Distributions and Bayes Theorem",
+    "subject": "Engineering Mathematics",
+    "topics_covered": [
+      "Calculus & Probability - Distributions and Bayes Theorem"
+    ],
+    "page_count": 3,
+    "file_path": "01_Engineering_Mathematics\\Topic_04_Notes.pdf",
+    "file_size_bytes": 9787,
     "generation_status": "Completed",
     "validation_status": "Valid",
     "category": "Topic Notes"
@@ -146,9 +174,9 @@
       "Design of sequential circuits: Latches, Flip-Flops, Registers, Counters, State Diagrams",
       "Number representation and arithmetic: Fixed point, Signed representations, Floating point (IEEE 754)"
     ],
-    "page_count": 4,
+    "page_count": 10,
     "file_path": "02_Digital_Logic\\Subject_Complete_Notes.pdf",
-    "file_size_bytes": 12120,
+    "file_size_bytes": 31513,
     "generation_status": "Completed",
     "validation_status": "Valid",
     "category": "Complete Notes"
@@ -160,9 +188,9 @@
     "topics_covered": [
       "Boolean Algebra, K-Maps & Tabular Method (Quine-McCluskey)"
     ],
-    "page_count": 3,
+    "page_count": 4,
     "file_path": "02_Digital_Logic\\Topic_01_Notes.pdf",
-    "file_size_bytes": 6893,
+    "file_size_bytes": 11858,
     "generation_status": "Completed",
     "validation_status": "Valid",
     "category": "Topic Notes"
@@ -174,9 +202,37 @@
     "topics_covered": [
       "Combinational Circuits - MUX, Decoders & Arithmetic Circuits"
     ],
-    "page_count": 2,
+    "page_count": 4,
     "file_path": "02_Digital_Logic\\Topic_02_Notes.pdf",
-    "file_size_bytes": 5194,
+    "file_size_bytes": 10392,
+    "generation_status": "Completed",
+    "validation_status": "Valid",
+    "category": "Topic Notes"
+  },
+  {
+    "pdf_id": "DL_TOPIC_03",
+    "title": "Digital Logic - Sequential Circuits - Flip-Flops, Counters & State Machines",
+    "subject": "Digital Logic",
+    "topics_covered": [
+      "Sequential Circuits - Flip-Flops, Counters & State Machines"
+    ],
+    "page_count": 4,
+    "file_path": "02_Digital_Logic\\Topic_03_Notes.pdf",
+    "file_size_bytes": 10459,
+    "generation_status": "Completed",
+    "validation_status": "Valid",
+    "category": "Topic Notes"
+  },
+  {
+    "pdf_id": "DL_TOPIC_04",
+    "title": "Digital Logic - Number Representation & Floating Point (IEEE 754)",
+    "subject": "Digital Logic",
+    "topics_covered": [
+      "Number Representation & Floating Point (IEEE 754)"
+    ],
+    "page_count": 4,
+    "file_path": "02_Digital_Logic\\Topic_04_Notes.pdf",
+    "file_size_bytes": 10312,
     "generation_status": "Completed",
     "validation_status": "Valid",
     "category": "Topic Notes"
@@ -284,9 +340,9 @@
       "I/O interface: interrupt and DMA mode",
       "Instruction pipelining, pipeline hazards, branch penalty and speedup"
     ],
-    "page_count": 4,
+    "page_count": 9,
     "file_path": "03_Computer_Organization\\Subject_Complete_Notes.pdf",
-    "file_size_bytes": 12582,
+    "file_size_bytes": 29480,
     "generation_status": "Completed",
     "validation_status": "Valid",
     "category": "Complete Notes"
@@ -298,9 +354,9 @@
     "topics_covered": [
       "Machine Instructions & Addressing Modes"
     ],
-    "page_count": 2,
+    "page_count": 4,
     "file_path": "03_Computer_Organization\\Topic_01_Notes.pdf",
-    "file_size_bytes": 5839,
+    "file_size_bytes": 11512,
     "generation_status": "Completed",
     "validation_status": "Valid",
     "category": "Topic Notes"
@@ -312,9 +368,37 @@
     "topics_covered": [
       "ALU, Control Unit & Memory Interfacing"
     ],
-    "page_count": 2,
+    "page_count": 3,
     "file_path": "03_Computer_Organization\\Topic_02_Notes.pdf",
-    "file_size_bytes": 5213,
+    "file_size_bytes": 9091,
+    "generation_status": "Completed",
+    "validation_status": "Valid",
+    "category": "Topic Notes"
+  },
+  {
+    "pdf_id": "COA_TOPIC_03",
+    "title": "Computer Organization and Architecture - Memory Hierarchy, Cache Mapping & AMAT",
+    "subject": "Computer Organization and Architecture",
+    "topics_covered": [
+      "Memory Hierarchy, Cache Mapping & AMAT"
+    ],
+    "page_count": 3,
+    "file_path": "03_Computer_Organization\\Topic_03_Notes.pdf",
+    "file_size_bytes": 9284,
+    "generation_status": "Completed",
+    "validation_status": "Valid",
+    "category": "Topic Notes"
+  },
+  {
+    "pdf_id": "COA_TOPIC_04",
+    "title": "Computer Organization and Architecture - Instruction Pipelining, Hazards & Performance",
+    "subject": "Computer Organization and Architecture",
+    "topics_covered": [
+      "Instruction Pipelining, Hazards & Performance"
+    ],
+    "page_count": 3,
+    "file_path": "03_Computer_Organization\\Topic_04_Notes.pdf",
+    "file_size_bytes": 9424,
     "generation_status": "Completed",
     "validation_status": "Valid",
     "category": "Topic Notes"
@@ -420,9 +504,9 @@
       "Linear data structures: Arrays, address calculation, stacks, queues, linked lists",
       "Non-linear data structures: Trees, binary search trees (BST), binary heaps, graph representations"
     ],
-    "page_count": 4,
+    "page_count": 7,
     "file_path": "04_Programming_Data_Structures\\Subject_Complete_Notes.pdf",
-    "file_size_bytes": 10877,
+    "file_size_bytes": 21703,
     "generation_status": "Completed",
     "validation_status": "Valid",
     "category": "Complete Notes"
@@ -434,9 +518,9 @@
     "topics_covered": [
       "Programming in C & Recursion Tracing"
     ],
-    "page_count": 2,
+    "page_count": 3,
     "file_path": "04_Programming_Data_Structures\\Topic_01_Notes.pdf",
-    "file_size_bytes": 5537,
+    "file_size_bytes": 9276,
     "generation_status": "Completed",
     "validation_status": "Valid",
     "category": "Topic Notes"
@@ -448,9 +532,23 @@
     "topics_covered": [
       "Linear Data Structures - Stacks, Queues & Linked Lists"
     ],
-    "page_count": 2,
+    "page_count": 3,
     "file_path": "04_Programming_Data_Structures\\Topic_02_Notes.pdf",
-    "file_size_bytes": 5443,
+    "file_size_bytes": 8891,
+    "generation_status": "Completed",
+    "validation_status": "Valid",
+    "category": "Topic Notes"
+  },
+  {
+    "pdf_id": "PDS_TOPIC_03",
+    "title": "Programming and Data Structures - Trees, BST & Binary Heaps",
+    "subject": "Programming and Data Structures",
+    "topics_covered": [
+      "Trees, BST & Binary Heaps"
+    ],
+    "page_count": 3,
+    "file_path": "04_Programming_Data_Structures\\Topic_03_Notes.pdf",
+    "file_size_bytes": 9279,
     "generation_status": "Completed",
     "validation_status": "Valid",
     "category": "Topic Notes"
@@ -557,9 +655,9 @@
       "Algorithm design techniques: Greedy algorithms, dynamic programming, divide-and-conquer",
       "Graph traversals, minimum spanning trees (Prim, Kruskal), shortest paths (Dijkstra, Bellman-Ford, Floyd-Warshall)"
     ],
-    "page_count": 4,
+    "page_count": 9,
     "file_path": "05_Algorithms\\Subject_Complete_Notes.pdf",
-    "file_size_bytes": 12570,
+    "file_size_bytes": 29666,
     "generation_status": "Completed",
     "validation_status": "Valid",
     "category": "Complete Notes"
@@ -571,9 +669,9 @@
     "topics_covered": [
       "Asymptotic Analysis & Recurrence Relations"
     ],
-    "page_count": 2,
+    "page_count": 3,
     "file_path": "05_Algorithms\\Topic_01_Notes.pdf",
-    "file_size_bytes": 5145,
+    "file_size_bytes": 8970,
     "generation_status": "Completed",
     "validation_status": "Valid",
     "category": "Topic Notes"
@@ -585,9 +683,37 @@
     "topics_covered": [
       "Sorting, Searching & Hashing"
     ],
-    "page_count": 2,
+    "page_count": 3,
     "file_path": "05_Algorithms\\Topic_02_Notes.pdf",
-    "file_size_bytes": 6181,
+    "file_size_bytes": 9862,
+    "generation_status": "Completed",
+    "validation_status": "Valid",
+    "category": "Topic Notes"
+  },
+  {
+    "pdf_id": "ALGO_TOPIC_03",
+    "title": "Algorithms - Design Techniques - Greedy & Dynamic Programming",
+    "subject": "Algorithms",
+    "topics_covered": [
+      "Design Techniques - Greedy & Dynamic Programming"
+    ],
+    "page_count": 3,
+    "file_path": "05_Algorithms\\Topic_03_Notes.pdf",
+    "file_size_bytes": 9380,
+    "generation_status": "Completed",
+    "validation_status": "Valid",
+    "category": "Topic Notes"
+  },
+  {
+    "pdf_id": "ALGO_TOPIC_04",
+    "title": "Algorithms - Graph Algorithms - Traversals, MST & Shortest Paths",
+    "subject": "Algorithms",
+    "topics_covered": [
+      "Graph Algorithms - Traversals, MST & Shortest Paths"
+    ],
+    "page_count": 4,
+    "file_path": "05_Algorithms\\Topic_04_Notes.pdf",
+    "file_size_bytes": 10857,
     "generation_status": "Completed",
     "validation_status": "Valid",
     "category": "Topic Notes"
@@ -694,9 +820,9 @@
       "Regular and context-free languages, pumping lemma for regular and CFLs",
       "Turing machines and undecidability: Halting problem, Rice's theorem, Chomsky hierarchy"
     ],
-    "page_count": 4,
+    "page_count": 8,
     "file_path": "06_Theory_of_Computation\\Subject_Complete_Notes.pdf",
-    "file_size_bytes": 11887,
+    "file_size_bytes": 25377,
     "generation_status": "Completed",
     "validation_status": "Valid",
     "category": "Complete Notes"
@@ -708,9 +834,9 @@
     "topics_covered": [
       "Finite Automata, Regular Expressions & Minimization"
     ],
-    "page_count": 2,
+    "page_count": 4,
     "file_path": "06_Theory_of_Computation\\Topic_01_Notes.pdf",
-    "file_size_bytes": 5375,
+    "file_size_bytes": 10955,
     "generation_status": "Completed",
     "validation_status": "Valid",
     "category": "Topic Notes"
@@ -722,9 +848,23 @@
     "topics_covered": [
       "Grammars, Pushdown Automata & Pumping Lemma"
     ],
-    "page_count": 2,
+    "page_count": 4,
     "file_path": "06_Theory_of_Computation\\Topic_02_Notes.pdf",
-    "file_size_bytes": 6215,
+    "file_size_bytes": 11062,
+    "generation_status": "Completed",
+    "validation_status": "Valid",
+    "category": "Topic Notes"
+  },
+  {
+    "pdf_id": "TOC_TOPIC_03",
+    "title": "Theory of Computation - Turing Machines, Chomsky Hierarchy & Undecidability",
+    "subject": "Theory of Computation",
+    "topics_covered": [
+      "Turing Machines, Chomsky Hierarchy & Undecidability"
+    ],
+    "page_count": 4,
+    "file_path": "06_Theory_of_Computation\\Topic_03_Notes.pdf",
+    "file_size_bytes": 10788,
     "generation_status": "Completed",
     "validation_status": "Valid",
     "category": "Topic Notes"
@@ -832,9 +972,9 @@
       "Intermediate code generation: Three-address code, DAGs",
       "Local optimization and Data flow analyses: constant propagation, liveness analysis, common subexpression elimination"
     ],
-    "page_count": 4,
+    "page_count": 8,
     "file_path": "07_Compiler_Design\\Subject_Complete_Notes.pdf",
-    "file_size_bytes": 11248,
+    "file_size_bytes": 24487,
     "generation_status": "Completed",
     "validation_status": "Valid",
     "category": "Complete Notes"
@@ -846,9 +986,9 @@
     "topics_covered": [
       "Lexical Analysis & Top-Down Parsing (LL(1))"
     ],
-    "page_count": 2,
+    "page_count": 4,
     "file_path": "07_Compiler_Design\\Topic_01_Notes.pdf",
-    "file_size_bytes": 5635,
+    "file_size_bytes": 10531,
     "generation_status": "Completed",
     "validation_status": "Valid",
     "category": "Topic Notes"
@@ -860,9 +1000,23 @@
     "topics_covered": [
       "Bottom-Up Parsing (LR Parsers) & Parser Comparisons"
     ],
-    "page_count": 2,
+    "page_count": 4,
     "file_path": "07_Compiler_Design\\Topic_02_Notes.pdf",
-    "file_size_bytes": 5700,
+    "file_size_bytes": 10809,
+    "generation_status": "Completed",
+    "validation_status": "Valid",
+    "category": "Topic Notes"
+  },
+  {
+    "pdf_id": "CD_TOPIC_03",
+    "title": "Compiler Design - SDT, Intermediate Code & Optimization (Data Flow Analysis)",
+    "subject": "Compiler Design",
+    "topics_covered": [
+      "SDT, Intermediate Code & Optimization (Data Flow Analysis)"
+    ],
+    "page_count": 4,
+    "file_path": "07_Compiler_Design\\Topic_03_Notes.pdf",
+    "file_size_bytes": 10409,
     "generation_status": "Completed",
     "validation_status": "Valid",
     "category": "Topic Notes"
@@ -970,9 +1124,9 @@
       "Memory management and virtual memory: Paging, TLB, multi-level paging, page replacement algorithms",
       "File systems: File allocation methods, free space management, UNIX Inodes"
     ],
-    "page_count": 4,
+    "page_count": 8,
     "file_path": "08_Operating_Systems\\Subject_Complete_Notes.pdf",
-    "file_size_bytes": 11595,
+    "file_size_bytes": 25120,
     "generation_status": "Completed",
     "validation_status": "Valid",
     "category": "Complete Notes"
@@ -984,9 +1138,9 @@
     "topics_covered": [
       "Processes, Threads, Concurrency & Synchronization"
     ],
-    "page_count": 2,
+    "page_count": 4,
     "file_path": "08_Operating_Systems\\Topic_01_Notes.pdf",
-    "file_size_bytes": 5668,
+    "file_size_bytes": 10658,
     "generation_status": "Completed",
     "validation_status": "Valid",
     "category": "Topic Notes"
@@ -998,9 +1152,23 @@
     "topics_covered": [
       "CPU Scheduling, I/O Scheduling & Deadlocks"
     ],
-    "page_count": 2,
+    "page_count": 4,
     "file_path": "08_Operating_Systems\\Topic_02_Notes.pdf",
-    "file_size_bytes": 5845,
+    "file_size_bytes": 11211,
+    "generation_status": "Completed",
+    "validation_status": "Valid",
+    "category": "Topic Notes"
+  },
+  {
+    "pdf_id": "OS_TOPIC_03",
+    "title": "Operating System - Memory Management, Virtual Memory & File Systems",
+    "subject": "Operating System",
+    "topics_covered": [
+      "Memory Management, Virtual Memory & File Systems"
+    ],
+    "page_count": 3,
+    "file_path": "08_Operating_Systems\\Topic_03_Notes.pdf",
+    "file_size_bytes": 9562,
     "generation_status": "Completed",
     "validation_status": "Valid",
     "category": "Topic Notes"
@@ -1107,9 +1275,9 @@
       "File organization, indexing (B and B+ trees)",
       "Transactions and concurrency control: ACID, serializability, recoverability, locking protocols"
     ],
-    "page_count": 4,
+    "page_count": 8,
     "file_path": "09_Databases\\Subject_Complete_Notes.pdf",
-    "file_size_bytes": 10971,
+    "file_size_bytes": 24813,
     "generation_status": "Completed",
     "validation_status": "Valid",
     "category": "Complete Notes"
@@ -1121,9 +1289,9 @@
     "topics_covered": [
       "ER-Model, Relational Algebra & SQL"
     ],
-    "page_count": 2,
+    "page_count": 4,
     "file_path": "09_Databases\\Topic_01_Notes.pdf",
-    "file_size_bytes": 5701,
+    "file_size_bytes": 11239,
     "generation_status": "Completed",
     "validation_status": "Valid",
     "category": "Topic Notes"
@@ -1135,9 +1303,23 @@
     "topics_covered": [
       "Functional Dependencies & Normalization (1NF to BCNF)"
     ],
-    "page_count": 2,
+    "page_count": 3,
     "file_path": "09_Databases\\Topic_02_Notes.pdf",
-    "file_size_bytes": 5456,
+    "file_size_bytes": 9663,
+    "generation_status": "Completed",
+    "validation_status": "Valid",
+    "category": "Topic Notes"
+  },
+  {
+    "pdf_id": "DB_TOPIC_03",
+    "title": "Databases - B/B+ Trees, Transactions & Concurrency Control",
+    "subject": "Databases",
+    "topics_covered": [
+      "B/B+ Trees, Transactions & Concurrency Control"
+    ],
+    "page_count": 4,
+    "file_path": "09_Databases\\Topic_03_Notes.pdf",
+    "file_size_bytes": 10484,
     "generation_status": "Completed",
     "validation_status": "Valid",
     "category": "Topic Notes"
@@ -1245,9 +1427,9 @@
       "IPv4: Fragmentation, CIDR Notation, Network Address Translation (NAT)",
       "TCP: Flow control, congestion control, socket API; Application protocols: DNS and HTTP"
     ],
-    "page_count": 5,
+    "page_count": 9,
     "file_path": "10_Computer_Networks\\Subject_Complete_Notes.pdf",
-    "file_size_bytes": 13831,
+    "file_size_bytes": 29531,
     "generation_status": "Completed",
     "validation_status": "Valid",
     "category": "Complete Notes"
@@ -1259,9 +1441,9 @@
     "topics_covered": [
       "Layering, Switching & Network Performance Metrics"
     ],
-    "page_count": 2,
+    "page_count": 3,
     "file_path": "10_Computer_Networks\\Topic_01_Notes.pdf",
-    "file_size_bytes": 5472,
+    "file_size_bytes": 9377,
     "generation_status": "Completed",
     "validation_status": "Valid",
     "category": "Topic Notes"
@@ -1273,9 +1455,37 @@
     "topics_covered": [
       "Data Link Layer, CRC & Medium Access Control (CSMA/CD)"
     ],
-    "page_count": 2,
+    "page_count": 3,
     "file_path": "10_Computer_Networks\\Topic_02_Notes.pdf",
-    "file_size_bytes": 5616,
+    "file_size_bytes": 9511,
+    "generation_status": "Completed",
+    "validation_status": "Valid",
+    "category": "Topic Notes"
+  },
+  {
+    "pdf_id": "CN_TOPIC_03",
+    "title": "Computer Networks - Routing Protocols & IPv4 Addressing (CIDR, Fragmentation, NAT)",
+    "subject": "Computer Networks",
+    "topics_covered": [
+      "Routing Protocols & IPv4 Addressing (CIDR, Fragmentation, NAT)"
+    ],
+    "page_count": 3,
+    "file_path": "10_Computer_Networks\\Topic_03_Notes.pdf",
+    "file_size_bytes": 9603,
+    "generation_status": "Completed",
+    "validation_status": "Valid",
+    "category": "Topic Notes"
+  },
+  {
+    "pdf_id": "CN_TOPIC_04",
+    "title": "Computer Networks - Transport Layer (TCP), Sockets & Application Protocols (DNS, HTTP)",
+    "subject": "Computer Networks",
+    "topics_covered": [
+      "Transport Layer (TCP), Sockets & Application Protocols (DNS, HTTP)"
+    ],
+    "page_count": 3,
+    "file_path": "10_Computer_Networks\\Topic_04_Notes.pdf",
+    "file_size_bytes": 9490,
     "generation_status": "Completed",
     "validation_status": "Valid",
     "category": "Topic Notes"
@@ -1382,9 +1592,9 @@
       "Analytical Aptitude: Logic (deduction/induction), analogy, numerical relations and reasoning",
       "Spatial Aptitude: Transformation of shapes, translation, rotation, mirroring, paper folding, cutting in 2D/3D"
     ],
-    "page_count": 3,
+    "page_count": 7,
     "file_path": "11_General_Aptitude\\Subject_Complete_Notes.pdf",
-    "file_size_bytes": 9308,
+    "file_size_bytes": 21083,
     "generation_status": "Completed",
     "validation_status": "Valid",
     "category": "Complete Notes"
@@ -1396,9 +1606,9 @@
     "topics_covered": [
       "Verbal Aptitude - Grammar, Vocabulary & Comprehension"
     ],
-    "page_count": 2,
+    "page_count": 3,
     "file_path": "11_General_Aptitude\\Topic_01_Notes.pdf",
-    "file_size_bytes": 5299,
+    "file_size_bytes": 8748,
     "generation_status": "Completed",
     "validation_status": "Valid",
     "category": "Topic Notes"
@@ -1410,9 +1620,23 @@
     "topics_covered": [
       "Quantitative Aptitude - Arithmetic, Algebra & Mensuration"
     ],
-    "page_count": 2,
+    "page_count": 3,
     "file_path": "11_General_Aptitude\\Topic_02_Notes.pdf",
-    "file_size_bytes": 5250,
+    "file_size_bytes": 8923,
+    "generation_status": "Completed",
+    "validation_status": "Valid",
+    "category": "Topic Notes"
+  },
+  {
+    "pdf_id": "GA_TOPIC_03",
+    "title": "General Aptitude - Analytical & Spatial Aptitude - Logic, Reasoning & 2D/3D Shapes",
+    "subject": "General Aptitude",
+    "topics_covered": [
+      "Analytical & Spatial Aptitude - Logic, Reasoning & 2D/3D Shapes"
+    ],
+    "page_count": 3,
+    "file_path": "11_General_Aptitude\\Topic_03_Notes.pdf",
+    "file_size_bytes": 8851,
     "generation_status": "Completed",
     "validation_status": "Valid",
     "category": "Topic Notes"
@@ -1534,9 +1758,9 @@
       "Official Solutions",
       "2012-2026"
     ],
-    "page_count": 4,
+    "page_count": 47,
     "file_path": "12_Previous_Year_Questions\\Verified_GATE_CSE_PYQs_2012_2026.pdf",
-    "file_size_bytes": 10274,
+    "file_size_bytes": 110244,
     "generation_status": "Completed",
     "validation_status": "Valid",
     "category": "PYQs"
@@ -1566,9 +1790,9 @@
       "Daily Targets",
       "Weekly Schedules"
     ],
-    "page_count": 3,
+    "page_count": 4,
     "file_path": "16_Study_Plans\\GATE_2027_Complete_Study_Planner.pdf",
-    "file_size_bytes": 7618,
+    "file_size_bytes": 11910,
     "generation_status": "Completed",
     "validation_status": "Valid",
     "category": "Study Plans"

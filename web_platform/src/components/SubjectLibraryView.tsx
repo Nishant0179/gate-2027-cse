@@ -395,10 +395,11 @@ export const SubjectLibraryView: React.FC<SubjectLibraryViewProps> = ({
               <a
                 href={`./${subject.folder}/Topic_${activeChapterIndex + 1 < 10 ? '0' : ''}${activeChapterIndex + 1}_Notes.pdf`}
                 download
-                className="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 transition"
+                className="flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-lg bg-blue-50 dark:bg-blue-950/40 text-blue-700 dark:text-blue-300 border border-blue-200 dark:border-blue-800 hover:bg-blue-100 dark:hover:bg-blue-900/60 transition shadow-xs"
                 title="Download Chapter PDF"
               >
-                <FileDown className="h-4 w-4" />
+                <FileDown className="h-3.5 w-3.5" />
+                <span>Chapter PDF</span>
               </a>
             </div>
           </div>
@@ -466,18 +467,23 @@ export const SubjectLibraryView: React.FC<SubjectLibraryViewProps> = ({
 
             {/* Core Technical Theory */}
             <div className="space-y-3">
-              <h3 className="text-sm font-bold text-slate-900 dark:text-white flex items-center gap-2">
-                <BookOpen className="h-4 w-4 text-blue-600" />
-                <span>Complete Subject Theory & Detailed Explanations</span>
-              </h3>
+              <div className="flex flex-wrap items-center justify-between gap-2">
+                <h3 className="text-sm font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                  <BookOpen className="h-4 w-4 text-blue-600" />
+                  <span>Comprehensive Master Textbook Chapter</span>
+                </h3>
+                <span className="text-[11px] font-medium px-2.5 py-0.5 rounded-full bg-blue-50 dark:bg-blue-950/60 text-blue-700 dark:text-blue-300 border border-blue-200 dark:border-blue-800">
+                  Intuitive Analogies • Deep Foundations • Step-by-Step Traces • Exam Traps
+                </span>
+              </div>
               <div 
-                className="prose dark:prose-invert max-w-none text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed bg-slate-50/50 dark:bg-slate-950/40 p-5 rounded-2xl border border-slate-100 dark:border-slate-800/80"
+                className="prose dark:prose-invert max-w-none text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed bg-white dark:bg-slate-900/60 p-5 sm:p-7 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-xs"
                 dangerouslySetInnerHTML={{ __html: chapter.theory }}
               />
             </div>
 
             {/* Callouts (Tips, Traps, Formulas) */}
-            {chapter.callouts && chapter.callouts.length > 0 && (
+            {chapter.callouts && chapter.callouts.length > 0 && !chapter.theory?.includes("master-chapter-textbook-container") && (
               <div className="space-y-3 pt-2">
                 {chapter.callouts.map(([cTitle, cText, cType]: any, cIdx: number) => {
                   const isWarn = cType === 'warn';

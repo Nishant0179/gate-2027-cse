@@ -1,6 +1,7 @@
 import os
 import sys
 import json
+import shutil
 import pypdf
 
 # Add parent directory to sys.path so we can import modules
@@ -25,8 +26,51 @@ import content_data.pyq_repository as pyq_mod
 import content_data.mock_tests_data as mock_mod
 import content_data.study_plans_data as plan_mod
 import content_data.final_revision_data as rev_mod
+import content_data.progressive_theory_engine as pte
 
 ALL_SUBJECTS = [em, dl, coa, pds, algo, toc, cd, os_mod, db, cn, ga]
+
+def render_chapter_to_builder(b_target, sub_id, idx, chap):
+    b_target.add_section_header(chap["title"], idx + 1 if idx is not None else 1)
+    b_target.add_hinglish_intro(chap["hinglish"])
+    
+    ch_data = pte.MASTER_CHAPTER_STRUCTURED_DICT.get((sub_id, idx if idx is not None else 0))
+    if ch_data:
+        # Section 1: Real-life examples
+        b_target.add_subsection_header("1. EVERYDAY REAL-LIFE EXAMPLES (INTUITIVE MENTAL MODELS)")
+        b_target.add_section_subhead("These everyday real-life examples illustrate the core concept using familiar situations before diving into theory:")
+        for ex in ch_data.get("real_life_examples", []):
+            b_target.add_real_life_example(ex["title"], ex["text"])
+            
+        # Section 2: In-Depth Conceptual & Architectural Foundations
+        b_target.add_subsection_header("2. IN-DEPTH CONCEPTUAL & ARCHITECTURAL FOUNDATIONS")
+        for fnd in ch_data.get("foundations", []):
+            b_target.add_sub_subsection_header(f"{fnd.get('number', '')} {fnd.get('title', '')}")
+            b_target.add_paragraph(fnd.get("content", ""))
+            if fnd.get("crucial_rule"):
+                b_target.add_callout("CRUCIAL RULE / THEOREM", fnd["crucial_rule"], "tip")
+                
+        # Section 3: Step-by-Step Exam Worked Examples
+        b_target.add_subsection_header("3. STEP-BY-STEP EXAM WORKED EXAMPLES & PROBLEM TRACES")
+        for w in ch_data.get("worked_examples", []):
+            b_target.add_sub_subsection_header(w.get("title", "Worked Problem"))
+            b_target.add_paragraph(f"<b>Problem:</b> {w.get('problem', '')}")
+            steps_txt = "<br/>".join([f"• {s}" for s in w.get('steps', [])])
+            b_target.add_paragraph(f"<b>Step-by-Step Solution & Traces:</b><br/>{steps_txt}")
+            b_target.add_callout("Final Answer", w.get("answer", ""), "formula")
+            
+        # Section 4: Common Misconceptions & Exam Trap Warnings
+        b_target.add_subsection_header("4. COMMON MISCONCEPTIONS & EXAM TRAP WARNINGS")
+        for tr in ch_data.get("exam_traps", []):
+            b_target.add_callout(tr.get("title", "Exam Trap"), tr.get("warning", ""), "warn")
+    else:
+        b_target.add_paragraph(chap["theory"])
+        for c_title, c_text, c_type in chap.get("callouts", []):
+            b_target.add_callout(c_title, c_text, c_type)
+
+    for tbl in chap.get("tables", []):
+        b_target.add_table(tbl["header"], tbl["rows"])
+
 
 def generate_subject_pdfs(sub_mod, pdf_index):
     meta = sub_mod.SUBJECT_META
@@ -46,13 +90,7 @@ def generate_subject_pdfs(sub_mod, pdf_index):
     b = GatePdfBuilder(fn_complete, f"{name} - Complete Comprehensive Notes", name, "Subject Complete Notes")
     b.add_cover_page({"weightage": weightage, "topics": topics})
     for idx, chap in enumerate(chapters):
-        b.add_section_header(chap["title"], idx + 1)
-        b.add_hinglish_intro(chap["hinglish"])
-        b.add_paragraph(chap["theory"])
-        for c_title, c_text, c_type in chap.get("callouts", []):
-            b.add_callout(c_title, c_text, c_type)
-        for tbl in chap.get("tables", []):
-            b.add_table(tbl["header"], tbl["rows"])
+        render_chapter_to_builder(b, meta["id"], idx, chap)
     b.build()
     pages = len(pypdf.PdfReader(fn_complete).pages)
     pdf_index.append({
@@ -69,18 +107,12 @@ def generate_subject_pdfs(sub_mod, pdf_index):
     })
     print(f"  [v] {fn_complete} ({pages} pages)")
 
-    # 2. Topic-wise PDFs (Topic 01 & Topic 02)
-    for t_idx, chap in enumerate(chapters[:2]):
+    # 2. Topic-wise PDFs (For all chapters in this subject)
+    for t_idx, chap in enumerate(chapters):
         fn_topic = os.path.join(folder, f"Topic_{t_idx+1:02d}_Notes.pdf")
         b_topic = GatePdfBuilder(fn_topic, chap["title"], name, f"Topic {t_idx+1:02d} Deep Dive")
         b_topic.add_cover_page({"weightage": weightage, "topics": [chap["title"]]})
-        b_topic.add_section_header(chap["title"], 1)
-        b_topic.add_hinglish_intro(chap["hinglish"])
-        b_topic.add_paragraph(chap["theory"])
-        for c_title, c_text, c_type in chap.get("callouts", []):
-            b_topic.add_callout(c_title, c_text, c_type)
-        for tbl in chap.get("tables", []):
-            b_topic.add_table(tbl["header"], tbl["rows"])
+        render_chapter_to_builder(b_topic, meta["id"], t_idx, chap)
         b_topic.build()
         pages = len(pypdf.PdfReader(fn_topic).pages)
         pdf_index.append({
@@ -411,6 +443,24 @@ def generate_global_pdfs(pdf_index):
     })
     print(f"  [v] {fn_final} ({pages} pages)")
 
+def sync_pdfs_to_docs():
+    folders = [
+        "00_Official_Syllabus", "01_Engineering_Mathematics", "02_Digital_Logic",
+        "03_Computer_Organization", "04_Programming_Data_Structures", "05_Algorithms",
+        "06_Theory_of_Computation", "07_Compiler_Design", "08_Operating_Systems",
+        "09_Databases", "10_Computer_Networks", "11_General_Aptitude",
+        "12_Previous_Year_Questions", "13_Practice_Question_Banks", "14_Mock_Tests",
+        "15_Quick_Revision", "16_Study_Plans", "17_Final_Revision"
+    ]
+    for fld in folders:
+        if os.path.exists(fld):
+            dest_dir = os.path.join("docs", fld)
+            os.makedirs(dest_dir, exist_ok=True)
+            for f in os.listdir(fld):
+                if f.endswith(".pdf"):
+                    shutil.copy2(os.path.join(fld, f), os.path.join(dest_dir, f))
+    print("[v] Successfully synced all generated PDFs into docs/ for GitHub Pages!")
+
 def main():
     pdf_index = []
     
@@ -426,6 +476,9 @@ def main():
     with open(index_file, "w", encoding="utf-8") as f:
         json.dump(pdf_index, f, indent=2)
 
+    # Sync all generated PDFs into docs/ for GitHub Pages
+    sync_pdfs_to_docs()
+
     print("\n==========================================")
     print(f"ALL PDF GENERATION COMPLETE!")
     print(f"Total PDFs in Library: {len(pdf_index)}")
@@ -434,3 +487,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+

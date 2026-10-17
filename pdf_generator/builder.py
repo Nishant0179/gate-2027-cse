@@ -7,7 +7,7 @@ from reportlab.lib import colors
 from reportlab.lib.colors import HexColor
 
 from .styles import (
-    NumberedCanvas, get_custom_stylesheet, create_callout, create_code_block,
+    NumberedCanvas, get_custom_stylesheet, create_callout, create_code_block, create_real_life_box,
     PRIMARY, SECONDARY, ACCENT, DARK_TEXT, MUTED_TEXT, LIGHT_BG, BORDER_COLOR
 )
 
@@ -115,6 +115,13 @@ class GatePdfBuilder:
 
     def add_hinglish_intro(self, text):
         self.story.append(Paragraph(f"<b>Concept Intuition (Hinglish):</b> {text}", self.styles['HinglishIntro']))
+
+    def add_section_subhead(self, text):
+        self.story.append(Paragraph(text, self.styles['SectionSubhead']))
+
+    def add_real_life_example(self, title, text):
+        self.story.append(create_real_life_box(title, text, self.styles))
+        self.story.append(Spacer(1, 7))
 
     def add_callout(self, title, text, callout_type="note"):
         self.story.append(create_callout(title, text, callout_type, self.styles))

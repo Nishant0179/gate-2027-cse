@@ -20,7 +20,9 @@ import {
   CheckCircle2,
   XCircle,
   ArrowRight,
-  Filter
+  Filter,
+  Zap,
+  Layers
 } from 'lucide-react';
 
 interface SubjectLibraryViewProps {
@@ -59,8 +61,10 @@ export const SubjectLibraryView: React.FC<SubjectLibraryViewProps> = ({
   const [practiceTypeFilter, setPracticeTypeFilter] = useState<'All' | 'MCQ' | 'MSQ' | 'NAT'>('All');
   const [practiceLimit, setPracticeLimit] = useState<number>(10);
   const [natInputs, setNatInputs] = useState<Record<string, string>>({});
+  const [subjectViewMode, setSubjectViewMode] = useState<'chapters' | 'revision'>('chapters');
 
   const subject = gateData.subjects.find((s: any) => s.id === selectedSubjectId) || gateData.subjects[0];
+  const currentRev = gateData.subjectRevision ? gateData.subjectRevision[subject.id] : null;
   const chapter = subject.chapters[activeChapterIndex] || subject.chapters[0];
   const topicUniqueId = `${subject.id}-${activeChapterIndex}`;
   const isCompleted = completedTopics.includes(topicUniqueId);
@@ -97,6 +101,7 @@ export const SubjectLibraryView: React.FC<SubjectLibraryViewProps> = ({
               onClick={() => {
                 setSelectedSubjectId(sub.id);
                 setActiveChapterIndex(0);
+                setSubjectViewMode('chapters');
               }}
               className={`flex-shrink-0 px-3.5 py-2 rounded-xl text-xs font-semibold transition border ${
                 isSelected
@@ -115,7 +120,191 @@ export const SubjectLibraryView: React.FC<SubjectLibraryViewProps> = ({
         })}
       </div>
 
-      {/* Main Content Layout */}
+      {/* Prominent Subject Header & Complete Subject PDF Download Banner */}
+      <div className="p-5 rounded-2xl bg-gradient-to-r from-blue-900 via-indigo-900 to-slate-900 text-white shadow-md flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <div>
+          <div className="flex items-center gap-2 mb-1">
+            <span className="text-xs font-bold px-2.5 py-0.5 rounded bg-blue-500/30 text-blue-200 border border-blue-400/40">
+              {subject.weightage}
+            </span>
+            <span className="text-xs text-blue-200 font-medium">
+              {subject.chapters.length} In-Depth Chapters • 20 Practice Problems
+            </span>
+          </div>
+          <h2 className="text-xl sm:text-2xl font-black tracking-tight">{subject.name}</h2>
+          <p className="text-xs text-blue-200/80 mt-1 max-w-xl">
+            Complete IIT Madras syllabus coverage from fundamentals to exam-level numericals.
+          </p>
+        </div>
+
+        {/* Action / Download Buttons */}
+        <div className="flex flex-wrap items-center gap-2">
+          <a
+            href={`./${subject.folder}/Subject_Complete_Notes.pdf`}
+            download
+            className="flex items-center gap-1.5 px-3.5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs shadow-sm transition"
+            title="Download Complete Subject PDF Book"
+          >
+            <FileDown className="h-4 w-4" />
+            <span>Complete Subject PDF</span>
+          </a>
+          <a
+            href={`./${subject.folder}/Quick_Revision_Notes.pdf`}
+            download
+            className="flex items-center gap-1.5 px-3.5 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-white font-semibold text-xs border border-white/20 transition"
+            title="Download Quick Revision Notes PDF"
+          >
+            <Zap className="h-4 w-4 text-amber-400" />
+            <span>Quick Revision PDF</span>
+          </a>
+          <a
+            href={`./${subject.folder}/Formula_Sheet.pdf`}
+            download
+            className="flex items-center gap-1.5 px-3.5 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-white font-semibold text-xs border border-white/20 transition"
+            title="Download Formula Sheet PDF"
+          >
+            <Sparkles className="h-4 w-4 text-emerald-400" />
+            <span>Formula Sheet PDF</span>
+          </a>
+        </div>
+      </div>
+
+      {/* Mode Switcher Pills: In-Depth Chapter Study vs Subject Complete Quick Revision */}
+      <div className="flex items-center gap-2 border-b border-slate-200 dark:border-slate-800 pb-2">
+        <button
+          onClick={() => setSubjectViewMode('chapters')}
+          className={`px-4 py-2 rounded-xl text-xs font-bold transition flex items-center gap-2 ${
+            subjectViewMode === 'chapters'
+              ? 'bg-blue-600 text-white shadow-sm'
+              : 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200'
+          }`}
+        >
+          <BookOpen className="h-4 w-4" />
+          <span>In-Depth Chapter Notes (Basic to Advanced)</span>
+        </button>
+
+        <button
+          onClick={() => setSubjectViewMode('revision')}
+          className={`px-4 py-2 rounded-xl text-xs font-bold transition flex items-center gap-2 ${
+            subjectViewMode === 'revision'
+              ? 'bg-blue-600 text-white shadow-sm'
+              : 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200'
+          }`}
+        >
+          <Zap className="h-4 w-4 text-amber-400" />
+          <span>Subject Complete Revision & Formula Sheet</span>
+        </button>
+      </div>
+
+      {/* RENDER SUBJECT COMPLETE REVISION VIEW IF ACTIVE */}
+      {subjectViewMode === 'revision' && currentRev && (
+        <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 sm:p-8 shadow-sm space-y-6">
+          <div className="pb-4 border-b border-slate-100 dark:border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <div>
+              <div className="inline-flex items-center gap-1.5 text-xs font-bold text-amber-600 dark:text-amber-400 bg-amber-50 dark:bg-amber-950/60 px-2.5 py-0.5 rounded-full mb-1 border border-amber-200 dark:border-amber-800">
+                <Zap className="h-3 w-3" />
+                15-Minute Complete Rapid Revision
+              </div>
+              <h3 className="text-xl sm:text-2xl font-black text-slate-900 dark:text-white">
+                {currentRev.name} — Formulas, Theorems & Traps
+              </h3>
+            </div>
+
+            <div className="flex items-center gap-2">
+              <a
+                href={currentRev.complete_pdf}
+                download
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs shadow-xs transition"
+              >
+                <FileDown className="h-3.5 w-3.5" />
+                <span>Complete Subject PDF</span>
+              </a>
+              <a
+                href={currentRev.formula_sheet_pdf}
+                download
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 text-slate-700 dark:text-slate-300 font-semibold text-xs transition"
+              >
+                <Sparkles className="h-3.5 w-3.5 text-emerald-500" />
+                <span>Formula Sheet PDF</span>
+              </a>
+            </div>
+          </div>
+
+          {/* High Yield Formulas */}
+          {currentRev.high_yield_formulas && (
+            <div className="space-y-3">
+              <h4 className="text-sm font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                <Sparkles className="h-4 w-4 text-blue-600" />
+                <span>High-Yield Formulas & Exam Shortcuts</span>
+              </h4>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                {currentRev.high_yield_formulas.map((item: any, fIdx: number) => (
+                  <div 
+                    key={fIdx}
+                    className="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700/80 space-y-1.5"
+                  >
+                    <div className="text-xs font-bold text-slate-900 dark:text-white flex items-center gap-1.5">
+                      <span className="w-1.5 h-1.5 rounded-full bg-blue-600"></span>
+                      <span>{item.name}</span>
+                    </div>
+                    <div className="p-2.5 rounded-lg bg-white dark:bg-slate-900 border border-blue-200 dark:border-blue-900/60 text-xs font-mono font-bold text-blue-800 dark:text-blue-300">
+                      {item.formula}
+                    </div>
+                    <p className="text-[11px] text-slate-500 dark:text-slate-400 leading-relaxed">
+                      {item.notes}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Canonical Theorems */}
+          {currentRev.key_theorems && (
+            <div className="space-y-3 pt-2">
+              <h4 className="text-sm font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                <Bookmark className="h-4 w-4 text-emerald-600" />
+                <span>Canonical Theorems Tested by IITs</span>
+              </h4>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                {currentRev.key_theorems.map((thm: any, tIdx: number) => (
+                  <div 
+                    key={tIdx}
+                    className="p-4 rounded-xl bg-emerald-50/50 dark:bg-emerald-950/20 border border-emerald-200/80 dark:border-emerald-900/60 space-y-1 text-xs"
+                  >
+                    <span className="font-extrabold text-emerald-900 dark:text-emerald-200">
+                      {thm.title}:
+                    </span>
+                    <p className="text-slate-700 dark:text-slate-300 leading-relaxed">
+                      {thm.statement}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Exam Traps */}
+          {currentRev.exam_traps && (
+            <div className="p-4 rounded-xl bg-amber-50/70 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-900/60 space-y-2">
+              <div className="flex items-center gap-2 text-xs font-bold text-amber-950 dark:text-amber-200">
+                <AlertTriangle className="h-4 w-4 text-amber-600" />
+                <span>Common Exam Pitfalls & Negative Marking Warnings</span>
+              </div>
+              <ul className="space-y-1 text-xs text-slate-700 dark:text-slate-300 list-disc list-inside">
+                {currentRev.exam_traps.map((trap: string, trIdx: number) => (
+                  <li key={trIdx} className="leading-relaxed">
+                    {trap}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </div>
+      )}
+
+      {/* Main Content Layout (Chapters Mode) */}
+      {subjectViewMode === 'chapters' && (
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
         {/* Chapters Navigation List */}
         <div className="space-y-2 lg:col-span-1">
@@ -613,6 +802,7 @@ export const SubjectLibraryView: React.FC<SubjectLibraryViewProps> = ({
           </div>
         </div>
       </div>
+      )}
     </div>
   );
 };

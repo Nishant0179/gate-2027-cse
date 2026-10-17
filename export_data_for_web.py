@@ -37,7 +37,8 @@ def main():
 
     import chapter_resources_data as cr_mod
     import content_data.practice_bank_generator as pbg
-    import content_data.deep_theory_expander as dte
+    import content_data.progressive_theory_engine as pte
+    import content_data.subject_revision_data as srd
 
     for sub in ALL_SUBJECTS:
         meta = sub.SUBJECT_META
@@ -54,9 +55,9 @@ def main():
         for idx, chap in enumerate(chapters):
             chap_copy = dict(chap)
 
-            # Deep theory injection if available
-            if (sub_id, idx) in dte.DEEP_THEORY_DICT:
-                chap_copy["theory"] = dte.DEEP_THEORY_DICT[(sub_id, idx)] + "<br/><hr/><br/>" + chap["theory"]
+            # Progressive 5-Tier learning theory injection in easy language
+            if (sub_id, idx) in pte.PROGRESSIVE_THEORY_DICT:
+                chap_copy["theory"] = pte.PROGRESSIVE_THEORY_DICT[(sub_id, idx)]
 
             if idx < len(res_list):
                 chap_copy["video_resources"] = res_list[idx].get("videos", [])
@@ -89,6 +90,7 @@ def main():
         },
         "studyPlans": plan_mod.STUDY_PLANS,
         "finalRevision": rev_mod.FINAL_REVISION_DATA,
+        "subjectRevision": srd.SUBJECT_REVISION_DATA,
         "pdfLibrary": pdf_index,
         "practiceQuestions": all_practice_questions
     }

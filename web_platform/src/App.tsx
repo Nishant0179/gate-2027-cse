@@ -138,7 +138,10 @@ export function App() {
           )}
 
           {currentTab === 'quick_revision' && (
-            <QuickRevisionView finalRevision={gateData.finalRevision} />
+            <QuickRevisionView 
+              finalRevision={gateData.finalRevision} 
+              subjectRevision={gateData.subjectRevision} 
+            />
           )}
 
           {currentTab === 'formula_sheets' && (

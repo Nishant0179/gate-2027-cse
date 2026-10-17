@@ -36,19 +36,28 @@ def main():
     all_practice_questions = []
 
     import chapter_resources_data as cr_mod
+    import content_data.practice_bank_generator as pbg
+    import content_data.deep_theory_expander as dte
 
     for sub in ALL_SUBJECTS:
         meta = sub.SUBJECT_META
         chapters = sub.CHAPTERS
-        questions = sub.PRACTICE_QUESTIONS
+        sub_id = meta["id"]
+
+        # Generate 20 high-yield practice questions for this subject
+        questions = pbg.generate_practice_for_subject(sub_id, meta["name"])
         all_practice_questions.extend(questions)
 
-        sub_id = meta["id"]
         res_list = cr_mod.CHAPTER_RESOURCES.get(sub_id, [])
 
         enriched_chapters = []
         for idx, chap in enumerate(chapters):
             chap_copy = dict(chap)
+
+            # Deep theory injection if available
+            if (sub_id, idx) in dte.DEEP_THEORY_DICT:
+                chap_copy["theory"] = dte.DEEP_THEORY_DICT[(sub_id, idx)] + "<br/><hr/><br/>" + chap["theory"]
+
             if idx < len(res_list):
                 chap_copy["video_resources"] = res_list[idx].get("videos", [])
                 chap_copy["solved_examples"] = res_list[idx].get("solved_examples", [])

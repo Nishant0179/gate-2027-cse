@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { 
   BookOpen, 
   FileDown, 
@@ -8,6 +8,8 @@ import {
   Lightbulb, 
   Sparkles, 
   ChevronRight,
+  ChevronDown,
+  ChevronUp,
   Bookmark,
   Share2,
   Table as TableIcon,
@@ -17,7 +19,8 @@ import {
   HelpCircle,
   CheckCircle2,
   XCircle,
-  ArrowRight
+  ArrowRight,
+  Filter
 } from 'lucide-react';
 
 interface SubjectLibraryViewProps {
@@ -53,6 +56,9 @@ export const SubjectLibraryView: React.FC<SubjectLibraryViewProps> = ({
   // Interactive practice states on page
   const [selectedAnswers, setSelectedAnswers] = useState<Record<string, string>>({});
   const [revealedSolutions, setRevealedSolutions] = useState<Record<string, boolean>>({});
+  const [practiceTypeFilter, setPracticeTypeFilter] = useState<'All' | 'MCQ' | 'MSQ' | 'NAT'>('All');
+  const [practiceLimit, setPracticeLimit] = useState<number>(10);
+  const [natInputs, setNatInputs] = useState<Record<string, string>>({});
 
   const subject = gateData.subjects.find((s: any) => s.id === selectedSubjectId) || gateData.subjects[0];
   const chapter = subject.chapters[activeChapterIndex] || subject.chapters[0];
@@ -63,6 +69,13 @@ export const SubjectLibraryView: React.FC<SubjectLibraryViewProps> = ({
   const subjectQuestions = gateData.practiceQuestions.filter(
     (q: any) => q.subject === subject.name || q.id.startsWith(subject.id)
   );
+
+  const filteredSubjectQuestions = useMemo(() => {
+    return subjectQuestions.filter((q: any) => {
+      if (practiceTypeFilter === 'All') return true;
+      return q.type === practiceTypeFilter;
+    });
+  }, [subjectQuestions, practiceTypeFilter]);
 
   const handleSelectOption = (qId: string, optKey: string) => {
     setSelectedAnswers(prev => ({ ...prev, [qId]: optKey }));
@@ -385,11 +398,14 @@ export const SubjectLibraryView: React.FC<SubjectLibraryViewProps> = ({
 
             {/* DIRECT TOPIC PRACTICE SECTION */}
             <div className="pt-6 border-t border-slate-200 dark:border-slate-800 space-y-4">
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                 <div>
                   <h3 className="text-base font-extrabold text-slate-900 dark:text-white flex items-center gap-2">
                     <HelpCircle className="h-5 w-5 text-blue-600" />
                     <span>Practice Questions for {subject.name}</span>
+                    <span className="text-xs font-bold px-2 py-0.5 rounded-full bg-blue-100 dark:bg-blue-950 text-blue-700 dark:text-blue-300">
+                      {subjectQuestions.length} Problems
+                    </span>
                   </h3>
                   <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
                     Read the theory above, then test your understanding directly below with instant answer verification.
@@ -407,12 +423,45 @@ export const SubjectLibraryView: React.FC<SubjectLibraryViewProps> = ({
                 )}
               </div>
 
+              {/* Filter Pills */}
+              <div className="flex flex-wrap items-center gap-2 pt-1 pb-1">
+                {(['All', 'MCQ', 'MSQ', 'NAT'] as const).map((type) => {
+                  const count = type === 'All' 
+                    ? subjectQuestions.length 
+                    : subjectQuestions.filter((q: any) => q.type === type).length;
+                  const isActive = practiceTypeFilter === type;
+                  return (
+                    <button
+                      key={type}
+                      onClick={() => setPracticeTypeFilter(type)}
+                      className={`px-3 py-1.5 rounded-xl text-xs font-bold transition flex items-center gap-1.5 ${
+                        isActive
+                          ? 'bg-blue-600 text-white shadow-xs'
+                          : 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700'
+                      }`}
+                    >
+                      <span>{type === 'All' ? 'All Types' : type}</span>
+                      <span className={`text-[10px] px-1.5 py-0.2 rounded-full ${
+                        isActive ? 'bg-blue-700 text-white' : 'bg-slate-200 dark:bg-slate-700 text-slate-600 dark:text-slate-300'
+                      }`}>
+                        {count}
+                      </span>
+                    </button>
+                  );
+                })}
+
+                <span className="text-xs font-medium text-slate-500 dark:text-slate-400 ml-auto">
+                  Showing {Math.min(filteredSubjectQuestions.length, practiceLimit)} of {filteredSubjectQuestions.length}
+                </span>
+              </div>
+
               {/* List of practice questions */}
               <div className="space-y-4">
-                {subjectQuestions.slice(0, 5).map((q: any, qIdx: number) => {
+                {filteredSubjectQuestions.slice(0, practiceLimit).map((q: any) => {
                   const selectedOpt = selectedAnswers[q.id];
                   const isRevealed = revealedSolutions[q.id];
-                  const isCorrect = selectedOpt === q.answer;
+                  const isCorrect = String(selectedOpt || '').trim().toLowerCase() === String(q.answer || '').trim().toLowerCase();
+                  const isNat = q.type === 'NAT' || !q.options || Object.keys(q.options).length === 0;
 
                   return (
                     <div
@@ -434,8 +483,8 @@ export const SubjectLibraryView: React.FC<SubjectLibraryViewProps> = ({
                         {q.text}
                       </p>
 
-                      {/* Options */}
-                      {q.options && (
+                      {/* Options or NAT Input */}
+                      {!isNat ? (
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-1">
                           {Object.entries(q.options).map(([optKey, optVal]: any) => {
                             const isPicked = selectedOpt === optKey;
@@ -464,6 +513,29 @@ export const SubjectLibraryView: React.FC<SubjectLibraryViewProps> = ({
                             );
                           })}
                         </div>
+                      ) : (
+                        <div className="pt-1 pb-1">
+                          <div className="flex flex-wrap items-center gap-2 max-w-md">
+                            <input
+                              type="text"
+                              placeholder="Enter exact numerical answer..."
+                              value={natInputs[q.id] || ''}
+                              onChange={(e) => setNatInputs(prev => ({ ...prev, [q.id]: e.target.value }))}
+                              onKeyDown={(e) => {
+                                if (e.key === 'Enter') {
+                                  handleSelectOption(q.id, (natInputs[q.id] || '').trim());
+                                }
+                              }}
+                              className="px-3 py-2 text-xs rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white font-mono flex-1 focus:ring-2 focus:ring-blue-500"
+                            />
+                            <button
+                              onClick={() => handleSelectOption(q.id, (natInputs[q.id] || '').trim())}
+                              className="px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs transition shadow-xs"
+                            >
+                              Check NAT
+                            </button>
+                          </div>
+                        </div>
                       )}
 
                       {/* Action Bar */}
@@ -483,9 +555,13 @@ export const SubjectLibraryView: React.FC<SubjectLibraryViewProps> = ({
                               </span>
                             ) : isRevealed ? (
                               <span className="text-rose-600 dark:text-rose-400 flex items-center gap-1">
-                                <XCircle className="h-4 w-4" /> Incorrect (Answer: {q.answer})
+                                <XCircle className="h-4 w-4" /> Incorrect (Correct: {q.answer})
                               </span>
-                            ) : null}
+                            ) : (
+                              <span className="text-rose-600 dark:text-rose-400 flex items-center gap-1">
+                                <XCircle className="h-4 w-4" /> Incorrect, try again or view solution
+                              </span>
+                            )}
                           </div>
                         )}
                       </div>
@@ -504,6 +580,35 @@ export const SubjectLibraryView: React.FC<SubjectLibraryViewProps> = ({
                   );
                 })}
               </div>
+
+              {/* Expansion / Load More Controls */}
+              {filteredSubjectQuestions.length > 10 && (
+                <div className="pt-2 flex items-center justify-center gap-3">
+                  {practiceLimit < filteredSubjectQuestions.length ? (
+                    <button
+                      onClick={() => setPracticeLimit(prev => prev + 10)}
+                      className="px-4 py-2 rounded-xl bg-blue-50 dark:bg-blue-950/60 hover:bg-blue-100 dark:hover:bg-blue-900 border border-blue-200 dark:border-blue-800 text-xs font-bold text-blue-700 dark:text-blue-300 transition shadow-xs"
+                    >
+                      Load More Questions ({filteredSubjectQuestions.length - practiceLimit} remaining)
+                    </button>
+                  ) : (
+                    <button
+                      onClick={() => setPracticeLimit(10)}
+                      className="px-4 py-2 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 text-xs font-bold text-slate-700 dark:text-slate-300 transition"
+                    >
+                      Show Less (Top 10)
+                    </button>
+                  )}
+                  {practiceLimit < filteredSubjectQuestions.length && (
+                    <button
+                      onClick={() => setPracticeLimit(filteredSubjectQuestions.length)}
+                      className="px-4 py-2 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 text-xs font-bold text-slate-700 dark:text-slate-300 transition"
+                    >
+                      Show All {filteredSubjectQuestions.length} Questions
+                    </button>
+                  )}
+                </div>
+              )}
             </div>
           </div>
         </div>

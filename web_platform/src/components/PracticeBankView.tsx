@@ -12,6 +12,7 @@ export const PracticeBankView: React.FC<PracticeBankViewProps> = ({ questions, s
   const [selectedType, setSelectedType] = useState<string>('All');
   const [userAnswers, setUserAnswers] = useState<Record<number, any>>({});
   const [revealedSolutions, setRevealedSolutions] = useState<Record<number, boolean>>({});
+  const [natInputs, setNatInputs] = useState<Record<number, string>>({});
 
   const filteredQuestions = useMemo(() => {
     return questions.filter((q, idx) => {
@@ -76,7 +77,8 @@ export const PracticeBankView: React.FC<PracticeBankViewProps> = ({ questions, s
           const userAns = userAnswers[idx];
           const isRevealed = revealedSolutions[idx] || false;
           const isChecked = userAns !== undefined;
-          const isCorrect = userAns === q.answer;
+          const isCorrect = String(userAns || '').trim().toLowerCase() === String(q.answer || '').trim().toLowerCase();
+          const isNat = q.type === 'NAT' || !q.options || Object.keys(q.options).length === 0;
 
           return (
             <div
@@ -100,8 +102,8 @@ export const PracticeBankView: React.FC<PracticeBankViewProps> = ({ questions, s
                 dangerouslySetInnerHTML={{ __html: q.text }}
               />
 
-              {/* Options */}
-              {q.options && (
+              {/* Options or NAT input */}
+              {!isNat ? (
                 <div className="space-y-2 mb-4 pl-2 max-w-xl">
                   {Object.entries(q.options).map(([k, val]: any) => {
                     const isSelected = userAns === k;
@@ -120,6 +122,27 @@ export const PracticeBankView: React.FC<PracticeBankViewProps> = ({ questions, s
                       </div>
                     );
                   })}
+                </div>
+              ) : (
+                <div className="flex flex-wrap items-center gap-2 mb-4 max-w-md">
+                  <input
+                    type="text"
+                    placeholder="Enter numerical answer..."
+                    value={natInputs[idx] || ''}
+                    onChange={(e) => setNatInputs(prev => ({ ...prev, [idx]: e.target.value }))}
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter') {
+                        handleSelectOption(idx, (natInputs[idx] || '').trim());
+                      }
+                    }}
+                    className="px-3 py-2 text-xs sm:text-sm rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white font-mono flex-1 focus:ring-2 focus:ring-blue-500"
+                  />
+                  <button
+                    onClick={() => handleSelectOption(idx, (natInputs[idx] || '').trim())}
+                    className="px-4 py-2 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs transition shadow-xs"
+                  >
+                    Submit NAT
+                  </button>
                 </div>
               )}
 

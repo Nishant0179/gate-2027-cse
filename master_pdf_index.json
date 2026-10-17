@@ -1,0 +1,1608 @@
+[
+  {
+    "pdf_id": "EM_COMPLETE",
+    "title": "Engineering Mathematics Complete Comprehensive Notes",
+    "subject": "Engineering Mathematics",
+    "topics_covered": [
+      "Discrete Mathematics: Logic, Sets, Relations, Functions, Lattices, Groups, Graphs, Combinatorics",
+      "Linear Algebra: Matrices, Determinants, Systems of Linear Equations, Eigenvalues/Eigenvectors, LU Decomposition",
+      "Calculus: Limits, Continuity, Differentiability, Maxima/Minima, Mean Value Theorem, Integration",
+      "Probability and Statistics: Random Variables, Distributions, Bayes Theorem, Central Tendency"
+    ],
+    "page_count": 5,
+    "file_path": "01_Engineering_Mathematics\\Subject_Complete_Notes.pdf",
+    "file_size_bytes": 14341,
+    "generation_status": "Completed",
+    "validation_status": "Valid",
+    "category": "Complete Notes"
+  },
+  {
+    "pdf_id": "EM_TOPIC_01",
+    "title": "Engineering Mathematics - Discrete Mathematics - Mathematical Logic & Set Theory",
+    "subject": "Engineering Mathematics",
+    "topics_covered": [
+      "Discrete Mathematics - Mathematical Logic & Set Theory"
+    ],
+    "page_count": 2,
+    "file_path": "01_Engineering_Mathematics\\Topic_01_Notes.pdf",
+    "file_size_bytes": 5899,
+    "generation_status": "Completed",
+    "validation_status": "Valid",
+    "category": "Topic Notes"
+  },
+  {
+    "pdf_id": "EM_TOPIC_02",
+    "title": "Engineering Mathematics - Discrete Mathematics - Graph Theory & Combinatorics",
+    "subject": "Engineering Mathematics",
+    "topics_covered": [
+      "Discrete Mathematics - Graph Theory & Combinatorics"
+    ],
+    "page_count": 2,
+    "file_path": "01_Engineering_Mathematics\\Topic_02_Notes.pdf",
+    "file_size_bytes": 6209,
+    "generation_status": "Completed",
+    "validation_status": "Valid",
+    "category": "Topic Notes"
+  },
+  {
+    "pdf_id": "EM_QUICK_REV",
+    "title": "Engineering Mathematics Quick Revision Notes",
+    "subject": "Engineering Mathematics",
+    "topics_covered": [
+      "Quick Revision",
+      "Summary"
+    ],
+    "page_count": 3,
+    "file_path": "01_Engineering_Mathematics\\Quick_Revision_Notes.pdf",
+    "file_size_bytes": 6927,
+    "generation_status": "Completed",
+    "validation_status": "Valid",
+    "category": "Quick Revision"
+  },
+  {
+    "pdf_id": "EM_FORMULA",
+    "title": "Engineering Mathematics Formula Sheet",
+    "subject": "Engineering Mathematics",
+    "topics_covered": [
+      "Formulas",
+      "Theorems"
+    ],
+    "page_count": 2,
+    "file_path": "01_Engineering_Mathematics\\Formula_Sheet.pdf",
+    "file_size_bytes": 4080,
+    "generation_status": "Completed",
+    "validation_status": "Valid",
+    "category": "Formula Sheet"
+  },
+  {
+    "pdf_id": "EM_PRACTICE_Q",
+    "title": "Engineering Mathematics Practice Questions",
+    "subject": "Engineering Mathematics",
+    "topics_covered": [
+      "Practice Questions",
+      "MCQ",
+      "MSQ",
+      "NAT"
+    ],
+    "page_count": 2,
+    "file_path": "01_Engineering_Mathematics\\Practice_Questions.pdf",
+    "file_size_bytes": 4454,
+    "generation_status": "Completed",
+    "validation_status": "Valid",
+    "category": "Practice Questions"
+  },
+  {
+    "pdf_id": "EM_SOLUTIONS",
+    "title": "Engineering Mathematics Detailed Solutions",
+    "subject": "Engineering Mathematics",
+    "topics_covered": [
+      "Solutions",
+      "Explanations"
+    ],
+    "page_count": 3,
+    "file_path": "01_Engineering_Mathematics\\Detailed_Solutions.pdf",
+    "file_size_bytes": 6383,
+    "generation_status": "Completed",
+    "validation_status": "Valid",
+    "category": "Solutions"
+  },
+  {
+    "pdf_id": "EM_TEST",
+    "title": "Engineering Mathematics Subject Test",
+    "subject": "Engineering Mathematics",
+    "topics_covered": [
+      "Subject Test",
+      "Timed Exam"
+    ],
+    "page_count": 2,
+    "file_path": "01_Engineering_Mathematics\\Subject_Test.pdf",
+    "file_size_bytes": 4513,
+    "generation_status": "Completed",
+    "validation_status": "Valid",
+    "category": "Mock Tests"
+  },
+  {
+    "pdf_id": "EM_ANSWER_KEY",
+    "title": "Engineering Mathematics Subject Test Answer Key",
+    "subject": "Engineering Mathematics",
+    "topics_covered": [
+      "Answer Key",
+      "Grading Criteria"
+    ],
+    "page_count": 3,
+    "file_path": "01_Engineering_Mathematics\\Answer_Key_and_Explanations.pdf",
+    "file_size_bytes": 6373,
+    "generation_status": "Completed",
+    "validation_status": "Valid",
+    "category": "Answer Keys"
+  },
+  {
+    "pdf_id": "DL_COMPLETE",
+    "title": "Digital Logic Complete Comprehensive Notes",
+    "subject": "Digital Logic",
+    "topics_covered": [
+      "Boolean algebra and minimization \u2013 algebraic technique, Karnaugh map, tabular method",
+      "Design of combinational circuits: Multiplexers, Decoders, Encoders, Adders, Subtractors",
+      "Design of sequential circuits: Latches, Flip-Flops, Registers, Counters, State Diagrams",
+      "Number representation and arithmetic: Fixed point, Signed representations, Floating point (IEEE 754)"
+    ],
+    "page_count": 4,
+    "file_path": "02_Digital_Logic\\Subject_Complete_Notes.pdf",
+    "file_size_bytes": 12120,
+    "generation_status": "Completed",
+    "validation_status": "Valid",
+    "category": "Complete Notes"
+  },
+  {
+    "pdf_id": "DL_TOPIC_01",
+    "title": "Digital Logic - Boolean Algebra, K-Maps & Tabular Method (Quine-McCluskey)",
+    "subject": "Digital Logic",
+    "topics_covered": [
+      "Boolean Algebra, K-Maps & Tabular Method (Quine-McCluskey)"
+    ],
+    "page_count": 3,
+    "file_path": "02_Digital_Logic\\Topic_01_Notes.pdf",
+    "file_size_bytes": 6893,
+    "generation_status": "Completed",
+    "validation_status": "Valid",
+    "category": "Topic Notes"
+  },
+  {
+    "pdf_id": "DL_TOPIC_02",
+    "title": "Digital Logic - Combinational Circuits - MUX, Decoders & Arithmetic Circuits",
+    "subject": "Digital Logic",
+    "topics_covered": [
+      "Combinational Circuits - MUX, Decoders & Arithmetic Circuits"
+    ],
+    "page_count": 2,
+    "file_path": "02_Digital_Logic\\Topic_02_Notes.pdf",
+    "file_size_bytes": 5194,
+    "generation_status": "Completed",
+    "validation_status": "Valid",
+    "category": "Topic Notes"
+  },
+  {
+    "pdf_id": "DL_QUICK_REV",
+    "title": "Digital Logic Quick Revision Notes",
+    "subject": "Digital Logic",
+    "topics_covered": [
+      "Quick Revision",
+      "Summary"
+    ],
+    "page_count": 3,
+    "file_path": "02_Digital_Logic\\Quick_Revision_Notes.pdf",
+    "file_size_bytes": 7232,
+    "generation_status": "Completed",
+    "validation_status": "Valid",
+    "category": "Quick Revision"
+  },
+  {
+    "pdf_id": "DL_FORMULA",
+    "title": "Digital Logic Formula Sheet",
+    "subject": "Digital Logic",
+    "topics_covered": [
+      "Formulas",
+      "Theorems"
+    ],
+    "page_count": 2,
+    "file_path": "02_Digital_Logic\\Formula_Sheet.pdf",
+    "file_size_bytes": 4042,
+    "generation_status": "Completed",
+    "validation_status": "Valid",
+    "category": "Formula Sheet"
+  },
+  {
+    "pdf_id": "DL_PRACTICE_Q",
+    "title": "Digital Logic Practice Questions",
+    "subject": "Digital Logic",
+    "topics_covered": [
+      "Practice Questions",
+      "MCQ",
+      "MSQ",
+      "NAT"
+    ],
+    "page_count": 2,
+    "file_path": "02_Digital_Logic\\Practice_Questions.pdf",
+    "file_size_bytes": 4461,
+    "generation_status": "Completed",
+    "validation_status": "Valid",
+    "category": "Practice Questions"
+  },
+  {
+    "pdf_id": "DL_SOLUTIONS",
+    "title": "Digital Logic Detailed Solutions",
+    "subject": "Digital Logic",
+    "topics_covered": [
+      "Solutions",
+      "Explanations"
+    ],
+    "page_count": 3,
+    "file_path": "02_Digital_Logic\\Detailed_Solutions.pdf",
+    "file_size_bytes": 6892,
+    "generation_status": "Completed",
+    "validation_status": "Valid",
+    "category": "Solutions"
+  },
+  {
+    "pdf_id": "DL_TEST",
+    "title": "Digital Logic Subject Test",
+    "subject": "Digital Logic",
+    "topics_covered": [
+      "Subject Test",
+      "Timed Exam"
+    ],
+    "page_count": 2,
+    "file_path": "02_Digital_Logic\\Subject_Test.pdf",
+    "file_size_bytes": 4502,
+    "generation_status": "Completed",
+    "validation_status": "Valid",
+    "category": "Mock Tests"
+  },
+  {
+    "pdf_id": "DL_ANSWER_KEY",
+    "title": "Digital Logic Subject Test Answer Key",
+    "subject": "Digital Logic",
+    "topics_covered": [
+      "Answer Key",
+      "Grading Criteria"
+    ],
+    "page_count": 3,
+    "file_path": "02_Digital_Logic\\Answer_Key_and_Explanations.pdf",
+    "file_size_bytes": 6919,
+    "generation_status": "Completed",
+    "validation_status": "Valid",
+    "category": "Answer Keys"
+  },
+  {
+    "pdf_id": "COA_COMPLETE",
+    "title": "Computer Organization and Architecture Complete Comprehensive Notes",
+    "subject": "Computer Organization and Architecture",
+    "topics_covered": [
+      "Machine instructions and addressing modes",
+      "Design of ALU, datapath, and control unit (hardwired and microprogrammed)",
+      "Memory interfacing and hierarchy: performance, cache memory mapping",
+      "I/O interface: interrupt and DMA mode",
+      "Instruction pipelining, pipeline hazards, branch penalty and speedup"
+    ],
+    "page_count": 4,
+    "file_path": "03_Computer_Organization\\Subject_Complete_Notes.pdf",
+    "file_size_bytes": 12582,
+    "generation_status": "Completed",
+    "validation_status": "Valid",
+    "category": "Complete Notes"
+  },
+  {
+    "pdf_id": "COA_TOPIC_01",
+    "title": "Computer Organization and Architecture - Machine Instructions & Addressing Modes",
+    "subject": "Computer Organization and Architecture",
+    "topics_covered": [
+      "Machine Instructions & Addressing Modes"
+    ],
+    "page_count": 2,
+    "file_path": "03_Computer_Organization\\Topic_01_Notes.pdf",
+    "file_size_bytes": 5839,
+    "generation_status": "Completed",
+    "validation_status": "Valid",
+    "category": "Topic Notes"
+  },
+  {
+    "pdf_id": "COA_TOPIC_02",
+    "title": "Computer Organization and Architecture - ALU, Control Unit & Memory Interfacing",
+    "subject": "Computer Organization and Architecture",
+    "topics_covered": [
+      "ALU, Control Unit & Memory Interfacing"
+    ],
+    "page_count": 2,
+    "file_path": "03_Computer_Organization\\Topic_02_Notes.pdf",
+    "file_size_bytes": 5213,
+    "generation_status": "Completed",
+    "validation_status": "Valid",
+    "category": "Topic Notes"
+  },
+  {
+    "pdf_id": "COA_QUICK_REV",
+    "title": "Computer Organization and Architecture Quick Revision Notes",
+    "subject": "Computer Organization and Architecture",
+    "topics_covered": [
+      "Quick Revision",
+      "Summary"
+    ],
+    "page_count": 3,
+    "file_path": "03_Computer_Organization\\Quick_Revision_Notes.pdf",
+    "file_size_bytes": 7108,
+    "generation_status": "Completed",
+    "validation_status": "Valid",
+    "category": "Quick Revision"
+  },
+  {
+    "pdf_id": "COA_FORMULA",
+    "title": "Computer Organization and Architecture Formula Sheet",
+    "subject": "Computer Organization and Architecture",
+    "topics_covered": [
+      "Formulas",
+      "Theorems"
+    ],
+    "page_count": 2,
+    "file_path": "03_Computer_Organization\\Formula_Sheet.pdf",
+    "file_size_bytes": 4146,
+    "generation_status": "Completed",
+    "validation_status": "Valid",
+    "category": "Formula Sheet"
+  },
+  {
+    "pdf_id": "COA_PRACTICE_Q",
+    "title": "Computer Organization and Architecture Practice Questions",
+    "subject": "Computer Organization and Architecture",
+    "topics_covered": [
+      "Practice Questions",
+      "MCQ",
+      "MSQ",
+      "NAT"
+    ],
+    "page_count": 2,
+    "file_path": "03_Computer_Organization\\Practice_Questions.pdf",
+    "file_size_bytes": 4664,
+    "generation_status": "Completed",
+    "validation_status": "Valid",
+    "category": "Practice Questions"
+  },
+  {
+    "pdf_id": "COA_SOLUTIONS",
+    "title": "Computer Organization and Architecture Detailed Solutions",
+    "subject": "Computer Organization and Architecture",
+    "topics_covered": [
+      "Solutions",
+      "Explanations"
+    ],
+    "page_count": 3,
+    "file_path": "03_Computer_Organization\\Detailed_Solutions.pdf",
+    "file_size_bytes": 6808,
+    "generation_status": "Completed",
+    "validation_status": "Valid",
+    "category": "Solutions"
+  },
+  {
+    "pdf_id": "COA_TEST",
+    "title": "Computer Organization and Architecture Subject Test",
+    "subject": "Computer Organization and Architecture",
+    "topics_covered": [
+      "Subject Test",
+      "Timed Exam"
+    ],
+    "page_count": 2,
+    "file_path": "03_Computer_Organization\\Subject_Test.pdf",
+    "file_size_bytes": 4708,
+    "generation_status": "Completed",
+    "validation_status": "Valid",
+    "category": "Mock Tests"
+  },
+  {
+    "pdf_id": "COA_ANSWER_KEY",
+    "title": "Computer Organization and Architecture Subject Test Answer Key",
+    "subject": "Computer Organization and Architecture",
+    "topics_covered": [
+      "Answer Key",
+      "Grading Criteria"
+    ],
+    "page_count": 3,
+    "file_path": "03_Computer_Organization\\Answer_Key_and_Explanations.pdf",
+    "file_size_bytes": 6822,
+    "generation_status": "Completed",
+    "validation_status": "Valid",
+    "category": "Answer Keys"
+  },
+  {
+    "pdf_id": "PDS_COMPLETE",
+    "title": "Programming and Data Structures Complete Comprehensive Notes",
+    "subject": "Programming and Data Structures",
+    "topics_covered": [
+      "Programming in C: Operators, precedence, associativity, pointers, arrays, functions, recursion, structures",
+      "Linear data structures: Arrays, address calculation, stacks, queues, linked lists",
+      "Non-linear data structures: Trees, binary search trees (BST), binary heaps, graph representations"
+    ],
+    "page_count": 4,
+    "file_path": "04_Programming_Data_Structures\\Subject_Complete_Notes.pdf",
+    "file_size_bytes": 10877,
+    "generation_status": "Completed",
+    "validation_status": "Valid",
+    "category": "Complete Notes"
+  },
+  {
+    "pdf_id": "PDS_TOPIC_01",
+    "title": "Programming and Data Structures - Programming in C & Recursion Tracing",
+    "subject": "Programming and Data Structures",
+    "topics_covered": [
+      "Programming in C & Recursion Tracing"
+    ],
+    "page_count": 2,
+    "file_path": "04_Programming_Data_Structures\\Topic_01_Notes.pdf",
+    "file_size_bytes": 5537,
+    "generation_status": "Completed",
+    "validation_status": "Valid",
+    "category": "Topic Notes"
+  },
+  {
+    "pdf_id": "PDS_TOPIC_02",
+    "title": "Programming and Data Structures - Linear Data Structures - Stacks, Queues & Linked Lists",
+    "subject": "Programming and Data Structures",
+    "topics_covered": [
+      "Linear Data Structures - Stacks, Queues & Linked Lists"
+    ],
+    "page_count": 2,
+    "file_path": "04_Programming_Data_Structures\\Topic_02_Notes.pdf",
+    "file_size_bytes": 5443,
+    "generation_status": "Completed",
+    "validation_status": "Valid",
+    "category": "Topic Notes"
+  },
+  {
+    "pdf_id": "PDS_QUICK_REV",
+    "title": "Programming and Data Structures Quick Revision Notes",
+    "subject": "Programming and Data Structures",
+    "topics_covered": [
+      "Quick Revision",
+      "Summary"
+    ],
+    "page_count": 2,
+    "file_path": "04_Programming_Data_Structures\\Quick_Revision_Notes.pdf",
+    "file_size_bytes": 5940,
+    "generation_status": "Completed",
+    "validation_status": "Valid",
+    "category": "Quick Revision"
+  },
+  {
+    "pdf_id": "PDS_FORMULA",
+    "title": "Programming and Data Structures Formula Sheet",
+    "subject": "Programming and Data Structures",
+    "topics_covered": [
+      "Formulas",
+      "Theorems"
+    ],
+    "page_count": 2,
+    "file_path": "04_Programming_Data_Structures\\Formula_Sheet.pdf",
+    "file_size_bytes": 3865,
+    "generation_status": "Completed",
+    "validation_status": "Valid",
+    "category": "Formula Sheet"
+  },
+  {
+    "pdf_id": "PDS_PRACTICE_Q",
+    "title": "Programming and Data Structures Practice Questions",
+    "subject": "Programming and Data Structures",
+    "topics_covered": [
+      "Practice Questions",
+      "MCQ",
+      "MSQ",
+      "NAT"
+    ],
+    "page_count": 2,
+    "file_path": "04_Programming_Data_Structures\\Practice_Questions.pdf",
+    "file_size_bytes": 4466,
+    "generation_status": "Completed",
+    "validation_status": "Valid",
+    "category": "Practice Questions"
+  },
+  {
+    "pdf_id": "PDS_SOLUTIONS",
+    "title": "Programming and Data Structures Detailed Solutions",
+    "subject": "Programming and Data Structures",
+    "topics_covered": [
+      "Solutions",
+      "Explanations"
+    ],
+    "page_count": 3,
+    "file_path": "04_Programming_Data_Structures\\Detailed_Solutions.pdf",
+    "file_size_bytes": 6793,
+    "generation_status": "Completed",
+    "validation_status": "Valid",
+    "category": "Solutions"
+  },
+  {
+    "pdf_id": "PDS_TEST",
+    "title": "Programming and Data Structures Subject Test",
+    "subject": "Programming and Data Structures",
+    "topics_covered": [
+      "Subject Test",
+      "Timed Exam"
+    ],
+    "page_count": 2,
+    "file_path": "04_Programming_Data_Structures\\Subject_Test.pdf",
+    "file_size_bytes": 4519,
+    "generation_status": "Completed",
+    "validation_status": "Valid",
+    "category": "Mock Tests"
+  },
+  {
+    "pdf_id": "PDS_ANSWER_KEY",
+    "title": "Programming and Data Structures Subject Test Answer Key",
+    "subject": "Programming and Data Structures",
+    "topics_covered": [
+      "Answer Key",
+      "Grading Criteria"
+    ],
+    "page_count": 3,
+    "file_path": "04_Programming_Data_Structures\\Answer_Key_and_Explanations.pdf",
+    "file_size_bytes": 6805,
+    "generation_status": "Completed",
+    "validation_status": "Valid",
+    "category": "Answer Keys"
+  },
+  {
+    "pdf_id": "ALGO_COMPLETE",
+    "title": "Algorithms Complete Comprehensive Notes",
+    "subject": "Algorithms",
+    "topics_covered": [
+      "Asymptotic worst-case time and space complexity, Master Theorem, recurrences",
+      "Searching, sorting, and hashing: Comparison vs linear sorting, hash functions, collision resolution",
+      "Algorithm design techniques: Greedy algorithms, dynamic programming, divide-and-conquer",
+      "Graph traversals, minimum spanning trees (Prim, Kruskal), shortest paths (Dijkstra, Bellman-Ford, Floyd-Warshall)"
+    ],
+    "page_count": 4,
+    "file_path": "05_Algorithms\\Subject_Complete_Notes.pdf",
+    "file_size_bytes": 12570,
+    "generation_status": "Completed",
+    "validation_status": "Valid",
+    "category": "Complete Notes"
+  },
+  {
+    "pdf_id": "ALGO_TOPIC_01",
+    "title": "Algorithms - Asymptotic Analysis & Recurrence Relations",
+    "subject": "Algorithms",
+    "topics_covered": [
+      "Asymptotic Analysis & Recurrence Relations"
+    ],
+    "page_count": 2,
+    "file_path": "05_Algorithms\\Topic_01_Notes.pdf",
+    "file_size_bytes": 5145,
+    "generation_status": "Completed",
+    "validation_status": "Valid",
+    "category": "Topic Notes"
+  },
+  {
+    "pdf_id": "ALGO_TOPIC_02",
+    "title": "Algorithms - Sorting, Searching & Hashing",
+    "subject": "Algorithms",
+    "topics_covered": [
+      "Sorting, Searching & Hashing"
+    ],
+    "page_count": 2,
+    "file_path": "05_Algorithms\\Topic_02_Notes.pdf",
+    "file_size_bytes": 6181,
+    "generation_status": "Completed",
+    "validation_status": "Valid",
+    "category": "Topic Notes"
+  },
+  {
+    "pdf_id": "ALGO_QUICK_REV",
+    "title": "Algorithms Quick Revision Notes",
+    "subject": "Algorithms",
+    "topics_covered": [
+      "Quick Revision",
+      "Summary"
+    ],
+    "page_count": 3,
+    "file_path": "05_Algorithms\\Quick_Revision_Notes.pdf",
+    "file_size_bytes": 7063,
+    "generation_status": "Completed",
+    "validation_status": "Valid",
+    "category": "Quick Revision"
+  },
+  {
+    "pdf_id": "ALGO_FORMULA",
+    "title": "Algorithms Formula Sheet",
+    "subject": "Algorithms",
+    "topics_covered": [
+      "Formulas",
+      "Theorems"
+    ],
+    "page_count": 2,
+    "file_path": "05_Algorithms\\Formula_Sheet.pdf",
+    "file_size_bytes": 4150,
+    "generation_status": "Completed",
+    "validation_status": "Valid",
+    "category": "Formula Sheet"
+  },
+  {
+    "pdf_id": "ALGO_PRACTICE_Q",
+    "title": "Algorithms Practice Questions",
+    "subject": "Algorithms",
+    "topics_covered": [
+      "Practice Questions",
+      "MCQ",
+      "MSQ",
+      "NAT"
+    ],
+    "page_count": 2,
+    "file_path": "05_Algorithms\\Practice_Questions.pdf",
+    "file_size_bytes": 4718,
+    "generation_status": "Completed",
+    "validation_status": "Valid",
+    "category": "Practice Questions"
+  },
+  {
+    "pdf_id": "ALGO_SOLUTIONS",
+    "title": "Algorithms Detailed Solutions",
+    "subject": "Algorithms",
+    "topics_covered": [
+      "Solutions",
+      "Explanations"
+    ],
+    "page_count": 3,
+    "file_path": "05_Algorithms\\Detailed_Solutions.pdf",
+    "file_size_bytes": 7020,
+    "generation_status": "Completed",
+    "validation_status": "Valid",
+    "category": "Solutions"
+  },
+  {
+    "pdf_id": "ALGO_TEST",
+    "title": "Algorithms Subject Test",
+    "subject": "Algorithms",
+    "topics_covered": [
+      "Subject Test",
+      "Timed Exam"
+    ],
+    "page_count": 2,
+    "file_path": "05_Algorithms\\Subject_Test.pdf",
+    "file_size_bytes": 4762,
+    "generation_status": "Completed",
+    "validation_status": "Valid",
+    "category": "Mock Tests"
+  },
+  {
+    "pdf_id": "ALGO_ANSWER_KEY",
+    "title": "Algorithms Subject Test Answer Key",
+    "subject": "Algorithms",
+    "topics_covered": [
+      "Answer Key",
+      "Grading Criteria"
+    ],
+    "page_count": 3,
+    "file_path": "05_Algorithms\\Answer_Key_and_Explanations.pdf",
+    "file_size_bytes": 7039,
+    "generation_status": "Completed",
+    "validation_status": "Valid",
+    "category": "Answer Keys"
+  },
+  {
+    "pdf_id": "TOC_COMPLETE",
+    "title": "Theory of Computation Complete Comprehensive Notes",
+    "subject": "Theory of Computation",
+    "topics_covered": [
+      "Regular expressions and finite automata (DFA, NFA, minimization)",
+      "Context-free grammars and pushdown automata (DPDA, NPDA)",
+      "Regular and context-free languages, pumping lemma for regular and CFLs",
+      "Turing machines and undecidability: Halting problem, Rice's theorem, Chomsky hierarchy"
+    ],
+    "page_count": 4,
+    "file_path": "06_Theory_of_Computation\\Subject_Complete_Notes.pdf",
+    "file_size_bytes": 11887,
+    "generation_status": "Completed",
+    "validation_status": "Valid",
+    "category": "Complete Notes"
+  },
+  {
+    "pdf_id": "TOC_TOPIC_01",
+    "title": "Theory of Computation - Finite Automata, Regular Expressions & Minimization",
+    "subject": "Theory of Computation",
+    "topics_covered": [
+      "Finite Automata, Regular Expressions & Minimization"
+    ],
+    "page_count": 2,
+    "file_path": "06_Theory_of_Computation\\Topic_01_Notes.pdf",
+    "file_size_bytes": 5375,
+    "generation_status": "Completed",
+    "validation_status": "Valid",
+    "category": "Topic Notes"
+  },
+  {
+    "pdf_id": "TOC_TOPIC_02",
+    "title": "Theory of Computation - Grammars, Pushdown Automata & Pumping Lemma",
+    "subject": "Theory of Computation",
+    "topics_covered": [
+      "Grammars, Pushdown Automata & Pumping Lemma"
+    ],
+    "page_count": 2,
+    "file_path": "06_Theory_of_Computation\\Topic_02_Notes.pdf",
+    "file_size_bytes": 6215,
+    "generation_status": "Completed",
+    "validation_status": "Valid",
+    "category": "Topic Notes"
+  },
+  {
+    "pdf_id": "TOC_QUICK_REV",
+    "title": "Theory of Computation Quick Revision Notes",
+    "subject": "Theory of Computation",
+    "topics_covered": [
+      "Quick Revision",
+      "Summary"
+    ],
+    "page_count": 2,
+    "file_path": "06_Theory_of_Computation\\Quick_Revision_Notes.pdf",
+    "file_size_bytes": 5553,
+    "generation_status": "Completed",
+    "validation_status": "Valid",
+    "category": "Quick Revision"
+  },
+  {
+    "pdf_id": "TOC_FORMULA",
+    "title": "Theory of Computation Formula Sheet",
+    "subject": "Theory of Computation",
+    "topics_covered": [
+      "Formulas",
+      "Theorems"
+    ],
+    "page_count": 2,
+    "file_path": "06_Theory_of_Computation\\Formula_Sheet.pdf",
+    "file_size_bytes": 3759,
+    "generation_status": "Completed",
+    "validation_status": "Valid",
+    "category": "Formula Sheet"
+  },
+  {
+    "pdf_id": "TOC_PRACTICE_Q",
+    "title": "Theory of Computation Practice Questions",
+    "subject": "Theory of Computation",
+    "topics_covered": [
+      "Practice Questions",
+      "MCQ",
+      "MSQ",
+      "NAT"
+    ],
+    "page_count": 2,
+    "file_path": "06_Theory_of_Computation\\Practice_Questions.pdf",
+    "file_size_bytes": 4627,
+    "generation_status": "Completed",
+    "validation_status": "Valid",
+    "category": "Practice Questions"
+  },
+  {
+    "pdf_id": "TOC_SOLUTIONS",
+    "title": "Theory of Computation Detailed Solutions",
+    "subject": "Theory of Computation",
+    "topics_covered": [
+      "Solutions",
+      "Explanations"
+    ],
+    "page_count": 3,
+    "file_path": "06_Theory_of_Computation\\Detailed_Solutions.pdf",
+    "file_size_bytes": 6891,
+    "generation_status": "Completed",
+    "validation_status": "Valid",
+    "category": "Solutions"
+  },
+  {
+    "pdf_id": "TOC_TEST",
+    "title": "Theory of Computation Subject Test",
+    "subject": "Theory of Computation",
+    "topics_covered": [
+      "Subject Test",
+      "Timed Exam"
+    ],
+    "page_count": 2,
+    "file_path": "06_Theory_of_Computation\\Subject_Test.pdf",
+    "file_size_bytes": 4675,
+    "generation_status": "Completed",
+    "validation_status": "Valid",
+    "category": "Mock Tests"
+  },
+  {
+    "pdf_id": "TOC_ANSWER_KEY",
+    "title": "Theory of Computation Subject Test Answer Key",
+    "subject": "Theory of Computation",
+    "topics_covered": [
+      "Answer Key",
+      "Grading Criteria"
+    ],
+    "page_count": 3,
+    "file_path": "06_Theory_of_Computation\\Answer_Key_and_Explanations.pdf",
+    "file_size_bytes": 6872,
+    "generation_status": "Completed",
+    "validation_status": "Valid",
+    "category": "Answer Keys"
+  },
+  {
+    "pdf_id": "CD_COMPLETE",
+    "title": "Compiler Design Complete Comprehensive Notes",
+    "subject": "Compiler Design",
+    "topics_covered": [
+      "Lexical analysis: tokens, patterns, lexemes, regular expressions, lexical errors",
+      "Parsing: Top-down (LL(1), FIRST & FOLLOW) and Bottom-up (LR(0), SLR(1), CLR(1), LALR(1))",
+      "Syntax-directed translation (S-attributed, L-attributed) and Runtime environments",
+      "Intermediate code generation: Three-address code, DAGs",
+      "Local optimization and Data flow analyses: constant propagation, liveness analysis, common subexpression elimination"
+    ],
+    "page_count": 4,
+    "file_path": "07_Compiler_Design\\Subject_Complete_Notes.pdf",
+    "file_size_bytes": 11248,
+    "generation_status": "Completed",
+    "validation_status": "Valid",
+    "category": "Complete Notes"
+  },
+  {
+    "pdf_id": "CD_TOPIC_01",
+    "title": "Compiler Design - Lexical Analysis & Top-Down Parsing (LL(1))",
+    "subject": "Compiler Design",
+    "topics_covered": [
+      "Lexical Analysis & Top-Down Parsing (LL(1))"
+    ],
+    "page_count": 2,
+    "file_path": "07_Compiler_Design\\Topic_01_Notes.pdf",
+    "file_size_bytes": 5635,
+    "generation_status": "Completed",
+    "validation_status": "Valid",
+    "category": "Topic Notes"
+  },
+  {
+    "pdf_id": "CD_TOPIC_02",
+    "title": "Compiler Design - Bottom-Up Parsing (LR Parsers) & Parser Comparisons",
+    "subject": "Compiler Design",
+    "topics_covered": [
+      "Bottom-Up Parsing (LR Parsers) & Parser Comparisons"
+    ],
+    "page_count": 2,
+    "file_path": "07_Compiler_Design\\Topic_02_Notes.pdf",
+    "file_size_bytes": 5700,
+    "generation_status": "Completed",
+    "validation_status": "Valid",
+    "category": "Topic Notes"
+  },
+  {
+    "pdf_id": "CD_QUICK_REV",
+    "title": "Compiler Design Quick Revision Notes",
+    "subject": "Compiler Design",
+    "topics_covered": [
+      "Quick Revision",
+      "Summary"
+    ],
+    "page_count": 2,
+    "file_path": "07_Compiler_Design\\Quick_Revision_Notes.pdf",
+    "file_size_bytes": 5600,
+    "generation_status": "Completed",
+    "validation_status": "Valid",
+    "category": "Quick Revision"
+  },
+  {
+    "pdf_id": "CD_FORMULA",
+    "title": "Compiler Design Formula Sheet",
+    "subject": "Compiler Design",
+    "topics_covered": [
+      "Formulas",
+      "Theorems"
+    ],
+    "page_count": 2,
+    "file_path": "07_Compiler_Design\\Formula_Sheet.pdf",
+    "file_size_bytes": 4031,
+    "generation_status": "Completed",
+    "validation_status": "Valid",
+    "category": "Formula Sheet"
+  },
+  {
+    "pdf_id": "CD_PRACTICE_Q",
+    "title": "Compiler Design Practice Questions",
+    "subject": "Compiler Design",
+    "topics_covered": [
+      "Practice Questions",
+      "MCQ",
+      "MSQ",
+      "NAT"
+    ],
+    "page_count": 2,
+    "file_path": "07_Compiler_Design\\Practice_Questions.pdf",
+    "file_size_bytes": 4759,
+    "generation_status": "Completed",
+    "validation_status": "Valid",
+    "category": "Practice Questions"
+  },
+  {
+    "pdf_id": "CD_SOLUTIONS",
+    "title": "Compiler Design Detailed Solutions",
+    "subject": "Compiler Design",
+    "topics_covered": [
+      "Solutions",
+      "Explanations"
+    ],
+    "page_count": 3,
+    "file_path": "07_Compiler_Design\\Detailed_Solutions.pdf",
+    "file_size_bytes": 7190,
+    "generation_status": "Completed",
+    "validation_status": "Valid",
+    "category": "Solutions"
+  },
+  {
+    "pdf_id": "CD_TEST",
+    "title": "Compiler Design Subject Test",
+    "subject": "Compiler Design",
+    "topics_covered": [
+      "Subject Test",
+      "Timed Exam"
+    ],
+    "page_count": 2,
+    "file_path": "07_Compiler_Design\\Subject_Test.pdf",
+    "file_size_bytes": 4801,
+    "generation_status": "Completed",
+    "validation_status": "Valid",
+    "category": "Mock Tests"
+  },
+  {
+    "pdf_id": "CD_ANSWER_KEY",
+    "title": "Compiler Design Subject Test Answer Key",
+    "subject": "Compiler Design",
+    "topics_covered": [
+      "Answer Key",
+      "Grading Criteria"
+    ],
+    "page_count": 3,
+    "file_path": "07_Compiler_Design\\Answer_Key_and_Explanations.pdf",
+    "file_size_bytes": 7209,
+    "generation_status": "Completed",
+    "validation_status": "Valid",
+    "category": "Answer Keys"
+  },
+  {
+    "pdf_id": "OS_COMPLETE",
+    "title": "Operating System Complete Comprehensive Notes",
+    "subject": "Operating System",
+    "topics_covered": [
+      "System calls, processes, threads, inter-process communication, concurrency and synchronization",
+      "Deadlock: characterization, prevention, avoidance (Banker's algorithm), detection and recovery",
+      "CPU and I/O scheduling: Preemptive and non-preemptive algorithms, disk scheduling",
+      "Memory management and virtual memory: Paging, TLB, multi-level paging, page replacement algorithms",
+      "File systems: File allocation methods, free space management, UNIX Inodes"
+    ],
+    "page_count": 4,
+    "file_path": "08_Operating_Systems\\Subject_Complete_Notes.pdf",
+    "file_size_bytes": 11595,
+    "generation_status": "Completed",
+    "validation_status": "Valid",
+    "category": "Complete Notes"
+  },
+  {
+    "pdf_id": "OS_TOPIC_01",
+    "title": "Operating System - Processes, Threads, Concurrency & Synchronization",
+    "subject": "Operating System",
+    "topics_covered": [
+      "Processes, Threads, Concurrency & Synchronization"
+    ],
+    "page_count": 2,
+    "file_path": "08_Operating_Systems\\Topic_01_Notes.pdf",
+    "file_size_bytes": 5668,
+    "generation_status": "Completed",
+    "validation_status": "Valid",
+    "category": "Topic Notes"
+  },
+  {
+    "pdf_id": "OS_TOPIC_02",
+    "title": "Operating System - CPU Scheduling, I/O Scheduling & Deadlocks",
+    "subject": "Operating System",
+    "topics_covered": [
+      "CPU Scheduling, I/O Scheduling & Deadlocks"
+    ],
+    "page_count": 2,
+    "file_path": "08_Operating_Systems\\Topic_02_Notes.pdf",
+    "file_size_bytes": 5845,
+    "generation_status": "Completed",
+    "validation_status": "Valid",
+    "category": "Topic Notes"
+  },
+  {
+    "pdf_id": "OS_QUICK_REV",
+    "title": "Operating System Quick Revision Notes",
+    "subject": "Operating System",
+    "topics_covered": [
+      "Quick Revision",
+      "Summary"
+    ],
+    "page_count": 2,
+    "file_path": "08_Operating_Systems\\Quick_Revision_Notes.pdf",
+    "file_size_bytes": 5716,
+    "generation_status": "Completed",
+    "validation_status": "Valid",
+    "category": "Quick Revision"
+  },
+  {
+    "pdf_id": "OS_FORMULA",
+    "title": "Operating System Formula Sheet",
+    "subject": "Operating System",
+    "topics_covered": [
+      "Formulas",
+      "Theorems"
+    ],
+    "page_count": 2,
+    "file_path": "08_Operating_Systems\\Formula_Sheet.pdf",
+    "file_size_bytes": 3904,
+    "generation_status": "Completed",
+    "validation_status": "Valid",
+    "category": "Formula Sheet"
+  },
+  {
+    "pdf_id": "OS_PRACTICE_Q",
+    "title": "Operating System Practice Questions",
+    "subject": "Operating System",
+    "topics_covered": [
+      "Practice Questions",
+      "MCQ",
+      "MSQ",
+      "NAT"
+    ],
+    "page_count": 2,
+    "file_path": "08_Operating_Systems\\Practice_Questions.pdf",
+    "file_size_bytes": 4580,
+    "generation_status": "Completed",
+    "validation_status": "Valid",
+    "category": "Practice Questions"
+  },
+  {
+    "pdf_id": "OS_SOLUTIONS",
+    "title": "Operating System Detailed Solutions",
+    "subject": "Operating System",
+    "topics_covered": [
+      "Solutions",
+      "Explanations"
+    ],
+    "page_count": 3,
+    "file_path": "08_Operating_Systems\\Detailed_Solutions.pdf",
+    "file_size_bytes": 6787,
+    "generation_status": "Completed",
+    "validation_status": "Valid",
+    "category": "Solutions"
+  },
+  {
+    "pdf_id": "OS_TEST",
+    "title": "Operating System Subject Test",
+    "subject": "Operating System",
+    "topics_covered": [
+      "Subject Test",
+      "Timed Exam"
+    ],
+    "page_count": 2,
+    "file_path": "08_Operating_Systems\\Subject_Test.pdf",
+    "file_size_bytes": 4622,
+    "generation_status": "Completed",
+    "validation_status": "Valid",
+    "category": "Mock Tests"
+  },
+  {
+    "pdf_id": "OS_ANSWER_KEY",
+    "title": "Operating System Subject Test Answer Key",
+    "subject": "Operating System",
+    "topics_covered": [
+      "Answer Key",
+      "Grading Criteria"
+    ],
+    "page_count": 3,
+    "file_path": "08_Operating_Systems\\Answer_Key_and_Explanations.pdf",
+    "file_size_bytes": 6801,
+    "generation_status": "Completed",
+    "validation_status": "Valid",
+    "category": "Answer Keys"
+  },
+  {
+    "pdf_id": "DB_COMPLETE",
+    "title": "Databases Complete Comprehensive Notes",
+    "subject": "Databases",
+    "topics_covered": [
+      "ER-model, relational model: relational algebra, tuple calculus, SQL",
+      "Integrity constraints, functional dependencies, normal forms (1NF, 2NF, 3NF, BCNF)",
+      "File organization, indexing (B and B+ trees)",
+      "Transactions and concurrency control: ACID, serializability, recoverability, locking protocols"
+    ],
+    "page_count": 4,
+    "file_path": "09_Databases\\Subject_Complete_Notes.pdf",
+    "file_size_bytes": 10971,
+    "generation_status": "Completed",
+    "validation_status": "Valid",
+    "category": "Complete Notes"
+  },
+  {
+    "pdf_id": "DB_TOPIC_01",
+    "title": "Databases - ER-Model, Relational Algebra & SQL",
+    "subject": "Databases",
+    "topics_covered": [
+      "ER-Model, Relational Algebra & SQL"
+    ],
+    "page_count": 2,
+    "file_path": "09_Databases\\Topic_01_Notes.pdf",
+    "file_size_bytes": 5701,
+    "generation_status": "Completed",
+    "validation_status": "Valid",
+    "category": "Topic Notes"
+  },
+  {
+    "pdf_id": "DB_TOPIC_02",
+    "title": "Databases - Functional Dependencies & Normalization (1NF to BCNF)",
+    "subject": "Databases",
+    "topics_covered": [
+      "Functional Dependencies & Normalization (1NF to BCNF)"
+    ],
+    "page_count": 2,
+    "file_path": "09_Databases\\Topic_02_Notes.pdf",
+    "file_size_bytes": 5456,
+    "generation_status": "Completed",
+    "validation_status": "Valid",
+    "category": "Topic Notes"
+  },
+  {
+    "pdf_id": "DB_QUICK_REV",
+    "title": "Databases Quick Revision Notes",
+    "subject": "Databases",
+    "topics_covered": [
+      "Quick Revision",
+      "Summary"
+    ],
+    "page_count": 2,
+    "file_path": "09_Databases\\Quick_Revision_Notes.pdf",
+    "file_size_bytes": 5590,
+    "generation_status": "Completed",
+    "validation_status": "Valid",
+    "category": "Quick Revision"
+  },
+  {
+    "pdf_id": "DB_FORMULA",
+    "title": "Databases Formula Sheet",
+    "subject": "Databases",
+    "topics_covered": [
+      "Formulas",
+      "Theorems"
+    ],
+    "page_count": 2,
+    "file_path": "09_Databases\\Formula_Sheet.pdf",
+    "file_size_bytes": 3977,
+    "generation_status": "Completed",
+    "validation_status": "Valid",
+    "category": "Formula Sheet"
+  },
+  {
+    "pdf_id": "DB_PRACTICE_Q",
+    "title": "Databases Practice Questions",
+    "subject": "Databases",
+    "topics_covered": [
+      "Practice Questions",
+      "MCQ",
+      "MSQ",
+      "NAT"
+    ],
+    "page_count": 2,
+    "file_path": "09_Databases\\Practice_Questions.pdf",
+    "file_size_bytes": 4722,
+    "generation_status": "Completed",
+    "validation_status": "Valid",
+    "category": "Practice Questions"
+  },
+  {
+    "pdf_id": "DB_SOLUTIONS",
+    "title": "Databases Detailed Solutions",
+    "subject": "Databases",
+    "topics_covered": [
+      "Solutions",
+      "Explanations"
+    ],
+    "page_count": 3,
+    "file_path": "09_Databases\\Detailed_Solutions.pdf",
+    "file_size_bytes": 7018,
+    "generation_status": "Completed",
+    "validation_status": "Valid",
+    "category": "Solutions"
+  },
+  {
+    "pdf_id": "DB_TEST",
+    "title": "Databases Subject Test",
+    "subject": "Databases",
+    "topics_covered": [
+      "Subject Test",
+      "Timed Exam"
+    ],
+    "page_count": 2,
+    "file_path": "09_Databases\\Subject_Test.pdf",
+    "file_size_bytes": 4764,
+    "generation_status": "Completed",
+    "validation_status": "Valid",
+    "category": "Mock Tests"
+  },
+  {
+    "pdf_id": "DB_ANSWER_KEY",
+    "title": "Databases Subject Test Answer Key",
+    "subject": "Databases",
+    "topics_covered": [
+      "Answer Key",
+      "Grading Criteria"
+    ],
+    "page_count": 3,
+    "file_path": "09_Databases\\Answer_Key_and_Explanations.pdf",
+    "file_size_bytes": 7024,
+    "generation_status": "Completed",
+    "validation_status": "Valid",
+    "category": "Answer Keys"
+  },
+  {
+    "pdf_id": "CN_COMPLETE",
+    "title": "Computer Networks Complete Comprehensive Notes",
+    "subject": "Computer Networks",
+    "topics_covered": [
+      "Principles of Layering; Basics of switching (circuit, packet and virtual circuit) and performance metrics",
+      "Data link layer: error detection, Medium Access Control, Ethernet",
+      "Routing: Distance vector and link state routing",
+      "IPv4: Fragmentation, CIDR Notation, Network Address Translation (NAT)",
+      "TCP: Flow control, congestion control, socket API; Application protocols: DNS and HTTP"
+    ],
+    "page_count": 5,
+    "file_path": "10_Computer_Networks\\Subject_Complete_Notes.pdf",
+    "file_size_bytes": 13831,
+    "generation_status": "Completed",
+    "validation_status": "Valid",
+    "category": "Complete Notes"
+  },
+  {
+    "pdf_id": "CN_TOPIC_01",
+    "title": "Computer Networks - Layering, Switching & Network Performance Metrics",
+    "subject": "Computer Networks",
+    "topics_covered": [
+      "Layering, Switching & Network Performance Metrics"
+    ],
+    "page_count": 2,
+    "file_path": "10_Computer_Networks\\Topic_01_Notes.pdf",
+    "file_size_bytes": 5472,
+    "generation_status": "Completed",
+    "validation_status": "Valid",
+    "category": "Topic Notes"
+  },
+  {
+    "pdf_id": "CN_TOPIC_02",
+    "title": "Computer Networks - Data Link Layer, CRC & Medium Access Control (CSMA/CD)",
+    "subject": "Computer Networks",
+    "topics_covered": [
+      "Data Link Layer, CRC & Medium Access Control (CSMA/CD)"
+    ],
+    "page_count": 2,
+    "file_path": "10_Computer_Networks\\Topic_02_Notes.pdf",
+    "file_size_bytes": 5616,
+    "generation_status": "Completed",
+    "validation_status": "Valid",
+    "category": "Topic Notes"
+  },
+  {
+    "pdf_id": "CN_QUICK_REV",
+    "title": "Computer Networks Quick Revision Notes",
+    "subject": "Computer Networks",
+    "topics_covered": [
+      "Quick Revision",
+      "Summary"
+    ],
+    "page_count": 3,
+    "file_path": "10_Computer_Networks\\Quick_Revision_Notes.pdf",
+    "file_size_bytes": 7331,
+    "generation_status": "Completed",
+    "validation_status": "Valid",
+    "category": "Quick Revision"
+  },
+  {
+    "pdf_id": "CN_FORMULA",
+    "title": "Computer Networks Formula Sheet",
+    "subject": "Computer Networks",
+    "topics_covered": [
+      "Formulas",
+      "Theorems"
+    ],
+    "page_count": 2,
+    "file_path": "10_Computer_Networks\\Formula_Sheet.pdf",
+    "file_size_bytes": 4133,
+    "generation_status": "Completed",
+    "validation_status": "Valid",
+    "category": "Formula Sheet"
+  },
+  {
+    "pdf_id": "CN_PRACTICE_Q",
+    "title": "Computer Networks Practice Questions",
+    "subject": "Computer Networks",
+    "topics_covered": [
+      "Practice Questions",
+      "MCQ",
+      "MSQ",
+      "NAT"
+    ],
+    "page_count": 2,
+    "file_path": "10_Computer_Networks\\Practice_Questions.pdf",
+    "file_size_bytes": 4687,
+    "generation_status": "Completed",
+    "validation_status": "Valid",
+    "category": "Practice Questions"
+  },
+  {
+    "pdf_id": "CN_SOLUTIONS",
+    "title": "Computer Networks Detailed Solutions",
+    "subject": "Computer Networks",
+    "topics_covered": [
+      "Solutions",
+      "Explanations"
+    ],
+    "page_count": 3,
+    "file_path": "10_Computer_Networks\\Detailed_Solutions.pdf",
+    "file_size_bytes": 6870,
+    "generation_status": "Completed",
+    "validation_status": "Valid",
+    "category": "Solutions"
+  },
+  {
+    "pdf_id": "CN_TEST",
+    "title": "Computer Networks Subject Test",
+    "subject": "Computer Networks",
+    "topics_covered": [
+      "Subject Test",
+      "Timed Exam"
+    ],
+    "page_count": 2,
+    "file_path": "10_Computer_Networks\\Subject_Test.pdf",
+    "file_size_bytes": 4730,
+    "generation_status": "Completed",
+    "validation_status": "Valid",
+    "category": "Mock Tests"
+  },
+  {
+    "pdf_id": "CN_ANSWER_KEY",
+    "title": "Computer Networks Subject Test Answer Key",
+    "subject": "Computer Networks",
+    "topics_covered": [
+      "Answer Key",
+      "Grading Criteria"
+    ],
+    "page_count": 3,
+    "file_path": "10_Computer_Networks\\Answer_Key_and_Explanations.pdf",
+    "file_size_bytes": 6881,
+    "generation_status": "Completed",
+    "validation_status": "Valid",
+    "category": "Answer Keys"
+  },
+  {
+    "pdf_id": "GA_COMPLETE",
+    "title": "General Aptitude Complete Comprehensive Notes",
+    "subject": "General Aptitude",
+    "topics_covered": [
+      "Verbal Aptitude: Grammar, Vocabulary, Reading comprehension, Narrative sequencing",
+      "Quantitative Aptitude: Data interpretation, numerical computation, percentages, ratios, permutations, series, geometry",
+      "Analytical Aptitude: Logic (deduction/induction), analogy, numerical relations and reasoning",
+      "Spatial Aptitude: Transformation of shapes, translation, rotation, mirroring, paper folding, cutting in 2D/3D"
+    ],
+    "page_count": 3,
+    "file_path": "11_General_Aptitude\\Subject_Complete_Notes.pdf",
+    "file_size_bytes": 9308,
+    "generation_status": "Completed",
+    "validation_status": "Valid",
+    "category": "Complete Notes"
+  },
+  {
+    "pdf_id": "GA_TOPIC_01",
+    "title": "General Aptitude - Verbal Aptitude - Grammar, Vocabulary & Comprehension",
+    "subject": "General Aptitude",
+    "topics_covered": [
+      "Verbal Aptitude - Grammar, Vocabulary & Comprehension"
+    ],
+    "page_count": 2,
+    "file_path": "11_General_Aptitude\\Topic_01_Notes.pdf",
+    "file_size_bytes": 5299,
+    "generation_status": "Completed",
+    "validation_status": "Valid",
+    "category": "Topic Notes"
+  },
+  {
+    "pdf_id": "GA_TOPIC_02",
+    "title": "General Aptitude - Quantitative Aptitude - Arithmetic, Algebra & Mensuration",
+    "subject": "General Aptitude",
+    "topics_covered": [
+      "Quantitative Aptitude - Arithmetic, Algebra & Mensuration"
+    ],
+    "page_count": 2,
+    "file_path": "11_General_Aptitude\\Topic_02_Notes.pdf",
+    "file_size_bytes": 5250,
+    "generation_status": "Completed",
+    "validation_status": "Valid",
+    "category": "Topic Notes"
+  },
+  {
+    "pdf_id": "GA_QUICK_REV",
+    "title": "General Aptitude Quick Revision Notes",
+    "subject": "General Aptitude",
+    "topics_covered": [
+      "Quick Revision",
+      "Summary"
+    ],
+    "page_count": 2,
+    "file_path": "11_General_Aptitude\\Quick_Revision_Notes.pdf",
+    "file_size_bytes": 5478,
+    "generation_status": "Completed",
+    "validation_status": "Valid",
+    "category": "Quick Revision"
+  },
+  {
+    "pdf_id": "GA_FORMULA",
+    "title": "General Aptitude Formula Sheet",
+    "subject": "General Aptitude",
+    "topics_covered": [
+      "Formulas",
+      "Theorems"
+    ],
+    "page_count": 2,
+    "file_path": "11_General_Aptitude\\Formula_Sheet.pdf",
+    "file_size_bytes": 3725,
+    "generation_status": "Completed",
+    "validation_status": "Valid",
+    "category": "Formula Sheet"
+  },
+  {
+    "pdf_id": "GA_PRACTICE_Q",
+    "title": "General Aptitude Practice Questions",
+    "subject": "General Aptitude",
+    "topics_covered": [
+      "Practice Questions",
+      "MCQ",
+      "MSQ",
+      "NAT"
+    ],
+    "page_count": 2,
+    "file_path": "11_General_Aptitude\\Practice_Questions.pdf",
+    "file_size_bytes": 4678,
+    "generation_status": "Completed",
+    "validation_status": "Valid",
+    "category": "Practice Questions"
+  },
+  {
+    "pdf_id": "GA_SOLUTIONS",
+    "title": "General Aptitude Detailed Solutions",
+    "subject": "General Aptitude",
+    "topics_covered": [
+      "Solutions",
+      "Explanations"
+    ],
+    "page_count": 3,
+    "file_path": "11_General_Aptitude\\Detailed_Solutions.pdf",
+    "file_size_bytes": 6644,
+    "generation_status": "Completed",
+    "validation_status": "Valid",
+    "category": "Solutions"
+  },
+  {
+    "pdf_id": "GA_TEST",
+    "title": "General Aptitude Subject Test",
+    "subject": "General Aptitude",
+    "topics_covered": [
+      "Subject Test",
+      "Timed Exam"
+    ],
+    "page_count": 2,
+    "file_path": "11_General_Aptitude\\Subject_Test.pdf",
+    "file_size_bytes": 4720,
+    "generation_status": "Completed",
+    "validation_status": "Valid",
+    "category": "Mock Tests"
+  },
+  {
+    "pdf_id": "GA_ANSWER_KEY",
+    "title": "General Aptitude Subject Test Answer Key",
+    "subject": "General Aptitude",
+    "topics_covered": [
+      "Answer Key",
+      "Grading Criteria"
+    ],
+    "page_count": 3,
+    "file_path": "11_General_Aptitude\\Answer_Key_and_Explanations.pdf",
+    "file_size_bytes": 6668,
+    "generation_status": "Completed",
+    "validation_status": "Valid",
+    "category": "Answer Keys"
+  },
+  {
+    "pdf_id": "GLOBAL_SYLLABUS_ANALYSIS",
+    "title": "GATE 2027 Syllabus Breakdown & Comparative Analysis",
+    "subject": "Official Syllabus",
+    "topics_covered": [
+      "Syllabus",
+      "Exam Pattern",
+      "Weightage"
+    ],
+    "page_count": 2,
+    "file_path": "00_Official_Syllabus\\GATE_2027_Syllabus_Analysis_and_Changes.pdf",
+    "file_size_bytes": 4446,
+    "generation_status": "Completed",
+    "validation_status": "Valid",
+    "category": "Official Syllabus"
+  },
+  {
+    "pdf_id": "GLOBAL_PYQ_COMPENDIUM",
+    "title": "Verified GATE CSE PYQs Compendium (2012 - 2026)",
+    "subject": "Previous Year Questions",
+    "topics_covered": [
+      "PYQs",
+      "Official Solutions",
+      "2012-2026"
+    ],
+    "page_count": 4,
+    "file_path": "12_Previous_Year_Questions\\Verified_GATE_CSE_PYQs_2012_2026.pdf",
+    "file_size_bytes": 10274,
+    "generation_status": "Completed",
+    "validation_status": "Valid",
+    "category": "PYQs"
+  },
+  {
+    "pdf_id": "GLOBAL_MASTER_FORMULA",
+    "title": "GATE 2027 Master Formula & Cheat Sheet",
+    "subject": "Quick Revision",
+    "topics_covered": [
+      "Formulas",
+      "Cheat Sheets",
+      "Complexity Tables"
+    ],
+    "page_count": 4,
+    "file_path": "15_Quick_Revision\\Master_Formula_and_Cheat_Sheet.pdf",
+    "file_size_bytes": 9320,
+    "generation_status": "Completed",
+    "validation_status": "Valid",
+    "category": "Formula Sheet"
+  },
+  {
+    "pdf_id": "GLOBAL_STUDY_PLANNER",
+    "title": "GATE 2027 Complete Study Planner & Roadmaps",
+    "subject": "Study Plans",
+    "topics_covered": [
+      "Timetable",
+      "Daily Targets",
+      "Weekly Schedules"
+    ],
+    "page_count": 3,
+    "file_path": "16_Study_Plans\\GATE_2027_Complete_Study_Planner.pdf",
+    "file_size_bytes": 7618,
+    "generation_status": "Completed",
+    "validation_status": "Valid",
+    "category": "Study Plans"
+  },
+  {
+    "pdf_id": "GLOBAL_MOCK_01",
+    "title": "GATE 2027 Full-Length Mock Test 01",
+    "subject": "Mock Tests",
+    "topics_covered": [
+      "Full Length Mock",
+      "65 Questions",
+      "100 Marks"
+    ],
+    "page_count": 5,
+    "file_path": "14_Mock_Tests\\Full_Length_Mock_Test_01.pdf",
+    "file_size_bytes": 10425,
+    "generation_status": "Completed",
+    "validation_status": "Valid",
+    "category": "Mock Tests"
+  },
+  {
+    "pdf_id": "GLOBAL_FINAL_WEEK_PACK",
+    "title": "GATE 2027 Final Week & Last Day Revision Pack",
+    "subject": "Final Revision",
+    "topics_covered": [
+      "Final Week",
+      "Last Day Checklist",
+      "High Probability Review"
+    ],
+    "page_count": 2,
+    "file_path": "17_Final_Revision\\Final_Week_and_Last_Day_Pack.pdf",
+    "file_size_bytes": 4495,
+    "generation_status": "Completed",
+    "validation_status": "Valid",
+    "category": "Final Revision"
+  }
+]

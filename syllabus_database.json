@@ -1,0 +1,610 @@
+{
+  "metadata": {
+    "exam": "GATE 2027",
+    "paper_code": "CS",
+    "paper_name": "Computer Science and Information Technology",
+    "organizing_institute": "Indian Institute of Technology Madras (IIT Madras)",
+    "source_urls": [
+      "https://gate2027.iitm.ac.in/",
+      "https://gate2027.iitm.ac.in/exam_papers_and_syllabus",
+      "https://gate2027.iitm.ac.in/question_paper_pattern",
+      "https://gate2027.iitm.ac.in/important_dates"
+    ],
+    "verification_date": "2026-10-17",
+    "exam_dates": [
+      "2027-02-06",
+      "2027-02-07",
+      "2027-02-13",
+      "2027-02-14",
+      "2027-02-20",
+      "2027-02-21"
+    ],
+    "results_date": "2027-03-19",
+    "total_marks": 100,
+    "total_questions": 65,
+    "duration_minutes": 180,
+    "mark_distribution": {
+      "general_aptitude": 15,
+      "engineering_mathematics": 13,
+      "core_computer_science": 72
+    }
+  },
+  "sections": [
+    {
+      "id": "EM",
+      "section_number": 1,
+      "title": "Engineering Mathematics",
+      "folder": "01_Engineering_Mathematics",
+      "weightage_marks": 13,
+      "subsections": [
+        {
+          "id": "EM-DM",
+          "title": "Discrete Mathematics",
+          "topics": [
+            "Propositional and first order logic",
+            "Sets, relations, functions, partial orders and lattices",
+            "Monoids, Groups",
+            "Graphs: connectivity, matching, colouring",
+            "Combinatorics: counting, recurrence relations, generating functions"
+          ],
+          "prerequisites": "Basic high school algebra and elementary set theory",
+          "importance": "Very High (usually 5-7 marks)"
+        },
+        {
+          "id": "EM-LA",
+          "title": "Linear Algebra",
+          "topics": [
+            "Matrices and determinants",
+            "System of linear equations",
+            "Eigenvalues and eigenvectors",
+            "LU decomposition"
+          ],
+          "prerequisites": "Matrix operations, determinants, linear independence",
+          "importance": "High (usually 2-4 marks)"
+        },
+        {
+          "id": "EM-CALC",
+          "title": "Calculus",
+          "topics": [
+            "Limits, continuity and differentiability",
+            "Maxima and minima",
+            "Mean value theorem",
+            "Integration"
+          ],
+          "prerequisites": "Single variable differentiation and integration basics",
+          "importance": "Medium (usually 1-3 marks)"
+        },
+        {
+          "id": "EM-PROB",
+          "title": "Probability and Statistics",
+          "topics": [
+            "Random variables",
+            "Uniform, normal, exponential, Poisson and binomial distributions",
+            "Mean, median, mode and standard deviation",
+            "Conditional probability and Bayes theorem"
+          ],
+          "prerequisites": "Permutations, combinations, elementary probability",
+          "importance": "High (usually 3-5 marks)"
+        }
+      ]
+    },
+    {
+      "id": "DL",
+      "section_number": 2,
+      "title": "Digital Logic",
+      "folder": "02_Digital_Logic",
+      "weightage_marks": 6,
+      "subsections": [
+        {
+          "id": "DL-BOOL",
+          "title": "Boolean Algebra and Minimization",
+          "topics": [
+            "Boolean algebra principles & theorems",
+            "Minimization \u2013 algebraic technique",
+            "Karnaugh maps (K-Map up to 5 variables)",
+            "Tabular method (Quine-McCluskey method)"
+          ],
+          "prerequisites": "Binary system, AND/OR/NOT logic gates",
+          "importance": "High"
+        },
+        {
+          "id": "DL-CKT",
+          "title": "Combinational and Sequential Circuits",
+          "topics": [
+            "Combinational circuits (Multiplexers, Decoders, Encoders, Adders, Subtractors)",
+            "Sequential circuits (Latches, Flip-Flops: SR, JK, D, T)",
+            "Registers, Shift registers, Synchronous & Asynchronous Counters",
+            "State machines, state tables, and state minimization"
+          ],
+          "prerequisites": "Logic gates, truth tables, clock concepts",
+          "importance": "Very High"
+        },
+        {
+          "id": "DL-NUM",
+          "title": "Number Representation and Arithmetic",
+          "topics": [
+            "Binary, octal, decimal, hexadecimal conversions",
+            "Signed number representations (Sign-magnitude, 1's complement, 2's complement)",
+            "Fixed point and floating point representation (IEEE 754 single & double precision)",
+            "Computer arithmetic, overflow, underflow detection"
+          ],
+          "prerequisites": "Basic arithmetic and positional numeral systems",
+          "importance": "High"
+        }
+      ]
+    },
+    {
+      "id": "COA",
+      "section_number": 3,
+      "title": "Computer Organization and Architecture",
+      "folder": "03_Computer_Organization",
+      "weightage_marks": 9,
+      "subsections": [
+        {
+          "id": "COA-ISA",
+          "title": "Instruction Set and Addressing Modes",
+          "topics": [
+            "Machine instructions & instruction cycle",
+            "Addressing modes (Immediate, Direct, Indirect, Indexed, Base-Register, Relative)",
+            "Instruction formats (0, 1, 2, 3 address architectures)",
+            "RISC vs CISC concepts"
+          ],
+          "prerequisites": "Assembly language overview, CPU register basics",
+          "importance": "High"
+        },
+        {
+          "id": "COA-CPU",
+          "title": "ALU and Control Unit Design",
+          "topics": [
+            "Design of Arithmetic and Logic Unit (ALU)",
+            "Data-path architecture and bus organisation",
+            "Design of control unit \u2013 hardwired control unit",
+            "Microprogrammed control unit (Horizontal & Vertical microprogramming)"
+          ],
+          "prerequisites": "Digital logic multiplexers, decoders, and registers",
+          "importance": "High"
+        },
+        {
+          "id": "COA-MEM",
+          "title": "Memory Interfacing and Hierarchy",
+          "topics": [
+            "Memory hierarchy levels and performance metrics (AMAT)",
+            "Cache memory mapping (Direct, Fully Associative, Set-Associative)",
+            "Cache write policies (Write-through, Write-back, Write-allocate)",
+            "Cache replacement algorithms (LRU, FIFO, Optimal)",
+            "Main memory interfacing & interleaved memory"
+          ],
+          "prerequisites": "Memory addressing and binary offsets",
+          "importance": "Very High (numerical problems guaranteed)"
+        },
+        {
+          "id": "COA-IO",
+          "title": "I/O Interface",
+          "topics": [
+            "Programmed I/O and Interrupt-driven I/O",
+            "Interrupt handling, interrupt latency, priority interrupts",
+            "Direct Memory Access (DMA): burst mode, cycle stealing mode, data transfer rate"
+          ],
+          "prerequisites": "Bus architecture and CPU interrupt cycles",
+          "importance": "Medium-High"
+        },
+        {
+          "id": "COA-PIPE",
+          "title": "Instruction Pipelining and Hazards",
+          "topics": [
+            "Pipelining concepts, throughput, and speedup",
+            "Pipeline hazards: Structural hazards, Data hazards (RAW, WAR, WAW), Control/Branch hazards",
+            "Hazard resolution: Forwarding/Bypassing, Stall insertion, Branch prediction",
+            "Branch penalty and CPI calculation"
+          ],
+          "prerequisites": "Instruction cycle execution stages",
+          "importance": "Very High (numerical problems guaranteed)"
+        }
+      ]
+    },
+    {
+      "id": "PDS",
+      "section_number": 4,
+      "title": "Programming and Data Structures",
+      "folder": "04_Programming_Data_Structures",
+      "weightage_marks": 10,
+      "subsections": [
+        {
+          "id": "PDS-C",
+          "title": "Programming in C and Recursion",
+          "topics": [
+            "C syntax, operators, operator precedence and associativity",
+            "Pointers, pointer arithmetic, double pointers, function pointers",
+            "Arrays and multi-dimensional arrays memory allocation",
+            "Structures, unions, dynamic memory allocation (malloc, calloc, realloc, free)",
+            "Recursion: base case, recurrence, call stack tracing, tail recursion"
+          ],
+          "prerequisites": "Basic procedural programming and logic",
+          "importance": "Very High (Output tracing questions)"
+        },
+        {
+          "id": "PDS-LINEAR",
+          "title": "Linear Data Structures",
+          "topics": [
+            "Arrays: representations, address calculations (row-major, column-major)",
+            "Stacks: array & linked implementations, infix to postfix, postfix evaluation",
+            "Queues: ordinary queue, circular queue, double-ended queue (deque), priority queue",
+            "Linked lists: singly, doubly, circular, reversal, cycle detection"
+          ],
+          "prerequisites": "Pointers and dynamic memory",
+          "importance": "High"
+        },
+        {
+          "id": "PDS-NONLINEAR",
+          "title": "Trees, BST, Binary Heaps and Graphs",
+          "topics": [
+            "Binary trees: properties, tree traversals (Inorder, Preorder, Postorder, Level order)",
+            "Binary Search Trees (BST): insertion, deletion, search, AVL rotations & height balance",
+            "Binary Heaps: Min-heap, Max-heap, Heapify, Heap sort, Priority queue implementation",
+            "Graph representations: Adjacency matrix, Adjacency list, incidence matrix"
+          ],
+          "prerequisites": "Recursive thinking and tree structures",
+          "importance": "Very High"
+        }
+      ]
+    },
+    {
+      "id": "ALGO",
+      "section_number": 5,
+      "title": "Algorithms",
+      "folder": "05_Algorithms",
+      "weightage_marks": 8,
+      "subsections": [
+        {
+          "id": "ALGO-ASYMP",
+          "title": "Asymptotic Analysis and Complexity",
+          "topics": [
+            "Asymptotic notations: Big-O, Big-Omega, Big-Theta, Little-o, Little-omega",
+            "Worst-case, average-case, and best-case analysis",
+            "Recurrence solving: Master Theorem, Recursion Tree, Substitution Method",
+            "Space complexity and auxiliary space"
+          ],
+          "prerequisites": "Mathematical induction and limits",
+          "importance": "Very High"
+        },
+        {
+          "id": "ALGO-SEARCH-SORT",
+          "title": "Searching, Sorting, and Hashing",
+          "topics": [
+            "Linear search and Binary search",
+            "Comparison-based sorting: Bubble, Insertion, Selection, Merge sort, Quick sort, Heap sort",
+            "Linear-time sorting: Counting sort, Radix sort",
+            "Hashing: Hash functions, Collision resolution (Chaining, Open addressing: Linear, Quadratic, Double hashing)"
+          ],
+          "prerequisites": "Arrays and pointers",
+          "importance": "High"
+        },
+        {
+          "id": "ALGO-DESIGN",
+          "title": "Algorithm Design Techniques",
+          "topics": [
+            "Divide and Conquer (Merge sort, Quick sort, Closest pair of points)",
+            "Greedy algorithms (Activity selection, Fractional knapsack, Huffman coding)",
+            "Dynamic Programming (0/1 Knapsack, Matrix chain multiplication, LCS, Subset sum, Optimal BST)"
+          ],
+          "prerequisites": "Recursion and optimal substructure concept",
+          "importance": "Very High"
+        },
+        {
+          "id": "ALGO-GRAPH",
+          "title": "Graph Algorithms",
+          "topics": [
+            "Graph traversals: Breadth First Search (BFS) and Depth First Search (DFS)",
+            "Topological sorting and strongly connected components (Kosaraju, Tarjan)",
+            "Minimum Spanning Trees: Kruskal's algorithm (Disjoint Set Union) and Prim's algorithm",
+            "Shortest Paths: Dijkstra's algorithm, Bellman-Ford algorithm, Floyd-Warshall algorithm"
+          ],
+          "prerequisites": "Graph data structure representations",
+          "importance": "Very High"
+        }
+      ]
+    },
+    {
+      "id": "TOC",
+      "section_number": 6,
+      "title": "Theory of Computation",
+      "folder": "06_Theory_of_Computation",
+      "weightage_marks": 9,
+      "subsections": [
+        {
+          "id": "TOC-REG",
+          "title": "Regular Expressions and Finite Automata",
+          "topics": [
+            "Deterministic Finite Automata (DFA): construction and state minimization (Myhill-Nerode)",
+            "Nondeterministic Finite Automata (NFA) and epsilon-NFA, subset construction",
+            "Regular expressions and conversion to finite automata (Arden's Theorem)",
+            "Regular languages, closure properties, and decision properties",
+            "Pumping Lemma for regular languages and proof of non-regularity"
+          ],
+          "prerequisites": "Set theory, strings, alphabets, and induction",
+          "importance": "Very High"
+        },
+        {
+          "id": "TOC-CFL",
+          "title": "Context-Free Grammars and Pushdown Automata",
+          "topics": [
+            "Context-Free Grammars (CFG): derivations, parse trees, ambiguity",
+            "Chomsky Normal Form (CNF) and Greibach Normal Form (GNF)",
+            "Pushdown Automata (PDA): DPDA vs NPDA, acceptance by final state and empty stack",
+            "Context-Free Languages (CFL): closure properties, decision properties",
+            "Pumping Lemma for context-free languages"
+          ],
+          "prerequisites": "Automata basics and formal grammars",
+          "importance": "Very High"
+        },
+        {
+          "id": "TOC-TM",
+          "title": "Turing Machines and Undecidability",
+          "topics": [
+            "Turing machines: formal definition, transition function, multi-tape equivalence",
+            "Recursive (REC) and Recursively Enumerable (RE) languages",
+            "Chomsky hierarchy summary table",
+            "Decidability and undecidability: Halting Problem, Post Correspondence Problem (PCP)",
+            "Reductions and Rice's Theorem"
+          ],
+          "prerequisites": "Grammars and computational models",
+          "importance": "Very High"
+        }
+      ]
+    },
+    {
+      "id": "CD",
+      "section_number": 7,
+      "title": "Compiler Design",
+      "folder": "07_Compiler_Design",
+      "weightage_marks": 5,
+      "subsections": [
+        {
+          "id": "CD-LEX-PARSE",
+          "title": "Lexical Analysis and Parsing",
+          "topics": [
+            "Phases of compiler overview",
+            "Lexical analysis: tokens, lexemes, patterns, regular definitions, lexical errors",
+            "Parsing: Top-down parsing (Recursive descent, LL(1) parsing, FIRST and FOLLOW sets)",
+            "Bottom-up parsing: Operator precedence, LR(0), SLR(1), CLR(1), LALR(1) parser tables and conflict resolution"
+          ],
+          "prerequisites": "Finite automata and context-free grammars",
+          "importance": "Very High"
+        },
+        {
+          "id": "CD-SDT-RUNTIME",
+          "title": "Syntax-Directed Translation & Runtime Environments",
+          "topics": [
+            "Syntax-Directed Definitions (SDD) and Translations (SDT)",
+            "Synthesized attributes (S-attributed) and Inherited attributes (L-attributed)",
+            "Runtime environments: storage organization, activation records, stack allocation, parameter passing mechanisms"
+          ],
+          "prerequisites": "Parse trees and function call mechanics",
+          "importance": "High"
+        },
+        {
+          "id": "CD-OPT",
+          "title": "Intermediate Code Generation & Code Optimization",
+          "topics": [
+            "Intermediate code representations: Three-address code, quadruples, triples, indirect triples, DAGs",
+            "Basic blocks and flow graphs",
+            "Local optimisation: Common subexpression elimination, Dead code elimination, Copy propagation",
+            "Data flow analyses: Constant propagation, Liveness analysis"
+          ],
+          "prerequisites": "Control flow graphs and assembly instructions",
+          "importance": "Very High (officially highlighted in GATE 2027)"
+        }
+      ]
+    },
+    {
+      "id": "OS",
+      "section_number": 8,
+      "title": "Operating System",
+      "folder": "08_Operating_Systems",
+      "weightage_marks": 9,
+      "subsections": [
+        {
+          "id": "OS-PROC",
+          "title": "Processes, Threads, and Concurrency",
+          "topics": [
+            "System calls and dual-mode CPU operation",
+            "Process state diagram, Process Control Block (PCB)",
+            "User-level threads vs kernel-level threads",
+            "Inter-process communication (IPC): Shared memory and Message passing",
+            "Concurrency and Synchronization: Critical section problem, Peterson's algorithm, Semaphores (Counting and Binary), Mutex locks, Classic synchronization problems (Producer-Consumer, Reader-Writer, Dining Philosophers)"
+          ],
+          "prerequisites": "Basic CPU execution and C programming",
+          "importance": "Very High"
+        },
+        {
+          "id": "OS-SCHED-DEAD",
+          "title": "CPU Scheduling and Deadlock",
+          "topics": [
+            "CPU scheduling algorithms: FCFS, SJF (Preemptive SRTF & Non-preemptive), Round Robin, Priority scheduling, Multi-level queue",
+            "I/O scheduling and disk scheduling algorithms (FCFS, SSTF, SCAN, C-SCAN, LOOK, C-LOOK)",
+            "Deadlock characterization (Coffman conditions)",
+            "Deadlock handling: Prevention, Avoidance (Banker's Algorithm), Detection, and Recovery"
+          ],
+          "prerequisites": "Process states and queue data structures",
+          "importance": "Very High (numericals guaranteed)"
+        },
+        {
+          "id": "OS-MEM-FILE",
+          "title": "Memory Management and File Systems",
+          "topics": [
+            "Contiguous memory allocation, Paging, Page table structure, Multi-level paging",
+            "Translation Lookaside Buffer (TLB) and Effective Memory Access Time (EMAT)",
+            "Segmentation and segmented paging",
+            "Virtual memory: Demand paging, Page fault service routine",
+            "Page replacement algorithms: FIFO, Optimal (MIN), LRU, Belady's Anomaly",
+            "File systems: File allocation methods (Contiguous, Linked, Indexed/Inodes), Free space management"
+          ],
+          "prerequisites": "Memory addressing and binary offsets",
+          "importance": "Very High (numericals guaranteed)"
+        }
+      ]
+    },
+    {
+      "id": "DB",
+      "section_number": 9,
+      "title": "Databases",
+      "folder": "09_Databases",
+      "weightage_marks": 7,
+      "subsections": [
+        {
+          "id": "DB-REL",
+          "title": "ER-Model, Relational Model and Calculus",
+          "topics": [
+            "Entity-Relationship (ER) model: Entities, Relationships, Cardinality ratios, ER to Relational schema conversion",
+            "Relational model: Domains, Attributes, Tuples, Candidate keys, Primary keys, Super keys, Foreign keys",
+            "Relational Algebra: Select, Project, Cartesian product, Join (Natural, Theta, Outer joins), Set operations",
+            "Tuple Relational Calculus (TRC) and Domain Relational Calculus (DRC), Safe expressions"
+          ],
+          "prerequisites": "First order predicate logic and set theory",
+          "importance": "High"
+        },
+        {
+          "id": "DB-SQL-NORM",
+          "title": "SQL, Integrity Constraints and Normalization",
+          "topics": [
+            "SQL queries: DDL, DML, Nested subqueries, Correlated subqueries, Aggregate functions, GROUP BY, HAVING, NULL values",
+            "Integrity constraints: Domain, Key, Entity integrity, Referential integrity",
+            "Functional dependencies: Armstrong axioms, Attribute closure, Canonical cover, Minimal cover",
+            "Normal forms: 1NF, 2NF, 3NF, BCNF, Lossless join decomposition, Dependency preservation testing"
+          ],
+          "prerequisites": "Relational algebra and keys",
+          "importance": "Very High (guaranteed questions on normal forms)"
+        },
+        {
+          "id": "DB-TXN-INDEX",
+          "title": "File Organization, Indexing and Transactions",
+          "topics": [
+            "File organization: Heap, Sorted, Hashed files",
+            "Indexing: Primary index, Secondary index, Clustering index, Multi-level indexing",
+            "B-Trees and B+ Trees: Order, Search, Insertion, Deletion, Node capacity, Block access calculations",
+            "Transactions and ACID properties",
+            "Concurrency control: Serializability (Conflict serializability, View serializability, Precedence graph)",
+            "Recoverability (Cascading rollback, Cascadeless, Strict schedules)",
+            "Protocols: Two-Phase Locking (2PL), Strict 2PL, Rigorous 2PL, Timestamp ordering"
+          ],
+          "prerequisites": "Binary search trees and disk storage concepts",
+          "importance": "Very High"
+        }
+      ]
+    },
+    {
+      "id": "CN",
+      "section_number": 10,
+      "title": "Computer Networks",
+      "folder": "10_Computer_Networks",
+      "weightage_marks": 9,
+      "subsections": [
+        {
+          "id": "CN-FOUND",
+          "title": "Layering, Switching and Performance Metrics",
+          "topics": [
+            "Principles of Layering: OSI 7-layer model vs TCP/IP 4-layer model, encapsulation and de-encapsulation",
+            "Basics of switching: Circuit switching, Packet switching (Datagram approach), Virtual circuit switching",
+            "Performance metrics: Transmission delay, Propagation delay, Queuing delay, Processing delay, Bandwidth-Delay Product (BDP), Throughput, Efficiency"
+          ],
+          "prerequisites": "Basic communication concepts and units",
+          "importance": "High"
+        },
+        {
+          "id": "CN-DLL",
+          "title": "Data Link Layer & MAC",
+          "topics": [
+            "Framing techniques (Byte stuffing, Bit stuffing)",
+            "Error detection and correction: Parity, Checksum, Cyclic Redundancy Check (CRC), Hamming code",
+            "Medium Access Control (MAC): Pure ALOHA, Slotted ALOHA, CSMA, CSMA/CD (Efficiency, Minimum frame size), CSMA/CA",
+            "Ethernet standard: 802.3 frame format, Manchester encoding, Ethernet bridging and learning bridges"
+          ],
+          "prerequisites": "Digital logic parity and bitwise operations",
+          "importance": "Very High"
+        },
+        {
+          "id": "CN-NET",
+          "title": "Network Layer: Routing and IPv4",
+          "topics": [
+            "Distance vector routing: Bellman-Ford algorithm, Count-to-infinity problem and solutions",
+            "Link state routing: Dijkstra's algorithm, Link State Advertisements (LSA)",
+            "IPv4 addressing: Classful addressing, Classless Inter-Domain Routing (CIDR) notation, Subnetting, Supernetting, Longest prefix matching",
+            "IPv4 Datagram Header and Fragmentation calculations (MTU, Offset, More Fragments flag)",
+            "Network Address Translation (NAT): Private IP ranges, NAT table operation"
+          ],
+          "prerequisites": "Shortest path algorithms and binary masking",
+          "importance": "Very High"
+        },
+        {
+          "id": "CN-TRANS-APP",
+          "title": "Transport & Application Layers",
+          "topics": [
+            "TCP flow control: Sliding window protocol, Stop-and-Wait, Go-Back-N, Selective Repeat (Window sizes, Efficiency, Sequence numbers)",
+            "TCP connection management: 3-way handshake, 4-way termination, TIME_WAIT state",
+            "TCP congestion control: Slow start, Congestion avoidance, Fast retransmit, Fast recovery, Congestion window evolution",
+            "Socket API: Socket system calls (socket, bind, listen, accept, connect, send, recv)",
+            "Application layer protocols: Domain Name System (DNS), Hypertext Transfer Protocol (HTTP: persistent vs non-persistent, status codes, headers)"
+          ],
+          "prerequisites": "Client-server architecture and process communication",
+          "importance": "Very High"
+        }
+      ]
+    },
+    {
+      "id": "GA",
+      "section_number": 11,
+      "title": "General Aptitude",
+      "folder": "11_General_Aptitude",
+      "weightage_marks": 15,
+      "subsections": [
+        {
+          "id": "GA-VERB",
+          "title": "Verbal Aptitude",
+          "topics": [
+            "Basic English grammar: tenses, articles, adjectives, prepositions, conjunctions, verb-noun agreement, parts of speech",
+            "Basic vocabulary: words, idioms, and phrases in context, antonyms, synonyms",
+            "Reading comprehension and passage inference",
+            "Narrative sequencing and sentence arrangement"
+          ],
+          "prerequisites": "Standard English grammar and vocabulary",
+          "importance": "High (around 4-5 marks)"
+        },
+        {
+          "id": "GA-QUANT",
+          "title": "Quantitative Aptitude",
+          "topics": [
+            "Data interpretation: bar graphs, pie charts, 2D/3D plots, maps, tables",
+            "Numerical computation and estimation: ratios, percentages, powers, exponents, logarithms",
+            "Permutations and combinations, series, progressions (AP, GP)",
+            "Mensuration and geometry (2D areas, 3D surface areas and volumes)",
+            "Elementary statistics and probability"
+          ],
+          "prerequisites": "Secondary school arithmetic and geometry",
+          "importance": "Very High (around 5-6 marks)"
+        },
+        {
+          "id": "GA-ANAL",
+          "title": "Analytical Aptitude",
+          "topics": [
+            "Logic: deduction and induction, Syllogisms",
+            "Analogy and pattern recognition",
+            "Numerical relations and reasoning, Coding-decoding, Blood relations, Direction sense"
+          ],
+          "prerequisites": "Logical deduction principles",
+          "importance": "High (around 3 marks)"
+        },
+        {
+          "id": "GA-SPAT",
+          "title": "Spatial Aptitude",
+          "topics": [
+            "Transformation of shapes: translation, rotation, scaling, mirroring",
+            "Assembling and grouping shapes",
+            "Paper folding, paper cutting, and punch patterns in 2D and 3D"
+          ],
+          "prerequisites": "Visual spatial imagination",
+          "importance": "Medium (around 2-3 marks)"
+        }
+      ]
+    }
+  ]
+}

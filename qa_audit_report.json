@@ -1,0 +1,108 @@
+{
+  "timestamp": "2026-10-17T11:53:30",
+  "total_checks": 20,
+  "passed_checks": 20,
+  "failed_checks": 0,
+  "details": [
+    {
+      "check": "Syllabus Database Loaded",
+      "status": "PASS",
+      "details": "Found 11 official sections"
+    },
+    {
+      "check": "Official CS Syllabus PDF Exists",
+      "status": "PASS",
+      "details": "Size: 150835 bytes"
+    },
+    {
+      "check": "Official GA Syllabus PDF Exists",
+      "status": "PASS",
+      "details": "Size: 134210 bytes"
+    },
+    {
+      "check": "Master PDF Index Entries",
+      "status": "PASS",
+      "details": "Total indexed PDFs: 105"
+    },
+    {
+      "check": "PDF Files Integrity (Non-zero & Readable)",
+      "status": "PASS",
+      "details": "Verified 105 PDFs without errors. Total pages: 269"
+    },
+    {
+      "check": "Subject PDFs Complete: Engineering Mathematics",
+      "status": "PASS",
+      "details": "All 8 standard PDFs present in 01_Engineering_Mathematics"
+    },
+    {
+      "check": "Subject PDFs Complete: Digital Logic",
+      "status": "PASS",
+      "details": "All 8 standard PDFs present in 02_Digital_Logic"
+    },
+    {
+      "check": "Subject PDFs Complete: Computer Organization and Architecture",
+      "status": "PASS",
+      "details": "All 8 standard PDFs present in 03_Computer_Organization"
+    },
+    {
+      "check": "Subject PDFs Complete: Programming and Data Structures",
+      "status": "PASS",
+      "details": "All 8 standard PDFs present in 04_Programming_Data_Structures"
+    },
+    {
+      "check": "Subject PDFs Complete: Algorithms",
+      "status": "PASS",
+      "details": "All 8 standard PDFs present in 05_Algorithms"
+    },
+    {
+      "check": "Subject PDFs Complete: Theory of Computation",
+      "status": "PASS",
+      "details": "All 8 standard PDFs present in 06_Theory_of_Computation"
+    },
+    {
+      "check": "Subject PDFs Complete: Compiler Design",
+      "status": "PASS",
+      "details": "All 8 standard PDFs present in 07_Compiler_Design"
+    },
+    {
+      "check": "Subject PDFs Complete: Operating System",
+      "status": "PASS",
+      "details": "All 8 standard PDFs present in 08_Operating_Systems"
+    },
+    {
+      "check": "Subject PDFs Complete: Databases",
+      "status": "PASS",
+      "details": "All 8 standard PDFs present in 09_Databases"
+    },
+    {
+      "check": "Subject PDFs Complete: Computer Networks",
+      "status": "PASS",
+      "details": "All 8 standard PDFs present in 10_Computer_Networks"
+    },
+    {
+      "check": "Subject PDFs Complete: General Aptitude",
+      "status": "PASS",
+      "details": "All 8 standard PDFs present in 11_General_Aptitude"
+    },
+    {
+      "check": "Practice Question IDs Uniqueness",
+      "status": "PASS",
+      "details": "Total unique questions checked: 55"
+    },
+    {
+      "check": "PYQ Repository Authenticity",
+      "status": "PASS",
+      "details": "10 verified PYQs spanning 2019-2023"
+    },
+    {
+      "check": "Mock Exam Negative Marking Rules",
+      "status": "PASS",
+      "details": "Strict conformity to official IIT Madras negative marking rules"
+    },
+    {
+      "check": "Web Platform Production Build",
+      "status": "PASS",
+      "details": "Vite production bundle compiled in dist/"
+    }
+  ]
+}

@@ -1,4 +1,660 @@
-# textbook_db_cn_ga.py
-# Deep, comprehensive point-by-point ChatGPT style tutorials for all 10 chapters of DB, CN & GA
+# Master Textbook Module: Databases, Computer Networks & General Aptitude (10 Chapters)
+# Auto-generated comprehensive ChatGPT-style point-form guide
 
-CHAPTERS_DB_CN_GA = {('DB', 0): {'sub_id': 'DB', 'chap_idx': 0, 'title': 'ER-Model, Relational Algebra & SQL', 'real_life_examples': [{'title': 'Real-Life Analogy: University Enrollment & Spreadsheet Database', 'text': '• ER Model: The architectural blueprint of a university database showing Students, Courses, and Departments.\n• Relational Algebra: Filter rows (Select σ), pick specific columns (Project π), and merge tables on common keys (Natural Join ⨝).'}], 'foundations': [{'number': '29.1', 'title': 'ER to Relational Table Conversion Rules (Minimal Tables)', 'content': "• <b>Converting Relationships into Minimal Tables:</b><br/><div class='font-mono text-xs p-3 bg-slate-900 text-slate-100 rounded-xl my-2 leading-relaxed'>Relationship Cardinality   Table Conversion Rule                                  Min Tables<br/>---------------------------------------------------------------------------------------------<br/>Many-to-Many (M:N)         Requires a separate relationship table (FKs of both)   3 tables<br/>One-to-Many (1:N)          Combine into 'Many' side table using '1' side PK as FK 2 tables<br/>One-to-One (1:1)           Can merge into either table (or 1 table if total part) 2 (or 1)</div>• <b>Weak Entity:</b> Has no primary key of its own; uses discriminator and owner entity's primary key.<br/>&nbsp;&nbsp;Weak entity and its identifying relationship are ALWAYS combined into <b>1 single table</b>.", 'crucial_rule': "🎯 GOLDEN RULE FOR GATE: In an M:N relationship, you ALWAYS need a separate third relationship table! In a 1:N relationship, never create a separate relationship table—place the primary key of the '1' side as a foreign key on the 'N' side!"}, {'number': '29.2', 'title': 'Relational Algebra vs SQL Rules & NULL Logic', 'content': '• <b>Relational Algebra:</b><br/>&nbsp;&nbsp;• <b>Selection (σ):</b> Filters rows matching predicate.<br/>&nbsp;&nbsp;• <b>Projection (π):</b> Selects columns and <b>AUTOMATICALLY ELIMINATES DUPLICATES</b>!<br/>• <b>SQL Duplicate Handling:</b><br/>&nbsp;&nbsp;SQL preserves duplicate rows by default! You must explicitly write <code>SELECT DISTINCT</code> to remove duplicates.<br/><br/>• <b>Three-Valued Logic in SQL (TRUE, FALSE, UNKNOWN):</b><br/>&nbsp;&nbsp;- Comparisons with <code>NULL</code> (like <code>x = NULL</code> or <code>NULL = NULL</code>) evaluate to <b>UNKNOWN</b>!<br/>&nbsp;&nbsp;- Rows where WHERE condition evaluates to UNKNOWN or FALSE are NOT returned.', 'crucial_rule': '🎯 GOLDEN RULE FOR GATE: π in Relational Algebra eliminates duplicates automatically, but SELECT in SQL preserves duplicates unless DISTINCT is explicitly written! COUNT(*) counts rows including NULLs; COUNT(col) ignores NULLs.'}], 'worked_examples': [{'title': 'Worked Example: Minimal Tables for ER Schema', 'problem': 'Entities E1, E2, E3. Relationship R1 between E1 and E2 is M:N. Relationship R2 between E2 and E3 is 1:N. How many minimal tables are required?', 'steps': ['Step 1: E1 table is created.', 'Step 2: E2 table is created.', 'Step 3: M:N relationship R1 requires a separate relationship table (R1_table).', 'Step 4: 1:N relationship R2: E3 can store FK of E2 ⇒ No separate table for R2.', 'Step 5: E3 table is created (with FK referencing E2).', 'Step 6: Total tables: E1, E2, R1_table, E3 = 4 tables.'], 'answer': 'Minimum number of tables = 4.'}], 'exam_traps': ["In SQL, WHERE NULL = NULL returns 0 rows! To check for nulls, you must write 'WHERE col IS NULL'.", 'HAVING clause filters groups AFTER aggregation; WHERE clause filters individual rows BEFORE grouping.']}, ('DB', 1): {'sub_id': 'DB', 'chap_idx': 1, 'title': 'Functional Dependencies, Normalization & B+ Trees', 'real_life_examples': [{'title': 'Real-Life Analogy: Student Roll Number & Dictionary Thumb Index', 'text': "• Functional Dependency: Like a student roll number uniquely determining their name, email, and branch (RollNo -> Name, Email, Branch).\n• B+ Tree: The alphabetical thumb-tabs on a 2000-page physical dictionary, letting you jump to 'Network' in 3 flips instead of flipping through every single page!"}], 'foundations': [{'number': '30.1', 'title': 'The Step-by-Step Normal Forms Checklist (1NF to BCNF)', 'content': '• <b>1NF:</b> Every attribute contains strictly <b>atomic values</b> (no sets or lists).<br/>• <b>2NF:</b> Relation is in 1NF AND contains <b>NO Partial Dependency</b>.<br/>&nbsp;&nbsp;(No non-prime attribute depends on a proper subset of any candidate key).<br/>• <b>3NF:</b> For every non-trivial FD <b>X → Y</b>:<br/>&nbsp;&nbsp;• Either <b>X is a Superkey</b>,<br/>&nbsp;&nbsp;• OR <b>Y is a Prime Attribute</b> (part of some candidate key).<br/>• <b>BCNF (Boyce-Codd Normal Form):</b> For every non-trivial FD <b>X → Y</b>:<br/>&nbsp;&nbsp;• <b>X MUST BE A SUPERKEY!</b>', 'crucial_rule': '🎯 GOLDEN RULE FOR GATE: In 3NF, the RHS (Y) is allowed to be a prime attribute even if LHS (X) is not a superkey! In BCNF, this exception is REMOVED: LHS (X) MUST be a superkey!'}, {'number': '30.2', 'title': 'Decomposition Guarantees: Lossless Join & Dependency Preservation', 'content': '• <b>Lossless Join Test (for binary decomposition R1, R2):</b><br/>&nbsp;&nbsp;Decomposition is Lossless IF AND ONLY IF common attribute is a superkey of at least one relation:<br/>&nbsp;&nbsp;<b>(R1 ∩ R2) → R1 &nbsp;OR&nbsp; (R1 ∩ R2) → R2</b>.<br/><br/>• <b>Decomposition Guarantees:</b><br/>&nbsp;&nbsp;- Any relation can <b>ALWAYS be decomposed into 3NF</b> that is BOTH Lossless AND Dependency Preserving.<br/>&nbsp;&nbsp;- Any relation can <b>ALWAYS be decomposed into BCNF</b> that is Lossless, but Dependency Preservation is NOT guaranteed!', 'crucial_rule': '🎯 GOLDEN RULE FOR GATE: BCNF decomposition guarantees Lossless Join, but may LOSE functional dependencies! 3NF decomposition guarantees BOTH Lossless Join AND Dependency Preservation.'}, {'number': '30.3', 'title': 'B-Tree vs B+ Tree Node Structure & Search Order', 'content': '• <b>B-Tree:</b> Keys and record pointers are stored in BOTH internal and leaf nodes.<br/>• <b>B+ Tree:</b><br/>&nbsp;&nbsp;- Data pointers are stored <b>ONLY in Leaf Nodes</b>!<br/>&nbsp;&nbsp;- Leaf nodes are connected as a <b>linked list</b> for fast sequential range scans.<br/>&nbsp;&nbsp;- Internal nodes contain only routing keys and child pointers (higher fanout!).<br/>• <b>Node Capacities (Order p):</b><br/>&nbsp;&nbsp;- Internal node holds at most <b>p pointers</b> and <b>p - 1 keys</b>.<br/>&nbsp;&nbsp;- Minimum keys in internal node: <b>⌈p / 2⌉ - 1</b> (except root: min 1 key).', 'crucial_rule': '🎯 GOLDEN RULE FOR GATE: In B+ Trees, internal nodes only store routing keys (no data pointers)! Hence internal nodes fit far more keys per disk block than standard B-Trees, keeping tree height very small (typically 3 to 4).'}], 'worked_examples': [{'title': 'Worked Example: Finding Highest Normal Form', 'problem': 'Relation R(A, B, C, D) with FDs: { AB → C, C → D, D → A }. What is the highest normal form of R?', 'steps': ['Step 1: Compute candidate keys: (AB)+ = {A,B,C,D} ⇒ AB is a key. (BC)+ = {B,C,D,A} ⇒ BC is a key. (BD)+ = {B,D,A,C} ⇒ BD is a key.', 'Step 2: Candidate keys: AB, BC, BD. Prime attributes = { A, B, C, D } (ALL attributes are prime!).', 'Step 3: Check 2NF: No non-prime attributes exist ⇒ 2NF holds trivially!', 'Step 4: Check 3NF: For C → D, D is prime! For D → A, A is prime! Since RHS is always prime, 3NF holds!', 'Step 5: Check BCNF: In C → D, C is not a superkey. Fails BCNF!'], 'answer': 'Highest normal form is 3NF.'}], 'exam_traps': ['If ALL attributes in a relation are Prime Attributes, the relation is GUARANTEED to be in 3NF!', 'Order of B-tree p means maximum child pointers; maximum keys is always p - 1.']}, ('DB', 2): {'sub_id': 'DB', 'chap_idx': 2, 'title': 'Transactions, Serializability & Two-Phase Locking (2PL)', 'real_life_examples': [{'title': 'Real-Life Analogy: ATM Cash Withdrawal & Bank Balance Consistency', 'text': "• Atomicity: If an ATM dispenses $100 cash but the machine loses power before updating your account balance, the system automatically rolls back so your money isn't lost.\n• Conflict Serializability: Making concurrent transactions execute as if they ran one after another in some clean serial order."}], 'foundations': [{'number': '31.1', 'title': 'Conflict Serializability & Precedence Graphs', 'content': '• <b>Two operations are in CONFLICT if:</b><br/>&nbsp;&nbsp;1. They belong to <b>different transactions</b>.<br/>&nbsp;&nbsp;2. They access the <b>same data item</b>.<br/>&nbsp;&nbsp;3. <b>At least one of them is a WRITE</b> operation.<br/><br/>• <b>Precedence Graph (Testing Conflict Serializability):</b><br/>&nbsp;&nbsp;- Draw directed edge <b>Ti → Tj</b> if Ti executes a conflicting operation BEFORE Tj.<br/>&nbsp;&nbsp;- <b>Testing Rule:</b> Schedule is Conflict Serializable <b>IF AND ONLY IF the precedence graph has NO CYCLES (Acyclic)!</b><br/>&nbsp;&nbsp;- Equivalent serial order = <b>Topological Sort</b> of the graph.', 'crucial_rule': '🎯 GOLDEN RULE FOR GATE: If precedence graph contains a cycle (e.g. T1 → T2 → T1), it is 100% NOT conflict serializable! A schedule without cycles is always conflict serializable.'}, {'number': '31.2', 'title': 'Two-Phase Locking (2PL) Protocol', 'content': '• <b>Basic 2PL:</b><br/>&nbsp;&nbsp;• <b>Growing Phase:</b> May acquire locks, cannot release any lock.<br/>&nbsp;&nbsp;• <b>Shrinking Phase:</b> May release locks, cannot acquire any new lock.<br/>&nbsp;&nbsp;- <b>Guarantees Conflict Serializability!</b> But DOES NOT prevent deadlocks or cascading aborts.<br/><br/>• <b>Strict 2PL:</b> Holds all EXCLUSIVE (X) write locks until Commit/Abort. (Prevents cascading rollbacks!).<br/>• <b>Rigorous 2PL:</b> Holds ALL locks (shared and exclusive) until Commit/Abort.', 'crucial_rule': '🎯 GOLDEN RULE FOR GATE: Basic 2PL guarantees Conflict Serializability, but is NOT free from Deadlocks! Strict 2PL is Recoverable and Cascading-Free.'}], 'worked_examples': [{'title': 'Worked Example: Conflict Serializability Cycle Detection', 'problem': 'Given schedule S: r1(X), r2(Y), w1(Y), w2(X), c1, c2. Is S conflict serializable?', 'steps': ['Step 1: Conflict on X: r1(X) then w2(X) ⇒ T1 executes before T2 ⇒ Edge T1 → T2.', 'Step 2: Conflict on Y: r2(Y) then w1(Y) ⇒ T2 executes before T1 ⇒ Edge T2 → T1.', 'Step 3: Graph contains directed cycle T1 ⇄ T2.', 'Step 4: Since precedence graph has a cycle, S is NOT conflict serializable.'], 'answer': 'Schedule S is NOT conflict serializable.'}], 'exam_traps': ['Every conflict serializable schedule is view serializable, but not vice versa! View serializability allows blind writes.', 'ACID: Durability guarantees that committed changes survive power failures using Write-Ahead Logging (WAL).']}, ('CN', 0): {'sub_id': 'CN', 'chap_idx': 0, 'title': 'OSI/TCP-IP Layers, Framing & CRC', 'real_life_examples': [{'title': 'Real-Life Analogy: The Postal Mail Envelope & Barcode Checksum', 'text': '• Layered Architecture: Writing a letter (Application), translating it to Spanish (Presentation), putting it in an envelope (Transport), writing address (Network), placing in delivery truck (Data Link), sending along highway (Physical).\n• CRC: The checksum barcode on the back of an envelope that detects if a digit got smudged in the rain.'}], 'foundations': [{'number': '32.1', 'title': 'CRC (Cyclic Redundancy Check) Polynomial Division', 'content': '• Let generator polynomial G(x) have degree <b>k</b> (i.e. k + 1 bits).<br/>• <b>Encoding Steps:</b><br/>&nbsp;&nbsp;1. Append <b>k zeros</b> to the end of the original data frame.<br/>&nbsp;&nbsp;2. Perform <b>Modulo-2 Binary Division</b> (using XOR instead of subtraction).<br/>&nbsp;&nbsp;3. The k-bit remainder is the <b>CRC Checksum</b>.<br/>&nbsp;&nbsp;4. Transmitted frame = <b>Original Data + CRC Remainder</b>.<br/>• <b>Receiver Check:</b> Receiver divides received frame by G(x). If remainder is all 0s, frame is accepted.', 'crucial_rule': '🎯 GOLDEN RULE FOR GATE: If generator polynomial has degree k, append exactly k zeros to data! Modulo-2 division uses XOR (0⊕0=0, 1⊕1=0, 0⊕1=1, 1⊕0=1). Never use arithmetic borrowing!'}, {'number': '32.2', 'title': 'Hamming Code & Error Correction', 'content': '• <b>Parity Bits Formula:</b> For m data bits and p parity bits:<br/>&nbsp;&nbsp;<b>2^p ≥ m + p + 1</b>.<br/>• <b>Hamming Distance (d):</b><br/>&nbsp;&nbsp;• To detect up to <b>d errors</b>: Minimum Hamming distance = <b>d + 1</b>.<br/>&nbsp;&nbsp;• To correct up to <b>t errors</b>: Minimum Hamming distance = <b>2t + 1</b>.', 'crucial_rule': '🎯 GOLDEN RULE FOR GATE: To correct t single-bit errors, minimum distance d_min ≥ 2t + 1! To detect t errors, d_min ≥ t + 1.'}], 'worked_examples': [{'title': 'Worked Example: Calculating CRC Transmitted Frame', 'problem': 'Given Data = 100100 and Generator polynomial G(x) = x³ + x² + 1 (binary 1101). Find the CRC remainder and transmitted bit sequence.', 'steps': ['Step 1: Degree of G(x) is 3 ⇒ Append 3 zeros to data: 100100 000.', 'Step 2: Divide 100100000 by 1101 using Modulo-2 XOR division.', 'Step 3: 3-bit remainder is 001.', 'Step 4: Transmitted codeword = 100100 001.'], 'answer': 'CRC remainder = 001; Transmitted frame = 100100001.'}], 'exam_traps': ["In bit stuffing: Sender inserts a '0' after FIVE consecutive 1s! Flag is 01111110 (six 1s).", 'Physical layer deals with bits, Data Link with frames, Network with packets, Transport with segments.']}, ('CN', 1): {'sub_id': 'CN', 'chap_idx': 1, 'title': 'Flow Control Protocols & CSMA/CD', 'real_life_examples': [{'title': 'Real-Life Analogy: The Walkie-Talkie & Crowded Dinner Party', 'text': "• Stop-and-Wait: Like a walkie-talkie conversation. You say 'Over' and wait until the other person acknowledges before speaking again.\n• CSMA/CD: Like people at a dinner party. You listen before speaking (Carrier Sense). If two speak at once (Collision), both stop, wait a random time (Backoff), and try again."}], 'foundations': [{'number': '33.1', 'title': 'Sliding Window Protocol Efficiency Formulas', 'content': '• <b>Key Parameters:</b><br/>&nbsp;&nbsp;• Transmission Time: <code>Tt = Frame Size (L) / Bandwidth (B)</code>.<br/>&nbsp;&nbsp;• Propagation Time: <code>Tp = Distance (d) / Velocity (v)</code>.<br/>&nbsp;&nbsp;• Parameter a: <code>a = Tp / Tt</code>.<br/>• <b>Efficiency Formulas:</b><br/>&nbsp;&nbsp;• <b>Stop-and-Wait:</b> <code>η = 1 / (1 + 2a)</code>.<br/>&nbsp;&nbsp;• <b>Sliding Window with window size W:</b> <code>η = W / (1 + 2a)</code> (capped at 100%).<br/><br/>• <b>Window Sizes for k-bit sequence numbers:</b><br/>&nbsp;&nbsp;• <b>Go-Back-N (GBN):</b> Sender Window Ws = <b>2^k - 1</b>; Receiver Window Wr = <b>1</b>.<br/>&nbsp;&nbsp;• <b>Selective Repeat (SR):</b> Sender Window Ws = <b>2^(k - 1)</b>; Receiver Window Wr = <b>2^(k - 1)</b>.', 'crucial_rule': '🎯 GOLDEN RULE FOR GATE: In Selective Repeat (SR), Ws + Wr ≤ 2^k. Since Ws = Wr, maximum window size is 2^(k-1)! In GBN, Ws ≤ 2^k - 1 and Wr = 1.'}, {'number': '33.2', 'title': 'CSMA/CD Minimum Frame Size', 'content': '• <b>Collision Detection Condition:</b> Transmission time MUST be at least twice propagation time:<br/>&nbsp;&nbsp;<b>Tt ≥ 2 × Tp</b>.<br/>• <b>Minimum Frame Size Formula:</b><br/>&nbsp;&nbsp;<b>L_min ≥ 2 × Tp × Bandwidth</b>.<br/>&nbsp;&nbsp;= <b>2 × (Distance / Velocity) × Bandwidth</b>.', 'crucial_rule': '🎯 GOLDEN RULE FOR GATE: In CSMA/CD, L_min = 2 × Tp × Bandwidth! If frame is smaller than L_min, sender finishes transmitting before collision signal arrives, failing to detect collision.'}], 'worked_examples': [{'title': 'Worked Example: CSMA/CD Minimum Frame Length', 'problem': 'A 1 km network has bandwidth 1 Gbps and signal velocity 2 × 10^8 m/s. Calculate the minimum frame size for CSMA/CD.', 'steps': ['Step 1: Distance d = 1000 m; Velocity v = 2 × 10^8 m/s.', 'Step 2: Tp = d / v = 1000 / (2 × 10^8) = 5 × 10^(-6) seconds = 5 µs.', 'Step 3: Bandwidth B = 1 Gbps = 10^9 bits/sec.', 'Step 4: L_min = 2 × Tp × B = 2 × (5 × 10^(-6)) × 10^9 = 10 × 10^3 = 10,000 bits = 1250 bytes.'], 'answer': 'Minimum frame size = 10,000 bits (1250 bytes).'}], 'exam_traps': ['In GBN, out-of-order packets are silently discarded because receiver window size is strictly 1!', 'In Selective Repeat, independent acknowledgments are sent for each packet, requiring memory buffers at receiver.']}, ('CN', 2): {'sub_id': 'CN', 'chap_idx': 2, 'title': 'IPv4, Subnetting, Routing & Fragmentation', 'real_life_examples': [{'title': 'Real-Life Analogy: Slicing a Pizza & Oversized Cargo Disassembly', 'text': '• Subnetting: Slicing a giant pizza into smaller slices so each office department gets exactly what they need without wasting slices.\n• Fragmentation: Shipping a sofa that cannot fit through the front door (MTU), so you take it apart into 3 pieces and reassemble inside!'}], 'foundations': [{'number': '34.1', 'title': 'IPv4 Subnetting & Usable Hosts', 'content': '• In CIDR notation <b>a.b.c.d / n</b>:<br/>&nbsp;&nbsp;• Network bits = <b>n</b>.<br/>&nbsp;&nbsp;• Host bits = <b>32 - n</b>.<br/>&nbsp;&nbsp;• Total IP addresses = <b>2^(32 - n)</b>.<br/>&nbsp;&nbsp;• <b>Usable Host addresses = 2^(32 - n) - 2</b>.<br/>&nbsp;&nbsp;&nbsp;&nbsp;(Subtract 2: First address is Network ID; Last address is Directed Broadcast Address).', 'crucial_rule': '🎯 GOLDEN RULE FOR GATE: In a /30 subnet: 2^(32-30) = 4 IPs. Minus 2 = exactly 2 usable host addresses (ideal for point-to-point router links)!'}, {'number': '34.2', 'title': 'Fragmentation Offset Calculation Rules', 'content': "• <b>Key Fragmentation Header Fields:</b><br/>&nbsp;&nbsp;• <b>MF (More Fragments) Flag:</b> 1 for all fragments EXCEPT the last fragment (MF = 0 for last).<br/>&nbsp;&nbsp;• <b>DF (Don't Fragment) Flag:</b> If 1 and packet exceeds MTU, packet is dropped.<br/>&nbsp;&nbsp;• <b>Fragment Offset:</b> Offset field in IPv4 header is measured in units of <b>8 bytes</b>!<br/>&nbsp;&nbsp;&nbsp;&nbsp;<code>Offset = (Byte offset of data) / 8</code>.<br/>&nbsp;&nbsp;• <b>Data payload in each fragment (except last) MUST be a multiple of 8 bytes!</b>", 'crucial_rule': '🎯 GOLDEN RULE FOR GATE: Fragment offset is measured in units of 8 BYTES! Subtract the 20-byte IP header first: if MTU = 1500 bytes, max data payload is 1480 bytes (1480 / 8 = 185, a valid multiple of 8)!'}], 'worked_examples': [{'title': 'Worked Example: IPv4 Packet Fragmentation', 'problem': 'An IP datagram of 4000 bytes (including 20-byte IP header) arrives at a router where MTU = 1500 bytes. Find payload size, MF flag, and offset for each fragment.', 'steps': ['Step 1: Total data = 4000 - 20 = 3980 bytes.', 'Step 2: Max payload per fragment = 1500 - 20 = 1480 bytes (multiple of 8).', 'Step 3: Frag 1: Payload = 1480 bytes, Offset = 0 / 8 = 0, MF = 1.', 'Step 4: Frag 2: Payload = 1480 bytes, Offset = 1480 / 8 = 185, MF = 1.', 'Step 5: Remaining data = 3980 - 2960 = 1020 bytes.', 'Step 6: Frag 3: Payload = 1020 bytes, Offset = 2960 / 8 = 370, MF = 0.'], 'answer': 'Frag 1: 1480B, MF=1, Off=0; Frag 2: 1480B, MF=1, Off=185; Frag 3: 1020B, MF=0, Off=370.'}], 'exam_traps': ['Reassembly of fragments is performed ONLY at the DESTINATION host, never at intermediate routers!', 'Distance Vector routing suffers from Count-to-Infinity problem; solved by Split Horizon and Poison Reverse.']}, ('CN', 3): {'sub_id': 'CN', 'chap_idx': 3, 'title': 'TCP Congestion Control & Application Protocols', 'real_life_examples': [{'title': 'Real-Life Analogy: Highway Speed Limit & Highway Traffic Jam', 'text': '• TCP Slow Start: Starting your car gently and doubling speed every block until you reach the threshold speed limit.\n• Congestion Avoidance: Once past the threshold, increasing speed by only 1 km/h each block to avoid crashing into traffic ahead!'}], 'foundations': [{'number': '35.1', 'title': 'TCP Congestion Window Phases', 'content': '• <b>1. Slow Start Phase:</b><br/>&nbsp;&nbsp;- Congestion Window (cwnd) starts at 1 MSS (Maximum Segment Size).<br/>&nbsp;&nbsp;- For every ACK received, cwnd increases by 1 MSS (effectively <b>DOUBLES every RTT</b>: exponential growth).<br/>&nbsp;&nbsp;- Continues until cwnd reaches <b>ssthresh (slow-start threshold)</b>.<br/><br/>• <b>2. Congestion Avoidance Phase:</b><br/>&nbsp;&nbsp;- cwnd increases by <b>1 MSS per RTT</b> (additive increase: linear growth).<br/><br/>• <b>3. On Loss Event:</b><br/>&nbsp;&nbsp;• <b>Timeout (Severe Loss):</b> <b>ssthresh = cwnd / 2</b>, and <b>cwnd resets to 1 MSS</b> (re-enters Slow Start).<br/>&nbsp;&nbsp;• <b>3 Duplicate ACKs (Mild Loss - Fast Retransmit):</b> <b>ssthresh = cwnd / 2</b>, and <b>cwnd = ssthresh</b> (Fast Recovery).', 'crucial_rule': '🎯 GOLDEN RULE FOR GATE: On 3 duplicate ACKs, cwnd drops to ssthresh (not 1 MSS!) and enters Congestion Avoidance. On Timeout, cwnd resets all the way down to 1 MSS!'}, {'number': '35.2', 'title': 'Application Layer Protocols Summary', 'content': '• <b>DNS (Port 53):</b> Uses <b>UDP</b> for standard queries (fast); uses <b>TCP</b> for zone transfers.<br/>• <b>HTTP (Port 80) / HTTPS (Port 443):</b> Uses <b>TCP</b>.<br/>&nbsp;&nbsp;- Non-persistent HTTP/1.0: 2 RTTs per object.<br/>&nbsp;&nbsp;- Persistent HTTP/1.1: 1 RTT per object after initial connection handshake.<br/>• <b>Email Protocols:</b><br/>&nbsp;&nbsp;- <b>SMTP (Port 25):</b> Push protocol (client to mail server, server to server).<br/>&nbsp;&nbsp;- <b>POP3 (Port 110) / IMAP (Port 143):</b> Pull protocols (client downloading mail from server).', 'crucial_rule': '🎯 GOLDEN RULE FOR GATE: SMTP is a PUSH protocol! POP3 and IMAP are PULL protocols! DNS uses UDP for queries but TCP for zone transfers.'}], 'worked_examples': [{'title': 'Worked Example: Tracing TCP cwnd Growth', 'problem': 'A TCP connection has ssthresh = 16 KB and MSS = 2 KB. Starting from cwnd = 2 KB, trace cwnd after 5 RTTs (no loss).', 'steps': ['Step 1: Round 0: cwnd = 2 KB.', 'Step 2: RTT 1 (Slow Start): cwnd doubles to 4 KB.', 'Step 3: RTT 2 (Slow Start): cwnd doubles to 8 KB.', 'Step 4: RTT 3 (Slow Start): cwnd doubles to 16 KB (reaches ssthresh).', 'Step 5: RTT 4 (Congestion Avoidance): cwnd increases linearly by 1 MSS (+2 KB) = 18 KB.', 'Step 6: RTT 5 (Congestion Avoidance): cwnd increases by 1 MSS (+2 KB) = 20 KB.'], 'answer': 'After 5 RTTs, cwnd = 20 KB.'}], 'exam_traps': ['TCP uses byte sequence numbers, NOT packet sequence numbers! If packet carries 100 bytes starting at seq 500, next packet has seq 600.', 'Silently discarding packets by UDP provides zero flow or congestion control.']}, ('GA', 0): {'sub_id': 'GA', 'chap_idx': 0, 'title': 'Quantitative Aptitude - Work, Speed, Ratios & Percentages', 'real_life_examples': [{'title': 'Real-Life Analogy: Two Taps Filling a Bathtub', 'text': '• Work and Time: Tap A fills a tub in 10 minutes (rate = 1/10 per min); Tap B fills it in 15 minutes (rate = 1/15 per min). Working together, their speeds add up: 1/10 + 1/15 = 1/6, filling the tub in 6 minutes!'}], 'foundations': [{'number': '36.1', 'title': 'Time, Speed, Distance & Relative Speed', 'content': '• <b>Fundamental Formula:</b> <b>Distance = Speed × Time</b>.<br/>• <b>Unit Conversion:</b> <b>1 km/h = 5 / 18 m/s</b> &nbsp;and&nbsp; 1 m/s = 18 / 5 km/h.<br/>• <b>Average Speed:</b> <b>Total Distance / Total Time</b>.<br/>&nbsp;&nbsp;- If equal distances covered at speeds v1 and v2: <b>Average Speed = 2 · v1 · v2 / (v1 + v2)</b> (Harmonic Mean!).<br/>• <b>Relative Speed:</b><br/>&nbsp;&nbsp;• Moving in <b>Opposite directions:</b> Relative Speed = <b>v1 + v2</b>.<br/>&nbsp;&nbsp;• Moving in <b>Same direction:</b> Relative Speed = <b>|v1 - v2|</b>.<br/>• <b>Boats and Streams:</b> Downstream speed = <b>u + v</b>; Upstream speed = <b>u - v</b>.', 'crucial_rule': '🎯 GOLDEN RULE FOR GATE: Average speed is NEVER the simple arithmetic mean (v1 + v2)/2! For equal distance intervals, average speed is always 2·v1·v2 / (v1 + v2).'}, {'number': '36.2', 'title': 'Time & Work (The LCM Efficiency Method)', 'content': '• <b>LCM Method:</b> Assume Total Work = <b>LCM of all individual completion times</b>.<br/>&nbsp;&nbsp;1. Calculate 1-day efficiency = Total Work / Individual Days.<br/>&nbsp;&nbsp;2. Combined efficiency = Sum of individual efficiencies.<br/>&nbsp;&nbsp;3. Total Days = Total Work / Combined Efficiency.<br/>• <b>Pipes and Cisterns:</b> Inlet pipe adds positive work (+); Outlet pipe subtracts negative work (-).', 'crucial_rule': '🎯 GOLDEN RULE FOR GATE: Using the LCM method eliminates messy fractions completely! If A takes 12 days and B takes 18 days: Total Work = LCM(12, 18) = 36 units. Efficiency of A = 3, B = 2. Together = 36 / 5 = 7.2 days!'}], 'worked_examples': [{'title': 'Worked Example: Two Trains Crossing Each Other', 'problem': 'Two trains of lengths 120 m and 180 m travel in opposite directions at 40 km/h and 50 km/h. How many seconds do they take to pass each other?', 'steps': ['Step 1: Total distance = Sum of train lengths = 120 + 180 = 300 meters.', 'Step 2: Relative speed in opposite directions = 40 + 50 = 90 km/h.', 'Step 3: Convert speed to m/s: 90 × (5 / 18) = 25 m/s.', 'Step 4: Time taken = Distance / Speed = 300 m / (25 m/s) = 12 seconds.'], 'answer': 'Time taken = 12 seconds.'}], 'exam_traps': ['When a train crosses a pole or person, distance covered = length of train alone (pole has negligible width).', 'Successive percentage discount of x% and y% is NOT (x + y)%! Equivalent discount = x + y - (xy / 100)%.']}, ('GA', 1): {'sub_id': 'GA', 'chap_idx': 1, 'title': 'Analytical & Spatial Reasoning - Blood Relations, Clocks & Cubes', 'real_life_examples': [{'title': "Real-Life Analogy: Rubik's Cube Slicing & Wall Clock Hands", 'text': "• Painted Cube: Like a 3x3x3 Rubik's cube painted red on outside. Only the 8 corner pieces have 3 painted faces! Center pieces inside the cube have 0 painted faces.\n• Clock Hands: At 12:00 both hands point straight up. By 12:30, the hour hand has already crept halfway toward 1 (15 degrees)!"}], 'foundations': [{'number': '37.1', 'title': 'Clock Angle Formula', 'content': '• Angle between Hour and Minute hand at H hours and M minutes:<br/>&nbsp;&nbsp;<b>Angle θ = | 30 × H - (11 / 2) × M |</b>.<br/>• <b>Speeds of Hands:</b><br/>&nbsp;&nbsp;• Minute hand speed: <b>6° per minute</b> (360° / 60 min).<br/>&nbsp;&nbsp;• Hour hand speed: <b>0.5° per minute</b> (30° / 60 min).<br/>&nbsp;&nbsp;• Relative speed: <b>5.5° per minute</b>.<br/>• <b>Coincidence (0°):</b> Hands coincide <b>22 times in 24 hours</b> (not 24 times, due to 11-12-1 overlap).', 'crucial_rule': '🎯 GOLDEN RULE FOR GATE: Use θ = |30H - 5.5M|! If angle is greater than 180°, reflex angle is 360° - θ.'}, {'number': '37.2', 'title': 'Painted Cube Slicing Formulas', 'content': '• A large cube painted on all outside faces is cut into <b>n³ smaller equal cubes</b> (n cuts per edge):<br/>&nbsp;&nbsp;1. <b>3 Faces Painted (Corners):</b> ALWAYS exactly <b>8 cubes</b> (for any n ≥ 2).<br/>&nbsp;&nbsp;2. <b>2 Faces Painted (Edges):</b> <b>12 × (n - 2)</b>.<br/>&nbsp;&nbsp;3. <b>1 Face Painted (Face Centers):</b> <b>6 × (n - 2)²</b>.<br/>&nbsp;&nbsp;4. <b>0 Faces Painted (Inner Core):</b> <b>(n - 2)³</b>.<br/>• <b>Verification:</b> 8 + 12(n - 2) + 6(n - 2)² + (n - 2)³ = n³.', 'crucial_rule': '🎯 GOLDEN RULE FOR GATE: Regardless of the value of n, cubes with 3 faces painted is ALWAYS 8 (the 8 corners of the cube)!'}], 'worked_examples': [{'title': 'Worked Example: Angle between Clock Hands', 'problem': 'Find the angle between the hour hand and minute hand of a clock at 3:40.', 'steps': ['Step 1: Here H = 3, M = 40.', 'Step 2: Formula: θ = | 30 × H - (11 / 2) × M |.', 'Step 3: 30 × 3 = 90; (11 / 2) × 40 = 220.', 'Step 4: θ = | 90 - 220 | = | -130 | = 130°.'], 'answer': 'Angle between hands = 130°.'}], 'exam_traps': ['In calendar problems, remember that century years like 1900 are NOT leap years unless divisible by 400 (2000 is a leap year)!', "In blood relations, never assume gender from a person's name unless explicitly stated or implied by relationship."]}, ('GA', 2): {'sub_id': 'GA', 'chap_idx': 2, 'title': 'Verbal Aptitude - Grammar, Concord & Critical Reasoning', 'real_life_examples': [{'title': 'Real-Life Analogy: The Orchestra Conductor & Courtroom Evidence', 'text': '• Concord: The subject and verb must play in harmony (Singular subject takes singular verb).\n• Critical Reasoning: Distinguishing between a confirmed fact stated in a text versus an unproven assumption made by the author.'}], 'foundations': [{'number': '38.1', 'title': 'Subject-Verb Agreement (Concord) Rules', 'content': "• <b>Rule 1: Either/Or & Neither/Nor:</b> Verb agrees with the <b>CLOSER subject</b>.<br/>&nbsp;&nbsp;Example: 'Neither the manager nor the <i>employees were</i> present.'<br/>• <b>Rule 2: As well as / Together with / Along with:</b> Verb agrees with the <b>FIRST subject</b>!<br/>&nbsp;&nbsp;Example: 'The <i>captain</i>, along with his crew members, <b>was</b> honored.'<br/>• <b>Rule 3: Each, Every, Everyone, Neither (alone):</b> Strictly <b>SINGULAR</b>.<br/>&nbsp;&nbsp;Example: 'Each of the students <b>has</b> completed the project.'", 'crucial_rule': "🎯 GOLDEN RULE FOR GATE: In 'A as well as B', verb follows A! In 'Either A or B', verb follows B (the nearest subject)!"}, {'number': '38.2', 'title': 'Common Word Confusions in GATE', 'content': "• <b>Affect vs Effect:</b><br/>&nbsp;&nbsp;- <b>Affect (Verb):</b> To influence. ('The weather affected his mood').<br/>&nbsp;&nbsp;- <b>Effect (Noun):</b> The result/consequence. ('The policy had a good effect').<br/>• <b>Complement vs Compliment:</b><br/>&nbsp;&nbsp;- <b>Complement:</b> Completes or enhances something ('Bread and butter complement each other').<br/>&nbsp;&nbsp;- <b>Compliment:</b> An expression of praise ('He paid her a nice compliment').<br/>• <b>Principal vs Principle:</b> Principal = head of school / main; Principle = fundamental truth / rule.", 'crucial_rule': '🎯 GOLDEN RULE FOR GATE: Affect is almost always an Action (Verb), Effect is an End-result (Noun). Remember RAVEN: Remember Affect Verb Effect Noun!'}], 'worked_examples': [{'title': 'Worked Example: Subject-Verb Agreement Selection', 'problem': "Choose the correct verb: 'Neither the professor nor his research students _____ (was / were) able to solve the puzzle.'", 'steps': ["Step 1: Identify conjunction: 'Neither ... nor ...'.", 'Step 2: Rule of Proximity: The verb agrees with the subject closer to it.', "Step 3: The closer subject is 'his research students' (Plural).", "Step 4: Plural subject requires plural verb 'were'."], 'answer': "Correct sentence: 'Neither the professor nor his research students were able to solve the puzzle.'"}], 'exam_traps': ["In reading comprehension, answers that use extreme words like 'always', 'never', 'only' are usually wrong unless explicitly in the text!", 'An assumption is an UNSTATED premise required for the conclusion to hold true.']}}
+CHAPTERS_DB_CN_GA = { ('CN', 0): { 'chapter_number': 32,
+               'exam_traps': [ { 'title': 'Bits vs Bytes Unit Conversion Trap',
+                                 'warning': 'Packet size is usually given in Bytes (KB), but Bandwidth is given in '
+                                            'bits/sec (Mbps). ALWAYS multiply bytes by 8 to convert to bits before '
+                                            'computing T_t = L / B!'}],
+               'foundations': [ { 'content': '• <b>The 7 OSI Layers & Their Data Units:</b><br/>\n'
+                                             "<div class='font-mono text-xs p-3 bg-slate-900 text-slate-100 rounded-xl "
+                                             "my-2 leading-relaxed overflow-x-auto'>\n"
+                                             'OSI Layer           │ Protocol Data Unit (PDU) │ Core Addressing '
+                                             'Used          │ Hardware Devices\n'
+                                             '─────────────────────────────────────────────────────────────────────────────────────────────\n'
+                                             'Application (7-5)   │ Message / Data           │ Process / Domain Name '
+                                             '(DNS)   │ Gateway\n'
+                                             'Transport (4)       │ Segment (TCP) / Datagram │ Port Number '
+                                             '(16-bit)          │ Firewall / Load Balancer\n'
+                                             'Network (3)         │ Packet                   │ IP Address (32 / '
+                                             '128-bit)     │ Router / L3 Switch\n'
+                                             'Data Link (2)       │ Frame                    │ MAC Address '
+                                             '(48-bit)          │ Bridge / L2 Switch / NIC\n'
+                                             'Physical (1)        │ Bits                     │ Physical signaling '
+                                             '(Volts, Hz)│ Hub / Repeater\n'
+                                             '</div>',
+                                  'crucial_rule': '🎯 GOLDEN RULE FOR GATE: Hub and Repeater work at Layer 1 '
+                                                  '(Physical). Bridge and Switch work at Layer 2 (Data Link - '
+                                                  'Collision domains separated). Router works at Layer 3 (Network - '
+                                                  'Broadcast domains separated).',
+                                  'number': '32.1',
+                                  'title': 'OSI 7-Layer vs TCP/IP Models & Protocol Stacks'},
+                                { 'content': '• <b>The 4 Fundamental Network Delays:</b><br/>\n'
+                                             '&nbsp;&nbsp;1. <b>Transmission Delay (Tₜ):</b> Time to push all packet '
+                                             'bits onto the wire: <code>Tₜ = Packet Size (L) / Bandwidth '
+                                             '(B)</code>.<br/>\n'
+                                             '&nbsp;&nbsp;2. <b>Propagation Delay (Tₚ):</b> Time for 1 bit to travel '
+                                             'from sender to receiver: <code>Tₚ = Distance (d) / Propagation Speed '
+                                             '(v)</code>.<br/>\n'
+                                             '&nbsp;&nbsp;3. <b>Queuing Delay:</b> Time waiting in router '
+                                             'buffers.<br/>\n'
+                                             '&nbsp;&nbsp;4. <b>Processing Delay:</b> Time taken by router to examine '
+                                             'packet headers.<br/><br/>\n'
+                                             '\n'
+                                             '• <b>Bandwidth-Delay Product (BDP):</b><br/>\n'
+                                             '&nbsp;&nbsp;<code>BDP = Bandwidth × Propagation Delay</code><br/>\n'
+                                             "&nbsp;&nbsp;Represents the maximum volume of bits that can be 'in "
+                                             "flight' on the transmission link at any given instant!",
+                                  'crucial_rule': '🎯 GOLDEN RULE FOR GATE: Transmission delay depends on bandwidth '
+                                                  '(bits/sec), NOT distance! Propagation delay depends on physical '
+                                                  'distance and medium speed, NOT bandwidth.',
+                                  'number': '32.2',
+                                  'title': 'Network Delays & Bandwidth-Delay Product (BDP)'}],
+               'real_life_examples': [ { 'text': 'Transmission delay is how fast you pour water into a pipe. '
+                                                 'Propagation delay is how long the first drop takes to travel through '
+                                                 'the pipe to the other end.',
+                                         'title': 'Real-Life Analogy: Pipe Length vs Flow Rate'}],
+               'title': 'Layering, Switching & Network Performance Metrics',
+               'worked_examples': [ { 'answer': 'Transmission Delay = 0.8 ms, Propagation Delay = 10 ms.',
+                                      'problem': 'A 1000-byte packet is sent over a 10 Mbps point-to-point link of '
+                                                 'distance 2000 km. The propagation speed is 2 × 10⁸ m/s. Find the '
+                                                 'transmission and propagation delays.',
+                                      'steps': [ 'Step 1: Transmission delay T_t = L / B = (1000 × 8 bits) / (10 × 10⁶ '
+                                                 'bps) = 8000 / 10,000,000 = 0.0008 s = 0.8 ms.',
+                                                 'Step 2: Propagation delay T_p = d / v = (2000 × 10³ m) / (2 × 10⁸ '
+                                                 'm/s) = 2,000,000 / 200,000,000 = 0.01 s = 10 ms.',
+                                                 'Step 3: Notice: T_p (10 ms) is over 12 times larger than T_t (0.8 '
+                                                 'ms)! The link is propagation-dominated.'],
+                                      'title': 'Worked Example: Transmission Delay vs Propagation Delay'}]},
+  ('CN', 1): { 'chapter_number': 33,
+               'exam_traps': [ { 'title': 'Round Trip Time Factor 2 Trap',
+                                 'warning': 'In CSMA/CD, the factor of 2 (2 × T_p) accounts for the WORST-CASE '
+                                            'round-trip collision scenario where collision occurs just before reaching '
+                                            'the destination.'}],
+               'foundations': [ { 'content': "• <b>Let parameter 'a':</b> <code>a = Propagation Delay (Tₚ) / "
+                                             'Transmission Delay (Tₜ)</code>.<br/><br/>\n'
+                                             '\n'
+                                             '• <b>Master Comparison of Flow Control Protocols:</b><br/>\n'
+                                             "<div class='font-mono text-xs p-3 bg-slate-900 text-slate-100 rounded-xl "
+                                             "my-2 leading-relaxed overflow-x-auto'>\n"
+                                             'Protocol           │ Sender Window (Wₛ) │ Receiver Window (Wᵣ) │ '
+                                             'Efficiency (η) Formula        │ Minimum Sequence Bits\n'
+                                             '───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────\n'
+                                             'Stop-and-Wait      │ 1                  │ 1                    │ η = 1 / '
+                                             '(1 + 2a)              │ 1 bit (Seq 0 and 1)\n'
+                                             'Go-Back-N (GBN)    │ N                  │ 1                    │ η = N / '
+                                             '(1 + 2a) (max 100%)   │ ⌈log₂(N + 1)⌉ bits\n'
+                                             'Selective Repeat   │ N                  │ N                    │ η = N / '
+                                             '(1 + 2a) (max 100%)   │ ⌈log₂(2N)⌉ bits\n'
+                                             '</div>',
+                                  'crucial_rule': '🎯 GOLDEN RULE FOR GATE: In Selective Repeat, Sender and Receiver '
+                                                  'window sizes must satisfy: W_s + W_r ≤ 2^k (where k is number of '
+                                                  'sequence bits). With W_s = W_r = N: N ≤ 2^(k-1)!',
+                                  'number': '33.1',
+                                  'title': 'Sliding Window Protocol Efficiency & Window Sizes'},
+                                { 'content': '• <b>Carrier Sense Multiple Access with Collision Detection '
+                                             '(CSMA/CD):</b><br/>\n'
+                                             '&nbsp;&nbsp;- Used in classic half-duplex Ethernet.<br/>\n'
+                                             '&nbsp;&nbsp;• <b>The Fundamental Collision Detection '
+                                             'Condition:</b><br/>\n'
+                                             '&nbsp;&nbsp;&nbsp;&nbsp;To detect a collision before transmission '
+                                             'completes, the transmission time MUST be at least twice the propagation '
+                                             'delay!<br/>\n'
+                                             '&nbsp;&nbsp;&nbsp;&nbsp;<code>Tₜ ≥ 2 × Tₚ</code><br/>\n'
+                                             '&nbsp;&nbsp;&nbsp;&nbsp;<code>(L_min / Bandwidth) ≥ 2 × (Distance / '
+                                             'v)</code><br/>\n'
+                                             '&nbsp;&nbsp;&nbsp;&nbsp;<code>L_min = 2 × Bandwidth × Tₚ</code>',
+                                  'crucial_rule': '🎯 GOLDEN RULE FOR GATE: If a packet is smaller than L_min, sender '
+                                                  'finishes transmitting and assumes success before the collision '
+                                                  'signal can travel back! This is why Ethernet has a mandatory '
+                                                  'minimum frame size of 64 bytes.',
+                                  'number': '33.2',
+                                  'title': 'CSMA/CD & Minimum Frame Size Condition'}],
+               'real_life_examples': [ { 'text': 'CSMA/CD is a room of polite people: listen before speaking (Carrier '
+                                                 'Sense); if two people start talking at once, stop immediately and '
+                                                 'wait a random delay (Exponential Backoff).',
+                                         'title': 'Real-Life Analogy: Polite Group Discussion'}],
+               'title': 'Data Link Layer, CRC & Medium Access Control (CSMA/CD)',
+               'worked_examples': [ { 'answer': 'Minimum frame size is 1250 bytes (10,000 bits).',
+                                      'problem': 'A 1 Gbps CSMA/CD network has a cable length of 1 km with signal '
+                                                 'propagation speed 2 × 10⁸ m/s. What is the minimum frame size '
+                                                 'required for reliable collision detection?',
+                                      'steps': [ 'Step 1: Calculate propagation delay T_p = d / v = 1000 m / (2 × 10⁸ '
+                                                 'm/s) = 5 × 10⁻⁶ s = 5 µs.',
+                                                 'Step 2: Apply the CSMA/CD condition: T_t ≥ 2 × T_p ⇒ T_t_min = 2 × 5 '
+                                                 'µs = 10 µs.',
+                                                 'Step 3: Calculate minimum frame length L_min = Bandwidth × T_t_min = '
+                                                 '(1 × 10⁹ bps) × (10 × 10⁻⁶ s) = 10,000 bits.',
+                                                 'Step 4: Convert to bytes: 10,000 / 8 = 1250 bytes.'],
+                                      'title': 'Worked Example: Minimum Frame Size in CSMA/CD'}]},
+  ('CN', 2): { 'chapter_number': 34,
+               'exam_traps': [ { 'title': 'HLEN 4-Byte Scaling vs Offset 8-Byte Scaling Trap',
+                                 'warning': 'HLEN is scaled by 4 bytes (e.g. HLEN=6 means 24 bytes). Fragment Offset '
+                                            'is scaled by 8 bytes (e.g. Offset=100 means byte 800). Never mix up these '
+                                            'two scaling factors.'}],
+               'foundations': [ { 'content': '• <b>CIDR Notation (/n):</b> IP address format <code>a.b.c.d / n</code> '
+                                             'where n is the number of Network Prefix bits.<br/>\n'
+                                             '&nbsp;&nbsp;• <b>Host bits (h):</b> <code>h = 32 - n</code>.<br/>\n'
+                                             '&nbsp;&nbsp;• <b>Total IP Addresses in Subnet:</b> '
+                                             '<code>2ʰ</code>.<br/>\n'
+                                             '&nbsp;&nbsp;• <b>Usable Host Addresses:</b> <code>2ʰ - 2</code> '
+                                             '(Subtract 2: Network ID with all 0 host bits, and Broadcast ID with all '
+                                             '1 host bits).<br/><br/>\n'
+                                             '\n'
+                                             '• <b>Subnetting Example (/26):</b><br/>\n'
+                                             '&nbsp;&nbsp;h = 32 - 26 = 6 bits. Total IPs = 2⁶ = 64. Usable hosts = 64 '
+                                             '- 2 = 62 hosts per subnet.',
+                                  'crucial_rule': '🎯 GOLDEN RULE FOR GATE: Longest Prefix Match Rule: When a router '
+                                                  'receives a packet, it compares the destination IP against all '
+                                                  'routing table entries. If multiple routes match, the router '
+                                                  'strictly picks the route with the LONGEST prefix (highest /n '
+                                                  'value)!',
+                                  'number': '34.1',
+                                  'title': 'IPv4 Subnetting, CIDR & Usable Hosts'},
+                                { 'content': '• <b>IPv4 Header Fields (Tested in GATE):</b><br/>\n'
+                                             '&nbsp;&nbsp;• <b>Header Length (HLEN):</b> 4-bit field, scaled in '
+                                             '<b>4-byte words</b>! Minimum HLEN = 5 (20 bytes); Maximum = 15 (60 '
+                                             'bytes).<br/>\n'
+                                             '&nbsp;&nbsp;• <b>Total Length:</b> 16 bits (max datagram size = 65,535 '
+                                             'bytes).<br/>\n'
+                                             '&nbsp;&nbsp;• <b>Fragmentation Offset:</b> 13 bits, measured in <b>units '
+                                             'of 8 bytes</b>!<br/>\n'
+                                             "&nbsp;&nbsp;• <b>Flags:</b> [ Reserved | DF (Don't Fragment) | MF (More "
+                                             'Fragments) ].<br/>\n'
+                                             '&nbsp;&nbsp;&nbsp;&nbsp;- If MF = 1: More fragments follow.<br/>\n'
+                                             '&nbsp;&nbsp;&nbsp;&nbsp;- If MF = 0: Last fragment (or unfragmented '
+                                             'packet).',
+                                  'crucial_rule': '🎯 GOLDEN RULE FOR GATE: The fragmentation offset field stores: '
+                                                  '(Original Data Byte Offset) / 8! The payload size of every fragment '
+                                                  '(except the last) MUST be a multiple of 8 bytes.',
+                                  'number': '34.2',
+                                  'title': 'IPv4 Header & Packet Fragmentation'}],
+               'real_life_examples': [ { 'text': 'NAT is the receptionist in an office: your laptop, phone, and TV '
+                                                 'share 1 public IP address, and the NAT table routes incoming '
+                                                 'responses to your device via internal port numbers.',
+                                         'title': 'Real-Life Analogy: NAT Router & Home Wi-Fi'}],
+               'title': 'Routing Protocols & IPv4 Addressing (CIDR, Fragmentation, NAT)',
+               'worked_examples': [ { 'answer': 'Fragment 2: Payload = 1480 bytes, MF = 1, Offset = 185.',
+                                      'problem': 'An IPv4 datagram of 4000 bytes (20 bytes header + 3980 bytes '
+                                                 'payload) arrives at a router whose outgoing link has an MTU of 1500 '
+                                                 'bytes. Find the payload size, MF flag, and Offset of the second '
+                                                 'fragment.',
+                                      'steps': [ 'Step 1: MTU = 1500 bytes. Including 20 bytes IP header, maximum data '
+                                                 'payload per fragment = 1500 - 20 = 1480 bytes.',
+                                                 'Step 2: Check multiple of 8: 1480 / 8 = 185 (perfect multiple of '
+                                                 '8!).',
+                                                 'Step 3: Fragment 1: Payload = 1480 bytes (bytes 0 to 1479). MF = 1. '
+                                                 'Offset = 0 / 8 = 0.',
+                                                 'Step 4: Fragment 2: Takes next 1480 bytes (bytes 1480 to 2959). MF = '
+                                                 '1. Offset = 1480 / 8 = 185.',
+                                                 'Step 5: Fragment 3: Remaining data = 3980 - 1480 - 1480 = 1020 bytes '
+                                                 '(bytes 2960 to 3979). MF = 0. Offset = 2960 / 8 = 370.'],
+                                      'title': 'Worked Example: IPv4 Packet Fragmentation Trace'}]},
+  ('CN', 3): { 'chapter_number': 35,
+               'exam_traps': [ { 'title': 'TCP Acknowledgment Number Trap',
+                                 'warning': "TCP ACK is cumulative: Ack = N means 'I have received all bytes up to N - "
+                                            "1 successfully, and I am expecting byte N next'."}],
+               'foundations': [ { 'content': '• <b>TCP 3-Way Handshake:</b><br/>\n'
+                                             '&nbsp;&nbsp;1. Client → Server: <code>SYN, Seq = x</code>.<br/>\n'
+                                             '&nbsp;&nbsp;2. Server → Client: <code>SYN + ACK, Seq = y, Ack = x + '
+                                             '1</code>.<br/>\n'
+                                             '&nbsp;&nbsp;3. Client → Server: <code>ACK, Seq = x + 1, Ack = y + '
+                                             '1</code>.<br/><br/>\n'
+                                             '\n'
+                                             '• <b>TCP Congestion Control Phases:</b><br/>\n'
+                                             '&nbsp;&nbsp;1. <b>Slow Start:</b> <code>cwnd</code> starts at 1 MSS and '
+                                             '<b>DOUBLES every RTT</b> (Exponential growth: 1, 2, 4, 8...).<br/>\n'
+                                             '&nbsp;&nbsp;2. <b>Congestion Avoidance:</b> When <code>cwnd ≥ Threshold '
+                                             '(ssthresh)</code>, growth becomes linear: <b>increases by 1 MSS every '
+                                             'RTT</b> (Additive Increase).<br/>\n'
+                                             '&nbsp;&nbsp;3. <b>On Timeout (Severe Congestion):</b><br/>\n'
+                                             '&nbsp;&nbsp;&nbsp;&nbsp;- <code>ssthresh = cwnd / 2</code>.<br/>\n'
+                                             '&nbsp;&nbsp;&nbsp;&nbsp;- <code>cwnd = 1 MSS</code> (Resets back to slow '
+                                             'start!).<br/>\n'
+                                             '&nbsp;&nbsp;4. <b>On 3 Duplicate ACKs (TCP Tahoe vs Reno):</b><br/>\n'
+                                             '&nbsp;&nbsp;&nbsp;&nbsp;- Tahoe: cwnd resets to 1 MSS.<br/>\n'
+                                             '&nbsp;&nbsp;&nbsp;&nbsp;- Reno (Fast Recovery): <code>ssthresh = cwnd / '
+                                             '2</code>, and <code>cwnd = ssthresh</code> (Skips slow start, continues '
+                                             'linear growth!).',
+                                  'crucial_rule': '🎯 GOLDEN RULE FOR GATE: Sequence number consumes 1 number for SYN '
+                                                  'and FIN flags! ACK packets that carry no data do NOT consume '
+                                                  'sequence numbers.',
+                                  'number': '35.1',
+                                  'title': 'TCP 3-Way Handshake & Congestion Control'},
+                                { 'content': '• <b>DNS (Domain Name System - Port 53):</b><br/>\n'
+                                             '&nbsp;&nbsp;• Uses <b>UDP</b> for standard client queries (fast, low '
+                                             'overhead). Uses <b>TCP</b> for zone transfers.<br/>\n'
+                                             '&nbsp;&nbsp;• <b>Iterative Query:</b> Server replies with the referral '
+                                             'address of next server. Client does the walking.<br/>\n'
+                                             '&nbsp;&nbsp;• <b>Recursive Query:</b> Server resolves the full name on '
+                                             "client's behalf and returns final IP.<br/><br/>\n"
+                                             '\n'
+                                             '• <b>HTTP Protocols:</b><br/>\n'
+                                             '&nbsp;&nbsp;• <b>HTTP/1.0:</b> Non-persistent (1 TCP handshake per '
+                                             'image/file).<br/>\n'
+                                             '&nbsp;&nbsp;• <b>HTTP/1.1:</b> Persistent connections (re-uses TCP '
+                                             'connection; suffers from Head-of-Line blocking).<br/>\n'
+                                             '&nbsp;&nbsp;• <b>HTTP/2:</b> Binary framing, multiplexing multiple '
+                                             'streams over a single TCP connection.',
+                                  'crucial_rule': '🎯 GOLDEN RULE FOR GATE: Persistent HTTP without pipelining takes 1 '
+                                                  'RTT per referenced object. Persistent HTTP WITH pipelining takes 1 '
+                                                  'RTT total for all referenced objects.',
+                                  'number': '35.2',
+                                  'title': 'Application Layer: DNS Resolution & HTTP/1.1 vs HTTP/2'}],
+               'real_life_examples': [ { 'text': 'TCP slow start rapidly expands your YouTube video buffer during '
+                                                 'initial loading, then stabilizes into linear mode once smooth 4K '
+                                                 'playback is achieved.',
+                                         'title': 'Real-Life Analogy: Video Streaming Buffer'}],
+               'title': 'Transport Layer (TCP), Sockets & Application Protocols (DNS, HTTP)',
+               'worked_examples': [ { 'answer': 'cwnd in round 7 is 18 MSS.',
+                                      'problem': 'A TCP connection has ssthresh = 16 MSS. In round 1, cwnd = 1 MSS. '
+                                                 'Assuming no packet loss occurs, what is the size of cwnd in round 7?',
+                                      'steps': [ 'Step 1: Round 1: cwnd = 1 MSS (Slow start).',
+                                                 'Step 2: Round 2: cwnd = 2 MSS.',
+                                                 'Step 3: Round 3: cwnd = 4 MSS.',
+                                                 'Step 4: Round 4: cwnd = 8 MSS.',
+                                                 'Step 5: Round 5: cwnd = 16 MSS (Hits ssthresh = 16! Switches to '
+                                                 'Congestion Avoidance).',
+                                                 'Step 6: Round 6: cwnd = 16 + 1 = 17 MSS (Linear growth).',
+                                                 'Step 7: Round 7: cwnd = 17 + 1 = 18 MSS.'],
+                                      'title': 'Worked Example: TCP Congestion Window Calculation'}]},
+  ('DB', 0): { 'chapter_number': 29,
+               'exam_traps': [ { 'title': 'SQL NULL Comparison with Equality Trap',
+                                 'warning': "In SQL, comparing anything to NULL with '=' (e.g. 'salary = NULL') "
+                                            "evaluates to UNKNOWN, never TRUE! Always use 'IS NULL' or 'IS NOT "
+                                            "NULL'."}],
+               'foundations': [ { 'content': '• <b>Cardinality Ratios & Table Merging Rules:</b><br/>\n'
+                                             "<div class='font-mono text-xs p-3 bg-slate-900 text-slate-100 rounded-xl "
+                                             "my-2 leading-relaxed overflow-x-auto'>\n"
+                                             'Relationship Type │ Cardinality / Participation        │ Minimum '
+                                             'Relational Tables Needed\n'
+                                             '─────────────────────────────────────────────────────────────────────────────────────────────\n'
+                                             'Many-to-Many (M:N)│ Any participation                  │ 3 Tables (Table '
+                                             'A, Table B, Table AB)\n'
+                                             'One-to-Many (1:N) │ Any participation                  │ 2 Tables '
+                                             "(Foreign key placed on the 'MANY' side!)\n"
+                                             'One-to-One (1:1)  │ Partial on both sides (0..1, 0..1) │ 2 Tables '
+                                             '(Foreign key on either side with UNIQUE constraint)\n'
+                                             'One-to-One (1:1)  │ Total on one side (1..1, 0..1)     │ 2 Tables '
+                                             '(Foreign key placed on the TOTAL participation side!)\n'
+                                             'One-to-One (1:1)  │ Total on BOTH sides (1..1, 1..1)   │ 1 SINGLE MERGED '
+                                             'TABLE (Combines both entities!)\n'
+                                             '</div>\n'
+                                             '\n'
+                                             '• <b>Weak Entity Sets:</b><br/>\n'
+                                             '&nbsp;&nbsp;- Does not have sufficient attributes to form a primary '
+                                             'key.<br/>\n'
+                                             '&nbsp;&nbsp;- Depends on an <b>Identifying Strong Entity</b> via an '
+                                             '<b>Identifying Relationship</b>.<br/>\n'
+                                             '&nbsp;&nbsp;- <b>Primary Key of Weak Entity:</b> <code>Primary Key of '
+                                             'Strong Entity + Discriminator (Partial Key)</code>.<br/>\n'
+                                             '&nbsp;&nbsp;- Weak entity and its identifying relationship are ALWAYS '
+                                             'merged into a single table!',
+                                  'crucial_rule': '🎯 GOLDEN RULE FOR GATE: In 1:N relationship, NEVER place the '
+                                                  'foreign key on the 1-side (causes massive NULL or multivalued '
+                                                  'redundancy)! Always place the foreign key on the N-side.',
+                                  'number': '29.1',
+                                  'title': 'ER to Relational Table Conversion Rules (Minimal Tables)'},
+                                { 'content': '• <b>Core Relational Algebra Operators:</b><br/>\n'
+                                             '&nbsp;&nbsp;• <b>Selection (σ_condition):</b> Filters rows (horizontal '
+                                             'subset).<br/>\n'
+                                             '&nbsp;&nbsp;• <b>Projection (π_attributes):</b> Selects columns '
+                                             '(vertical subset; eliminates duplicates).<br/>\n'
+                                             '&nbsp;&nbsp;• <b>Cross Product (R × S):</b> Combines every tuple of R '
+                                             'with every tuple of S.<br/>\n'
+                                             '&nbsp;&nbsp;• <b>Natural Join (R ⋈ S):</b> Equi-join on all shared '
+                                             'common attributes, eliminating redundant duplicate columns.<br/><br/>\n'
+                                             '\n'
+                                             '• <b>The Division Operator (R ÷ S):</b><br/>\n'
+                                             "&nbsp;&nbsp;- Used to answer queries containing the word <b>'FOR "
+                                             "ALL'</b> (e.g. <i>'Find students who have enrolled in ALL courses "
+                                             "offered by Prof. Rao'</i>).<br/>\n"
+                                             '&nbsp;&nbsp;- Result schema: Attributes in R that are NOT in S: '
+                                             '<code>Schema(R ÷ S) = Schema(R) - Schema(S)</code>.<br/>\n'
+                                             '&nbsp;&nbsp;- Formal formula: <code>R ÷ S = π_{R-S}(R) - π_{R-S}( '
+                                             '(π_{R-S}(R) × S) - R )</code>.',
+                                  'crucial_rule': '🎯 GOLDEN RULE FOR GATE: Tuple Relational Calculus (TRC) and Domain '
+                                                  'Relational Calculus (DRC) are equivalent in expressive power to '
+                                                  "Relational Algebra (Codd's Theorem). SQL is declarative, based "
+                                                  'directly on TRC.',
+                                  'number': '29.2',
+                                  'title': 'Relational Algebra: Joins, Division & Calculus'}],
+               'real_life_examples': [ { 'text': 'A university database uses M:N relationship tables: Students and '
+                                                 "Courses connect through an 'Enrollment' bridge table that stores "
+                                                 'grades and semester dates.',
+                                         'title': 'Real-Life Analogy: University Enrollment Database'}],
+               'title': 'ER-Model, Relational Algebra & SQL',
+               'worked_examples': [ { 'answer': 'Minimum 2 tables required.',
+                                      'problem': 'An ER diagram has entities Student and Department. A student belongs '
+                                                 'to at most one department, and a department can have multiple '
+                                                 'students. Both have partial participation. How many minimum '
+                                                 'relational tables are needed?',
+                                      'steps': [ 'Step 1: Identify cardinality ratio: Department-to-Student is '
+                                                 'One-to-Many (1:N).',
+                                                 'Step 2: Recall the 1:N table conversion rule: We can merge the '
+                                                 "relationship table into the entity table on the 'MANY' side "
+                                                 '(Student).',
+                                                 'Step 3: Table 1: Department(Dept_ID, Dept_Name) with Dept_ID as '
+                                                 'Primary Key.',
+                                                 'Step 4: Table 2: Student(Roll_No, Name, Dept_ID) with Roll_No as '
+                                                 'Primary Key, and Dept_ID as Foreign Key referencing Department.',
+                                                 'Step 5: Minimum tables required = 2.'],
+                                      'title': 'Worked Example: Minimum Relational Tables from ER Diagram'}]},
+  ('DB', 1): { 'chapter_number': 30,
+               'exam_traps': [ { 'title': 'All-Prime Attributes Guarantee 3NF Trap',
+                                 'warning': 'If all attributes in a relation are Prime Attributes, the relation is '
+                                            'GUARANTEED to be in 3NF! However, it may still violate BCNF.'}],
+               'foundations': [ { 'content': '• <b>Attribute Closure (X⁺):</b> The set of all attributes functionally '
+                                             'determined by attribute set X.<br/><br/>\n'
+                                             '\n'
+                                             '• <b>Step-by-Step Candidate Key Finding Algorithm:</b><br/>\n'
+                                             '&nbsp;&nbsp;1. <b>Essential Attributes (Must be in every Candidate '
+                                             'Key):</b> Attributes that appear ONLY on the LHS of dependencies, or '
+                                             'never appear in any dependency.<br/>\n'
+                                             '&nbsp;&nbsp;2. <b>Non-Essential Attributes:</b> Attributes that appear '
+                                             'ONLY on the RHS can NEVER be part of any minimal candidate key!<br/>\n'
+                                             '&nbsp;&nbsp;3. Compute closure of essential attributes. If it derives '
+                                             'all attributes, it is the <b>UNIQUE Candidate Key</b>.<br/>\n'
+                                             '&nbsp;&nbsp;4. If not, combine with intermediate attributes until '
+                                             'closure covers the entire relation schema.',
+                                  'crucial_rule': '🎯 GOLDEN RULE FOR GATE: Prime Attribute: Any attribute that is a '
+                                                  'part of AT LEAST ONE Candidate Key. Non-Prime Attribute: An '
+                                                  'attribute that does NOT belong to ANY Candidate Key.',
+                                  'number': '30.1',
+                                  'title': 'Candidate Keys & Attribute Closure Algorithm'},
+                                { 'content': '• <b>Hierarchical Normal Forms Decision Checklist:</b><br/>\n'
+                                             "<div class='font-mono text-xs p-3 bg-slate-900 text-slate-100 rounded-xl "
+                                             "my-2 leading-relaxed overflow-x-auto'>\n"
+                                             'Normal Form │ Violation Condition to Check '
+                                             'For                               │ Required Standard\n'
+                                             '────────────────────────────────────────────────────────────────────────────────────────────────────────────\n'
+                                             '1NF         │ Multi-valued or composite attributes '
+                                             'exist                      │ All attribute values are ATOMIC\n'
+                                             '2NF         │ Partial Dependency: Proper Subset of Key → Non-Prime '
+                                             'Attribute  │ NO Partial Dependencies!\n'
+                                             '3NF         │ Transitive Dependency: Non-Prime → Non-Prime '
+                                             'Attribute          │ For every X → Y: X is Superkey OR Y is Prime\n'
+                                             'BCNF        │ Any functional dependency where LHS is not a '
+                                             'Superkey           │ For EVERY X → Y: X MUST be a Superkey!\n'
+                                             '</div>\n'
+                                             '\n'
+                                             '• <b>Decomposition Properties (Lossless vs Dependency '
+                                             'Preserving):</b><br/>\n'
+                                             '&nbsp;&nbsp;• <b>Lossless Join Condition:</b> R₁ ∩ R₂ → R₁ OR R₁ ∩ R₂ → '
+                                             'R₂ (The common attribute must be a Superkey in at least one '
+                                             'table!).<br/>\n'
+                                             '&nbsp;&nbsp;• <b>Decomposition into 3NF:</b> Always guarantees BOTH '
+                                             'Lossless Join AND Dependency Preservation!<br/>\n'
+                                             '&nbsp;&nbsp;• <b>Decomposition into BCNF:</b> Always guarantees Lossless '
+                                             'Join, but <b>MAY NOT PRESERVE DEPENDENCIES</b>!',
+                                  'crucial_rule': '🎯 GOLDEN RULE FOR GATE: Any binary decomposition into two tables R₁ '
+                                                  'and R₂ is LOSSLESS if and only if their common attribute (R₁ ∩ R₂) '
+                                                  'forms a candidate key of R₁ or R₂!',
+                                  'number': '30.2',
+                                  'title': 'The Step-by-Step Normal Forms Checklist (1NF to BCNF)'}],
+               'real_life_examples': [ { 'text': "Normalization eliminates anomalies: if a customer's address is "
+                                                 'stored in every invoice row, updating their address requires '
+                                                 'updating 1,000 rows (update anomaly) or risks inconsistent data.',
+                                         'title': 'Real-Life Analogy: Eliminating Redundant Billing Data'}],
+               'title': 'Functional Dependencies & Normalization (1NF to BCNF)',
+               'worked_examples': [ { 'answer': 'The relation R is in 3NF, but NOT in BCNF.',
+                                      'problem': 'Given relation R(A, B, C, D) with FDs: {AB → C, C → D, D → A}. What '
+                                                 'is the highest normal form of R?',
+                                      'steps': [ 'Step 1: Find candidate keys. Compute closures: (AB)⁺ = {A, B, C, D}. '
+                                                 'Since C → D and D → A: (BC)⁺ = {B, C, D, A}. (BD)⁺ = {B, D, A, C}.',
+                                                 'Step 2: Candidate Keys are AB, BC, BD.',
+                                                 'Step 3: Prime attributes = {A, B, C, D}. ALL attributes are prime!',
+                                                 'Step 4: Check 2NF: No non-prime attributes exist, so no partial '
+                                                 'dependencies. Satisfies 2NF.',
+                                                 'Step 5: Check 3NF: In every FD X → Y, RHS (Y) is a prime attribute! '
+                                                 'Since RHS is prime, 3NF condition is satisfied for ALL FDs. '
+                                                 'Satisfies 3NF.',
+                                                 'Step 6: Check BCNF: For C → D, C is not a superkey! For D → A, D is '
+                                                 'not a superkey! Hence, BCNF is VIOLATED.'],
+                                      'title': 'Worked Example: Highest Normal Form Identification'}]},
+  ('DB', 2): { 'chapter_number': 31,
+               'exam_traps': [ { 'title': 'Two-Phase Locking (2PL) vs Deadlock Trap',
+                                 'warning': 'Strict 2PL guarantees Conflict Serializability and prevents Cascading '
+                                            'Aborts, but IT DOES NOT PREVENT DEADLOCKS! Systems using 2PL can still '
+                                            'deadlock.'}],
+               'foundations': [ { 'content': '• <b>Key Structural Differences:</b><br/>\n'
+                                             '&nbsp;&nbsp;• <b>B-Tree:</b> Both Internal nodes and Leaf nodes store '
+                                             'data records / record pointers.<br/>\n'
+                                             '&nbsp;&nbsp;• <b>B+ Tree:</b> Internal nodes store ONLY search keys and '
+                                             'child tree pointers. <b>ALL data records / record pointers are stored '
+                                             'strictly in the LEAF nodes!</b> Leaf nodes are linked as a Doubly Linked '
+                                             'List for blazing fast range queries.<br/><br/>\n'
+                                             '\n'
+                                             '• <b>B+ Tree Node Order (p) Sizing Equations:</b><br/>\n'
+                                             '&nbsp;&nbsp;Given: Block Size = B bytes, Key Size = K bytes, Record '
+                                             'Pointer = R bytes, Block/Child Pointer = P bytes.<br/>\n'
+                                             '&nbsp;&nbsp;• <b>Internal Node Equation:</b> <code>p · P + (p - 1) · K ≤ '
+                                             'B</code>.<br/>\n'
+                                             '&nbsp;&nbsp;• <b>Leaf Node Equation:</b> <code>q · (K + R) + P ≤ '
+                                             'B</code> (where P is the sibling leaf pointer).',
+                                  'crucial_rule': '🎯 GOLDEN RULE FOR GATE: In a B+ tree of order p: Root has at least '
+                                                  '2 children. Internal nodes have at least ⌈p / 2⌉ children. Leaves '
+                                                  'have at least ⌈(p - 1) / 2⌉ keys.',
+                                  'number': '31.1',
+                                  'title': 'B-Tree vs B+ Tree Node Capacity Calculations'},
+                                { 'content': '• <b>Conflict Operations:</b> Two operations on the same data item by '
+                                             'different transactions where <b>at least ONE operation is a WRITE</b> '
+                                             '(R-W, W-R, W-W).<br/><br/>\n'
+                                             '\n'
+                                             '• <b>Precedence Graph (Testing Conflict Serializability):</b><br/>\n'
+                                             '&nbsp;&nbsp;1. Create a vertex for each transaction Tᵢ.<br/>\n'
+                                             '&nbsp;&nbsp;2. Draw directed edge Tᵢ → Tⱼ if an operation of Tᵢ precedes '
+                                             'a conflicting operation of Tⱼ.<br/>\n'
+                                             '&nbsp;&nbsp;3. <b>The Serializability Theorem:</b> A schedule is '
+                                             'Conflict Serializable if and only if the <b>Precedence Graph is ACYCLIC '
+                                             '(contains NO cycles)</b>!<br/>\n'
+                                             '&nbsp;&nbsp;4. The equivalent serial schedule order is obtained via '
+                                             '<b>Topological Sort</b> of the precedence graph.',
+                                  'crucial_rule': '🎯 GOLDEN RULE FOR GATE: Conflict Serializable ⇒ View Serializable. '
+                                                  'But View Serializable does NOT imply Conflict Serializable! View '
+                                                  'serializable schedules with cycles require Blind Writes.',
+                                  'number': '31.2',
+                                  'title': 'Conflict Serializability & Precedence Graphs'}],
+               'real_life_examples': [ { 'text': 'ACID Atomicity ensures that if the ATM cash dispenser jams after '
+                                                 'your bank balance is deducted, the entire transaction rolls back '
+                                                 'automatically so you never lose money.',
+                                         'title': 'Real-Life Analogy: ATM Cash Withdrawal & ACID'}],
+               'title': 'B/B+ Trees, Transactions & Concurrency Control',
+               'worked_examples': [ { 'answer': 'Maximum order p = 57 child pointers.',
+                                      'problem': 'A disk block size is 1024 bytes. Data keys are 12 bytes, child tree '
+                                                 'pointers are 6 bytes. Find the maximum order (fan-out) p of an '
+                                                 'internal node in a B+ tree.',
+                                      'steps': [ 'Step 1: Formula for internal node: p · P + (p - 1) · K ≤ Block Size.',
+                                                 'Step 2: Substitute values: p(6) + (p - 1)(12) ≤ 1024.',
+                                                 'Step 3: Simplify: 6p + 12p - 12 ≤ 1024 ⇒ 18p ≤ 1036.',
+                                                 'Step 4: Solve for p: p ≤ 1036 / 18 ≈ 57.55.',
+                                                 'Step 5: Since order must be an integer: p = 57.'],
+                                      'title': 'Worked Example: B+ Tree Internal Node Order'}]},
+  ('GA', 0): { 'chapter_number': 36,
+               'exam_traps': [ { 'title': 'The False Friend Relative Pronoun Trap',
+                                 'warning': "'One of the students who HAVE passed' vs 'The ONLY one of the students "
+                                            "who HAS passed'. In 'one of those who', the antecedent is the plural "
+                                            'noun!'}],
+               'foundations': [ { 'content': '• <b>Fundamental Concord Rule:</b> A singular subject takes a singular '
+                                             'verb; a plural subject takes a plural verb.<br/><br/>\n'
+                                             '\n'
+                                             '• <b>High-Yield GATE Grammar Rules:</b><br/>\n'
+                                             '&nbsp;&nbsp;1. <b>Rule of Proximity (Neither... Nor, Either... Or):</b> '
+                                             'The verb agrees with the subject CLOSER to it!<br/>\n'
+                                             "&nbsp;&nbsp;&nbsp;&nbsp;- <i>'Neither the manager nor the <u>employees "
+                                             "were</u> present.'</i><br/>\n"
+                                             "&nbsp;&nbsp;&nbsp;&nbsp;- <i>'Neither the employees nor the <u>manager "
+                                             "was</u> present.'</i><br/>\n"
+                                             "&nbsp;&nbsp;2. <b>Intervening Phrases:</b> Phrases like <i>'as well "
+                                             "as'</i>, <i>'along with'</i>, <i>'together with'</i> DO NOT change "
+                                             'subject number!<br/>\n'
+                                             "&nbsp;&nbsp;&nbsp;&nbsp;- <i>'The President, along with his advisors, "
+                                             "<b>is</b> arriving.'</i> (Subject is singular 'President').<br/>\n"
+                                             '&nbsp;&nbsp;3. <b>Collective Nouns:</b> Singular when acting as a '
+                                             "unified unit (<i>'The committee <b>has</b> reached a consensus'</i>); "
+                                             "Plural when acting individually (<i>'The committee <b>are</b> divided in "
+                                             "their opinions'</i>).",
+                                  'crucial_rule': "🎯 GOLDEN RULE FOR GATE: In sentences beginning with 'Each of...', "
+                                                  "'Either of...', 'Neither of...', the subject is strictly SINGULAR! "
+                                                  "Always use singular verb: 'Each of the students IS prepared'.",
+                                  'number': '36.1',
+                                  'title': 'Subject-Verb Agreement (Concord) Rules'},
+                                { 'content': '• <b>Definitions:</b><br/>\n'
+                                             '&nbsp;&nbsp;• <b>Fact:</b> Explicitly stated truth in the passage.<br/>\n'
+                                             '&nbsp;&nbsp;• <b>Inference:</b> A logical deduction that is 100% '
+                                             'guaranteed to be true based on the passage.<br/>\n'
+                                             '&nbsp;&nbsp;• <b>Assumption:</b> An UNSTATED premise that the author '
+                                             'MUST believe to be true for the conclusion to stand.<br/><br/>\n'
+                                             '\n'
+                                             '• <b>The Negation Test for Assumptions:</b><br/>\n'
+                                             '&nbsp;&nbsp;- To verify if an option is a valid assumption: <b>Negate '
+                                             'the option</b>.<br/>\n'
+                                             '&nbsp;&nbsp;- If negating the option <b>DESTROYS or INVALIDATES the '
+                                             "author's argument</b>, that option is the correct mandatory assumption!",
+                                  'crucial_rule': '🎯 GOLDEN RULE FOR GATE: In reading comprehension, beware of extreme '
+                                                  "words like 'always', 'never', 'all', 'none'. Unless explicitly "
+                                                  'supported by the text, extreme answer choices are almost always '
+                                                  'traps.',
+                                  'number': '36.2',
+                                  'title': 'Critical Reasoning: Assumptions, Inferences & Conclusions'}],
+               'real_life_examples': [ { 'text': 'Critical reasoning is courtroom law: an inference is proven forensic '
+                                                 'evidence; an assumption is an unproven hypothesis that must hold for '
+                                                 "the prosecution's case to make sense.",
+                                         'title': 'Real-Life Analogy: Courtroom Evidence vs Hearsay'}],
+               'title': 'Verbal Aptitude - Grammar, Vocabulary & Comprehension',
+               'worked_examples': [ { 'answer': "Correct verb: 'lends'",
+                                      'problem': "Choose the grammatically correct option: 'A bouquet of yellow roses "
+                                                 "_____ (lend / lends) a vibrant color to the room.'",
+                                      'steps': [ 'Step 1: Identify the grammatical subject. The prepositional phrase '
+                                                 "is 'of yellow roses'.",
+                                                 "Step 2: The actual head noun of the subject is 'A bouquet' "
+                                                 '(Singular).',
+                                                 "Step 3: A singular subject requires a singular verb with an 's' "
+                                                 "ending ('lends').",
+                                                 "Step 4: The plural noun 'roses' is an object of the preposition, not "
+                                                 'the subject.'],
+                                      'title': 'Worked Example: Subject-Verb Agreement Selection'}]},
+  ('GA', 1): { 'chapter_number': 37,
+               'exam_traps': [ { 'title': 'Average Speed Arithmetic Mean Trap',
+                                 'warning': 'Traveling distance d at 40 km/hr and returning at 60 km/hr gives average '
+                                            'speed 2(40)(60)/(40+60) = 48 km/hr, NOT 50 km/hr! Arithmetic mean is '
+                                            'strictly wrong.'}],
+               'foundations': [ { 'content': '• <b>Fundamental Formula:</b> <code>Distance = Speed × '
+                                             'Time</code>.<br/>\n'
+                                             '&nbsp;&nbsp;• Conversion: <code>1 km/hr = 5 / 18 m/s</code>.<br/><br/>\n'
+                                             '\n'
+                                             '• <b>Relative Speed Mechanics:</b><br/>\n'
+                                             '&nbsp;&nbsp;• Moving in <b>OPPOSITE</b> directions: <code>S_rel = S₁ + '
+                                             'S₂</code>.<br/>\n'
+                                             '&nbsp;&nbsp;• Moving in the <b>SAME</b> direction: <code>S_rel = |S₁ - '
+                                             'S₂|</code>.<br/><br/>\n'
+                                             '\n'
+                                             '• <b>Boats and Streams:</b><br/>\n'
+                                             '&nbsp;&nbsp;• Let boat speed in still water = u, stream speed = v.<br/>\n'
+                                             '&nbsp;&nbsp;• Downstream speed: <code>D = u + v</code>.<br/>\n'
+                                             '&nbsp;&nbsp;• Upstream speed: <code>U = u - v</code>.<br/>\n'
+                                             '&nbsp;&nbsp;• <code>u = (D + U) / 2</code>, <code>v = (D - U) / '
+                                             '2</code>.<br/><br/>\n'
+                                             '\n'
+                                             '• <b>Average Speed for Equal Distances:</b><br/>\n'
+                                             '&nbsp;&nbsp;<code>S_avg = (2 · S₁ · S₂) / (S₁ + S₂)</code> (Harmonic '
+                                             'Mean, NOT Arithmetic Mean!).',
+                                  'crucial_rule': '🎯 GOLDEN RULE FOR GATE: If a train of length L passes a standing '
+                                                  'person/pole, distance covered is L. If it passes a platform/bridge '
+                                                  'of length P, distance covered is L + P!',
+                                  'number': '37.1',
+                                  'title': 'Time, Speed, Distance & Relative Speed'},
+                                { 'content': '• <b>Work-Rate Equivalence:</b><br/>\n'
+                                             "&nbsp;&nbsp;If person A finishes work in X days, A's 1-day work rate = "
+                                             '<code>1 / X</code>.<br/>\n'
+                                             '&nbsp;&nbsp;• Combined rate of A and B: <code>1/X + 1/Y = (X + Y) / '
+                                             '(XY)</code>.<br/>\n'
+                                             '&nbsp;&nbsp;• Time taken together: <code>T = (X · Y) / (X + '
+                                             'Y)</code>.<br/><br/>\n'
+                                             '\n'
+                                             '• <b>LCM Method (Fastest Exam Technique):</b><br/>\n'
+                                             '&nbsp;&nbsp;1. Assume Total Work = LCM of individual days.<br/>\n'
+                                             '&nbsp;&nbsp;2. Calculate individual daily efficiency = Total Work / '
+                                             'Individual days.<br/>\n'
+                                             '&nbsp;&nbsp;3. Total Time = Total Work / Combined Efficiency.',
+                                  'crucial_rule': '🎯 GOLDEN RULE FOR GATE: In Pipes and Cisterns, an inlet pipe has '
+                                                  'positive efficiency (+E), while an outlet/leak pipe has negative '
+                                                  'efficiency (-E)!',
+                                  'number': '37.2',
+                                  'title': 'Work and Time & Pipes and Cisterns'}],
+               'real_life_examples': [ { 'text': 'Work and time calculations mirror software sprint velocity: 3 '
+                                                 'developers finishing 15 story points together allows planning '
+                                                 'parallel delivery schedules.',
+                                         'title': 'Real-Life Analogy: Project Sprints in Tech'}],
+               'title': 'Quantitative Aptitude - Arithmetic, Algebra & Mensuration',
+               'worked_examples': [ { 'answer': 'Train speeds are 30 m/s and 20 m/s (108 km/hr and 72 km/hr).',
+                                      'problem': 'Two trains of length 150 m and 250 m run on parallel tracks. When '
+                                                 'running in the same direction, the faster train passes the slower in '
+                                                 '40 seconds. When running in opposite directions, they pass each '
+                                                 'other in 8 seconds. Find the speeds of both trains.',
+                                      'steps': [ 'Step 1: Total distance covered in passing = Sum of lengths = 150 + '
+                                                 '250 = 400 m.',
+                                                 'Step 2: Same direction relative speed S₁ - S₂ = Distance / Time = '
+                                                 '400 m / 40 s = 10 m/s.',
+                                                 'Step 3: Opposite direction relative speed S₁ + S₂ = Distance / Time '
+                                                 '= 400 m / 8 s = 50 m/s.',
+                                                 'Step 4: Solve system: (S₁ + S₂) + (S₁ - S₂) = 50 + 10 ⇒ 2S₁ = 60 ⇒ '
+                                                 'S₁ = 30 m/s (108 km/hr).',
+                                                 'Step 5: S₂ = 50 - 30 = 20 m/s (72 km/hr).'],
+                                      'title': 'Worked Example: Relative Speed Train Crossing'}]},
+  ('GA', 2): { 'chapter_number': 38,
+               'exam_traps': [ { 'title': 'Reflex Angle vs Interior Angle Trap',
+                                 'warning': 'If the question asks for the angle between hands, the standard answer is '
+                                            'the interior angle (≤ 180°). If the formula gives > 180°, subtract from '
+                                            '360°.'}],
+               'foundations': [ { 'content': '• <b>Clock Angle Formula:</b><br/>\n'
+                                             '&nbsp;&nbsp;The angle θ between Hour hand and Minute hand at H hours and '
+                                             'M minutes is:<br/>\n'
+                                             '&nbsp;&nbsp;<code>θ = | 30H - (11 / 2) M |</code><br/>\n'
+                                             '&nbsp;&nbsp;• Speed of Minute hand: <code>6° per minute</code>.<br/>\n'
+                                             '&nbsp;&nbsp;• Speed of Hour hand: <code>0.5° per minute</code>.<br/>\n'
+                                             '&nbsp;&nbsp;• Relative speed of Minute hand over Hour hand: <code>5.5° = '
+                                             '(11 / 2)° per minute</code>.<br/><br/>\n'
+                                             '\n'
+                                             '• <b>Calendar Odd Days:</b><br/>\n'
+                                             '&nbsp;&nbsp;• Ordinary Year (365 days): 52 weeks + <b>1 odd '
+                                             'day</b>.<br/>\n'
+                                             '&nbsp;&nbsp;• Leap Year (366 days): 52 weeks + <b>2 odd days</b>.<br/>\n'
+                                             '&nbsp;&nbsp;• Centenary Years: Leap year only if divisible by <b>400</b> '
+                                             '(1600, 2000 are leap; 1900 is NOT a leap year!).',
+                                  'crucial_rule': '🎯 GOLDEN RULE FOR GATE: The hands of a clock coincide (overlap) '
+                                                  'exactly 22 times in 24 hours (not 24 times!), because between 11 '
+                                                  'and 1 they coincide only once at 12:00.',
+                                  'number': '38.1',
+                                  'title': 'Clock Angles & Calendar Mathematics'},
+                                { 'content': '• <b>Cube & Dice Opposites Rule:</b><br/>\n'
+                                             '&nbsp;&nbsp;- On an unfolded standard cross dice: <b>Alternate faces '
+                                             'along any straight line are OPPOSITE to each other</b>!<br/>\n'
+                                             '&nbsp;&nbsp;- Two opposite faces can NEVER share an edge or vertex, and '
+                                             'can NEVER appear simultaneously in any single 2D projection '
+                                             'view.<br/><br/>\n'
+                                             '\n'
+                                             '• <b>Mirror & Water Reflections:</b><br/>\n'
+                                             '&nbsp;&nbsp;• <b>Mirror Image:</b> Left and Right swap; Top and Bottom '
+                                             'remain unchanged.<br/>\n'
+                                             '&nbsp;&nbsp;• <b>Water Reflection:</b> Top and Bottom swap; Left and '
+                                             'Right remain unchanged.',
+                                  'crucial_rule': '🎯 GOLDEN RULE FOR GATE: In spatial paper folding questions: '
+                                                  'Mentally trace the folds in REVERSE order. Each unfolding step '
+                                                  'creates a symmetric reflection across the crease line.',
+                                  'number': '38.2',
+                                  'title': 'Spatial Aptitude: 2D/3D Rotations, Paper Folding & Unfolding'}],
+               'real_life_examples': [ { 'text': 'Spatial aptitude tests the mechanical engineering ability to '
+                                                 'visualize 3D mechanical components from top, front, and side 2D '
+                                                 'technical drawings.',
+                                         'title': 'Real-Life Analogy: 3D CAD Modeling & Orthographic Views'}],
+               'title': 'Analytical & Spatial Aptitude - Logic, Reasoning & 2D/3D Shapes',
+               'worked_examples': [ { 'answer': 'Angle is 130°.',
+                                      'problem': 'Find the angle between the hands of a clock at 3:40.',
+                                      'steps': [ 'Step 1: Identify values: H = 3, M = 40.',
+                                                 'Step 2: Apply clock angle formula: θ = | 30H - (11 / 2)M |.',
+                                                 'Step 3: Substitute: θ = | 30(3) - (11 / 2)(40) | = | 90 - 220 | = | '
+                                                 '-130 | = 130°.',
+                                                 'Step 4: Check if reflex angle is asked. Normal angle = 130°, Reflex '
+                                                 'angle = 360° - 130° = 230°.'],
+                                      'title': 'Worked Example: Angle Between Clock Hands'}]}}

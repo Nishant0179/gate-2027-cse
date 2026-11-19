@@ -1,4 +1,741 @@
-# textbook_toc_cd_os.py
-# Deep, comprehensive point-by-point ChatGPT style tutorials for all 9 chapters of TOC, CD & OS
+# Master Textbook Module: TOC, Compiler Design & OS (9 Chapters)
+# Auto-generated comprehensive ChatGPT-style point-form guide
 
-CHAPTERS_TOC_CD_OS = {('TOC', 0): {'sub_id': 'TOC', 'chap_idx': 0, 'title': 'Finite Automata, Regular Expressions & Minimization', 'real_life_examples': [{'title': 'Real-Life Analogy: The Soda Vending Machine State Controller', 'text': "• Finite Automata: Like a soda machine. Inserting a coin transitions it from state 'Empty' to 'Has 50c'. Pressing the button dispenses soda and resets to 'Empty'. It has finite memory—it only remembers its current state!"}], 'foundations': [{'number': '20.1', 'title': 'DFA vs NFA: Equivalences, Power & State Bounds', 'content': '• <b>Equivalent Computational Power:</b><br/>&nbsp;&nbsp;- Every NFA can be converted into an equivalent DFA using <b>Subset Construction</b>.<br/>&nbsp;&nbsp;- If an NFA has <b>n states</b>, the equivalent minimized DFA has at most <b>2^n states</b>.<br/><br/>• <b>Key Distinctions in Transitions:</b><br/>&nbsp;&nbsp;1. In DFA: For every state and input symbol, there is <b>exactly ONE</b> deterministic transition: <code>δ: Q × Σ → Q</code>.<br/>&nbsp;&nbsp;2. In NFA: There can be 0, 1, or multiple transitions, plus ε-transitions: <code>δ: Q × (Σ ∪ {ε}) → 2^Q</code>.<br/>&nbsp;&nbsp;3. <b>Dead / Trap States:</b> DFA requires explicit trap states for invalid input prefixes; NFA simply drops the branch.<br/><br/>• <b>State Minimization:</b> Done via Myhill-Nerode Theorem / Table-Filling Algorithm by grouping 0-equivalent, 1-equivalent, ..., k-equivalent states.', 'crucial_rule': '🎯 GOLDEN RULE FOR GATE: DFA, NFA, and ε-NFA all have EQUAL computational power! They all recognize the exact same family: Regular Languages. Minimizing a DFA always produces a 100% UNIQUE minimal DFA!'}, {'number': '20.2', 'title': "Regular Expressions & Arden's Theorem", 'content': "• <b>Arden's Theorem:</b><br/>&nbsp;&nbsp;If P and Q are regular expressions and P does NOT contain ε, then the equation:<br/>&nbsp;&nbsp;<b>R = Q + RP</b> has a <b>UNIQUE solution: R = QP*</b>.<br/><br/>• <b>Identities to Memorize for GATE:</b><br/>&nbsp;&nbsp;• <code>(r*)* = r*</code><br/>&nbsp;&nbsp;• <code>(r + s)* = (r* · s*)* = (r* + s*)*</code><br/>&nbsp;&nbsp;• <code>r · (s · r)* = (r · s)* · r</code><br/>&nbsp;&nbsp;• <code>ε + r · r* = r* = ε + r* · r</code>", 'crucial_rule': "🎯 GOLDEN RULE FOR GATE: In Arden's theorem R = Q + RP, P is on the RIGHT of R, giving R = QP*! If R = Q + PR (left recursion), the solution is P*Q."}, {'number': '20.3', 'title': 'Closure Properties of Regular Languages', 'content': "• <b>Regular Languages are CLOSED under ALL standard operations:</b><br/>&nbsp;&nbsp;• <b>Union:</b> L1 ∪ L2 is Regular.<br/>&nbsp;&nbsp;• <b>Intersection:</b> L1 ∩ L2 is Regular.<br/>&nbsp;&nbsp;• <b>Complement:</b> L' is Regular (swap final and non-final states in a complete DFA!).<br/>&nbsp;&nbsp;• <b>Difference:</b> L1 - L2 = L1 ∩ L2' is Regular.<br/>&nbsp;&nbsp;• <b>Concatenation:</b> L1 · L2 is Regular.<br/>&nbsp;&nbsp;• <b>Kleene Star:</b> L* is Regular.<br/>&nbsp;&nbsp;• <b>Reversal:</b> L^R is Regular.", 'crucial_rule': '🎯 GOLDEN RULE FOR GATE: Regular languages are closed under ALL standard boolean operations! To complement a DFA, swap final and non-final states (make sure the DFA is complete with trap states first!).'}], 'worked_examples': [{'title': "Worked Example: Minimum DFA States for Suffix '01'", 'problem': "Find the minimum number of states in a DFA accepting all binary strings ending with substring '01'.", 'steps': ["Step 1: Length of suffix pattern '01' is 2.", 'Step 2: Formula: For strings ending with a specific pattern of length k, minimum DFA states = k + 1.', 'Step 3: States = 2 + 1 = 3: q0 (start/empty), q1 (last bit 0), q2 (last bits 01 - Accept).', "Step 4: Transitions from q2: on '0' go to q1; on '1' go to q0."], 'answer': 'Minimum states = 3.'}], 'exam_traps': ['Swapping final and non-final states on an NFA does NOT complement the language! You must convert the NFA to a complete DFA first.', 'Pumping Lemma can prove a language is NOT regular; it can NEVER prove a language IS regular.']}, ('TOC', 1): {'sub_id': 'TOC', 'chap_idx': 1, 'title': 'Context-Free Grammars, Pushdown Automata & Chomsky Hierarchy', 'real_life_examples': [{'title': 'Real-Life Analogy: The Balancing Scale & Parenthesis Matcher', 'text': '• PDA Stack: Like checking code syntax for matching curly braces {}. When { arrives, push onto stack. When } arrives, pop off stack. If stack is empty at end, code syntax is balanced!'}], 'foundations': [{'number': '21.1', 'title': 'Deterministic PDA (DPDA) vs Non-Deterministic PDA (NPDA)', 'content': "• <b>Crucial Distinction:</b> NPDA is <b>strictly more powerful</b> than DPDA!<br/>&nbsp;&nbsp;- DPDA accepts <b>Deterministic Context-Free Languages (DCFL)</b>.<br/>&nbsp;&nbsp;- NPDA accepts <b>Context-Free Languages (CFL)</b>.<br/><br/>• <b>Canonical Language Examples for GATE:</b><br/>&nbsp;&nbsp;1. <code>L = { w c w^R }</code> has a marker 'c' ⇒ <b>DCFL</b> (accepted by DPDA).<br/>&nbsp;&nbsp;2. <code>L = { w w^R }</code> has NO marker (even palindrome) ⇒ <b>CFL, but NOT DCFL</b> (requires non-deterministic guess of midpoint!).<br/>&nbsp;&nbsp;3. <code>L = { a^n b^n c^n }</code> ⇒ <b>NOT CFL</b> (requires 2 stacks = Turing Machine).", 'crucial_rule': '🎯 GOLDEN RULE FOR GATE: Unlike Finite Automata where DFA == NFA, in Pushdown Automata NPDA is STRICTLY MORE POWERFUL than DPDA: DCFL ⊂ CFL!'}, {'number': '21.2', 'title': 'CFL Closure Properties (The Famous Exceptions!)', 'content': "• <b>CFLs are CLOSED under:</b><br/>&nbsp;&nbsp;• Union, Concatenation, Kleene Star, Reversal.<br/>• <b>CFLs are NOT CLOSED under (Frequently tested in GATE!):</b><br/>&nbsp;&nbsp;• <b>Intersection:</b> L1 ∩ L2 is NOT necessarily CFL!<br/>&nbsp;&nbsp;• <b>Complement:</b> L' is NOT necessarily CFL!<br/>• <b>Intersection with Regular Language:</b><br/>&nbsp;&nbsp;If L is CFL and R is Regular, then <b>L ∩ R is ALWAYS CFL</b>.", 'crucial_rule': '🎯 GOLDEN RULE FOR GATE: CFL is NOT closed under Intersection or Complement! But DCFL is CLOSED under Complement (though NOT closed under Union or Intersection).'}, {'number': '21.3', 'title': 'The Chomsky Hierarchy of Languages', 'content': '• <b>Type 3 (Regular):</b> Accepted by Finite Automata. Production: A → aB or A → a.<br/>• <b>Type 2 (Context-Free):</b> Accepted by Pushdown Automata. Production: A → α.<br/>• <b>Type 1 (Context-Sensitive):</b> Accepted by Linear Bounded Automata (LBA). Production: α → β where |α| ≤ |β|.<br/>• <b>Type 0 (Unrestricted / Recursively Enumerable):</b> Accepted by Turing Machine. Production: α → β.', 'crucial_rule': '🎯 GOLDEN RULE FOR GATE: Strict hierarchy: Regular ⊂ DCFL ⊂ CFL ⊂ CSL ⊂ Recursive ⊂ Recursively Enumerable!'}], 'worked_examples': [{'title': 'Worked Example: Intersection of Two CFLs', 'problem': 'L1 = { a^n b^n c^m | n, m ≥ 1 } and L2 = { a^m b^n c^n | m, n ≥ 1 }. Are L1 and L2 CFLs? Is L1 ∩ L2 a CFL?', 'steps': ["Step 1: L1 requires matching a's with b's (1 stack can do this) ⇒ L1 is CFL.", "Step 2: L2 requires matching b's with c's (1 stack can do this) ⇒ L2 is CFL.", 'Step 3: Intersection L1 ∩ L2 = { a^n b^n c^n | n ≥ 1 }.', 'Step 4: Checking 3 counts simultaneously requires 2 stacks (Turing machine power).', 'Step 5: Therefore, L1 ∩ L2 is NOT a CFL!'], 'answer': 'L1 and L2 are CFLs, but their intersection is NOT a CFL.'}], 'exam_traps': ['Inherent ambiguity: Some CFLs are inherently ambiguous (every grammar for them is ambiguous, e.g. {a^i b^j c^k | i=j or j=k}).', 'DCFLs are NEVER ambiguous! Every DCFL has an unambiguous grammar.']}, ('TOC', 2): {'sub_id': 'TOC', 'chap_idx': 2, 'title': "Turing Machines, Decidability & Rice's Theorem", 'real_life_examples': [{'title': 'Real-Life Analogy: The Universal Antivirus Software Impossibility', 'text': '• Halting Problem: Can anyone write an antivirus software that inspects any arbitrary code and guarantees whether it will eventually terminate or freeze in an infinite loop? Alan Turing proved it is mathematically IMPOSSIBLE for all programs!'}], 'foundations': [{'number': '22.1', 'title': 'Recursive (REC) vs Recursively Enumerable (RE)', 'content': "• <b>Recursive Language (REC / Decidable):</b><br/>&nbsp;&nbsp;- Turing Machine halts on EVERY input (Halts and Accepts if w ∈ L; Halts and Rejects if w ∉ L).<br/>&nbsp;&nbsp;- <b>Closed under ALL operations including Complement</b>: If L is REC, L' is REC.<br/><br/>• <b>Recursively Enumerable Language (RE / Semi-Decidable):</b><br/>&nbsp;&nbsp;- Halts and accepts if w ∈ L.<br/>&nbsp;&nbsp;- If w ∉ L, may reject OR loop infinitely forever!<br/><br/>• <b>The Complement Duality Theorem:</b><br/>&nbsp;&nbsp;<b>A language L is Recursive IF AND ONLY IF both L and its complement L' are Recursively Enumerable!</b>", 'crucial_rule': "🎯 GOLDEN RULE FOR GATE: If L is RE and L' is also RE, then L is 100% DECIDABLE (Recursive)! If L is RE and undecidable, then L' CANNOT even be RE!"}, {'number': '22.2', 'title': "Rice's Theorem for Turing Machines", 'content': "• <b>Rice's Theorem (Part 1):</b> Any <b>non-trivial semantic (language) property</b> of the language accepted by a Turing Machine is <b>UNDECIDABLE</b>.<br/>• <b>What is a Semantic Property?</b> A question about the LANGUAGE recognized by the TM (e.g. 'Is L(M) empty?', 'Is L(M) finite?', 'Is L(M) regular?').<br/>• <b>Non-trivial means:</b> True for some TMs and False for other TMs.<br/>• <b>Syntactic Properties (Rice does NOT apply):</b> Questions about the machine structure itself (e.g. 'Does TM have 5 states?', 'Does TM take 10 steps on input w?') are DECIDABLE.", 'crucial_rule': "🎯 GOLDEN RULE FOR GATE: In GATE, if a question asks 'Is property P decidable for a Turing Machine?' and P is about L(M) (like regularity, emptiness, finiteness, equivalence), the answer is INSTANTLY UNDECIDABLE by Rice's Theorem!"}], 'worked_examples': [{'title': "Worked Example: Applying Rice's Theorem", 'problem': "Determine if the following problem is decidable: 'Given a Turing Machine M, does M accept a regular language?'", 'steps': ["Step 1: Check if the property is semantic: 'Is L(M) regular?' is a property of the language recognized by M (Semantic).", 'Step 2: Check if non-trivial: Some TMs accept regular languages, while others accept non-regular languages. Non-trivial!', "Step 3: By Rice's Theorem, the problem is UNDECIDABLE."], 'answer': "Undecidable by Rice's Theorem."}], 'exam_traps': ["'Does TM M take at most 100 steps on input w?' is DECIDABLE because you can simulate it for 100 steps and stop!", 'Post Correspondence Problem (PCP) is undecidable for alphabet size ≥ 2, but decidable for unary alphabet (size 1).']}, ('CD', 0): {'sub_id': 'CD', 'chap_idx': 0, 'title': 'Lexical Analysis, FIRST & FOLLOW Sets', 'real_life_examples': [{'title': 'Real-Life Analogy: The Spell Checker & Sentence Grammar Parser', 'text': "• Lexer: Reading characters and grouping them into valid vocabulary words ('int', 'sum', '100').\n• FIRST set: Asking 'what words could legally start a sentence?'.\n• FOLLOW set: Asking 'what word can legally appear immediately to the right of this word?'."}], 'foundations': [{'number': '23.1', 'title': 'Rules for Calculating FIRST Sets', 'content': '• <b>Definition:</b> FIRST(X) is the set of terminal symbols that appear as the first symbol of any string derived from X.<br/>• <b>The Three Golden Computation Rules:</b><br/>&nbsp;&nbsp;1. If X is a terminal: <b>FIRST(X) = { X }</b>.<br/>&nbsp;&nbsp;2. If X → ε is a production: Add <b>ε</b> to FIRST(X).<br/>&nbsp;&nbsp;3. If X → Y1 Y2 ... Yk:<br/>&nbsp;&nbsp;&nbsp;&nbsp;- Add all non-ε symbols from FIRST(Y1) to FIRST(X).<br/>&nbsp;&nbsp;&nbsp;&nbsp;- If Y1 can derive ε, add all non-ε symbols from FIRST(Y2) to FIRST(X), and so forth.<br/>&nbsp;&nbsp;&nbsp;&nbsp;- If ALL Y1 ... Yk derive ε, add <b>ε</b> to FIRST(X).', 'crucial_rule': '🎯 GOLDEN RULE FOR GATE: Terminal symbols ALWAYS have FIRST(a) = { a }. When calculating FIRST(Y1 Y2), do not stop at Y1 if Y1 can produce ε!'}, {'number': '23.2', 'title': 'Rules for Calculating FOLLOW Sets', 'content': '• <b>Definition:</b> FOLLOW(A) is the set of terminals that can appear immediately to the right of non-terminal A.<br/>• <b>The Three Golden Computation Rules:</b><br/>&nbsp;&nbsp;1. For Start Symbol S: Add <b>$ (End-of-input marker)</b> to FOLLOW(S).<br/>&nbsp;&nbsp;2. For production A → α B β:<br/>&nbsp;&nbsp;&nbsp;&nbsp;- Everything in <b>FIRST(β) except ε</b> is added to FOLLOW(B).<br/>&nbsp;&nbsp;3. For production A → α B OR A → α B β (where FIRST(β) contains ε):<br/>&nbsp;&nbsp;&nbsp;&nbsp;- Everything in <b>FOLLOW(A)</b> is added to FOLLOW(B).<br/>• <b>FOLLOW sets NEVER contain ε!</b>', 'crucial_rule': '🎯 GOLDEN RULE FOR GATE: FOLLOW set NEVER CONTAINS ε (epsilon)! If your calculation produces ε in a FOLLOW set, it is 100% WRONG!'}], 'worked_examples': [{'title': 'Worked Example: Computing FIRST and FOLLOW Sets', 'problem': 'Given grammar: S → A B; A → a | ε; B → b | ε. Compute FIRST(S) and FOLLOW(A).', 'steps': ['Step 1: FIRST(A) = { a, ε }; FIRST(B) = { b, ε }.', 'Step 2: For S → A B: FIRST(S) includes FIRST(A) minus ε = { a }. Since A → ε, include FIRST(B) = { b }. Since both A and B can produce ε, add ε. ⇒ FIRST(S) = { a, b, ε }.', 'Step 3: To find FOLLOW(A): Look at S → A B. Non-terminal B immediately follows A.', 'Step 4: Everything in FIRST(B) except ε goes into FOLLOW(A) ⇒ { b }.', 'Step 5: Since B derives ε, everything in FOLLOW(S) also goes into FOLLOW(A).', 'Step 6: S is start symbol ⇒ $ ∈ FOLLOW(S). Since S appears nowhere on RHS, FOLLOW(S) = { $ }.', 'Step 7: Therefore, FOLLOW(A) = { b, $ }.'], 'answer': 'FIRST(S) = { a, b, ε }; FOLLOW(A) = { b, $ }.'}], 'exam_traps': ['In token counting: String constants like "Hello, World!" count as ONE single token!', "Identifiers vs Keywords: In C lexing, keywords like 'int', 'return' are reserved and not identifiers."]}, ('CD', 1): {'sub_id': 'CD', 'chap_idx': 1, 'title': 'Top-Down (LL(1)) & Bottom-Up (LR) Parsing', 'real_life_examples': [{'title': 'Real-Life Analogy: Predictive Keyboard & Assembling a Jigsaw Puzzle', 'text': '• LL(1) Parser: Like a predictive phone keyboard looking ahead by 1 letter to guess the next word without needing to delete and restart.\n• LR Parser: Assembling a jigsaw puzzle from individual bottom pieces upward until the entire picture is completed.'}], 'foundations': [{'number': '24.1', 'title': 'LL(1) Grammar Conditions & Disqualifiers', 'content': '• A grammar is <b>LL(1)</b> if and only if for every production A → α | β:<br/>&nbsp;&nbsp;1. <b>FIRST(α) ∩ FIRST(β) = ∅</b> (disjoint FIRST sets).<br/>&nbsp;&nbsp;2. At most one of α or β can derive ε.<br/>&nbsp;&nbsp;3. If β derives ε, then <b>FIRST(α) ∩ FOLLOW(A) = ∅</b>.<br/><br/>• <b>Instant Disqualifiers for LL(1):</b><br/>&nbsp;&nbsp;• Any grammar with <b>Left Recursion (A → A α)</b> is NEVER LL(1)!<br/>&nbsp;&nbsp;• Any grammar with <b>Ambiguity</b> is NEVER LL(1)!', 'crucial_rule': '🎯 GOLDEN RULE FOR GATE: Left recursion (immediate or indirect) INSTANTLY disqualifies a grammar from being LL(1)! Eliminate left recursion and left factoring before building LL(1) table.'}, {'number': '24.2', 'title': 'Hierarchy and Power of LR Parsers', 'content': '• <b>Power Hierarchy (Strict Containment):</b><br/>&nbsp;&nbsp;<b>LR(0) ⊂ SLR(1) ⊂ LALR(1) ⊂ CLR(1)</b>.<br/><br/>• <b>Number of Parsing States:</b><br/>&nbsp;&nbsp;- <b>States in LR(0) == States in SLR(1) == States in LALR(1)</b>.<br/>&nbsp;&nbsp;- CLR(1) has significantly MORE states (splits states with different lookaheads).<br/><br/>• <b>Conflict Rules:</b><br/>&nbsp;&nbsp;- Merging CLR(1) states to form LALR(1) <b>NEVER produces Shift-Reduce (SR) conflicts</b>!<br/>&nbsp;&nbsp;- It can ONLY introduce Reduce-Reduce (RR) conflicts.', 'crucial_rule': '🎯 GOLDEN RULE FOR GATE: Merging CLR(1) states into LALR(1) can NEVER introduce a new Shift-Reduce conflict! It can only introduce Reduce-Reduce conflicts.'}], 'worked_examples': [{'title': 'Worked Example: Checking if Grammar is LL(1)', 'problem': 'Is grammar S → a S | a LL(1)?', 'steps': ['Step 1: Check productions for S: α = a S and β = a.', 'Step 2: FIRST(α) = { a }; FIRST(β) = { a }.', 'Step 3: Check intersection: FIRST(α) ∩ FIRST(β) = { a } ≠ ∅.', "Step 4: Since intersection is not empty, the parser cannot decide which rule to choose when lookahead is 'a'."], 'answer': "Grammar is NOT LL(1) (requires left factoring to S → a S' with S' → S | ε)."}], 'exam_traps': ['Every SLR(1) grammar is an LALR(1) grammar, but not vice versa!', 'Every ambiguous grammar is neither LL(1) nor LR(k) for any k.']}, ('CD', 2): {'sub_id': 'CD', 'chap_idx': 2, 'title': 'SDT, Intermediate Code & Optimization', 'real_life_examples': [{'title': 'Real-Life Analogy: The Inheritance Tree & Unused Clutter Removal', 'text': '• S-attributed: Like kids calculating their allowance and reporting it UP to their parents (Bottom-Up).\n• L-attributed: Like parents distributing inheritance to children from left to right.\n• Dead Code Elimination: Throwing away broken, unused furniture from an attic so you never waste time cleaning it.'}], 'foundations': [{'number': '25.1', 'title': 'S-Attributed vs L-Attributed SDT', 'content': '• <b>S-Attributed Definition:</b> Uses ONLY <b>Synthesized Attributes</b>.<br/>&nbsp;&nbsp;- Evaluated strictly bottom-up (postorder traversal).<br/>&nbsp;&nbsp;- Naturally evaluated during <b>LR parsing (bottom-up)</b> without modifying parse stack.<br/><br/>• <b>L-Attributed Definition:</b> Uses Synthesized attributes AND restricted Inherited attributes.<br/>&nbsp;&nbsp;- An inherited attribute can depend only on:<br/>&nbsp;&nbsp;&nbsp;&nbsp;1. Attributes of symbols to its <b>LEFT</b>.<br/>&nbsp;&nbsp;&nbsp;&nbsp;2. Inherited attributes of its <b>parent</b>.<br/>&nbsp;&nbsp;- Evaluated during <b>Depth-First Search (left-to-right)</b> traversal.', 'crucial_rule': '🎯 GOLDEN RULE FOR GATE: Every S-attributed SDT is automatically an L-attributed SDT! The reverse is NOT true: L-attributed includes inherited attributes that depend on left siblings.'}, {'number': '25.2', 'title': 'Common Code Optimizations & Basic Blocks', 'content': '• <b>Leaders in 3-Address Code:</b><br/>&nbsp;&nbsp;1. Statement 1 is a leader.<br/>&nbsp;&nbsp;2. Target of any jump (GOTO) is a leader.<br/>&nbsp;&nbsp;3. Statement immediately following any jump is a leader.<br/><br/>• <b>Optimization Types:</b><br/>&nbsp;&nbsp;• <b>Constant Folding:</b> Compute constant operations at compile-time: <code>x = 2 * 3.14</code> becomes <code>x = 6.28</code>.<br/>&nbsp;&nbsp;• <b>Constant Propagation:</b> Replace variable with its known constant value.<br/>&nbsp;&nbsp;• <b>Dead Code Elimination:</b> Remove code whose result is never used.<br/>&nbsp;&nbsp;• <b>Strength Reduction:</b> Replace expensive operations with cheaper ones: <code>x * 2</code> replaced by <code>x << 1</code> or <code>x + x</code>.', 'crucial_rule': '🎯 GOLDEN RULE FOR GATE: Strength reduction replaces an expensive operation with a cheaper one (e.g. multiplication replaced by addition in loops). It does NOT eliminate code!'}], 'worked_examples': [{'title': 'Worked Example: Identifying Leaders and Basic Blocks', 'problem': 'Given: (1) i = 1; (2) j = 1; (3) t1 = 10 * i; (4) t2 = t1 + j; (5) if t2 < 100 goto (3); (6) goto (1). How many basic blocks?', 'steps': ['Step 1: Statement (1) is a leader (first statement).', 'Step 2: Target of goto (3) is statement (3) ⇒ (3) is a leader.', 'Step 3: Target of goto (1) is statement (1) (already a leader).', 'Step 4: Statement following jump (5) is statement (6) ⇒ (6) is a leader.', 'Step 5: Leaders are (1), (3), and (6).', 'Step 6: Block 1: [(1), (2)]; Block 2: [(3), (4), (5)]; Block 3: [(6)].'], 'answer': 'Total Basic Blocks = 3.'}], 'exam_traps': ['In L-attributed SDT, actions can be placed anywhere, but they can only use values from elements to their LEFT!', 'Three-address code has at most 3 addresses per instruction (e.g. x = y op z).']}, ('OS', 0): {'sub_id': 'OS', 'chap_idx': 0, 'title': 'Process Management, CPU Scheduling & Threads', 'real_life_examples': [{'title': 'Real-Life Analogy: Cooking on a 1-Burner Stove', 'text': '• CPU Scheduling: Like a chef with 1 stove burner (CPU) cooking 4 dishes (processes). FCFS finishes dish 1 completely before starting dish 2. Round Robin cooks each dish for 2 minutes, switching rapidly so no customer starves!'}], 'foundations': [{'number': '26.1', 'title': 'The fork() System Call & Process Tree', 'content': "• <code>fork()</code> clones the calling process to create an exact child process.<br/>• <b>Return Value of fork():</b><br/>&nbsp;&nbsp;• Returns <b>0 to the Child process</b>.<br/>&nbsp;&nbsp;• Returns <b>Child's PID (> 0) to the Parent process</b>.<br/>&nbsp;&nbsp;• Returns <b>negative</b> on failure.<br/><br/>• <b>Number of Processes Created:</b><br/>&nbsp;&nbsp;- If <code>fork()</code> is executed <b>n times</b> sequentially: Total processes = <b>2^n</b>.<br/>&nbsp;&nbsp;- Number of <b>Child processes</b> created = <b>2^n - 1</b>.", 'crucial_rule': '🎯 GOLDEN RULE FOR GATE: In short-circuit expressions like fork() && fork(): the second fork executes ONLY in the parent process because fork() returns 0 (False) to the child, short-circuiting the &&!'}, {'number': '26.2', 'title': 'CPU Scheduling Metrics & Formulas', 'content': '• <b>Turnaround Time (TAT):</b> Completion Time - Arrival Time.<br/>• <b>Waiting Time (WT):</b> Turnaround Time - Burst Time.<br/>• <b>Response Time:</b> First Time CPU is Allocated - Arrival Time.<br/><br/>• <b>Algorithm Highlights:</b><br/>&nbsp;&nbsp;• <b>SJF / SRTF:</b> Provably gives <b>minimum Average Waiting Time</b> among all scheduling algorithms!<br/>&nbsp;&nbsp;• <b>Round Robin (RR):</b> Time quantum q. If q is very large, RR becomes FCFS; if q is tiny, context switch overhead dominates.<br/>&nbsp;&nbsp;• <b>Convoy Effect:</b> Occurs in FCFS when a long CPU-bound process blocks short I/O-bound processes.', 'crucial_rule': '🎯 GOLDEN RULE FOR GATE: SRTF (Shortest Remaining Time First) is preemptive SJF and gives minimum average waiting time, but can cause starvation for long processes!'}], 'worked_examples': [{'title': 'Worked Example: Calculating Number of Created Processes', 'problem': 'How many total child processes are created by: for (int i = 0; i < 3; i++) { fork(); } ?', 'steps': ['Step 1: Loop runs 3 times, executing fork() 3 times unconditionally.', 'Step 2: Total processes = 2^n where n = 3 ⇒ 2^3 = 8 total processes.', 'Step 3: Total child processes = 2^n - 1 = 8 - 1 = 7 child processes.'], 'answer': 'Total child processes created = 7.'}], 'exam_traps': ['Do not confuse total processes (2^n) with total child processes (2^n - 1)!', 'Non-preemptive algorithms NEVER interrupt a process once it is running on the CPU.']}, ('OS', 1): {'sub_id': 'OS', 'chap_idx': 1, 'title': 'Process Synchronization, Semaphores & Deadlock Prevention', 'real_life_examples': [{'title': 'Real-Life Analogy: The Single-Key Restroom & 4-Way Traffic Gridlock', 'text': '• Semaphore: A single restroom key at a gas station. Only the person holding the key can enter (Mutual Exclusion). Others must wait until the key is returned (Wait/Signal).\n• Deadlock: A 4-way intersection gridlock where every car is blocked by the car in front of it, and no one can move forward!'}], 'foundations': [{'number': '27.1', 'title': 'Critical Section Requirements & Counting Semaphores', 'content': '• <b>The 3 Mandatory Requirements for Critical Section (CS):</b><br/>&nbsp;&nbsp;1. <b>Mutual Exclusion (Mandatory):</b> If Pi is in CS, no other process can enter CS.<br/>&nbsp;&nbsp;2. <b>Progress (Mandatory):</b> Only processes competing to enter CS decide who enters next.<br/>&nbsp;&nbsp;3. <b>Bounded Waiting:</b> A bound must exist on entries by others before a waiting process gets its turn.<br/><br/>• <b>Counting Semaphores Formula:</b><br/>&nbsp;&nbsp;Initialized to S0 (available resources).<br/>&nbsp;&nbsp;<b>Final Semaphore Value = S0 - (Wait operations) + (Signal operations)</b>.<br/>&nbsp;&nbsp;If final value is negative (-k): <b>Exactly k processes are blocked in the waiting queue!</b>', 'crucial_rule': '🎯 GOLDEN RULE FOR GATE: If counting semaphore is initialized to S0, after p wait operations and v signal operations, final value = S0 - p + v. If final value is negative (-k), exactly k processes are blocked in the waiting queue!'}, {'number': '27.2', 'title': "Deadlock: 4 Necessary Conditions & Banker's Algorithm", 'content': "• <b>The 4 Coffman Conditions (Must ALL hold for deadlock):</b><br/>&nbsp;&nbsp;1. Mutual Exclusion<br/>&nbsp;&nbsp;2. Hold and Wait<br/>&nbsp;&nbsp;3. No Preemption<br/>&nbsp;&nbsp;4. Circular Wait<br/><br/>• <b>Banker's Algorithm:</b> Deadlock avoidance via Safe State analysis.<br/>&nbsp;&nbsp;<b>Need Matrix = Max Requirement - Current Allocation</b>.<br/>&nbsp;&nbsp;If available resources can satisfy Need of a process, it finishes and returns its allocation to Available.", 'crucial_rule': '🎯 GOLDEN RULE FOR GATE: An unsafe state does NOT mean deadlock! Every deadlocked state is unsafe, but an unsafe state may or may not lead to deadlock.'}], 'worked_examples': [{'title': 'Worked Example: Counting Semaphore Value and Blocked Processes', 'problem': 'A counting semaphore S is initialized to 10. Then 14 wait() operations and 3 signal() operations are executed on S. What is the final value of S, and how many processes are blocked?', 'steps': ['Step 1: Formula: Final S = Initial + Signals - Waits.', 'Step 2: Final S = 10 + 3 - 14 = 13 - 14 = -1.', 'Step 3: When S is negative, the magnitude |S| represents the number of blocked processes.', 'Step 4: | -1 | = 1 process is blocked.'], 'answer': 'Final value of S = -1; Exactly 1 process is blocked.'}], 'exam_traps': ["Peterson's algorithm works strictly for TWO processes, not general n processes without modifications!", 'Strict alternation (using only turn variable) satisfies Mutual Exclusion, but FAILS Progress.']}, ('OS', 2): {'sub_id': 'OS', 'chap_idx': 2, 'title': 'Paging, Virtual Memory, TLB & Inodes', 'real_life_examples': [{'title': 'Real-Life Analogy: The Novel Chapter Index & Speed Dial', 'text': "• Paging: Dividing a 500-page book into 10-page chapters so only the chapter you are currently reading needs to be open on your desk.\n• TLB: A smartphone speed-dial list storing your top 8 contacts so you don't look up their numbers in the full directory each time."}], 'foundations': [{'number': '28.1', 'title': 'Paging & Effective Memory Access Time (EMAT) with TLB', 'content': '• <b>Virtual Address Split: [ Page Number (p) | Page Offset (d) ]</b><br/>&nbsp;&nbsp;- Page Offset = <code>log2(Page Size)</code>.<br/>&nbsp;&nbsp;- Page Number = Virtual Address Bits - Page Offset.<br/>• <b>Page Table Size:</b> <code>(Number of Pages) × (Page Table Entry PTE Size)</code>.<br/><br/>• <b>Effective Memory Access Time (EMAT) with 1-level Paging:</b><br/>&nbsp;&nbsp;<b>EMAT = Hit_Rate × (t_{tlb} + t_m) + (1 - Hit_Rate) × (t_{tlb} + 2 × t_m)</b>.<br/>&nbsp;&nbsp;On TLB Hit: 1 memory access (for data word).<br/>&nbsp;&nbsp;On TLB Miss: 2 memory accesses (1 for Page Table Entry + 1 for data word)!', 'crucial_rule': '🎯 GOLDEN RULE FOR GATE: On a TLB hit, memory is accessed ONCE (for data). On a TLB miss in 1-level paging, memory is accessed TWICE (first for page table entry, second for data word)!'}, {'number': '28.2', 'title': "Page Replacement Algorithms & Belady's Anomaly", 'content': "• <b>FIFO (First-In First-Out):</b> Replaces the oldest loaded page.<br/>&nbsp;&nbsp;- Suffers from <b>Belady's Anomaly</b>: Increasing the number of page frames can INCREASE the number of page faults!<br/>• <b>LRU (Least Recently Used):</b> Replaces page not used for longest time in the past. (Stack algorithm; NEVER suffers from Belady's Anomaly).<br/>• <b>Optimal Page Replacement (OPT / MIN):</b> Replaces page that will not be used for longest time in the FUTURE. (Provably minimum page faults).", 'crucial_rule': "🎯 GOLDEN RULE FOR GATE: Belady's Anomaly occurs in FIFO! Stack algorithms like LRU and Optimal NEVER suffer from Belady's Anomaly."}, {'number': '28.3', 'title': 'Unix Inodes & Maximum File Size', 'content': '• <b>Disk Block Pointer Hierarchy in an Inode:</b><br/>&nbsp;&nbsp;• <b>Direct Pointers (e.g. 12 pointers):</b> 12 × Block Size.<br/>&nbsp;&nbsp;• <b>Single Indirect:</b> (Block Size / Pointer Size) × Block Size.<br/>&nbsp;&nbsp;• <b>Double Indirect:</b> (Block Size / Pointer Size)² × Block Size.<br/>&nbsp;&nbsp;• <b>Triple Indirect:</b> (Block Size / Pointer Size)³ × Block Size.<br/>• <b>Max File Size = Sum of all addressable bytes across direct, single, double, and triple pointers!</b>', 'crucial_rule': '🎯 GOLDEN RULE FOR GATE: Number of pointers per indirect block = Block Size / Disk Pointer Size. For 1 KB blocks and 4-byte pointers: 1024 / 4 = 256 pointers per block!'}], 'worked_examples': [{'title': 'Worked Example: EMAT Calculation with TLB', 'problem': 'A system has TLB access time of 20 ns and main memory access time of 100 ns. The TLB hit ratio is 90%. What is the effective memory access time EMAT?', 'steps': ['Step 1: On TLB hit: access TLB (20 ns) + access Memory for data (100 ns) = 120 ns.', 'Step 2: On TLB miss: access TLB (20 ns) + access Memory for Page Table (100 ns) + access Memory for data (100 ns) = 220 ns.', 'Step 3: EMAT = (0.90 × 120 ns) + (0.10 × 220 ns).', 'Step 4: EMAT = 108 ns + 22 ns = 130 ns.'], 'answer': 'EMAT = 130 ns.'}], 'exam_traps': ['In multi-level paging with k levels: On TLB miss, you need k memory accesses for page tables + 1 memory access for data = (k + 1) memory accesses!', 'Internal fragmentation occurs on the last page of a process; paging completely eliminates external fragmentation.']}}
+CHAPTERS_TOC_CD_OS = { ('CD', 0): { 'chapter_number': 23,
+               'exam_traps': [ { 'title': 'Left Recursion Elimination Formula Trap',
+                                 'warning': "To eliminate A → Aα | β: rewrite as A → β A' and A' → α A' | ε. Notice β "
+                                            "comes FIRST! If you write A → α A', the language is ruined."}],
+               'foundations': [ { 'content': '• <b>Lexical Analysis (Scanner):</b> Reads stream of characters and '
+                                             'groups them into <b>Tokens</b> using Regular Expressions and DFA. Strips '
+                                             'comments and whitespace.<br/><br/>\n'
+                                             '\n'
+                                             '• <b>Rules for Calculating FIRST(X):</b><br/>\n'
+                                             '&nbsp;&nbsp;1. If X is a terminal: <code>FIRST(X) = {X}</code>.<br/>\n'
+                                             '&nbsp;&nbsp;2. If X → ε is a production: add ε to FIRST(X).<br/>\n'
+                                             '&nbsp;&nbsp;3. If X → Y₁ Y₂ ... Yₖ: add FIRST(Y₁) \\ {ε} to FIRST(X). If '
+                                             'Y₁ derives ε, add FIRST(Y₂) \\ {ε}, and so forth until some Yᵢ does not '
+                                             'derive ε. If all derive ε, add ε.<br/><br/>\n'
+                                             '\n'
+                                             '• <b>Rules for Calculating FOLLOW(A) (Applies ONLY to '
+                                             'Non-Terminals!):</b><br/>\n'
+                                             '&nbsp;&nbsp;1. Add <code>$</code> (end of input marker) to '
+                                             '<code>FOLLOW(S)</code> (Start Symbol).<br/>\n'
+                                             '&nbsp;&nbsp;2. If production <code>A → α B β</code>: everything in '
+                                             '<code>FIRST(β) \\ {ε}</code> is in <code>FOLLOW(B)</code>.<br/>\n'
+                                             '&nbsp;&nbsp;3. If production <code>A → α B</code> OR <code>A → α B '
+                                             'β</code> where <code>β ⇒* ε</code>: everything in <code>FOLLOW(A)</code> '
+                                             'is in <code>FOLLOW(B)</code>!',
+                                  'crucial_rule': '🎯 GOLDEN RULE FOR GATE: FOLLOW set can NEVER contain the empty '
+                                                  'string ε! If ε appears in your FOLLOW set calculation, you made an '
+                                                  'error.',
+                                  'number': '23.1',
+                                  'title': 'Lexical Tokens & Calculating FIRST and FOLLOW Sets'},
+                                { 'content': '• <b>What is LL(1)?</b> Left-to-right scan, Leftmost derivation, 1 '
+                                             'lookahead token.<br/><br/>\n'
+                                             '\n'
+                                             '• <b>Conditions for a Grammar to be LL(1):</b><br/>\n'
+                                             '&nbsp;&nbsp;For every production with multiple choices <code>A → α | '
+                                             'β</code>:<br/>\n'
+                                             '&nbsp;&nbsp;1. <code>FIRST(α) ∩ FIRST(β) = ∅</code> (No common '
+                                             'prefix).<br/>\n'
+                                             '&nbsp;&nbsp;2. At most one of α or β can derive ε.<br/>\n'
+                                             '&nbsp;&nbsp;3. If <code>β ⇒* ε</code>, then <code>FIRST(α) ∩ FOLLOW(A) = '
+                                             '∅</code>.<br/><br/>\n'
+                                             '\n'
+                                             '• <b>Instant LL(1) Disqualifiers (Must-Know for GATE):</b><br/>\n'
+                                             '&nbsp;&nbsp;• <b>Left Recursive Grammar:</b> <code>A → Aα</code> can '
+                                             'NEVER be LL(1)! Must eliminate left recursion first.<br/>\n'
+                                             '&nbsp;&nbsp;• <b>Ambiguous Grammar:</b> Can NEVER be LL(1)!<br/>\n'
+                                             '&nbsp;&nbsp;• <b>Non-Deterministic (Common Prefix):</b> <code>A → aB | '
+                                             'aC</code> can NEVER be LL(1)! Must left-factor first.',
+                                  'crucial_rule': '🎯 GOLDEN RULE FOR GATE: In the LL(1) parse table, if any cell [A, '
+                                                  'a] contains MULTIPLE production entries, the grammar is NOT LL(1)!',
+                                  'number': '23.2',
+                                  'title': 'LL(1) Parser Conditions & Grammatical Disqualifiers'}],
+               'real_life_examples': [ { 'text': 'An LL(1) parser is like reading JSON: looking at the single next '
+                                                 "character ('{' or '[') immediately tells the parser whether to parse "
+                                                 'an Object or an Array.',
+                                         'title': 'Real-Life Analogy: JSON Parser Lookahead'}],
+               'title': 'Lexical Analysis & Top-Down Parsing (LL(1))',
+               'worked_examples': [ { 'answer': 'FIRST(S) = {a, b, c}, FOLLOW(A) = {b, c}.',
+                                      'problem': 'Given grammar: S → ABc, A → a | ε, B → b | ε. Compute FIRST(S) and '
+                                                 'FOLLOW(A).',
+                                      'steps': [ 'Step 1: Calculate FIRST(A) = {a, ε}. Calculate FIRST(B) = {b, ε}.',
+                                                 'Step 2: For S → ABc: FIRST(S) includes FIRST(A)\\{ε} = {a}. Since A '
+                                                 'can be ε, include FIRST(B)\\{ε} = {b}. Since B can also be ε, '
+                                                 "include terminal 'c'. So FIRST(S) = {a, b, c}.",
+                                                 'Step 3: For FOLLOW(A): Look where A appears on RHS: S → ABc. Here A '
+                                                 'is followed by Bc. So FOLLOW(A) includes FIRST(Bc)\\{ε} = '
+                                                 'FIRST(B)\\{ε} ∪ {c} = {b, c}.',
+                                                 "Step 4: Check if Bc can derive ε: Bc has terminal 'c', so it cannot "
+                                                 'derive ε. Hence FOLLOW(S) is not added.'],
+                                      'title': 'Worked Example: Computing FIRST and FOLLOW Sets'}]},
+  ('CD', 1): { 'chapter_number': 24,
+               'exam_traps': [ { 'title': 'LALR State Count Assumption Trap',
+                                 'warning': 'LALR(1) table size is ALWAYS identical to LR(0) and SLR(1) tables! It '
+                                            'never has the larger state count of CLR(1).'}],
+               'foundations': [ { 'content': '• <b>Bottom-Up Parsing Mechanics:</b><br/>\n'
+                                             '&nbsp;&nbsp;- Constructs parse tree from the leaves (tokens) up to the '
+                                             'root (Start symbol).<br/>\n'
+                                             '&nbsp;&nbsp;- Traces a <b>Rightmost Derivation in REVERSE</b>!<br/>\n'
+                                             '&nbsp;&nbsp;- Actions: <b>Shift</b> (push token to stack), <b>Reduce</b> '
+                                             '(replace handle with LHS non-terminal), <b>Accept</b>, '
+                                             '<b>Error</b>.<br/><br/>\n'
+                                             '\n'
+                                             '• <b>The 4 LR Parsers Compared:</b><br/>\n'
+                                             "<div class='font-mono text-xs p-3 bg-slate-900 text-slate-100 rounded-xl "
+                                             "my-2 leading-relaxed overflow-x-auto'>\n"
+                                             'Parser   │ Item Type Used │ Reduce Action Placed In                  │ '
+                                             'States Count Comparison\n'
+                                             '─────────────────────────────────────────────────────────────────────────────────────────────\n'
+                                             'LR(0)    │ [A → α · β]    │ In ALL input cells of that state row     │ '
+                                             'Smallest (Base DFA)\n'
+                                             'SLR(1)   │ [A → α · β]    │ ONLY in FOLLOW(A) cells of that row      │ '
+                                             'Identical to LR(0) states!\n'
+                                             "LALR(1)  │ [A → α · β, a] │ ONLY in lookahead 'a' cells              │ "
+                                             'Identical to LR(0) states! (Merged)\n'
+                                             "CLR(1)   │ [A → α · β, a] │ ONLY in lookahead 'a' cells              │ "
+                                             'Largest number of states!\n'
+                                             '</div>\n'
+                                             '\n'
+                                             '• <b>Parser Power Hierarchy (Strict Inclusions):</b><br/>\n'
+                                             '&nbsp;&nbsp;<code>LR(0) ⊂ SLR(1) ⊂ LALR(1) ⊂ CLR(1)</code> and '
+                                             '<code>LL(1) ⊂ LALR(1) ⊂ CLR(1)</code>.<br/>\n'
+                                             '&nbsp;&nbsp;• CLR(1) is the most powerful deterministic parser, but '
+                                             'requires massive state tables.<br/>\n'
+                                             '&nbsp;&nbsp;• LALR(1) merges states of CLR(1) that have identical LR(0) '
+                                             'cores, preserving table size while keeping high parsing power!',
+                                  'crucial_rule': '🎯 GOLDEN RULE FOR GATE: Merging CLR(1) states to form LALR(1) can '
+                                                  'NEVER create a Shift-Reduce (S-R) conflict! However, it CAN '
+                                                  'potentially introduce Reduce-Reduce (R-R) conflicts.',
+                                  'number': '24.1',
+                                  'title': 'Shift-Reduce Parsing & The 4 LR Parsers'},
+                                { 'content': '• <b>Shift-Reduce (S-R) Conflict:</b> Occurs when the parser cannot '
+                                             'decide whether to shift the next input symbol or reduce the current '
+                                             'handle: state has both <code>[A → α · a β]</code> and <code>[B → γ '
+                                             '·]</code>.<br/><br/>\n'
+                                             '\n'
+                                             '• <b>Reduce-Reduce (R-R) Conflict:</b> Occurs when two distinct '
+                                             'productions are ready to be reduced simultaneously in the same state: '
+                                             'state has both <code>[A → α ·]</code> and <code>[B → β ·]</code>.',
+                                  'crucial_rule': '🎯 GOLDEN RULE FOR GATE: An ambiguous grammar can NEVER be parsed by '
+                                                  'ANY LR parser (LR(0), SLR(1), LALR(1), CLR(1)) because ambiguity '
+                                                  'inherently creates unresolvable conflicts!',
+                                  'number': '24.2',
+                                  'title': 'Shift-Reduce and Reduce-Reduce Conflicts'}],
+               'real_life_examples': [ { 'text': 'Unix tools like Yacc and GNU Bison are LALR(1) parser generators '
+                                                 'because LALR(1) gives the maximum grammar coverage with the minimum '
+                                                 'table memory.',
+                                         'title': 'Real-Life Analogy: Yacc and Bison Tooling'}],
+               'title': 'Bottom-Up Parsing (LR Parsers) & Parser Comparisons',
+               'worked_examples': [ { 'answer': 'Exactly 15 states.',
+                                      'problem': 'If the canonical collection of LR(0) items for a grammar has 15 '
+                                                 'states, what is the number of states in the SLR(1) parsing table?',
+                                      'steps': [ 'Step 1: Recall the state count definition for SLR(1).',
+                                                 'Step 2: SLR(1) uses the EXACT same canonical collection of LR(0) '
+                                                 'items as LR(0). It only changes where reduction actions are placed '
+                                                 'in the table (placing them in FOLLOW(A) instead of all columns).',
+                                                 'Step 3: Therefore, the number of states in SLR(1) is ALWAYS exactly '
+                                                 'equal to the number of states in LR(0).',
+                                                 'Step 4: States in SLR(1) = 15.'],
+                                      'title': 'Worked Example: State Count in SLR(1) vs LALR(1) vs CLR(1)'}]},
+  ('CD', 2): { 'chapter_number': 25,
+               'exam_traps': [ { 'title': 'Three-Address Code Temporary Variable Minimization Trap',
+                                 'warning': 'When asked for the MINIMUM number of temporary variables to represent an '
+                                            'expression in 3-address code, reuse temporary variables whose values are '
+                                            'no longer live!'}],
+               'foundations': [ { 'content': '• <b>Synthesized vs Inherited Attributes:</b><br/>\n'
+                                             '&nbsp;&nbsp;• <b>Synthesized Attribute:</b> Computed from children nodes '
+                                             'in parse tree (Bottom-up flow).<br/>\n'
+                                             '&nbsp;&nbsp;• <b>Inherited Attribute:</b> Computed from parent or '
+                                             'sibling nodes (Top-down / Left-to-Right flow).<br/><br/>\n'
+                                             '\n'
+                                             '• <b>S-Attributed Definition:</b><br/>\n'
+                                             '&nbsp;&nbsp;- Uses <b>ONLY Synthesized Attributes</b>.<br/>\n'
+                                             '&nbsp;&nbsp;- Can be naturally evaluated during bottom-up parsing (LR '
+                                             'parsers) using stack values!<br/><br/>\n'
+                                             '\n'
+                                             '• <b>L-Attributed Definition:</b><br/>\n'
+                                             '&nbsp;&nbsp;- Uses Synthesized attributes AND restricted Inherited '
+                                             'attributes.<br/>\n'
+                                             '&nbsp;&nbsp;- <b>The L-Restriction Rule:</b> In production <code>A → X₁ '
+                                             'X₂ ... Xₙ</code>, an inherited attribute of Xᵢ can depend ONLY on:<br/>\n'
+                                             '&nbsp;&nbsp;&nbsp;&nbsp;1. Attributes of symbols to its <b>LEFT</b> (X₁, '
+                                             'X₂, ..., Xᵢ₋₁).<br/>\n'
+                                             '&nbsp;&nbsp;&nbsp;&nbsp;2. <b>Inherited</b> attributes of parent '
+                                             'A.<br/>\n'
+                                             '&nbsp;&nbsp;&nbsp;&nbsp;- It can NEVER depend on symbols to its right or '
+                                             'synthesized attributes of parent A!',
+                                  'crucial_rule': '🎯 GOLDEN RULE FOR GATE: Every S-Attributed SDD is an L-Attributed '
+                                                  'SDD (S-Attributed ⊂ L-Attributed). S-attributed SDDs are evaluated '
+                                                  'during bottom-up LR parsing; L-attributed SDDs are evaluated during '
+                                                  'depth-first left-to-right traversals.',
+                                  'number': '25.1',
+                                  'title': 'S-Attributed vs L-Attributed Syntax-Directed Translations'},
+                                { 'content': '• <b>Machine-Independent Optimizations:</b><br/>\n'
+                                             '&nbsp;&nbsp;• <b>Constant Folding:</b> Compute compile-time constants: '
+                                             '<code>x = 3 + 4</code> becomes <code>x = 7</code>.<br/>\n'
+                                             '&nbsp;&nbsp;• <b>Constant Propagation:</b> If <code>x = 7</code>, '
+                                             'replace subsequent <code>y = x * 2</code> with <code>y = '
+                                             '14</code>.<br/>\n'
+                                             '&nbsp;&nbsp;• <b>Common Subexpression Elimination:</b> Avoid recomputing '
+                                             'identical expressions.<br/>\n'
+                                             '&nbsp;&nbsp;• <b>Dead Code Elimination:</b> Remove instructions whose '
+                                             'results are never read.<br/>\n'
+                                             '&nbsp;&nbsp;• <b>Loop Invariant Code Motion (Hoisting):</b> Move '
+                                             "computations that don't change inside the loop outside before the loop "
+                                             'begins.<br/>\n'
+                                             '&nbsp;&nbsp;• <b>Strength Reduction:</b> Replace expensive operations '
+                                             'with cheaper ones (e.g. replace <code>x * 2</code> with <code>x + '
+                                             'x</code> or <code>x << 1</code>).<br/><br/>\n'
+                                             '\n'
+                                             '• <b>Data Flow Analysis Framework:</b><br/>\n'
+                                             '&nbsp;&nbsp;• <b>Liveness Analysis:</b> A variable is <i>live</i> at '
+                                             'point p if its current value may be used along some path starting from '
+                                             'p. Computed <b>Backwards</b>.<br/>\n'
+                                             '&nbsp;&nbsp;• <b>Reaching Definitions:</b> Which definitions d may reach '
+                                             'point p. Computed <b>Forwards</b>.',
+                                  'crucial_rule': '🎯 GOLDEN RULE FOR GATE: Loop Invariant code motion and strength '
+                                                  'reduction yield the largest asymptotic runtime speedups in compiled '
+                                                  'binary loops.',
+                                  'number': '25.2',
+                                  'title': 'Code Optimization & Data Flow Analysis'}],
+               'real_life_examples': [ { 'text': 'The gcc compiler flag -O3 runs all loop optimizations, constant '
+                                                 'propagation, and dead code elimination to produce blazing fast '
+                                                 'machine code without altering program behavior.',
+                                         'title': 'Real-Life Analogy: GCC -O3 Optimization Flag'}],
+               'title': 'SDT, Intermediate Code & Optimization (Data Flow Analysis)',
+               'worked_examples': [ { 'answer': 'NOT L-Attributed (depends on attribute to the right).',
+                                      'problem': 'Consider production A → B C with semantic rule: B.in = C.syn + 2. Is '
+                                                 'this SDD L-Attributed?',
+                                      'steps': [ 'Step 1: Check attribute types: B.in is an inherited attribute of '
+                                                 'non-terminal B.',
+                                                 'Step 2: Check dependency: B.in depends on C.syn.',
+                                                 'Step 3: Inspect position in production: Symbol C is to the RIGHT of '
+                                                 'B in production A → B C.',
+                                                 'Step 4: Recall the L-Attributed definition: An inherited attribute '
+                                                 'of a symbol can depend ONLY on symbols to its LEFT or inherited '
+                                                 'attributes of parent.',
+                                                 'Step 5: Since B depends on an attribute to its right (C), it '
+                                                 'violates the L-attributed condition!'],
+                                      'title': 'Worked Example: Identifying L-Attributed SDD Violations'}]},
+  ('OS', 0): { 'chapter_number': 26,
+               'exam_traps': [ { 'title': 'Counting Semaphore Sign Value Trap',
+                                 'warning': 'When S is negative (e.g. S = -4), there are 4 processes in the blocked '
+                                            'queue! Do not confuse negative semaphore values with errors.'}],
+               'foundations': [ { 'content': '• <b>How fork() Works:</b><br/>\n'
+                                             '&nbsp;&nbsp;- Creates a brand new child process that is an EXACT replica '
+                                             'of the parent process (copies memory address space, registers, file '
+                                             'descriptors).<br/>\n'
+                                             '&nbsp;&nbsp;- <b>Return Value of fork():</b><br/>\n'
+                                             '&nbsp;&nbsp;&nbsp;&nbsp;• Returns <b>0</b> to the CHILD process.<br/>\n'
+                                             "&nbsp;&nbsp;&nbsp;&nbsp;• Returns <b>Child's PID (> 0)</b> to the PARENT "
+                                             'process.<br/>\n'
+                                             '&nbsp;&nbsp;&nbsp;&nbsp;• Returns <b>-1</b> on failure.<br/><br/>\n'
+                                             '\n'
+                                             '• <b>Number of Processes Created by n Consecutive fork() '
+                                             'Calls:</b><br/>\n'
+                                             '&nbsp;&nbsp;• Total processes = <b>2ⁿ</b>.<br/>\n'
+                                             '&nbsp;&nbsp;• Number of newly created child processes = <b>2ⁿ - '
+                                             '1</b>.<br/><br/>\n'
+                                             '\n'
+                                             '• <b>Process Tree Execution Trace with Loops:</b><br/>\n'
+                                             '&nbsp;&nbsp;In <code>for(int i=0; i<3; i++) fork();</code>:<br/>\n'
+                                             '&nbsp;&nbsp;- i=0: 1 process becomes 2.<br/>\n'
+                                             '&nbsp;&nbsp;- i=1: 2 processes become 4.<br/>\n'
+                                             '&nbsp;&nbsp;- i=2: 4 processes become 8. Total = 2³ = 8 processes!',
+                                  'crucial_rule': '🎯 GOLDEN RULE FOR GATE: In fork() code with print statements: '
+                                                  "Unbuffered printf (printf('X\\n')) flushes immediately. Buffered "
+                                                  "printf without newline (printf('X')) copies the buffered character "
+                                                  'into the child, causing doubled prints!',
+                                  'number': '26.1',
+                                  'title': 'The fork() System Call & Process Trees'},
+                                { 'content': '• <b>The Critical Section Problem:</b> Ensuring multiple concurrent '
+                                             'processes access shared resources without race conditions.<br/><br/>\n'
+                                             '\n'
+                                             '• <b>The 3 Mandatory Criteria for Critical Section:</b><br/>\n'
+                                             '&nbsp;&nbsp;1. <b>Mutual Exclusion (Mandatory):</b> If process Pi is '
+                                             'executing in its critical section, no other process can enter.<br/>\n'
+                                             '&nbsp;&nbsp;2. <b>Progress (Mandatory):</b> If no process is in critical '
+                                             'section, only processes wishing to enter can compete, and decision '
+                                             'cannot be postponed indefinitely (NO deadlock!).<br/>\n'
+                                             '&nbsp;&nbsp;3. <b>Bounded Waiting (Optional for basic correctness, '
+                                             'mandatory for fairness):</b> There must be a bound on the number of '
+                                             'times other processes can enter before a requesting process is granted '
+                                             'entry (NO starvation!).<br/><br/>\n'
+                                             '\n'
+                                             "• <b>Peterson's Algorithm for 2 Processes:</b><br/>\n"
+                                             '&nbsp;&nbsp;Uses shared <code>flag[2]</code> (interest) and '
+                                             '<code>turn</code> (polite tie-breaker):<br/>\n'
+                                             '&nbsp;&nbsp;<code>flag[i] = true; turn = j; while (flag[j] && turn == '
+                                             'j); // Critical Section flag[i] = false;</code><br/>\n'
+                                             '&nbsp;&nbsp;Satisfies Mutual Exclusion, Progress, and Bounded Waiting!',
+                                  'crucial_rule': "🎯 GOLDEN RULE FOR GATE: Strict alternation (using only 'turn' "
+                                                  'variable) satisfies Mutual Exclusion, but FAILS Progress because a '
+                                                  'process cannot re-enter if the other process is not interested!',
+                                  'number': '26.2',
+                                  'title': "Critical Section Criteria & Peterson's Solution"},
+                                { 'content': '• <b>Semaphore Definition:</b> An integer synchronization variable '
+                                             'accessed ONLY via two atomic operations:<br/>\n'
+                                             '&nbsp;&nbsp;• <b>Wait(S) / P(S):</b> <code>S--; if (S < 0) '
+                                             'block();</code><br/>\n'
+                                             '&nbsp;&nbsp;• <b>Signal(S) / V(S):</b> <code>S++; if (S <= 0) '
+                                             'wakeup();</code><br/><br/>\n'
+                                             '\n'
+                                             '• <b>Counting Semaphore Value Interpretation:</b><br/>\n'
+                                             '&nbsp;&nbsp;• If <code>S > 0</code>: Value represents the number of '
+                                             'available resources.<br/>\n'
+                                             '&nbsp;&nbsp;• If <code>S = 0</code>: All resources in use, no processes '
+                                             'waiting.<br/>\n'
+                                             '&nbsp;&nbsp;• If <code>S < 0</code>: Magnitude <code>|S|</code> '
+                                             'represents the <b>exact number of processes currently blocked in the '
+                                             'waiting queue</b>!',
+                                  'crucial_rule': '🎯 GOLDEN RULE FOR GATE: If a counting semaphore is initialized to '
+                                                  '10, and 6 Wait operations and 2 Signal operations are performed: '
+                                                  'Current value = 10 - 6 + 2 = 6.',
+                                  'number': '26.3',
+                                  'title': 'Counting & Binary Semaphores'}],
+               'real_life_examples': [ { 'text': 'A binary semaphore is a single restroom key hanging on the '
+                                                 'restaurant wall. If the hook is empty, you must wait until the '
+                                                 'occupant returns the key.',
+                                         'title': 'Real-Life Analogy: The Restaurant Restroom Key'}],
+               'title': 'Processes, Threads, Concurrency & Synchronization',
+               'worked_examples': [ { 'answer': 'Total 6 processes created.',
+                                      'problem': 'How many total processes are created by the following C '
+                                                 'code?\\n\\nint main() {\\n    fork();\\n    if (fork() == 0) '
+                                                 '{\\n        fork();\\n    }\\n    return 0;\\n}',
+                                      'steps': [ 'Step 1: Start with 1 original parent process P₀.',
+                                                 'Step 2: First fork(): P₀ creates child C₁. Now 2 processes exist: '
+                                                 '{P₀, C₁}.',
+                                                 'Step 3: Second fork() called by both P₀ and C₁: P₀ creates C₂, and '
+                                                 'C₁ creates C₃. Now 4 processes exist: {P₀, C₁, C₂, C₃}.',
+                                                 'Step 4: Check if condition (fork() == 0): This evaluates to True '
+                                                 'ONLY in the newly created child processes (C₂ and C₃).',
+                                                 'Step 5: Third fork() is executed ONLY by C₂ and C₃: C₂ creates child '
+                                                 'C₄, and C₃ creates child C₅.',
+                                                 'Step 6: Total processes = 4 + 2 = 6 processes.'],
+                                      'title': 'Worked Example: Counting fork() Child Processes'}]},
+  ('OS', 1): { 'chapter_number': 27,
+               'exam_traps': [ { 'title': "Banker's Algorithm Resource Request Check Trap",
+                                 'warning': 'When evaluating a Resource Request, you MUST check BOTH: (1) Request ≤ '
+                                            'Need, AND (2) Request ≤ Available! If either fails, the process must wait '
+                                            'immediately.'}],
+               'foundations': [ { 'content': '• <b>Scheduling Metrics:</b><br/>\n'
+                                             '&nbsp;&nbsp;• <b>Turnaround Time (TAT):</b> <code>Completion Time - '
+                                             'Arrival Time</code>.<br/>\n'
+                                             '&nbsp;&nbsp;• <b>Waiting Time (WT):</b> <code>Turnaround Time - Burst '
+                                             'Time</code>.<br/>\n'
+                                             '&nbsp;&nbsp;• <b>Response Time (RT):</b> Time from arrival to first '
+                                             'execution on CPU.<br/><br/>\n'
+                                             '\n'
+                                             '• <b>Master Comparison of Scheduling Algorithms:</b><br/>\n'
+                                             "<div class='font-mono text-xs p-3 bg-slate-900 text-slate-100 rounded-xl "
+                                             "my-2 leading-relaxed overflow-x-auto'>\n"
+                                             'Algorithm                      │ Preemptive? │ Optimal '
+                                             'For                  │ Major Weakness / Pitfall\n'
+                                             '───────────────────────────────────────────────────────────────────────────────────────────────────────\n'
+                                             'FCFS (First-Come, First-Served)│ NO          │ Simple batch '
+                                             'systems         │ Convoy Effect (Long process blocks short)\n'
+                                             'SJF (Shortest Job First)       │ NO          │ Minimizing Average '
+                                             'WT!       │ Starvation of long burst jobs\n'
+                                             'SRTF (Shortest Remaining Time) │ YES         │ Minimizing Average '
+                                             'WT!       │ Starvation & high context switch overhead\n'
+                                             'Round Robin (RR)               │ YES         │ Time-sharing / Response '
+                                             'Time │ High context switches if quantum too small\n'
+                                             'Priority Scheduling            │ Either      │ Mission-critical '
+                                             'tasks       │ Starvation (Solved via Aging)\n'
+                                             '</div>',
+                                  'crucial_rule': '🎯 GOLDEN RULE FOR GATE: SJF / SRTF gives the absolute theoretical '
+                                                  'MINIMUM average waiting time among all scheduling algorithms! In '
+                                                  'Round Robin, if Time Quantum q ≥ max(Burst Times), RR degenerates '
+                                                  'into FCFS.',
+                                  'number': '27.1',
+                                  'title': 'CPU Scheduling Algorithms & Gantt Chart Tracing'},
+                                { 'content': '• <b>The 4 Coffman Conditions (Must ALL hold simultaneously for '
+                                             'Deadlock):</b><br/>\n'
+                                             '&nbsp;&nbsp;1. <b>Mutual Exclusion:</b> Non-shareable resource '
+                                             'mode.<br/>\n'
+                                             '&nbsp;&nbsp;2. <b>Hold and Wait:</b> Process holds resources while '
+                                             'requesting additional ones.<br/>\n'
+                                             '&nbsp;&nbsp;3. <b>No Preemption:</b> Resources cannot be forcibly '
+                                             'seized.<br/>\n'
+                                             '&nbsp;&nbsp;4. <b>Circular Wait:</b> Circular chain of processes where '
+                                             'each holds a resource requested by next.<br/><br/>\n'
+                                             '\n'
+                                             "• <b>Banker's Algorithm (Deadlock Avoidance):</b><br/>\n"
+                                             '&nbsp;&nbsp;• <b>Need Matrix Formula:</b> <code>Need[i, j] = Max[i, j] - '
+                                             'Allocation[i, j]</code>.<br/>\n'
+                                             '&nbsp;&nbsp;• <b>Safety Check:</b> Find a process whose <code>Need ≤ '
+                                             'Available</code>. Assume it finishes, release its allocated resources '
+                                             'back to <code>Available = Available + Allocation</code>, and '
+                                             'repeat.<br/>\n'
+                                             '&nbsp;&nbsp;• If all processes finish: State is <b>SAFE</b>! If not: '
+                                             'State is <b>UNSAFE</b> (may lead to deadlock).',
+                                  'crucial_rule': '🎯 GOLDEN RULE FOR GATE: An UNSAFE state is NOT necessarily a '
+                                                  'Deadlock! Safe state guarantees NO deadlock. Unsafe state means '
+                                                  'deadlock is possible if worst-case requests occur.',
+                                  'number': '27.2',
+                                  'title': "Deadlock Characterization & Banker's Algorithm"}],
+               'real_life_examples': [ { 'text': 'Deadlock circular wait is a 4-way intersection where 4 cars turn '
+                                                 'right simultaneously: each car occupies one lane and waits for the '
+                                                 'next car to move, freezing traffic forever.',
+                                         'title': 'Real-Life Analogy: The Four-Way Traffic Gridlock'}],
+               'title': 'CPU Scheduling, I/O Scheduling & Deadlocks',
+               'worked_examples': [ { 'answer': 'Average Waiting Time = 5.33 ms.',
+                                      'problem': 'Processes P1, P2, P3 arrive at time 0 with burst times 10, 4, 2 ms. '
+                                                 'The Round Robin time quantum is 2 ms. Find the average waiting time.',
+                                      'steps': [ 'Step 1: Trace Gantt chart with time quantum = 2 ms:',
+                                                 '  [0-2: P1] (rem 8), [2-4: P2] (rem 2), [4-6: P3] (finishes at 6!),',
+                                                 '  [6-8: P1] (rem 6), [8-10: P2] (finishes at 10!),',
+                                                 '  [10-12: P1] (rem 4), [12-14: P1] (rem 2), [14-16: P1] (finishes at '
+                                                 '16!).',
+                                                 'Step 2: Completion Times: P3 = 6 ms, P2 = 10 ms, P1 = 16 ms.',
+                                                 'Step 3: Turnaround Times (CT - AT): P1 = 16 - 0 = 16, P2 = 10 - 0 = '
+                                                 '10, P3 = 6 - 0 = 6.',
+                                                 'Step 4: Waiting Times (TAT - BT): P1 = 16 - 10 = 6, P2 = 10 - 4 = 6, '
+                                                 'P3 = 6 - 2 = 4.',
+                                                 'Step 5: Average Waiting Time = (6 + 6 + 4) / 3 = 16 / 3 = 5.33 ms.'],
+                                      'title': 'Worked Example: Round Robin Waiting Time Calculation'}]},
+  ('OS', 2): { 'chapter_number': 28,
+               'exam_traps': [ { 'title': 'Page Table Size in Bytes vs Entries Trap',
+                                 'warning': 'Number of entries is 2^p. But Page Table SIZE in memory is 2^p × (PTE '
+                                            'bytes)! For a 32-bit address space with 4 KB pages and 4-byte entries: '
+                                            'Table size is 2²⁰ × 4 B = 4 MB.'}],
+               'foundations': [ { 'content': '• <b>Paging Architecture:</b><br/>\n'
+                                             '&nbsp;&nbsp;• Logical Address broken into: <code>[ Page Number (p) | '
+                                             'Page Offset (d) ]</code>.<br/>\n'
+                                             '&nbsp;&nbsp;• Page Size = Frame Size = <code>2ᵈ bytes</code>.<br/>\n'
+                                             '&nbsp;&nbsp;• Number of Pages = <code>Logical Address Space / Page '
+                                             'Size</code>.<br/>\n'
+                                             '&nbsp;&nbsp;• <b>Page Table Size:</b> <code>(Number of Pages) × (Page '
+                                             'Table Entry Size)</code>.<br/><br/>\n'
+                                             '\n'
+                                             '• <b>Effective Memory Access Time (EMAT) with TLB:</b><br/>\n'
+                                             '&nbsp;&nbsp;Let c = TLB lookup time, m = Main Memory access time, h = '
+                                             'TLB hit ratio.<br/>\n'
+                                             '&nbsp;&nbsp;• <b>Formula:</b> <code>EMAT = h × (c + m) + (1 - h) × (c + '
+                                             '2m)</code><br/>\n'
+                                             '&nbsp;&nbsp;&nbsp;&nbsp;- On TLB Hit: 1 TLB lookup + 1 memory access to '
+                                             'fetch data.<br/>\n'
+                                             '&nbsp;&nbsp;&nbsp;&nbsp;- On TLB Miss: 1 TLB lookup + 1 memory access to '
+                                             'read Page Table + 1 memory access to fetch data.<br/><br/>\n'
+                                             '\n'
+                                             '• <b>Two-Level Paging EMAT Formula:</b><br/>\n'
+                                             '&nbsp;&nbsp;<code>EMAT = h × (c + m) + (1 - h) × (c + 3m)</code> (3 '
+                                             'memory reads: Outer Page Table, Inner Page Table, Actual Data).',
+                                  'crucial_rule': '🎯 GOLDEN RULE FOR GATE: In n-level paging, a TLB miss requires (n + '
+                                                  '1) memory accesses! On a 4-level paging system (like x86-64), a TLB '
+                                                  'miss requires 5 memory accesses.',
+                                  'number': '28.1',
+                                  'title': 'Paging & Effective Memory Access Time (EMAT) with TLB'},
+                                { 'content': '• <b>Algorithms Compared:</b><br/>\n'
+                                             '&nbsp;&nbsp;• <b>FIFO (First-In, First-Out):</b> Replaces oldest page '
+                                             'loaded into memory.<br/>\n'
+                                             '&nbsp;&nbsp;• <b>Optimal (OPT / MIN):</b> Replaces page that will not be '
+                                             'used for the longest period in the future (Theoretical benchmark; cannot '
+                                             'be implemented in real OS).<br/>\n'
+                                             '&nbsp;&nbsp;• <b>LRU (Least Recently Used):</b> Replaces page not used '
+                                             'for the longest time in the past.<br/><br/>\n'
+                                             '\n'
+                                             "• <b>Belady's Anomaly:</b><br/>\n"
+                                             '&nbsp;&nbsp;- The bizarre phenomenon where <b>allocating MORE page '
+                                             'frames causes MORE page faults</b>!<br/>\n'
+                                             '&nbsp;&nbsp;- <b>Occurs in:</b> FIFO page replacement.<br/>\n'
+                                             '&nbsp;&nbsp;- <b>CANNOT occur in:</b> Stack algorithms (like LRU and '
+                                             'Optimal) because the set of pages in k frames is always a subset of '
+                                             'pages in k+1 frames!',
+                                  'crucial_rule': '🎯 GOLDEN RULE FOR GATE: LRU and Optimal algorithms NEVER suffer '
+                                                  "from Belady's Anomaly. FIFO can suffer from Belady's Anomaly on "
+                                                  'reference strings like: 1, 2, 3, 4, 1, 2, 5, 1, 2, 3, 4, 5.',
+                                  'number': '28.2',
+                                  'title': "Page Replacement Algorithms & Belady's Anomaly"}],
+               'real_life_examples': [ { 'text': "Paging is like reading an encyclopedia: you don't load all 30 "
+                                                 'volumes onto your lap. You keep the 2 pages you are reading open on '
+                                                 'your desk and fetch new pages as needed.',
+                                         'title': 'Real-Life Analogy: The Book Index & Virtual Memory'}],
+               'title': 'Memory Management, Virtual Memory & File Systems',
+               'worked_examples': [ { 'answer': 'EMAT = 130 ns.',
+                                      'problem': 'A system has a TLB hit ratio of 90%. TLB access time is 10 ns, and '
+                                                 'main memory access time is 100 ns. The system uses 2-level paging. '
+                                                 'Calculate the Effective Memory Access Time (EMAT).',
+                                      'steps': [ 'Step 1: Identify parameters: h = 0.90, c = 10 ns, m = 100 ns, levels '
+                                                 'n = 2.',
+                                                 'Step 2: On TLB Hit: Time = c + m = 10 + 100 = 110 ns.',
+                                                 'Step 3: On TLB Miss: Time = c + (n + 1)m = 10 + 3(100) = 310 ns.',
+                                                 'Step 4: Compute EMAT = h × (Hit Time) + (1 - h) × (Miss Time):',
+                                                 '  EMAT = 0.90 × 110 + 0.10 × 310 = 99 + 31 = 130 ns.'],
+                                      'title': 'Worked Example: EMAT Calculation with Multi-Level Paging'}]},
+  ('TOC', 0): { 'chapter_number': 20,
+                'exam_traps': [ { 'title': 'Dead State Omission Trap in DFA Count',
+                                  'warning': 'In a DFA, EVERY state must have an outgoing transition for EVERY input '
+                                             'symbol! Incomplete transitions must route to a Dead/Trap state. Do not '
+                                             'forget to count the trap state in DFA state counts.'}],
+                'foundations': [ { 'content': '• <b>Formal Definitions of Finite Automata:</b><br/>\n'
+                                              '&nbsp;&nbsp;Both DFA and NFA are 5-tuples: <code>(Q, Σ, δ, q₀, '
+                                              'F)</code>.<br/>\n'
+                                              '&nbsp;&nbsp;• <b>DFA Transition:</b> <code>δ: Q × Σ → Q</code> '
+                                              '(Deterministic: exactly 1 transition for every state-input pair).<br/>\n'
+                                              '&nbsp;&nbsp;• <b>NFA Transition:</b> <code>δ: Q × (Σ ∪ {ε}) → '
+                                              '2^Q</code> (Can transition to zero, one, or multiple states, or via '
+                                              'ε-moves).<br/><br/>\n'
+                                              '\n'
+                                              '• <b>Equivalence & Power:</b><br/>\n'
+                                              '&nbsp;&nbsp;• <b>DFA and NFA have the EXACT SAME EXPRESSIVE POWER!</b> '
+                                              'Both recognize exactly the class of <b>Regular Languages</b>.<br/>\n'
+                                              '&nbsp;&nbsp;• <b>Subset Construction (Power Set Construction):</b> '
+                                              'Converts an n-state NFA into an equivalent DFA.<br/>\n'
+                                              '&nbsp;&nbsp;&nbsp;&nbsp;- Maximum states in equivalent DFA = '
+                                              '<b>2ⁿ</b>.<br/>\n'
+                                              '&nbsp;&nbsp;&nbsp;&nbsp;- Minimum states in equivalent DFA = <b>1</b> '
+                                              '(e.g., if language is Σ*).<br/><br/>\n'
+                                              '\n'
+                                              '• <b>Standard NFA to DFA State Bounds Tested in GATE:</b><br/>\n'
+                                              '&nbsp;&nbsp;• Language of strings where the <b>n-th symbol from the '
+                                              "end</b> is 'a':<br/>\n"
+                                              '&nbsp;&nbsp;&nbsp;&nbsp;- NFA requires: <code>n + 1</code> '
+                                              'states.<br/>\n'
+                                              '&nbsp;&nbsp;&nbsp;&nbsp;- Minimal DFA requires: strictly <b>2ⁿ '
+                                              'states</b> (Exponential blowup!).<br/>\n'
+                                              '&nbsp;&nbsp;• Language of strings where the <b>n-th symbol from the '
+                                              "beginning</b> is 'a':<br/>\n"
+                                              '&nbsp;&nbsp;&nbsp;&nbsp;- Both NFA and DFA require: <code>n + 2</code> '
+                                              'states.',
+                                   'crucial_rule': '🎯 GOLDEN RULE FOR GATE: Minimal DFA for any regular language is '
+                                                   '100% UNIQUE up to state renaming (isomorphism)! Minimal NFA is NOT '
+                                                   'necessarily unique.',
+                                   'number': '20.1',
+                                   'title': 'DFA vs NFA: Equivalences, Power & State Bounds'},
+                                 { 'content': '• <b>Two States are Distinguishable:</b><br/>\n'
+                                              '&nbsp;&nbsp;Two states p and q are distinguishable if there exists some '
+                                              'string w ∈ Σ* such that δ(p, w) ∈ F and δ(q, w) ∉ F (one state accepts, '
+                                              'the other rejects).<br/><br/>\n'
+                                              '\n'
+                                              '• <b>Table-Filling Algorithm (Myhill-Nerode Theorem):</b><br/>\n'
+                                              '&nbsp;&nbsp;1. Remove all <b>unreachable states</b> from the start '
+                                              'state q₀ (Dead code elimination).<br/>\n'
+                                              '&nbsp;&nbsp;2. Set up a triangular grid for all pairs {p, q}.<br/>\n'
+                                              '&nbsp;&nbsp;3. <b>Base Step:</b> Mark {p, q} if one is accepting (F) '
+                                              'and the other is non-accepting (Q \\ F).<br/>\n'
+                                              '&nbsp;&nbsp;4. <b>Inductive Step:</b> For unmarked {p, q}, if for any '
+                                              'input symbol a ∈ Σ the pair {δ(p, a), δ(q, a)} is already marked, then '
+                                              'mark {p, q}!<br/>\n'
+                                              '&nbsp;&nbsp;5. Repeat until no more marks are added. Unmarked pairs are '
+                                              '<b>EQUIVALENT</b> and can be merged into a single state!',
+                                   'crucial_rule': '🎯 GOLDEN RULE FOR GATE: Myhill-Nerode Theorem states that a '
+                                                   'language L is regular if and only if the number of equivalence '
+                                                   'classes of its indistinguishability relation RL is FINITE. The '
+                                                   'number of equivalence classes equals the number of states in the '
+                                                   'minimal DFA!',
+                                   'number': '20.2',
+                                   'title': 'DFA Minimization: Myhill-Nerode & Table-Filling Method'},
+                                 { 'content': '• <b>Closure Properties of Regular Languages:</b><br/>\n'
+                                              '&nbsp;&nbsp;Regular languages are <b>CLOSED UNDER ALL STANDARD '
+                                              'OPERATIONS</b>:<br/>\n'
+                                              '&nbsp;&nbsp;• Union, Intersection, Complement, Difference, '
+                                              'Concatenation, Kleene Star (*), Reversal, Homomorphism, Inverse '
+                                              'Homomorphism.<br/><br/>\n'
+                                              '\n'
+                                              '• <b>Decidability Matrix for Regular Languages:</b><br/>\n'
+                                              '&nbsp;&nbsp;<b>ALL questions are DECIDABLE for Regular '
+                                              'Languages!</b><br/>\n'
+                                              '&nbsp;&nbsp;• <b>Emptiness (L = ∅?):</b> Decidable (check if any final '
+                                              'state is reachable from q₀ via BFS/DFS).<br/>\n'
+                                              '&nbsp;&nbsp;• <b>Finiteness (Is L finite?):</b> Decidable (check for '
+                                              'cycles in paths leading to an accepting state).<br/>\n'
+                                              '&nbsp;&nbsp;• <b>Equivalence (L₁ = L₂?):</b> Decidable (construct DFA '
+                                              "for (L₁ ∩ L₂') ∪ (L₁' ∩ L₂) and test if empty).<br/>\n"
+                                              '&nbsp;&nbsp;• <b>Universality (L = Σ*?):</b> Decidable (minimize DFA '
+                                              'and check if it has 1 accepting state with self-loops).',
+                                   'crucial_rule': '🎯 GOLDEN RULE FOR GATE: If L₁ is Regular and L₂ is NOT Regular: L₁ '
+                                                   '∪ L₂ may or may not be regular (e.g. Σ* ∪ non-regular = Σ*, which '
+                                                   'is regular). But L₁ ∩ L₂ is bounded by the regular set.',
+                                   'number': '20.3',
+                                   'title': 'Closure Properties & Decidability of Regular Languages'}],
+                'real_life_examples': [ { 'text': 'A vending machine is a finite automaton. Depositing coins '
+                                                  'transitions between states (10¢, 20¢, 50¢). Once the total reaches '
+                                                  '50¢, the accepting state dispenses the beverage.',
+                                          'title': 'Real-Life Analogy: Vending Machine Controller'}],
+                'title': 'Finite Automata, Regular Expressions & Minimization',
+                'worked_examples': [ { 'answer': 'Exactly 5 states in the minimal DFA.',
+                                       'problem': 'How many states are in the minimal DFA that accepts all binary '
+                                                  'strings whose decimal value is divisible by 5?',
+                                       'steps': [ 'Step 1: A binary number divisible by 5 has remainder r ∈ {0, 1, 2, '
+                                                  '3, 4} when divided by 5.',
+                                                  'Step 2: Each distinct remainder modulo 5 represents a unique '
+                                                  'equivalence class in Myhill-Nerode relation.',
+                                                  'Step 3: Define transition: Reading bit b transforms value V to 2V + '
+                                                  'b. Hence next state is (2r + b) mod 5.',
+                                                  'Step 4: All 5 states (remainders 0, 1, 2, 3, 4) are reachable and '
+                                                  'pairwise distinguishable.',
+                                                  'Step 5: The accepting state is remainder 0. Total states = 5.'],
+                                       'title': 'Worked Example: Minimal DFA States for Modulo Counting'}]},
+  ('TOC', 1): { 'chapter_number': 21,
+                'exam_traps': [ { 'title': 'Intersection of Two CFLs Trap',
+                                  'warning': 'L₁ = {aⁿ bⁿ cᵐ} is CFL. L₂ = {aᵐ bⁿ cⁿ} is CFL. But their intersection '
+                                             'L₁ ∩ L₂ = {aⁿ bⁿ cⁿ} is NOT a CFL! CFLs are not closed under '
+                                             'intersection.'}],
+                'foundations': [ { 'content': '• <b>Context-Free Grammar (CFG):</b> 4-tuple <code>(V, Σ, R, S)</code> '
+                                              'where productions have single non-terminal on LHS: <code>A → '
+                                              'α</code>.<br/><br/>\n'
+                                              '\n'
+                                              '• <b>Ambiguity in Grammars:</b><br/>\n'
+                                              '&nbsp;&nbsp;• A grammar is <b>Ambiguous</b> if there exists at least '
+                                              'one string w ∈ L(G) that has:<br/>\n'
+                                              '&nbsp;&nbsp;&nbsp;&nbsp;1. More than one <b>Leftmost Derivation</b> '
+                                              '(LMD), OR<br/>\n'
+                                              '&nbsp;&nbsp;&nbsp;&nbsp;2. More than one <b>Rightmost Derivation</b> '
+                                              '(RMD), OR<br/>\n'
+                                              '&nbsp;&nbsp;&nbsp;&nbsp;3. More than one distinct <b>Parse '
+                                              'Tree</b>.<br/>\n'
+                                              '&nbsp;&nbsp;• <b>Inherent Ambiguity:</b> A CFL is <i>Inherently '
+                                              'Ambiguous</i> if EVERY grammar generating it is ambiguous (e.g. L = {aⁿ '
+                                              'bⁿ cᵐ} ∪ {aⁿ bᵐ cᵐ}).<br/>\n'
+                                              '&nbsp;&nbsp;• <b>Decidability:</b> Checking whether an arbitrary CFG is '
+                                              'ambiguous is <b>UNDECIDABLE</b>!',
+                                   'crucial_rule': '🎯 GOLDEN RULE FOR GATE: Classical ambiguous grammar: E → E + E | E '
+                                                   '* E | id. To remove ambiguity, introduce precedence levels (Terms '
+                                                   'for *, Factors for primary operands) and left-associativity.',
+                                   'number': '21.1',
+                                   'title': 'Context-Free Grammars (CFG) & Ambiguity'},
+                                 { 'content': '• <b>PDA Mechanics:</b> Finite Automaton + 1 infinite Stack (LIFO '
+                                              'memory).<br/><br/>\n'
+                                              '\n'
+                                              '• <b>DPDA vs NPDA (CRITICAL DIFFERENCE):</b><br/>\n'
+                                              '&nbsp;&nbsp;• <b>DPDA (Deterministic PDA):</b> At any state, for any '
+                                              'input and stack top, at most ONE move is possible. Recognizes '
+                                              '<b>Deterministic Context-Free Languages (DCFL)</b>.<br/>\n'
+                                              '&nbsp;&nbsp;• <b>NPDA (Non-Deterministic PDA):</b> Multiple transitions '
+                                              'allowed. Recognizes ALL <b>Context-Free Languages (CFL)</b>.<br/>\n'
+                                              '&nbsp;&nbsp;• <b>Expressive Power:</b> <code>DCFL ⊂ CFL</code> (Strict '
+                                              'subset! Unlike finite automata, NPDA is strictly MORE powerful than '
+                                              'DPDA!).<br/>\n'
+                                              '&nbsp;&nbsp;• <i>Classic Example:</i><br/>\n'
+                                              '&nbsp;&nbsp;&nbsp;&nbsp;- Even palindrome with center marker <code>L = '
+                                              '{w c wᴿ | w ∈ {a, b}*}</code> is in <b>DCFL</b> (DPDA knows when to '
+                                              "reverse via 'c').<br/>\n"
+                                              '&nbsp;&nbsp;&nbsp;&nbsp;- Unmarked even palindrome <code>L = {w wᴿ | w '
+                                              '∈ {a, b}*}</code> is in <b>CFL but NOT DCFL</b> (requires '
+                                              'non-deterministic guessing of midpoint!).',
+                                   'crucial_rule': '🎯 GOLDEN RULE FOR GATE: DCFL is CLOSED under Complement! CFL is '
+                                                   'NOT closed under Complement or Intersection.',
+                                   'number': '21.2',
+                                   'title': 'Pushdown Automata: DPDA vs NPDA'},
+                                 { 'content': '• <b>Pumping Lemma Statement for CFL:</b><br/>\n'
+                                              '&nbsp;&nbsp;If L is a CFL, there exists a pumping length p such that '
+                                              'any string s ∈ L with |s| ≥ p can be partitioned as <code>s = u v x y '
+                                              'z</code> such that:<br/>\n'
+                                              '&nbsp;&nbsp;1. <code>|v y| ≥ 1</code> (At least one of v or y is '
+                                              'non-empty).<br/>\n'
+                                              '&nbsp;&nbsp;2. <code>|v x y| ≤ p</code>.<br/>\n'
+                                              '&nbsp;&nbsp;3. For all i ≥ 0, <code>u vⁱ x yⁱ z ∈ L</code>.<br/><br/>\n'
+                                              '\n'
+                                              '• <b>Classic Non-CFL Languages (Memorize for GATE):</b><br/>\n'
+                                              '&nbsp;&nbsp;• <code>L = {aⁿ bⁿ cⁿ | n ≥ 1}</code> (NOT a CFL - requires '
+                                              'matching 3 counts simultaneously).<br/>\n'
+                                              '&nbsp;&nbsp;• <code>L = {aⁿ bᵐ cⁿ dᵐ}</code> (NOT a CFL - interleaved '
+                                              'dependencies).<br/>\n'
+                                              '&nbsp;&nbsp;• <code>L = {w w | w ∈ {a, b}*}</code> (NOT a CFL - '
+                                              'requires queue, not stack).<br/>\n'
+                                              '&nbsp;&nbsp;• <code>L = {a^(p) | p is a prime}</code> (NOT a CFL).',
+                                   'crucial_rule': '🎯 GOLDEN RULE FOR GATE: A stack can only compare TWO counts '
+                                                   'simultaneously (e.g. {aⁿ bⁿ}). To compare 3 counts ({aⁿ bⁿ cⁿ}), '
+                                                   'you need a Turing Machine!',
+                                   'number': '21.3',
+                                   'title': 'Pumping Lemma for CFLs & Non-CFL Proofs'}],
+                'real_life_examples': [ { 'text': 'Validating balanced HTML tags (<div><p></p></div>) is a '
+                                                  'context-free grammar handled by a PDA stack. Every opening tag is '
+                                                  'pushed and matched by a closing tag.',
+                                          'title': 'Real-Life Analogy: HTML Tag Matching'}],
+                'title': 'Grammars, Pushdown Automata & Pumping Lemma',
+                'worked_examples': [ { 'answer': 'L is a DCFL (Deterministic Context-Free Language).',
+                                       'problem': 'Identify the type of language: L = {aⁿ bⁿ cᵐ dᵐ | n, m ≥ 1}. Is it '
+                                                  'Regular, DCFL, or non-CFL?',
+                                       'steps': [ "Step 1: Notice the structure: a block of a's followed by b's (with "
+                                                  "equal counts n), then c's followed by d's (with equal counts m).",
+                                                  "Step 2: A PDA can push a's on stack, pop a's against b's until "
+                                                  "stack is empty. Then push c's on stack, and pop c's against d's.",
+                                                  'Step 3: Since there is no backtracking or guessing required, a '
+                                                  'single deterministic stack can recognize it.',
+                                                  'Step 4: It cannot be regular because n and m are unbounded '
+                                                  '(requires counting).',
+                                                  'Step 5: Therefore, L is a Deterministic Context-Free Language '
+                                                  '(DCFL).'],
+                                       'title': 'Worked Example: Classifying Language L = {aⁿ bⁿ cᵐ dᵐ}'}]},
+  ('TOC', 2): { 'chapter_number': 22,
+                'exam_traps': [ { 'title': 'Complement of RE Languages Trap',
+                                  'warning': 'If language L is RE and its complement ~L is ALSO RE, then L is '
+                                             'guaranteed to be RECURSIVE (Decidable)! If L is RE but undecidable (like '
+                                             'Halting Problem), its complement ~L is strictly NOT RE.'}],
+                'foundations': [ { 'content': '• <b>Chomsky Hierarchy Master Classification:</b><br/>\n'
+                                              "<div class='font-mono text-xs p-3 bg-slate-900 text-slate-100 "
+                                              "rounded-xl my-2 leading-relaxed overflow-x-auto'>\n"
+                                              'Type   │ Language Class                   │ Automaton '
+                                              'Machine                 │ Production Grammar Rules\n'
+                                              '──────────────────────────────────────────────────────────────────────────────────────────────────────────\n'
+                                              'Type-3 │ Regular                          │ Deterministic Finite '
+                                              'Automata (DFA)│ A → aB or A → a (Right linear)\n'
+                                              'Type-2 │ Context-Free (CFL)               │ Non-Deterministic Pushdown '
+                                              '(NPDA) │ A → α (Single non-terminal LHS)\n'
+                                              'Type-1 │ Context-Sensitive (CSL)          │ Linear Bounded Automata '
+                                              '(LBA)     │ α → β with |α| ≤ |β| (Non-contracting)\n'
+                                              'Type-0 │ Recursively Enumerable (RE)      │ Turing Machine '
+                                              '(TM)               │ α → β (No restrictions)\n'
+                                              '</div>\n'
+                                              '\n'
+                                              '• <b>Subsets Inclusion:</b><br/>\n'
+                                              '&nbsp;&nbsp;<code>Regular ⊂ DCFL ⊂ CFL ⊂ CSL ⊂ Recursive (REC) ⊂ '
+                                              'Recursively Enumerable (RE)</code>.',
+                                   'crucial_rule': '🎯 GOLDEN RULE FOR GATE: Recursive (REC / Turing Decidable) '
+                                                   'languages are HALTING Turing Machines (always halts with Yes or '
+                                                   'No). Recursively Enumerable (RE / Turing Recognizable) may loop '
+                                                   'infinitely on negative inputs!',
+                                   'number': '22.1',
+                                   'title': 'The Chomsky Hierarchy of Languages'},
+                                 { 'content': '• <b>What is a Decidable Problem?</b> A problem is decidable if there '
+                                              'exists an algorithm (Turing machine that halts on ALL inputs) that '
+                                              'answers Yes or No correctly.<br/><br/>\n'
+                                              '\n'
+                                              '• <b>Turing Halting Problem (HP):</b><br/>\n'
+                                              "&nbsp;&nbsp;<i>'Given an arbitrary program M and input w, does M halt "
+                                              "on w?'</i><br/>\n"
+                                              "&nbsp;&nbsp;• Proven <b>UNDECIDABLE</b> by Alan Turing using Cantor's "
+                                              'Diagonalization Argument!<br/>\n'
+                                              '&nbsp;&nbsp;• It is <b>Semi-Decidable (RE)</b>, but NOT '
+                                              'Decidable.<br/><br/>\n'
+                                              '\n'
+                                              "• <b>Rice's Theorem (GATE Holy Grail for Undecidability):</b><br/>\n"
+                                              "&nbsp;&nbsp;<i>'Any non-trivial semantic property of the language "
+                                              "recognized by a Turing Machine is UNDECIDABLE!'</i><br/>\n"
+                                              '&nbsp;&nbsp;• <b>Semantic Property:</b> A property of the LANGUAGE L(M) '
+                                              'recognized (e.g., Is L(M) empty? Is L(M) finite? Is L(M) '
+                                              'regular?).<br/>\n'
+                                              '&nbsp;&nbsp;• <b>Non-trivial:</b> Holds for some TMs and does not hold '
+                                              'for others.<br/>\n'
+                                              "&nbsp;&nbsp;• <b>Rice's Theorem Verdict:</b> ALL such questions: 'Is "
+                                              "L(M) empty?', 'Is L(M) = Σ*?', 'Is L(M) regular?' are strictly "
+                                              '<b>UNDECIDABLE</b>!',
+                                   'crucial_rule': "🎯 GOLDEN RULE FOR GATE: Rice's Theorem applies ONLY to semantic "
+                                                   'properties of the language L(M)! Syntactic properties of the '
+                                                   "machine itself (e.g. 'Does TM M have 5 states?', 'Does M take >10 "
+                                                   "steps on input w?') are DECIDABLE.",
+                                   'number': '22.2',
+                                   'title': 'Turing Halting Problem & Undecidability'}],
+                'real_life_examples': [ { 'text': 'Writing an antivirus software that can guarantee whether ANY '
+                                                  'arbitrary computer program will ever freeze or terminate is '
+                                                  'mathematically impossible due to the Turing Halting Problem.',
+                                          'title': 'Real-Life Analogy: The Antivirus Infinite Loop Checker'}],
+                'title': 'Turing Machines, Chomsky Hierarchy & Undecidability',
+                'worked_examples': [ { 'answer': 'The problem is UNDECIDABLE.',
+                                       'problem': 'Determine whether the following problem is Decidable: Given a '
+                                                  'Turing Machine M, is the language accepted by M, L(M), a regular '
+                                                  'language?',
+                                       'steps': [ "Step 1: Check if this is a property of the language L(M). Yes, 'is "
+                                                  "L(M) regular' depends on the language accepted, not the machine "
+                                                  'description.',
+                                                  'Step 2: Check if the property is non-trivial: (a) There exist TMs '
+                                                  'whose language is regular (e.g., L(M) = {a}*). (b) There exist TMs '
+                                                  'whose language is not regular (e.g., L(M) = {aⁿ bⁿ}).',
+                                                  'Step 3: Since it is a non-trivial semantic property of the language '
+                                                  "of a TM, apply Rice's Theorem directly.",
+                                                  "Step 4: By Rice's Theorem, the problem is UNDECIDABLE."],
+                                       'title': "Worked Example: Applying Rice's Theorem"}]}}

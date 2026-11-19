@@ -1,6 +1,7 @@
 import os
 import sys
 import json
+import re
 import shutil
 import pypdf
 
@@ -30,9 +31,20 @@ import content_data.progressive_theory_engine as pte
 
 ALL_SUBJECTS = [em, dl, coa, pds, algo, toc, cd, os_mod, db, cn, ga]
 
+def sanitize_for_pdf(text):
+    if not text:
+        return ""
+    clean = str(text)
+    # Replace div containers with line breaks
+    clean = re.sub(r'<div[^>]*>', '<br/>', clean)
+    clean = clean.replace('</div>', '<br/>')
+    # Escape raw < that does not start a known ReportLab tag
+    clean = re.sub(r'<(?!(?:/?[biu]|/?code|/?font|br\s*/?|/?span)\b)', '&lt;', clean)
+    return clean
+
 def render_chapter_to_builder(b_target, sub_id, idx, chap):
     b_target.add_section_header(chap["title"], idx + 1 if idx is not None else 1)
-    b_target.add_hinglish_intro(chap["hinglish"])
+    b_target.add_hinglish_intro(sanitize_for_pdf(chap["hinglish"]))
     
     ch_data = pte.MASTER_CHAPTER_STRUCTURED_DICT.get((sub_id, idx if idx is not None else 0))
     if ch_data:
@@ -41,37 +53,37 @@ def render_chapter_to_builder(b_target, sub_id, idx, chap):
         b_target.add_section_subhead("Point-by-point conceptual breakdowns with step-by-step logic, code, and key exam rules:")
         for fnd in ch_data.get("foundations", []):
             b_target.add_sub_subsection_header(f"{fnd.get('number', '')} {fnd.get('title', '')}")
-            b_target.add_paragraph(fnd.get("content", ""))
+            b_target.add_paragraph(sanitize_for_pdf(fnd.get("content", "")))
             if fnd.get("crucial_rule"):
-                b_target.add_callout("GOLDEN RULE FOR GATE", fnd["crucial_rule"], "tip")
+                b_target.add_callout("GOLDEN RULE FOR GATE", sanitize_for_pdf(fnd["crucial_rule"]), "tip")
                 
         # Section 2: Step-by-Step Exam Worked Examples
         b_target.add_subsection_header("2. STEP-BY-STEP EXAM WORKED EXAMPLES & PROBLEM TRACES")
         for w in ch_data.get("worked_examples", []):
             b_target.add_sub_subsection_header(w.get("title", "Worked Problem"))
-            b_target.add_paragraph(f"<b>Problem:</b> {w.get('problem', '')}")
-            steps_txt = "<br/>".join([f"• {s}" for s in w.get('steps', [])])
+            b_target.add_paragraph(f"<b>Problem:</b> {sanitize_for_pdf(w.get('problem', ''))}")
+            steps_txt = "<br/>".join([f"• {sanitize_for_pdf(s)}" for s in w.get('steps', [])])
             b_target.add_paragraph(f"<b>Step-by-Step Solution & Traces:</b><br/>{steps_txt}")
-            b_target.add_callout("Final Answer", w.get("answer", ""), "formula")
+            b_target.add_callout("Final Answer", sanitize_for_pdf(w.get("answer", "")), "formula")
             
         # Section 3: Common Misconceptions & Exam Trap Warnings
         b_target.add_subsection_header("3. COMMON MISCONCEPTIONS & EXAM TRAP WARNINGS")
         for tr in ch_data.get("exam_traps", []):
             if isinstance(tr, dict):
-                b_target.add_callout(tr.get("title", "Exam Trap"), tr.get("warning", ""), "warn")
+                b_target.add_callout(tr.get("title", "Exam Trap"), sanitize_for_pdf(tr.get("warning", "")), "warn")
             else:
-                b_target.add_callout("GATE Exam Trap / Warning", str(tr), "warn")
+                b_target.add_callout("GATE Exam Trap / Warning", sanitize_for_pdf(str(tr)), "warn")
 
         # Section 4: Quick Intuitive Mental Models
         if ch_data.get("real_life_examples"):
             b_target.add_subsection_header("4. QUICK INTUITIVE MENTAL MODELS (REAL-LIFE ANALOGIES)")
             b_target.add_section_subhead("Everyday analogies to connect technical concepts with natural intuition:")
             for ex in ch_data.get("real_life_examples", []):
-                b_target.add_real_life_example(ex["title"], ex["text"])
+                b_target.add_real_life_example(ex["title"], sanitize_for_pdf(ex["text"]))
     else:
-        b_target.add_paragraph(chap["theory"])
+        b_target.add_paragraph(sanitize_for_pdf(chap["theory"]))
         for c_title, c_text, c_type in chap.get("callouts", []):
-            b_target.add_callout(c_title, c_text, c_type)
+            b_target.add_callout(c_title, sanitize_for_pdf(c_text), c_type)
 
     for tbl in chap.get("tables", []):
         b_target.add_table(tbl["header"], tbl["rows"])

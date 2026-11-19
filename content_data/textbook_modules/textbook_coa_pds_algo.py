@@ -1,6 +1,6 @@
 # textbook_coa_pds_algo.py
-# Simplified, crystal-clear study notes for COA, PDS, and Algorithms.
-# Written in simple, friendly, easy-to-understand language for GATE 2027 CSE aspirants.
+# Simple English, point-by-point study notes for COA, PDS, and Algorithms.
+# Written in crystal-clear, student-friendly language for GATE 2027 CSE aspirants.
 
 CHAPTERS_COA_PDS_ALGO = {}
 
@@ -15,16 +15,31 @@ CHAPTERS_COA_PDS_ALGO[("COA", 0)] = {
     "title": "Machine Instructions & Addressing Modes",
     "real_life_examples": [
         {
-            "title": "Real-Life Example 1: The Scavenger Hunt Clues (Addressing Modes)",
-            "text": "Imagine a scavenger hunt game:\n• Immediate: The clue card gives you ₹500 cash directly taped to it (data is inside the instruction!).\n• Direct: The card gives an address: 'Go to House #42' (direct memory address).\n• Indirect: The card says: 'Open locker 10; inside locker 10 is a note with the real address' (Pointer to pointer).\n• PC-Relative: The card says: 'From where you are right now, take 5 steps forward' (used for loops and branch jumps)."
+            "title": "Real-Life Example 1: The Scavenger Hunt Clues (Addressing Modes Made Simple)",
+            "text": (
+                "Imagine you are playing a scavenger hunt game to find cash prize money:\n"
+                "• Immediate Mode: The clue paper has the cash ₹500 taped directly onto it! You get the money instantly without going anywhere.\n"
+                "• Direct Mode: The paper gives you an address: 'Go to House #42'. You walk there and pick up the money from the house.\n"
+                "• Indirect Mode: The paper says: 'Open locker 10; inside locker 10 is a key and another note with the final address'. You make two trips.\n"
+                "• Register Mode: The money is already sitting inside your own pocket (CPU register). Zero walking required!\n"
+                "• PC-Relative Mode: The paper says: 'From where you are standing right now, take 5 steps forward'. This is how loops and jumps work in software."
+            )
         },
         {
-            "title": "Real-Life Example 2: Little-Endian vs Big-Endian Mail (Byte Ordering)",
-            "text": "When writing an address, does the country come first or last? In Big-Endian, you write the Most Significant part first (Country, then City, then House number). In Little-Endian, you write the Least Significant byte first (House number first, then City, Country last). Intel x86 processors use Little-Endian; network packets use Big-Endian."
+            "title": "Real-Life Example 2: Little-Endian vs Big-Endian (How Bytes are Stored)",
+            "text": (
+                "When writing a mailing address, which order do you use?\n"
+                "• Big-Endian: You write the biggest part first (Country, then State, then City, then House number). The Most Significant Byte (MSB) gets stored at the lowest memory address.\n"
+                "• Little-Endian: You write the smallest part first (House number first, then City, State, and Country last). The Least Significant Byte (LSB) gets stored at the lowest memory address.\n"
+                "• Everyday fact: Intel x86 processors use Little-Endian. Internet network packets use Big-Endian."
+            )
         },
         {
-            "title": "Real-Life Example 3: Expanding Menu Combos (Expanding Opcode)",
-            "text": "In a fast food shop, a 2-bit code lets you choose 4 combos. But what if you want 3 popular big meals (requiring lots of side dishes) and 8 small snacks (needing fewer sides)? By using one code as an 'escape code' to unlock longer codes, you can support both. This is Expanding Opcode."
+            "title": "Real-Life Example 3: Expanding Menu Combos (Expanding Opcode Technique)",
+            "text": (
+                "In a burger shop, you have a 4-bit order slip that can represent 16 total combo meals. But what if you need some large meals (that take 3 extra side-dishes) and some small meals (that only need 2 side-dishes)?\n"
+                "By keeping 14 codes for large meals and reserving the remaining 2 unused codes as 'escape signals', you can expand the order slip to unlock dozens of smaller meal options. This is called Expanding Opcode."
+            )
         }
     ],
     "foundations": [
@@ -32,24 +47,50 @@ CHAPTERS_COA_PDS_ALGO[("COA", 0)] = {
             "number": "9.1",
             "title": "Effective Address (EA) in Common Addressing Modes",
             "content": (
-                "The Effective Address (EA) is the exact RAM address where the data is stored.<br/>"
-                "• <b>Immediate:</b> Operand is in instruction. EA = None. (0 memory accesses).<br/>"
-                "• <b>Direct:</b> EA = Address field. (1 memory access).<br/>"
-                "• <b>Indirect:</b> EA = M[Address field]. (2 memory accesses).<br/>"
-                "• <b>Register:</b> Data is in CPU register. EA = None. (0 memory accesses, ultra-fast!).<br/>"
-                "• <b>Register Indirect:</b> EA = [Register content]. (1 memory access).<br/>"
-                "• <b>PC-Relative:</b> EA = PC + Offset. (Used for Branch/Jump instructions)."
+                "<b>What is Effective Address (EA)?</b><br/>"
+                "It is the exact physical RAM location where your data (operand) lives.<br/><br/>"
+                "Here is how each addressing mode finds the data, explained point by point:<br/>"
+                "• <b>Immediate Addressing:</b><br/>"
+                "&nbsp;&nbsp;- The data is written directly inside the instruction itself (e.g. <code>ADD R1, #5</code>).<br/>"
+                "&nbsp;&nbsp;- EA = None (No RAM lookup needed). Number of memory accesses to fetch data = 0.<br/>"
+                "• <b>Direct Addressing:</b><br/>"
+                "&nbsp;&nbsp;- The instruction directly gives the RAM address (e.g. <code>LOAD R1, [1000]</code>).<br/>"
+                "&nbsp;&nbsp;- EA = Address field. Memory accesses = 1 (to read data from address 1000).<br/>"
+                "• <b>Indirect Addressing:</b><br/>"
+                "&nbsp;&nbsp;- The instruction points to an address, which holds ANOTHER address where data is stored.<br/>"
+                "&nbsp;&nbsp;- EA = Content of Memory[Address]. Memory accesses = 2 (first to read the pointer, second to read the data).<br/>"
+                "• <b>Register Addressing:</b><br/>"
+                "&nbsp;&nbsp;- The data is stored inside a fast CPU register (e.g. <code>ADD R1, R2</code>).<br/>"
+                "&nbsp;&nbsp;- EA = None. Memory accesses = 0 (blazing fast!).<br/>"
+                "• <b>Register Indirect Addressing:</b><br/>"
+                "&nbsp;&nbsp;- A register holds the RAM memory address of the data (like a C pointer).<br/>"
+                "&nbsp;&nbsp;- EA = Content of Register. Memory accesses = 1.<br/>"
+                "• <b>PC-Relative Addressing:</b><br/>"
+                "&nbsp;&nbsp;- Used for jump and branch instructions (<code>if/else</code>, <code>loops</code>).<br/>"
+                "&nbsp;&nbsp;- EA = Next Instruction PC + Offset."
             ),
-            "crucial_rule": "GOLDEN RULE: In PC-Relative addressing, remember that PC has ALREADY been incremented to the next instruction before the offset is added: EA = Next_PC + Offset!"
+            "crucial_rule": "GOLDEN RULE FOR GATE: In PC-Relative mode, the Program Counter (PC) has ALREADY moved to the next instruction before the offset is added! Formula: Target Address = Next_PC + Offset."
         },
         {
             "number": "9.2",
             "title": "Hardwired vs Microprogrammed Control Unit",
             "content": (
-                "• <b>Hardwired:</b> Built using fast digital logic gates. Blazing fast (RISC processors), but impossible to modify once manufactured.<br/>"
-                "• <b>Microprogrammed:</b> Control signals are stored in a small ROM (Control Memory). Slower (CISC processors), but flexible and easy to update with firmware."
+                "<b>What does a Control Unit do?</b><br/>"
+                "It acts like the conductor of an orchestra, generating electronic signals that tell the ALU, registers, and memory when to read, write, or calculate.<br/><br/>"
+                "Two ways to build it:<br/>"
+                "• <b>Hardwired Control Unit:</b><br/>"
+                "&nbsp;&nbsp;- Built using physical logic gates (AND, OR, flip-flops).<br/>"
+                "&nbsp;&nbsp;- Speed: Extremely fast (used in RISC processors).<br/>"
+                "&nbsp;&nbsp;- Flexibility: Zero flexibility. If you find a bug, you cannot change the hardware after manufacturing.<br/>"
+                "• <b>Microprogrammed Control Unit:</b><br/>"
+                "&nbsp;&nbsp;- Control signals are written as tiny binary micro-instructions stored in a special ROM called Control Memory.<br/>"
+                "&nbsp;&nbsp;- Speed: Slower (because it must fetch micro-instructions from ROM).<br/>"
+                "&nbsp;&nbsp;- Flexibility: Very flexible and easy to update via firmware (used in CISC processors).<br/>"
+                "• <b>Horizontal vs Vertical Microprogramming:</b><br/>"
+                "&nbsp;&nbsp;- Horizontal: 1 bit per control signal. No decoder needed. Micro-instructions are very wide, but super fast.<br/>"
+                "&nbsp;&nbsp;- Vertical: Signals are encoded in groups and decoded using decoders (e.g. 3 bits decoded to 8 signals). Words are narrower, saving memory."
             ),
-            "crucial_rule": "GOLDEN RULE: Horizontal microprogramming has 1 bit per control signal (no decoder needed, wide micro-words). Vertical microprogramming encodes signals with decoders (narrow words, smaller memory)."
+            "crucial_rule": "GOLDEN RULE FOR GATE: If a control unit has 32 independent control signals: Horizontal microprogramming needs 32 bits. Vertical microprogramming with 4 groups of 8 mutually exclusive signals needs only 4 × log2(8) = 12 bits!"
         }
     ],
     "worked_examples": [
@@ -57,19 +98,20 @@ CHAPTERS_COA_PDS_ALGO[("COA", 0)] = {
             "title": "Step-by-Step Solved Problem: Expanding Opcode",
             "problem": "A 16-bit computer uses 4-bit register addresses. It supports 3-register instructions and 2-register instructions. If there are 14 different 3-register instructions, how many 2-register instructions can be supported?",
             "steps": [
-                "Step 1: Total bits = 16. A 3-register instruction uses 3 × 4 = 12 bits for registers.",
-                "Step 2: Remaining bits for opcode = 16 - 12 = 4 bits (Total patterns = 2^4 = 16).",
-                "Step 3: 14 patterns are used for 3-register instructions. Unused patterns = 16 - 14 = 2.",
-                "Step 4: For 2-register instructions, only 2 × 4 = 8 bits are needed for registers. Opcode expands by 4 bits!",
-                "Step 5: Number of 2-register instructions = (Unused patterns) × 2^4 = 2 × 16 = 32."
+                "Step 1: Check total instruction length = 16 bits.",
+                "Step 2: A 3-register instruction needs: Opcode + Reg1(4 bits) + Reg2(4 bits) + Reg3(4 bits) = Opcode + 12 bits.",
+                "Step 3: Bits available for Opcode = 16 - 12 = 4 bits. Total possible opcode combinations = 2^4 = 16.",
+                "Step 4: The system uses 14 combinations for 3-register instructions. Unused opcode patterns = 16 - 14 = 2 patterns.",
+                "Step 5: For a 2-register instruction, only 2 × 4 = 8 bits are used for registers. The opcode can expand by 4 extra bits!",
+                "Step 6: Total 2-register instructions possible = (Unused patterns) × 2^(extra bits) = 2 × 2^4 = 2 × 16 = 32."
             ],
-            "answer": "Maximum 2-register instructions = 32."
+            "answer": "Maximum 2-register instructions supported = 32."
         }
     ],
     "exam_traps": [
         {
-            "title": "GATE Trap: Byte vs Word Addressable",
-            "warning": "Always check if memory is byte-addressable (8 bits per address) or word-addressable (e.g. 32 bits = 4 bytes per address). A 64 MB memory needs 26 bits if byte-addressed, but only 24 bits if 4-byte-word addressed!"
+            "title": "GATE Trap: Byte-Addressable vs Word-Addressable Memory",
+            "warning": "Always read the question carefully: Is the memory Byte-addressable (1 byte per address) or Word-addressable (e.g. 4 bytes per address)? For a 64 MB memory: If byte-addressed, you need 26 bits (since 64 MB = 2^26 B). If 4-byte-word addressed, you need only 24 bits (since 64 MB / 4 B = 16 M words = 2^24 words)!"
         }
     ]
 }
@@ -82,15 +124,25 @@ CHAPTERS_COA_PDS_ALGO[("COA", 1)] = {
     "real_life_examples": [
         {
             "title": "Real-Life Example 1: Multiplying by 99 in Your Head (Booth's Algorithm)",
-            "text": "If someone asks you to multiply 27 by 99, do you do 99 separate additions? No! You do 27 × (100 - 1) = 2700 - 27 = 2673 (just one subtraction and one shift!). Booth's Algorithm does the exact same trick in binary: when it sees a long run of 1s (like 0111110), it does 1 subtraction at the start and 1 addition at the end, skipping all the middle steps!"
+            "text": (
+                "If someone asks you to multiply 27 × 99, do you perform 99 separate additions? Of course not!\n"
+                "You simply do 27 × (100 - 1) = 2700 - 27 = 2673. That took just one subtraction and one shift!\n"
+                "Booth's Algorithm does the exact same trick in binary: when it sees a long string of 1s (like 0111110), it does 1 subtraction at the beginning and 1 addition at the end, skipping all the steps in between."
+            )
         },
         {
-            "title": "Real-Life Example 2: The VIP Express Package Delivery (Direct Memory Access - DMA)",
-            "text": "When a 4K movie downloads from hard drive to RAM, if the CPU had to move every single byte one by one, the CPU would freeze. A DMA Controller steps in, takes control of the bus, and copies the data directly between disk and RAM while the CPU keeps running your games without interruption."
+            "title": "Real-Life Example 2: The VIP Express Highway (Direct Memory Access - DMA)",
+            "text": (
+                "Imagine downloading a 4K movie from your SSD into RAM. If the CPU had to move every single byte by hand, your entire computer would freeze.\n"
+                "Instead, a DMA Controller acts like an express highway: it takes control of the memory bus and streams data straight into RAM while the CPU keeps running your games without waiting."
+            )
         },
         {
-            "title": "Real-Life Example 3: Phone Notification Interrupts (Interrupt-Driven I/O)",
-            "text": "Instead of checking your phone screen every 2 seconds to see if you got a WhatsApp message (Polling / Programmed I/O: wastes battery and time!), your phone stays asleep until a notification sound rings (Interrupt). The CPU only pauses what it is doing when a real event occurs."
+            "title": "Real-Life Example 3: Phone Notification vs Continuous Screen Checking (Interrupts vs Polling)",
+            "text": (
+                "• Polling (Programmed I/O): Checking your phone screen every 5 seconds to see if a WhatsApp message arrived. Wastes huge battery and CPU time!\n"
+                "• Interrupt-Driven I/O: You keep working on your laptop. When a message arrives, your phone chimes (sends an interrupt signal), you quickly read it, and return to work."
+            )
         }
     ],
     "foundations": [
@@ -98,22 +150,29 @@ CHAPTERS_COA_PDS_ALGO[("COA", 1)] = {
             "number": "10.1",
             "title": "Booth's Multiplication Rules (Q_i, Q_{i-1})",
             "content": (
-                "Scan bits from right to left with Q_{-1} initialized to 0:<br/>"
-                "• <b>0 0:</b> Just Arithmetic Right Shift (ARS).<br/>"
-                "• <b>0 1:</b> Add Multiplicand (A ← A + M), then ARS.<br/>"
-                "• <b>1 0:</b> Subtract Multiplicand (A ← A - M), then ARS.<br/>"
-                "• <b>1 1:</b> Just Arithmetic Right Shift (ARS)."
+                "<b>How Booth's Algorithm works:</b><br/>"
+                "• It multiplies signed numbers in 2's complement without extra sign conversion.<br/>"
+                "• You scan multiplier bits from right to left, starting with an extra helper bit Q_{-1} = 0.<br/><br/>"
+                "<b>The 4 Simple Action Rules:</b><br/>"
+                "• <b>Case (0, 0):</b> String of zeros. Action: Only Arithmetic Right Shift (ARS).<br/>"
+                "• <b>Case (0, 1):</b> End of a string of 1s. Action: Add Multiplicand (A = A + M), then ARS.<br/>"
+                "• <b>Case (1, 0):</b> Beginning of a string of 1s. Action: Subtract Multiplicand (A = A - M), then ARS.<br/>"
+                "• <b>Case (1, 1):</b> Inside a string of 1s. Action: Only Arithmetic Right Shift (ARS)."
             ),
-            "crucial_rule": "GOLDEN RULE: Shift in Booth's is strictly ARITHMETIC Right Shift (replicates sign bit, preserving positive/negative sign)!"
+            "crucial_rule": "GOLDEN RULE FOR GATE: In Booth's algorithm, the shift is strictly an ARITHMETIC Right Shift (ARS). The sign bit (MSB) is copied into itself so the sign of positive and negative numbers is always preserved!"
         },
         {
             "number": "10.2",
             "title": "DMA Cycle Stealing Percentage",
             "content": (
-                "In cycle stealing mode, DMA steals 1 memory bus cycle from the CPU whenever a data unit is ready.<br/>"
-                "• <b>CPU Time Stolen (%):</b> (Device Transfer Rate / Memory Bus Bandwidth) × 100%."
+                "<b>What is Cycle Stealing?</b><br/>"
+                "The DMA controller transfers one data word, pauses, gives the bus back to the CPU, and repeats.<br/><br/>"
+                "<b>Formulas to remember:</b><br/>"
+                "• Time taken by DMA to transfer 1 word = (1 Word Size) / (Device Transfer Rate).<br/>"
+                "• Fraction of CPU time stolen = (Time bus is busy with DMA) / (Total Time).<br/>"
+                "• <b>Direct Shortcut:</b> CPU Time Stolen (%) = (Device Transfer Rate / Memory Bus Bandwidth) × 100%."
             ),
-            "crucial_rule": "GOLDEN RULE: Percentage of CPU time available for normal work = 100% - (Percentage stolen by DMA)."
+            "crucial_rule": "GOLDEN RULE FOR GATE: Percentage of CPU time available for useful processing = 100% - (Percentage stolen by DMA)!"
         }
     ],
     "worked_examples": [
@@ -121,18 +180,18 @@ CHAPTERS_COA_PDS_ALGO[("COA", 1)] = {
             "title": "Step-by-Step Solved Problem: DMA Bus Overhead",
             "problem": "A hard disk transfers data at 2 MB/sec. The memory bus has cycle time 200 ns and transfers 1 byte per cycle. In cycle-stealing mode, what percentage of CPU time is stolen by DMA?",
             "steps": [
-                "Step 1: Calculate Memory Bus Bandwidth: 1 Byte / (200 × 10^-9 s) = 5,000,000 Bytes/s = 5 MB/sec.",
+                "Step 1: Find Memory Bus Bandwidth = 1 Byte / (200 × 10^-9 sec) = 5,000,000 Bytes/sec = 5 MB/sec.",
                 "Step 2: Hard disk transfer rate = 2 MB/sec.",
-                "Step 3: Fraction of time stolen = 2 MB/s / 5 MB/s = 2/5 = 0.40.",
-                "Step 4: Percentage stolen = 40%."
+                "Step 3: Calculate the ratio of bus usage = (Device Rate) / (Bus Bandwidth) = 2 MB/s / 5 MB/s = 0.40.",
+                "Step 4: Multiply by 100% to find percentage = 40%."
             ],
-            "answer": "CPU time consumed by DMA = 40% (60% remaining for CPU)."
+            "answer": "CPU time consumed by DMA = 40% (CPU gets remaining 60% of time)."
         }
     ],
     "exam_traps": [
         {
             "title": "GATE Trap: Vectored vs Non-Vectored Interrupts",
-            "warning": "Vectored interrupts supply the memory address of the handler directly on the bus. Non-vectored interrupts have a fixed, hardwired address in the CPU."
+            "warning": "Vectored interrupt: The interrupting device supplies the handler address directly on the data bus. Non-vectored interrupt: The CPU jumps to a fixed, hardwired memory address in the interrupt vector table."
         }
     ]
 }
@@ -144,122 +203,155 @@ CHAPTERS_COA_PDS_ALGO[("COA", 2)] = {
     "title": "Memory Hierarchy, Cache Mapping & AMAT",
     "real_life_examples": [
         {
-            "title": "Real-Life Example 1: The Kitchen Spice Rack (Cache Memory Locality)",
-            "text": "When cooking dinner, a chef keeps salt, pepper, and oil on a tiny shelf right above the stove (L1 Cache: instant 1-second access). They don't walk down to the cold basement pantry (Main RAM: slow 1-minute walk) every time they need a pinch of salt! Because you tend to reuse recent items (Temporal Locality) and nearby items (Spatial Locality), 95% of cooking needs are met from the spice rack."
+            "title": "Real-Life Example 1: The Kitchen Spice Rack (Why Cache Works)",
+            "text": (
+                "When cooking, a chef keeps salt, pepper, and oil on a tiny shelf right above the stove (L1 Cache: 1-second access).\n"
+                "They don't walk down to the basement grocery store (Main Memory: 2-minute walk) every time they need a pinch of salt!\n"
+                "Because you reuse the same ingredients (Temporal Locality) and nearby ingredients (Spatial Locality), 95% of cooking needs are met straight from the spice shelf."
+            )
         },
         {
-            "title": "Real-Life Example 2: Assigned Parking Spots (Cache Mapping)",
-            "text": "• Direct Mapped: Your apartment number determines your exact parking slot (Slot = Flat % 10). If Flat 104 and 204 arrive, they fight over Slot 4 (Conflict Miss!).\n• Fully Associative: Park in ANY vacant slot anywhere in the lot (Zero conflicts, but you need a security guard to search the whole lot).\n• Set-Associative: Each floor gets a 4-car designated cluster (The best balance of speed and cost!)."
+            "title": "Real-Life Example 2: Assigned Parking Spots (Direct Mapped Cache)",
+            "text": (
+                "In an apartment parking lot, car owner #14 is strictly assigned to Spot #4 (14 mod 10 = 4).\n"
+                "It is super fast to check if their car is home: you only check Spot #4! But if resident #24 arrives, they both fight for Spot #4 even if spots 5, 6, 7 are completely empty. This is Conflict Miss."
+            )
         },
         {
-            "title": "Real-Life Example 3: Pencil Scratchpad vs Ink Ledger (Write-Through vs Write-Back)",
-            "text": "Write-Through updates both cache and main memory immediately on every write (slow, but safe). Write-Back writes only to the cache, marking it with a 'Dirty Bit'. It only copies the dirty block to main RAM when that block is being kicked out (much faster!)."
+            "title": "Real-Life Example 3: Free-For-All Parking (Fully Associative Cache)",
+            "text": (
+                "Any car can park in any empty spot. Zero conflict misses! But when you search for your car, you must scan all 100 spots at the exact same time using expensive comparator hardware."
+            )
         }
     ],
     "foundations": [
         {
             "number": "11.1",
-            "title": "Address Split in Cache Mapping",
+            "title": "Breaking Down a Memory Address in Cache Mapping",
             "content": (
-                "For address length P bits, Block Size B = 2^b bytes (Offset = b bits):<br/>"
-                "• <b>Direct Mapped:</b> [ Tag | Line Index (c bits) | Block Offset (b bits) ]. Tag = P - c - b.<br/>"
-                "• <b>k-Way Set Associative:</b> [ Tag | Set Index (s bits) | Block Offset (b bits) ].<br/>"
-                "&nbsp;&nbsp;Number of Sets S = (Total Lines) / k = 2^s.<br/>"
-                "• <b>Fully Associative:</b> [ Tag | Block Offset (b bits) ]. (No index bits!)."
+                "Every memory address is split into 3 fields depending on cache mapping:<br/><br/>"
+                "• <b>1. Direct Mapped Cache:</b><br/>"
+                "&nbsp;&nbsp;- [ Tag Bits | Line/Block Bits | Word Offset Bits ]<br/>"
+                "&nbsp;&nbsp;- Word Offset = log2(Block Size in bytes).<br/>"
+                "&nbsp;&nbsp;- Line Bits = log2(Number of Cache Lines).<br/>"
+                "&nbsp;&nbsp;- Tag Bits = Total Address Bits - (Line Bits + Word Offset).<br/><br/>"
+                "• <b>2. k-Way Set Associative Cache:</b><br/>"
+                "&nbsp;&nbsp;- [ Tag Bits | Set Bits | Word Offset Bits ]<br/>"
+                "&nbsp;&nbsp;- Number of Sets = (Total Cache Lines) / k.<br/>"
+                "&nbsp;&nbsp;- Set Bits = log2(Number of Sets).<br/>"
+                "&nbsp;&nbsp;- Tag Bits = Total Address Bits - (Set Bits + Word Offset).<br/><br/>"
+                "• <b>3. Fully Associative Cache:</b><br/>"
+                "&nbsp;&nbsp;- [ Tag Bits | Word Offset Bits ]<br/>"
+                "&nbsp;&nbsp;- There is no set or line index. Tag Bits = Total Address Bits - Word Offset."
             ),
-            "crucial_rule": "GOLDEN RULE: Always divide Total Cache Lines by k to find the number of sets: Sets = Lines / k. Never forget this step!"
+            "crucial_rule": "GOLDEN RULE FOR GATE: Total Cache Size = (Number of Lines) × (Block Size). Tag Directory Size = (Number of Lines) × (Tag Bits + Valid Bit + Dirty Bit)."
         },
         {
             "number": "11.2",
             "title": "Average Memory Access Time (AMAT)",
             "content": (
-                "• <b>Formula:</b> AMAT = Hit_Time + (Miss_Rate × Miss_Penalty).<br/>"
-                "• <b>Two-Level Cache:</b> AMAT = t_L1 + (Miss_Rate_L1 × [ t_L2 + (Miss_Rate_L2_local × t_main) ])."
+                "<b>Formula for AMAT:</b><br/>"
+                "• <b>Hierarchical Cache (CPU checks L1 first; on miss, visits L2/Main Memory):</b><br/>"
+                "&nbsp;&nbsp;AMAT = Hit_Time_L1 + (Miss_Rate_L1 × Miss_Penalty_L1).<br/><br/>"
+                "• <b>Simultaneous Access (CPU searches L1 and Main Memory simultaneously):</b><br/>"
+                "&nbsp;&nbsp;AMAT = (Hit_Rate × Hit_Time) + ((1 - Hit_Rate) × Main_Memory_Access_Time)."
             ),
-            "crucial_rule": "GOLDEN RULE: The 3 C's of Cache Misses: Compulsory (first-time access), Capacity (cache is too small), Conflict (multiple blocks fight for the same set)."
+            "crucial_rule": "GOLDEN RULE FOR GATE: Unless the question explicitly specifies 'simultaneous access', ALWAYS use the Hierarchical formula where Miss Penalty includes the access to the next lower level!"
         }
     ],
     "worked_examples": [
         {
-            "title": "Step-by-Step Solved Problem: Set-Associative Cache Bits",
-            "problem": "A 32-bit processor has a 64 KB 4-way set-associative cache with 32-byte blocks. Find: (1) Offset bits, (2) Set index bits, (3) Tag bits.",
+            "title": "Step-by-Step Solved Problem: Cache Tag Size Calculation",
+            "problem": "A 32-bit byte-addressable system has a 64 KB 4-way set associative cache with 32-byte blocks. Find the number of Tag bits.",
             "steps": [
-                "Step 1: Block Size = 32 Bytes = 2^5 Bytes ⇒ Offset b = 5 bits.",
-                "Step 2: Total lines = Cache Size / Block Size = 64 KB / 32 B = 65,536 / 32 = 2048 lines.",
-                "Step 3: Number of sets S = 2048 / 4 = 512 sets = 2^9 ⇒ Set Index s = 9 bits.",
-                "Step 4: Tag bits = Total bits - Set bits - Offset bits = 32 - 9 - 5 = 18 bits."
+                "Step 1: Find Word Offset: Block size = 32 Bytes = 2^5 B ⇒ Offset = 5 bits.",
+                "Step 2: Find Total Cache Lines: Total Cache Size / Block Size = 64 KB / 32 B = 65536 / 32 = 2048 lines.",
+                "Step 3: Find Number of Sets: 2048 lines / 4 lines per set = 512 sets = 2^9 sets ⇒ Set bits = 9 bits.",
+                "Step 4: Calculate Tag bits: Total Address (32 bits) - Set bits (9) - Offset bits (5) = 32 - 14 = 18 bits."
             ],
-            "answer": "Offset = 5 bits, Set Index = 9 bits, Tag = 18 bits."
+            "answer": "Tag field size = 18 bits."
         }
     ],
     "exam_traps": [
         {
-            "title": "GATE Trap: Tag Directory Size",
-            "warning": "Tag directory memory size = (Total Lines) × (Tag bits + Valid bit). Remember to multiply by Total Lines, NOT the number of sets!"
+            "title": "GATE Trap: Write-Through vs Write-Back Cache",
+            "warning": "Write-Through updates both cache and RAM immediately (needs a Write Buffer). Write-Back updates only the cache block and sets a 'Dirty Bit'; RAM is updated only when that block is evicted!"
         }
     ]
 }
 
-# COA Chapter 3: Pipelining
+# COA Chapter 3: Pipelining & Hazards
 CHAPTERS_COA_PDS_ALGO[("COA", 3)] = {
     "sub_id": "COA",
     "chap_idx": 3,
-    "title": "Instruction Pipelining, Hazards & Performance",
+    "title": "Pipeline Hazards, Speedup & Instruction Level Parallelism",
     "real_life_examples": [
         {
-            "title": "Real-Life Example 1: Doing Laundry (Pipelining Principle)",
-            "text": "Imagine washing 4 loads of laundry: Wash (30 min), Dry (40 min), Fold (20 min). If you do them one by one, 4 loads take 4 × 90 = 360 min (6 hours!). But in a pipeline: while load 1 is in the dryer, load 2 enters the washer! The dryer is the bottleneck (40 min). Once running, one clean basket finishes every 40 minutes, cutting total time in half!"
+            "title": "Real-Life Example 1: The Laundromat Pipeline (Instruction Pipelining)",
+            "text": (
+                "Doing 4 loads of laundry: Washer (30 mins), Dryer (40 mins), Folding (20 mins).\n"
+                "• Non-pipelined: Wait until load 1 is completely washed, dried, and folded before starting load 2. Total time = 4 × 90 mins = 360 mins.\n"
+                "• Pipelined: As soon as load 1 moves to the dryer, put load 2 into the washer! Each stage stays busy continuously. Total time shrinks dramatically to ~180 mins."
+            )
         },
         {
-            "title": "Real-Life Example 2: Passing Ingredients Direct from Frying Pan (Operand Forwarding)",
-            "text": "Step 1 cooks onions; Step 2 needs cooked onions to make sauce. If Step 2 waits until Step 1 is plated and stored in the fridge, you waste time. Operand Forwarding (Bypassing) takes the hot onions directly from the frying pan and dumps them into Step 2's pot immediately!"
-        },
-        {
-            "title": "Real-Life Example 3: The Highway Fog Fork (Branch Prediction)",
-            "text": "Driving fast toward a fork in the road in dense fog. If you stop the car to read the sign, traffic halts (Branch Stall). Instead, you guess 'keep going left'. If your guess was right, you didn't lose any speed. If wrong, you stop, reverse, and take the right fork (Branch Penalty)."
+            "title": "Real-Life Example 2: Waiting for the Oven (Data Hazard: RAW)",
+            "text": (
+                "You want to frost a cake (Instruction 2), but the cake is still baking in the oven (Instruction 1 hasn't written its result yet!).\n"
+                "You must wait (stall / bubble) until the cake cools down before you can frost it. In CPU design, Operand Forwarding is like taking the warm cake directly from the oven shelf instead of waiting for it to be packaged."
+            )
         }
     ],
     "foundations": [
         {
             "number": "12.1",
-            "title": "Pipeline Clock Time & Speedup Formula",
+            "title": "The Three Classic Pipeline Hazards",
             "content": (
-                "For a k-stage pipeline executing n instructions:<br/>"
-                "• <b>Clock Cycle Time (T_pipe):</b> max(stage_delays) + register_delay.<br/>"
-                "• <b>Total Clock Cycles:</b> k + (n - 1) cycles.<br/>"
-                "• <b>Ideal Speedup:</b> S_max = k (number of stages, as n becomes very large)."
+                "<b>1. Structural Hazard (Hardware Conflict):</b><br/>"
+                "• Two instructions need the exact same physical resource at the same time (e.g. instruction fetch and data read both trying to access a single-port RAM).<br/>"
+                "• Solution: Separate Instruction Cache and Data Cache (Harvard Architecture).<br/><br/>"
+                "<b>2. Data Hazard (RAW, WAR, WAW):</b><br/>"
+                "• <b>RAW (Read After Write - True Dependency):</b> Inst 2 wants to read R1 before Inst 1 finishes writing to R1. Solved by <b>Operand Forwarding</b> or inserting NOP stalls.<br/>"
+                "• <b>WAR (Write After Read - Anti-dependency):</b> Inst 2 writes before Inst 1 reads.<br/>"
+                "• <b>WAW (Write After Write - Output dependency):</b> Inst 2 writes before Inst 1 writes, leaving old data.<br/><br/>"
+                "<b>3. Control Hazard (Branch Hazard):</b><br/>"
+                "• Occurs on Conditional Jumps (<code>if/else</code>, <code>goto</code>) because the CPU doesn't know which path to fetch next.<br/>"
+                "• Solution: Branch Prediction (Dynamic/Static) and Delayed Branching."
             ),
-            "crucial_rule": "GOLDEN RULE: Always add the pipeline buffer register delay to the maximum stage delay: T_clk = max(stages) + t_buffer!"
+            "crucial_rule": "GOLDEN RULE FOR GATE: In a standard 5-stage pipeline without operand forwarding, a RAW dependency between consecutive instructions causes 2 stall cycles. With operand forwarding, stalls reduce to 0 (or 1 stall if dependent on a LOAD instruction)!"
         },
         {
             "number": "12.2",
-            "title": "The 3 Pipeline Hazards & Solutions",
+            "title": "Pipeline Clock Period, Speedup & CPI",
             "content": (
-                "• <b>Structural Hazard:</b> Two instructions fight for same hardware (e.g. single memory port). Fix: Separate Instruction and Data Caches.<br/>"
-                "• <b>Data Hazard (RAW):</b> Reading before writing. Fix: <b>Operand Forwarding</b>.<br/>"
-                "• <b>Control Hazard:</b> Caused by branch instructions. Fix: Branch Prediction and delayed branching."
+                "<b>Key Formulas to memorize:</b><br/>"
+                "• <b>Clock Cycle Time (T_clk):</b> Max(Stage Delays) + Buffer Delay (Register Delay).<br/>"
+                "• <b>Execution time for n instructions in k-stage pipeline:</b> Time = (k + n - 1) × T_clk.<br/>"
+                "• <b>Ideal Speedup (when n is very large and no stalls):</b> Speedup = k (number of stages).<br/>"
+                "• <b>Actual Speedup with stalls:</b> Speedup = (Non-pipelined time) / (Pipelined time) = (k × CPI_ideal) / (CPI_actual)."
             ),
-            "crucial_rule": "GOLDEN RULE: Operand forwarding CANNOT eliminate the stall between a LOAD instruction and an immediate ALU instruction using that value (Load-Use Hazard)! 1 stall cycle is still required."
+            "crucial_rule": "GOLDEN RULE FOR GATE: The slowest pipeline stage determines the clock frequency of the entire processor! Clock frequency = 1 / [Max(stage delay) + buffer delay]."
         }
     ],
     "worked_examples": [
         {
-            "title": "Step-by-Step Solved Problem: Calculating Speedup",
-            "problem": "A 5-stage pipeline has stage delays of 150, 120, 180, 160, and 140 ps. Buffer delay = 20 ps. Non-pipelined total delay = 750 ps. Find speedup for 1000 instructions.",
+            "title": "Step-by-Step Solved Problem: Calculating Pipeline Speedup",
+            "problem": "A 5-stage pipeline has stage delays of 150 ps, 120 ps, 160 ps, 140 ps, and 110 ps. The pipeline register delay is 10 ps. What is the clock cycle time, and what is the speedup for 1000 instructions compared to non-pipelined execution?",
             "steps": [
-                "Step 1: Non-pipelined time = 1000 × 750 ps = 750,000 ps.",
-                "Step 2: Pipelined clock cycle T = max(150, 120, 180, 160, 140) + 20 = 180 + 20 = 200 ps.",
-                "Step 3: Pipelined cycles = k + n - 1 = 5 + 1000 - 1 = 1004 cycles.",
-                "Step 4: Pipelined time = 1004 × 200 ps = 200,800 ps.",
-                "Step 5: Speedup S = 750,000 / 200,800 ≈ 3.735."
+                "Step 1: Find the bottleneck stage: Max(150, 120, 160, 140, 110) = 160 ps.",
+                "Step 2: Add register delay: Clock Cycle (T_clk) = 160 ps + 10 ps = 170 ps.",
+                "Step 3: Non-pipelined time per instruction = Sum of stage delays = 150 + 120 + 160 + 140 + 110 = 680 ps.",
+                "Step 4: Non-pipelined total time for 1000 instructions = 1000 × 680 ps = 680,000 ps.",
+                "Step 5: Pipelined time for 1000 instructions = (k + n - 1) × T_clk = (5 + 1000 - 1) × 170 ps = 1004 × 170 = 170,680 ps.",
+                "Step 6: Speedup = 680,000 / 170,680 = 3.984 (close to theoretical 4x)."
             ],
-            "answer": "Speedup S = 3.74x."
+            "answer": "Clock Cycle = 170 ps, Speedup = 3.98x."
         }
     ],
     "exam_traps": [
         {
             "title": "GATE Trap: Average CPI with Stalls",
-            "warning": "CPI_avg = 1 + (Stalls per instruction). Average execution time per instruction = CPI_avg × T_clk."
+            "warning": "Average CPI = 1 + (Stalls per instruction). If 20% of instructions are branch instructions and each causes 2 stalls, CPI = 1 + (0.20 × 2) = 1.4!"
         }
     ]
 }
@@ -276,59 +368,88 @@ CHAPTERS_COA_PDS_ALGO[("PDS", 0)] = {
     "real_life_examples": [
         {
             "title": "Real-Life Example 1: Russian Nesting Dolls (Recursion & Call Stack)",
-            "text": "Opening nesting dolls: You open doll #3 to find doll #2, then doll #1 (Base Case). At doll #1, you stop opening and start assembling them back! Every recursive function call places a box on the Call Stack; hitting the base case starts popping boxes off in reverse order."
+            "text": (
+                "Imagine opening Russian nesting dolls:\n"
+                "You open Doll #3 to find Doll #2 inside. You open Doll #2 to find Doll #1. At Doll #1, there are no more dolls inside: this is the Base Case!\n"
+                "You now stop opening and start assembling them back in reverse order. In computer memory, every recursive call pushes a frame onto the Call Stack. When the base case hits, frames pop off in Last-In First-Out (LIFO) order."
+            )
         },
         {
-            "title": "Real-Life Example 2: House Address on a Sticky Note (Pointers)",
-            "text": "Instead of carrying your whole house to your friend (Pass by Value: copying data), you write your house address on a tiny sticky note (Pointer: `int *p = &x`). Your friend reads the address and visits your house to repaint a wall (Dereferencing: `*p = 50`). Changes happen directly to the original variable!"
+            "title": "Real-Life Example 2: House Address on a Sticky Note (Pointers in C)",
+            "text": (
+                "• Pass by Value: You build an entire duplicate copy of your house and ship it to your friend. Wasteful and slow!\n"
+                "• Pass by Reference (Pointers): You write your house address on a tiny sticky note (`int *p = &x`). Your friend reads the address, walks into your house, and paints the living room green (`*p = 50`). The original house is modified directly!"
+            )
         },
         {
-            "title": "Real-Life Example 3: The Persistent Locker (Static Variables)",
-            "text": "Normally, local variables in a function are wiped clean when the function finishes. But a `static` variable is like a bolted metal locker: its value survives between function calls! The next time you call the function, it picks up right where it left off."
+            "title": "Real-Life Example 3: The Bolted Metal Locker (Static Variables in C)",
+            "text": (
+                "Normally, when a function ends, all its local variables are erased from memory.\n"
+                "A `static` variable is like a bolted metal locker: its value survives between function calls! The next time you call that function, it picks up with whatever number was left inside the locker."
+            )
         }
     ],
     "foundations": [
         {
             "number": "13.1",
-            "title": "Pointers & Array Equivalence in C",
+            "title": "Pointers & Array Equivalence in C (Explained Step by Step)",
             "content": (
-                "• An array name `arr` is a pointer to its first element: `arr == &arr[0]`.<br/>"
-                "• <b>Subscript Rule:</b> `arr[i] == *(arr + i) == *(i + arr) == i[arr]`. (In C, `3[arr]` is completely valid!).<br/>"
-                "• `*p++` means: read `*p` first, then increment pointer `p`.<br/>"
-                "• `(*p)++` means: increment the actual integer value that `p` points to."
+                "In C language, pointers and arrays are closely connected. Here is how they work in simple point form:<br/><br/>"
+                "• <b>1. What is an array name?</b><br/>"
+                "&nbsp;&nbsp;- When you declare <code>int arr[5] = {10, 20, 30, 40, 50};</code>, the word <code>arr</code> is NOT the whole array.<br/>"
+                "&nbsp;&nbsp;- It is simply a pointer to its first element: <code>arr == &arr[0]</code>.<br/><br/>"
+                "• <b>2. How does index notation arr[i] actually work?</b><br/>"
+                "&nbsp;&nbsp;- In C, there is no separate index operator! C secretly translates <code>arr[i]</code> into pointer arithmetic:<br/>"
+                "&nbsp;&nbsp;&nbsp;&nbsp;<code>arr[i]</code> &nbsp;≡&nbsp; <code>*(arr + i)</code><br/>"
+                "&nbsp;&nbsp;- Since addition is commutative (<code>a + b == b + a</code>), <code>*(arr + i)</code> is identical to <code>*(i + arr)</code>.<br/>"
+                "&nbsp;&nbsp;- <b>Surprising C Fact:</b> You can legally write <code>3[arr]</code> in C, and it gives the exact same value as <code>arr[3]</code>!<br/><br/>"
+                "• <b>3. The Big Difference: *p++ vs (*p)++</b><br/>"
+                "&nbsp;&nbsp;- <code>*p++</code>: Moves the pointer! The <code>++</code> is attached to <code>p</code>. It reads the current value, then advances pointer <code>p</code> to point to the next integer in memory.<br/>"
+                "&nbsp;&nbsp;- <code>(*p)++</code>: Modifies the value! The parentheses protect <code>p</code>. The pointer stays at the same memory box, but increments the integer value inside that box by 1 (e.g. 10 becomes 11).<br/><br/>"
+                "• <b>4. What is Array Decay?</b><br/>"
+                "&nbsp;&nbsp;- When you pass an array into a function (like <code>solve(arr)</code>), C never copies the whole array.<br/>"
+                "&nbsp;&nbsp;- The array 'decays' into a simple pointer to the first element."
             ),
-            "crucial_rule": "GOLDEN RULE: When an array is passed to a function, it decays to a simple pointer! Inside the function, `sizeof(arr)` gives the size of a pointer (4 or 8 bytes), NOT the full array size."
+            "crucial_rule": "GOLDEN RULE FOR GATE: Because arrays decay to pointers inside functions, running sizeof(arr) inside a function returns the size of a pointer (4 bytes on 32-bit, 8 bytes on 64-bit), NOT the total bytes of the array! Always pass array length as a separate argument."
         },
         {
             "number": "13.2",
-            "title": "Short-Circuit Evaluation in Logic",
+            "title": "Short-Circuit Evaluation in Logical Expressions",
             "content": (
-                "• In `(A && B)`: If A is False (0), B is NEVER EXECUTED!<br/>"
-                "• In `(A || B)`: If A is True (1), B is NEVER EXECUTED!"
+                "C evaluates logical expressions from left to right and stops as soon as the outcome is certain:<br/><br/>"
+                "• <b>In Logical AND (A && B):</b><br/>"
+                "&nbsp;&nbsp;- If <code>A</code> evaluates to False (0), the entire condition is guaranteed to be False.<br/>"
+                "&nbsp;&nbsp;- Therefore, <b>B is NEVER EXECUTED</b>!<br/><br/>"
+                "• <b>In Logical OR (A || B):</b><br/>"
+                "&nbsp;&nbsp;- If <code>A</code> evaluates to True (non-zero), the entire condition is guaranteed to be True.<br/>"
+                "&nbsp;&nbsp;- Therefore, <b>B is NEVER EXECUTED</b>!"
             ),
-            "crucial_rule": "GOLDEN RULE: Watch out for increment operators inside logical conditions: `if (a == 0 && ++b > 0)`: since `a==0` might be false, `++b` never happens!"
+            "crucial_rule": "GOLDEN RULE FOR GATE: Watch out for increment operators inside logical checks! Example: in if (a == 0 && ++b > 0), if a is 1 (False), the second expression ++b is skipped entirely, leaving b unchanged!"
         }
     ],
     "worked_examples": [
         {
             "title": "Step-by-Step Solved Problem: Tracing Static Recursion",
-            "problem": "What is printed by:\nint f(int n) {\n  static int r = 0;\n  if (n <= 0) return 1;\n  if (n > 3) { r = n; return f(n - 2) + 2; }\n  return f(n - 1) + r;\n}\nint main() { printf(\"%d\", f(5)); }",
+            "problem": "What is printed by this C program?\nint f(int n) {\n  static int r = 0;\n  if (n <= 0) return 1;\n  if (n > 3) { r = n; return f(n - 2) + 2; }\n  return f(n - 1) + r;\n}\nint main() { printf(\"%d\", f(5)); }",
             "steps": [
-                "Step 1: Call f(5): n=5 (>3) ⇒ static r becomes 5. Calls f(3) + 2.",
-                "Step 2: Inside f(3): n=3 (not >3) ⇒ Calls f(2) + r.",
-                "Step 3: Inside f(2): Calls f(1) + r.",
-                "Step 4: Inside f(1): Calls f(0) + r.",
-                "Step 5: Inside f(0): Hits base case, returns 1.",
-                "Step 6: Unwind f(1): 1 + 5 = 6. Unwind f(2): 6 + 5 = 11. Unwind f(3): 11 + 5 = 16.",
-                "Step 7: Unwind f(5): f(3) + 2 = 16 + 2 = 18."
+                "Step 1: Call f(5). Here n = 5 (> 3). Static r is updated to 5. It returns f(3) + 2.",
+                "Step 2: Now call f(3). Here n = 3 (not > 3). It goes to line: return f(2) + r.",
+                "Step 3: Call f(2). It returns f(1) + r.",
+                "Step 4: Call f(1). It returns f(0) + r.",
+                "Step 5: Call f(0). Here n <= 0, so it hits the base case and returns 1.",
+                "Step 6: Now unwind the call stack (remember static r is STILL 5!):",
+                "  - f(1) = f(0) + r = 1 + 5 = 6.",
+                "  - f(2) = f(1) + r = 6 + 5 = 11.",
+                "  - f(3) = f(2) + r = 11 + 5 = 16.",
+                "Step 7: Finally compute original return: f(5) = f(3) + 2 = 16 + 2 = 18."
             ],
-            "answer": "Output = 18."
+            "answer": "Final printed output = 18."
         }
     ],
     "exam_traps": [
         {
-            "title": "GATE Trap: Undefined Behavior",
-            "warning": "Expressions like `i = i++ + ++i` modify a variable multiple times without a sequence point. In C standard, this is UNDEFINED BEHAVIOR."
+            "title": "GATE Trap: Multiple Modifications in One Expression",
+            "warning": "Writing expressions like `i = i++ + ++i` modifies variable `i` multiple times between sequence points. According to the ISO C standard, this is UNDEFINED BEHAVIOR, and questions asking for a fixed output are technically invalid or ambiguous!"
         }
     ]
 }
@@ -340,123 +461,159 @@ CHAPTERS_COA_PDS_ALGO[("PDS", 1)] = {
     "title": "Linear Data Structures - Stacks, Queues & Linked Lists",
     "real_life_examples": [
         {
-            "title": "Real-Life Example 1: Browser Back Button vs Printer Queue (Stack vs Queue)",
-            "text": "• Stack (LIFO: Last-In First-Out): Like a stack of plates. The last web page you opened is the first one that pops back when you hit the 'Back' button.\n• Queue (FIFO: First-In First-Out): Like people standing in a ticket line. The first person to arrive is the first person served. Network printers use queues so the first document submitted prints first."
+            "title": "Real-Life Example 1: Browser Back Button vs Ticket Counter (Stack vs Queue)",
+            "text": (
+                "• Stack (LIFO: Last-In First-Out): Like a stack of dinner plates. The last plate placed on top is the first one picked up. The browser 'Back' button uses a stack to pop the most recent website you visited.\n"
+                "• Queue (FIFO: First-In First-Out): Like a movie ticket counter. The first person in line gets tickets first. Printer queues work the same way so the first print job sent is printed first."
+            )
         },
         {
-            "title": "Real-Life Example 2: Circular Buffet Counter (Circular Queue)",
-            "text": "In a linear queue, when people leave the front, empty seats open up, but you can't seat new diners if the rear pointer hit the end of the line. A Circular Queue wraps the pointer back to index 0 using modulo arithmetic `(rear + 1) % Capacity`, keeping 100% of seats usable."
+            "title": "Real-Life Example 2: Circular Dining Table (Circular Queue)",
+            "text": (
+                "In a regular linear queue, when people leave from the front, empty seats open up, but you can't seat new people if the rear reached the end of the room.\n"
+                "A Circular Queue connects the last seat back to the first seat using modulo arithmetic `(rear + 1) % Capacity`, ensuring every single empty seat can be reused."
+            )
         },
         {
-            "title": "Real-Life Example 3: The Scavenger Hunt Clue Slips (Linked Lists)",
-            "text": "An array is like 10 adjacent hotel lockers: fast lookup by number, but impossible to expand if neighbor lockers are occupied. A Linked List is like a treasure hunt: each clue card holds an item and the GPS coordinate of where the next clue is hidden. Inserting someone in the middle takes O(1) time without moving anyone else!"
+            "title": "Real-Life Example 3: Treasure Hunt Clue Slips (Linked Lists)",
+            "text": (
+                "An array is like 10 adjacent hotel lockers: super fast lookup by number, but impossible to expand if neighboring lockers are occupied.\n"
+                "A Linked List is like a treasure hunt: each clue card holds an item and the GPS coordinate of the next clue. You can insert a new clue anywhere in O(1) time without moving other clues!"
+            )
         }
     ],
     "foundations": [
         {
             "number": "14.1",
-            "title": "Infix, Postfix & Stack Applications",
+            "title": "Infix, Postfix & Stack Conversions",
             "content": (
-                "• <b>Infix:</b> `A + B` &nbsp;|&nbsp; <b>Postfix:</b> `A B +` (No parentheses needed!).<br/>"
-                "• <b>Evaluating Postfix with Stack:</b> Read left to right. Push numbers. When an operator arrives, pop two numbers (op2 = pop(), op1 = pop()), calculate `op1 op op2`, and push result back."
+                "<b>Why do computers prefer Postfix notation?</b><br/>"
+                "• Human notation (Infix): <code>A + B * C</code> requires remembering operator precedence rules and parentheses.<br/>"
+                "• Computer notation (Postfix / Reverse Polish): <code>A B C * +</code> requires zero parentheses and can be evaluated in a single pass using a stack!<br/><br/>"
+                "<b>How to evaluate Postfix using a Stack:</b><br/>"
+                "1. Scan symbols from left to right.<br/>"
+                "2. If you see an operand (number), push it onto the stack.<br/>"
+                "3. If you see an operator (+, -, *, /):<br/>"
+                "&nbsp;&nbsp;- Pop the top element as <b>Operand 2</b>.<br/>"
+                "&nbsp;&nbsp;- Pop the next element as <b>Operand 1</b>.<br/>"
+                "&nbsp;&nbsp;- Calculate: <code>Result = Operand 1 (operator) Operand 2</code>.<br/>"
+                "&nbsp;&nbsp;- Push the Result back onto the stack.<br/>"
+                "4. When the expression ends, the stack top holds the final answer."
             ),
-            "crucial_rule": "GOLDEN RULE: In postfix evaluation, the FIRST popped element is operand 2 (the right-hand side operand)! Order matters for subtraction and division: op1 - op2."
+            "crucial_rule": "GOLDEN RULE FOR GATE: When popping two operands for non-commutative operators like '-' and '/': The FIRST popped item is Operand 2, and the SECOND popped item is Operand 1! Result = Op1 / Op2 (NOT Op2 / Op1)."
         },
         {
             "number": "14.2",
-            "title": "Queue Boundary Conditions",
+            "title": "Circular Queue Full and Empty Conditions",
             "content": (
-                "• In a Circular Queue of size N (leaving 1 slot empty):<br/>"
-                "&nbsp;&nbsp;• <b>Full condition:</b> `(rear + 1) % N == front`.<br/>"
-                "&nbsp;&nbsp;• <b>Empty condition:</b> `front == rear`.<br/>"
-                "• Max items stored = N - 1."
+                "In an array of size N implementing a circular queue:<br/>"
+                "• <b>Empty Condition:</b> <code>front == rear</code>.<br/>"
+                "• <b>Full Condition (sacrificing 1 slot to distinguish from empty):</b><br/>"
+                "&nbsp;&nbsp;<code>(rear + 1) % N == front</code>.<br/>"
+                "• Maximum elements the queue can hold = <b>N - 1</b>."
             ),
-            "crucial_rule": "GOLDEN RULE: Minimum stacks needed to implement a Queue = 2. Minimum queues needed to implement a Stack = 2."
+            "crucial_rule": "GOLDEN RULE FOR GATE: If an array has size N = 8, a circular queue can store at most 7 elements without confusing the Full condition with the Empty condition!"
         }
     ],
     "worked_examples": [
         {
             "title": "Step-by-Step Solved Problem: Evaluating Postfix Expression",
-            "problem": "Evaluate the postfix expression: `8 2 3 * + 4 -` using a stack.",
+            "problem": "Evaluate the postfix expression: 6  2  3  +  *  10  -",
             "steps": [
-                "Step 1: Push 8, Push 2, Push 3. Stack = [8, 2, 3].",
-                "Step 2: Encounter '*': op2 = 3, op1 = 2 ⇒ 2 × 3 = 6. Push 6. Stack = [8, 6].",
-                "Step 3: Encounter '+': op2 = 6, op1 = 8 ⇒ 8 + 6 = 14. Push 14. Stack = [14].",
-                "Step 4: Push 4. Stack = [14, 4].",
-                "Step 5: Encounter '-': op2 = 4, op1 = 14 ⇒ 14 - 4 = 10. Push 10. Stack = [10]."
+                "Step 1: Read '6' (number) ⇒ Push to stack: [6].",
+                "Step 2: Read '2' (number) ⇒ Push to stack: [6, 2].",
+                "Step 3: Read '3' (number) ⇒ Push to stack: [6, 2, 3].",
+                "Step 4: Read '+' (operator) ⇒ Pop 3 (Op2), Pop 2 (Op1). Calculate 2 + 3 = 5. Push 5: [6, 5].",
+                "Step 5: Read '*' (operator) ⇒ Pop 5 (Op2), Pop 6 (Op1). Calculate 6 * 5 = 30. Push 30: [30].",
+                "Step 6: Read '10' (number) ⇒ Push to stack: [30, 10].",
+                "Step 7: Read '-' (operator) ⇒ Pop 10 (Op2), Pop 30 (Op1). Calculate 30 - 10 = 20. Push 20: [20]."
             ],
-            "answer": "Final Result = 10."
+            "answer": "Final evaluated result = 20."
         }
     ],
     "exam_traps": [
         {
-            "title": "GATE Trap: Reversing a Linked List",
-            "warning": "To reverse a singly linked list in-place, always save `curr->next` in a temporary pointer BEFORE setting `curr->next = prev`, otherwise you will lose the rest of the list!"
+            "title": "GATE Trap: Reversing a Singly Linked List",
+            "warning": "To reverse a singly linked list in-place in O(n) time and O(1) space, you need exactly 3 pointers: `prev = NULL`, `curr = head`, and `next = NULL`. Forgetting to save `curr->next` before redirecting the link breaks the list!"
         }
     ]
 }
 
-# PDS Chapter 2: Trees & Heaps
+# PDS Chapter 2: Non-Linear Data Structures
 CHAPTERS_COA_PDS_ALGO[("PDS", 2)] = {
     "sub_id": "PDS",
     "chap_idx": 2,
-    "title": "Trees, BST & Binary Heaps",
+    "title": "Trees, Binary Search Trees & Binary Heaps",
     "real_life_examples": [
         {
-            "title": "Real-Life Example 1: High-Low Number Guessing Game (Binary Search Tree)",
-            "text": "If a friend picks a number between 1 and 100, you don't guess 1, 2, 3, 4 (Linear search: slow!). You guess 50. If they say 'Higher', you immediately eliminate numbers 1 to 50 in ONE step! A Binary Search Tree does this on every step: left child is smaller, right child is bigger, finding any item among 1,000,000 items in just 20 checks (log2(1,000,000) ≈ 20)."
+            "title": "Real-Life Example 1: The Hospital Emergency Triage (Priority Queue & Binary Heap)",
+            "text": (
+                "In a hospital emergency room, patients are not treated in first-come first-served order. A patient with a heart attack is treated immediately ahead of someone with a sprained ankle!\n"
+                "A Binary Heap (Max-Heap) guarantees that the most critical element is always at the root (index 0), allowing the doctors to extract the highest priority patient in O(log n) time."
+            )
         },
         {
-            "title": "Real-Life Example 2: Hospital Emergency Room Triage (Priority Queue & Heap)",
-            "text": "In a hospital ER, patients are not treated by who arrived first. A patient with a severe heart attack is rushed ahead of someone with a mild headache. A Max-Heap keeps the highest-priority patient sitting at the very top (the root). When they enter surgery, the heap re-adjusts in just O(log n) time."
-        },
-        {
-            "title": "Real-Life Example 3: Balancing a Hanging Baby Mobile (AVL Tree Rotations)",
-            "text": "If you hang too many toys on the right branch of a mobile, it tips over and crashes. An AVL tree measures the height difference between left and right branches (Balance Factor). If it tilts by more than 1 level, it does a quick rotational swing (LL, RR, LR, RL) to restore perfect balance in O(1) time."
+            "title": "Real-Life Example 2: Searching a Dictionary (Binary Search Tree - BST)",
+            "text": (
+                "In a BST, every node follows one golden rule: All values in the left branch are smaller, and all values in the right branch are larger.\n"
+                "To look up any word, you compare and throw away half of the tree at every step, just like opening a physical dictionary right in the middle."
+            )
         }
     ],
     "foundations": [
         {
             "number": "15.1",
-            "title": "Binary Tree Properties & Traversal Invariants",
+            "title": "Binary Tree Fundamental Properties",
             "content": (
-                "• In any full/strict binary tree: <b>Leaf nodes L = Internal nodes I + 1</b>.<br/>"
-                "• <b>BST Inorder Invariant:</b> Inorder traversal (Left, Root, Right) of a BST is ALWAYS in <b>STRICTLY ASCENDING SORTED ORDER</b>!<br/>"
-                "• <b>Reconstructing Trees:</b> You CANNOT uniquely build a tree without INORDER traversal! (Need Inorder + Preorder OR Inorder + Postorder)."
+                "Here are the core mathematical properties every GATE aspirant must know:<br/><br/>"
+                "• <b>Handshaking Lemma for Trees:</b><br/>"
+                "&nbsp;&nbsp;In any binary tree, the number of leaf nodes (L) is always 1 more than the number of nodes with two children (n2):<br/>"
+                "&nbsp;&nbsp;<b>L = n2 + 1</b>.<br/><br/>"
+                "• <b>Tree Traversals:</b><br/>"
+                "&nbsp;&nbsp;- Pre-order: Root → Left → Right.<br/>"
+                "&nbsp;&nbsp;- In-order: Left → Root → Right (<b>Always yields strictly sorted order in a BST!</b>).<br/>"
+                "&nbsp;&nbsp;- Post-order: Left → Right → Root.<br/><br/>"
+                "• <b>Reconstructing a Unique Tree:</b><br/>"
+                "&nbsp;&nbsp;To reconstruct a unique binary tree, you MUST be given <b>In-order</b> along with either Pre-order or Post-order."
             ),
-            "crucial_rule": "GOLDEN RULE: Given only Preorder and Postorder, you can build a unique tree ONLY if every non-leaf node has strictly 2 children."
+            "crucial_rule": "GOLDEN RULE FOR GATE: In-order traversal of a Binary Search Tree (BST) is ALWAYS strictly sorted in ascending order! If an exam question gives only Pre-order traversal of a BST, you can find the In-order yourself simply by sorting the numbers!"
         },
         {
             "number": "15.2",
-            "title": "Binary Heap Properties",
+            "title": "Binary Heap Array Indexing & Build-Heap Complexity",
             "content": (
-                "A Binary Heap is a <b>Complete Binary Tree</b> stored in an array.<br/>"
-                "• Parent of node i is at ⌊i/2⌋. Left child is at 2i, Right child is at 2i + 1.<br/>"
-                "• <b>Build-Heap Time:</b> Takes <b>O(n) time</b> (NOT O(n log n)!).<br/>"
-                "• Insert / Delete-Root takes O(log n) time."
+                "A binary heap is a Complete Binary Tree stored inside a simple array without pointers:<br/><br/>"
+                "• For a node at index <code>i</code> (0-based indexing):<br/>"
+                "&nbsp;&nbsp;- Left Child = <code>2i + 1</code>.<br/>"
+                "&nbsp;&nbsp;- Right Child = <code>2i + 2</code>.<br/>"
+                "&nbsp;&nbsp;- Parent = <code>floor((i - 1) / 2)</code>.<br/><br/>"
+                "• <b>Build-Heap Algorithm Time Complexity:</b><br/>"
+                "&nbsp;&nbsp;- Building a heap of size n from an unsorted array takes <b>O(n) time</b> (linear time), NOT O(n log n)!"
             ),
-            "crucial_rule": "GOLDEN RULE: In a Min-Heap with n elements, where is the MAXIMUM element? It is always in one of the LEAF nodes (between indices ⌊n/2⌋ + 1 and n)!"
+            "crucial_rule": "GOLDEN RULE FOR GATE: Inserting 1 element into a heap takes O(log n). But building a full heap of n elements from scratch takes O(n) using the bottom-up Build-Heap procedure!"
         }
     ],
     "worked_examples": [
         {
-            "title": "Step-by-Step Solved Problem: Finding Postorder from BST Preorder",
-            "problem": "Given Preorder traversal of a BST: [40, 20, 10, 30, 60, 50, 70]. What is its Postorder traversal?",
+            "title": "Step-by-Step Solved Problem: Tree Reconstruction",
+            "problem": "Given Preorder: [A, B, D, E, C, F] and Inorder: [D, B, E, A, F, C]. Find the Postorder traversal.",
             "steps": [
-                "Step 1: For a BST, Inorder is simply the sorted keys: Inorder = [10, 20, 30, 40, 50, 60, 70].",
-                "Step 2: Preorder first element is Root = 40.",
-                "Step 3: Keys before 40 in Inorder form Left Subtree: [10, 20, 30]. Keys after 40 form Right Subtree: [50, 60, 70].",
-                "Step 4: Left subtree root is 20 (left child 10, right child 30). Postorder = [10, 30, 20].",
-                "Step 5: Right subtree root is 60 (left child 50, right child 70). Postorder = [50, 70, 60].",
-                "Step 6: Combine: [10, 30, 20, 50, 70, 60, 40]."
+                "Step 1: First element of Preorder is root ⇒ Root = 'A'.",
+                "Step 2: Find 'A' in Inorder: [D, B, E] are in Left subtree, [F, C] are in Right subtree.",
+                "Step 3: In Left subtree [D, B, E], Preorder has 'B' first ⇒ Root of left subtree = 'B'. Inorder [D, B, E] means 'D' is left of B, 'E' is right of B.",
+                "Step 4: In Right subtree [F, C], Preorder has 'C' first ⇒ Root of right subtree = 'C'. Inorder [F, C] means 'F' is left child of C.",
+                "Step 5: Write Postorder (Left, Right, Root):",
+                "  - Left branch of A: D, E, B.",
+                "  - Right branch of A: F, C.",
+                "  - Root: A."
             ],
-            "answer": "Postorder Traversal = [10, 30, 20, 50, 70, 60, 40]."
+            "answer": "Postorder = [D, E, B, F, C, A]."
         }
     ],
     "exam_traps": [
         {
-            "title": "GATE Trap: Number of Structurally Distinct Binary Trees",
-            "warning": "Number of structurally distinct binary trees with n unlabeled nodes is the Catalan Number: C_n = (1 / (n + 1)) × C(2n, n). For n=3, C_3 = 5 trees."
+            "title": "GATE Trap: Number of Unique BSTs with n keys",
+            "warning": "The number of structurally unique Binary Search Trees that can be formed with n distinct keys is given by the n-th Catalan Number: C_n = (1 / (n + 1)) × C(2n, n). For n = 3: C_3 = 5. For n = 4: C_4 = 14."
         }
     ]
 }
@@ -465,70 +622,72 @@ CHAPTERS_COA_PDS_ALGO[("PDS", 2)] = {
 # ALGORITHMS (ALGO)
 # =============================================================================
 
-# ALGO Chapter 0: Asymptotics & Recurrences
+# ALGO Chapter 0: Asymptotic Analysis & Recurrences
 CHAPTERS_COA_PDS_ALGO[("ALGO", 0)] = {
     "sub_id": "ALGO",
     "chap_idx": 0,
-    "title": "Asymptotic Analysis & Recurrence Relations",
+    "title": "Asymptotic Analysis, Master Theorem & Recurrences",
     "real_life_examples": [
         {
-            "title": "Real-Life Example 1: Carrier Pigeon vs Slow Internet (Big-O Growth)",
-            "text": "If you need to send 10 Terabytes of video across the city: sending it over slow 10 MB/s internet takes 12 days (O(n): time scales with data size!). But if you strap an SSD to a carrier pigeon, the pigeon flies across the city in 30 minutes whether the drive has 1 Megabyte or 10 Terabytes (O(1): constant time!). As data grows toward infinity, O(1) always beats O(n)."
-        },
-        {
-            "title": "Real-Life Example 2: The CEO Task Delegation (Master Theorem)",
-            "text": "A CEO splits a big project into 'a' smaller sub-tasks of size 'n/b'. Upper management does f(n) work to organize them, while the worker army at the leaves does n^(log_b a) work. The Master Theorem simply compares: Who does more work? If the worker army dominates, time is Θ(n^(log_b a)). If both do equal work, add a log n factor!"
-        },
-        {
-            "title": "Real-Life Example 3: The King's Chessboard Wheat Grains (Exponential Explosion)",
-            "text": "The inventor of chess asked the King for 1 grain of wheat on square 1, 2 grains on square 2, 4 on square 3, doubling every square: 2^n. By square 64, the wheat required was more than the entire planet's harvest for 2,000 years! Exponential O(2^n) algorithms become impossibly slow for even moderate inputs."
+            "title": "Real-Life Example 1: Carrier Pigeon vs Internet Bandwidth (Asymptotic Growth)",
+            "text": (
+                "If you send a 16 GB flash drive strapped to a carrier pigeon, the pigeon takes 1 hour to fly across the city regardless of whether the drive has 1 GB or 1000 GB (O(1) constant time!).\n"
+                "If you send it over a 10 Mbps internet connection, time grows linearly with data size (O(n)). For small files, the internet wins. But as data grows to petabytes, the pigeon asymptotically beats the internet! Big-O measures this behavior as n grows towards infinity."
+            )
         }
     ],
     "foundations": [
         {
             "number": "16.1",
-            "title": "Asymptotic Notations: O, Ω, Θ",
+            "title": "Big-O, Big-Omega & Big-Theta Explained",
             "content": (
-                "• <b>Big-O (O):</b> Upper Bound (Worst-case ceiling: 'runs at most this slow').<br/>"
-                "• <b>Big-Omega (Ω):</b> Lower Bound (Best-case floor: 'runs at least this fast').<br/>"
-                "• <b>Big-Theta (Θ):</b> Tight Bound (Both upper and lower bound match!).<br/>"
-                "• <b>Growth speed ranking:</b><br/>"
-                "&nbsp;&nbsp;1 < log n < √n < n < n log n < n² < n³ < 2^n < n! < n^n."
+                "Asymptotic notations describe how running time scales as input size n grows huge:<br/><br/>"
+                "• <b>Big-O (O): Upper Bound (Worst-case ceiling)</b><br/>"
+                "&nbsp;&nbsp;- <code>f(n) = O(g(n))</code> means f(n) will never grow faster than c × g(n).<br/>"
+                "&nbsp;&nbsp;- Plain English: 'The algorithm will take at most this much time.'<br/><br/>"
+                "• <b>Big-Omega (Ω): Lower Bound (Best-case floor)</b><br/>"
+                "&nbsp;&nbsp;- <code>f(n) = Ω(g(n))</code> means f(n) will take at least c × g(n).<br/>"
+                "&nbsp;&nbsp;- Plain English: 'The algorithm will take at least this much time.'<br/><br/>"
+                "• <b>Big-Theta (Θ): Tight Bound (Exact growth rate)</b><br/>"
+                "&nbsp;&nbsp;- <code>f(n) = Θ(g(n))</code> holds if and only if f(n) is BOTH O(g(n)) and Ω(g(n))."
             ),
-            "crucial_rule": "GOLDEN RULE: log(n!) = Θ(n log n) by Stirling's formula. Never write Θ(n^n) for log(n!)!"
+            "crucial_rule": "GOLDEN RULE FOR GATE: Common growth order from slowest to fastest: O(1) < O(log log n) < O(log n) < O(sqrt(n)) < O(n) < O(n log n) < O(n^2) < O(2^n) < O(n!). Remember that (log n)^1000 grows slower than n^0.001 as n reaches infinity!"
         },
         {
             "number": "16.2",
-            "title": "Master Theorem in 3 Easy Steps",
+            "title": "Master Theorem for Divide and Conquer",
             "content": (
-                "For recurrence: <b>T(n) = a T(n/b) + f(n)</b>:<br/>"
-                "1. Calculate critical value: <b>p = log_b(a)</b>.<br/>"
-                "2. Compare n^p with f(n):<br/>"
-                "&nbsp;&nbsp;• If n^p > f(n) ⇒ <b>T(n) = Θ(n^p)</b>.<br/>"
-                "&nbsp;&nbsp;• If n^p == f(n) ⇒ <b>T(n) = Θ(n^p · log n)</b>.<br/>"
-                "&nbsp;&nbsp;• If n^p < f(n) ⇒ <b>T(n) = Θ(f(n))</b>."
+                "For recurrence relations of the form: <b>T(n) = a T(n/b) + Θ(n^k log^p n)</b>:<br/>"
+                "Compare <code>a</code> with <code>b^k</code>:<br/><br/>"
+                "• <b>Case 1: If a > b^k</b><br/>"
+                "&nbsp;&nbsp;Roots dominate! T(n) = <b>Θ(n^(log_b a))</b>.<br/><br/>"
+                "• <b>Case 2: If a == b^k</b><br/>"
+                "&nbsp;&nbsp;T(n) = <b>Θ(n^k log^(p+1) n)</b>.<br/>"
+                "&nbsp;&nbsp;(For standard mergesort where p = 0: T(n) = Θ(n log n)).<br/><br/>"
+                "• <b>Case 3: If a < b^k</b><br/>"
+                "&nbsp;&nbsp;Leaves dominate! T(n) = <b>Θ(n^k log^p n)</b>."
             ),
-            "crucial_rule": "GOLDEN RULE: Master theorem cannot be used if b is not a constant (e.g. T(n) = 2T(√n) + 1) or if a is not a constant!"
+            "crucial_rule": "GOLDEN RULE FOR GATE: Master theorem cannot be applied if: (1) 'a' is not a constant (e.g. T(n) = 2^n T(n/2)), (2) 'b' is a subtraction (e.g. T(n) = T(n-1) + 1), or (3) f(n) is not polynomial."
         }
     ],
     "worked_examples": [
         {
             "title": "Step-by-Step Solved Problem: Solving Recurrence with Master Theorem",
-            "problem": "Solve: T(n) = 4 T(n/2) + n².",
+            "problem": "Find the asymptotic time complexity of T(n) = 8 T(n/2) + n^2.",
             "steps": [
-                "Step 1: Identify: a = 4, b = 2, f(n) = n².",
-                "Step 2: Compute critical exponent p = log_b(a) = log_2(4) = 2.",
-                "Step 3: So n^p = n^2.",
-                "Step 4: Compare: n^p is exactly equal to f(n) = n² (Case 2!).",
-                "Step 5: Multiply by log n: T(n) = Θ(n² log n)."
+                "Step 1: Identify parameters: a = 8, b = 2, f(n) = n^2 (so k = 2, p = 0).",
+                "Step 2: Calculate b^k = 2^2 = 4.",
+                "Step 3: Compare 'a' and 'b^k': a = 8, b^k = 4. Since 8 > 4, Case 1 applies!",
+                "Step 4: Compute log_b(a) = log_2(8) = 3.",
+                "Step 5: Apply Case 1 formula: T(n) = Θ(n^(log_b a)) = Θ(n^3)."
             ],
-            "answer": "T(n) = Θ(n² log n)."
+            "answer": "Time Complexity = Θ(n^3)."
         }
     ],
     "exam_traps": [
         {
-            "title": "GATE Trap: Non-Polynomial Gap in Master Theorem",
-            "warning": "For T(n) = 2T(n/2) + n / log n, n^p = n. Here f(n) = n / log n is smaller than n^p, but NOT polynomially smaller (the difference is a log factor, not n^ε). Master theorem fails here!"
+            "title": "GATE Trap: Decreasing Recurrence Relations",
+            "warning": "For recurrences like T(n) = T(n-1) + n, do NOT use Master Theorem! Use iterative expansion: T(n) = n + (n-1) + (n-2) + ... + 1 = n(n+1)/2 = Θ(n^2)."
         }
     ]
 }
@@ -537,131 +696,134 @@ CHAPTERS_COA_PDS_ALGO[("ALGO", 0)] = {
 CHAPTERS_COA_PDS_ALGO[("ALGO", 1)] = {
     "sub_id": "ALGO",
     "chap_idx": 1,
-    "title": "Sorting, Searching & Hashing",
+    "title": "Sorting Algorithms, Lower Bounds & Hash Tables",
     "real_life_examples": [
         {
-            "title": "Real-Life Example 1: Sorting Exam Papers by PIN Code (Radix Sort)",
-            "text": "A teacher sorting 10,000 student answer sheets doesn't compare paper A with paper B one by one (QuickSort). They put papers into 10 plastic trays based on the last digit (0 to 9), collect them, and repeat for the tens and hundreds digits. In just a few passes, all 10,000 papers are sorted in linear O(n) time!"
-        },
-        {
-            "title": "Real-Life Example 2: The Unlucky Card Shuffle (QuickSort Worst Case)",
-            "text": "QuickSort picks a 'pivot' and puts smaller cards on left, bigger cards on right. If the cards are ALREADY sorted and you foolishly pick the first card as pivot, the left partition has 0 cards and the right has n-1 cards. Instead of halving, the depth becomes n, degrading to slow O(n²) time. Picking a random pivot solves this."
-        },
-        {
-            "title": "Real-Life Example 3: Finding Your Car in a Crowded Parking Lot (Hash Collisions)",
-            "text": "A Hash function assigns your car a parking spot based on license plate mod 100. If someone else already parked in your spot (Collision), Linear Probing tells you to park in the next open spot. But if lots of cars crowd into neighboring spots, you get Primary Clustering jams."
+            "title": "Real-Life Example 1: Arranging Playing Cards (Insertion Sort vs Quick Sort)",
+            "text": (
+                "When you pick up playing cards one by one into your hand, you slide each new card into its sorted place among the cards you already hold: this is Insertion Sort (O(n) best-case for nearly sorted cards!).\n"
+                "When sorting a huge pile of 10,000 exam sheets, you pick a pivot roll number (like 5000), split into piles < 5000 and > 5000, and repeat. This is Quick Sort."
+            )
         }
     ],
     "foundations": [
         {
             "number": "17.1",
-            "title": "Comparison Sorting Lower Bound & Stability",
+            "title": "Master Summary of Sorting Algorithms",
             "content": (
-                "• <b>Theoretical Limit:</b> Any comparison-based sort must take at least <b>Ω(n log n)</b> comparisons in worst case.<br/>"
-                "• <b>Stable Sorts (Preserves order of equal items):</b> Merge Sort, Insertion Sort, Bubble Sort.<br/>"
-                "• <b>Unstable Sorts:</b> QuickSort, HeapSort, Selection Sort.<br/>"
-                "• <b>In-Place Sorts (O(1) extra space):</b> HeapSort, QuickSort, Insertion Sort. (MergeSort requires O(n) extra memory!)."
+                "Here is the definitive comparison table tested in GATE:<br/><br/>"
+                "• <b>Merge Sort:</b> Best: O(n log n) | Worst: O(n log n) | Space: O(n) | Stable: YES.<br/>"
+                "• <b>Heap Sort:</b> Best: O(n log n) | Worst: O(n log n) | Space: O(1) in-place | Stable: NO.<br/>"
+                "• <b>Quick Sort:</b> Best: O(n log n) | Worst: O(n^2) (sorted input) | Space: O(log n) | Stable: NO.<br/>"
+                "• <b>Insertion Sort:</b> Best: O(n) (already sorted) | Worst: O(n^2) | Space: O(1) | Stable: YES.<br/>"
+                "• <b>Counting Sort:</b> Time: O(n + k) | Space: O(n + k) | Non-comparison based | Stable: YES."
             ),
-            "crucial_rule": "GOLDEN RULE: HeapSort is guaranteed O(n log n) in ALL cases (best, average, worst) and uses O(1) space, but it is NOT stable!"
+            "crucial_rule": "GOLDEN RULE FOR GATE: Any comparison-based sorting algorithm requires at least Ω(n log n) comparisons in the worst case! To sort faster than O(n log n), you must use non-comparison algorithms like Counting Sort or Radix Sort."
         },
         {
             "number": "17.2",
-            "title": "Hashing & Collision Techniques",
+            "title": "Hash Table Collisions: Chaining vs Open Addressing",
             "content": (
-                "• <b>Load Factor α:</b> α = n / m (n items / m slots).<br/>"
-                "• <b>Separate Chaining:</b> Uses linked lists at each slot. Can have α > 1. Search time: Θ(1 + α).<br/>"
-                "• <b>Open Addressing:</b> Must have α ≤ 1.<br/>"
-                "&nbsp;&nbsp;• Linear Probing: `(h(k) + i) mod m` (Causes Primary Clustering).<br/>"
-                "&nbsp;&nbsp;• Quadratic Probing: `(h(k) + c1·i + c2·i²) mod m` (Causes Secondary Clustering).<br/>"
-                "&nbsp;&nbsp;• Double Hashing: `(h1(k) + i · h2(k)) mod m` (Best open addressing!)."
+                "<b>What is a Collision?</b><br/>"
+                "Two distinct keys produce the same hash slot: <code>h(k1) == h(k2)</code>.<br/><br/>"
+                "<b>1. Separate Chaining:</b><br/>"
+                "• Each slot points to a linked list. Can store infinite elements. Load factor α can exceed 1.<br/><br/>"
+                "<b>2. Open Addressing (All keys stored inside the table itself; α <= 1):</b><br/>"
+                "• Linear Probing: <code>h(k, i) = (h(k) + i) % m</code>. Problem: Primary Clustering (long continuous runs of occupied slots).<br/>"
+                "• Quadratic Probing: <code>h(k, i) = (h(k) + c1*i + c2*i^2) % m</code>. Solves primary clustering; suffers from secondary clustering.<br/>"
+                "• Double Hashing: <code>h(k, i) = (h1(k) + i * h2(k)) % m</code>. Best open addressing method; eliminates clustering."
             ),
-            "crucial_rule": "GOLDEN RULE: In Double Hashing, h2(k) must be relatively prime to hash table size m so it can probe every single slot."
+            "crucial_rule": "GOLDEN RULE FOR GATE: In Double Hashing, h2(k) must be relatively prime to the table size m (e.g. choose m as a prime number) so the probe sequence visits every single slot in the table!"
         }
     ],
     "worked_examples": [
         {
-            "title": "Step-by-Step Solved Problem: Linear Probing",
-            "problem": "Insert keys [23, 34, 45, 12] into hash table of size 11 using h(k) = k mod 11 and Linear Probing. Which slot does 12 go into?",
+            "title": "Step-by-Step Solved Problem: Linear Probing Hash Table",
+            "problem": "Insert keys [12, 22, 32, 42] into a hash table of size 10 using h(k) = k % 10 with Linear Probing. Find the slot where 42 is stored.",
             "steps": [
-                "Step 1: 23 mod 11 = 1 ⇒ Slot 1 (free).",
-                "Step 2: 34 mod 11 = 1 ⇒ Collision at 1! Try slot 2 ⇒ Slot 2 (free).",
-                "Step 3: 45 mod 11 = 1 ⇒ Collision at 1! Slot 2 is also full! Try slot 3 ⇒ Slot 3 (free).",
-                "Step 4: 12 mod 11 = 1 ⇒ Collision at 1! Slots 2 and 3 are full! Try slot 4 ⇒ Slot 4 (free)."
+                "Step 1: Key 12: 12 % 10 = 2. Slot 2 is empty ⇒ Insert 12 at Slot 2.",
+                "Step 2: Key 22: 22 % 10 = 2. Slot 2 is occupied! Probe (2 + 1) % 10 = 3. Slot 3 is empty ⇒ Insert 22 at Slot 3.",
+                "Step 3: Key 32: 32 % 10 = 2. Slot 2 is occupied, Slot 3 is occupied! Probe (2 + 2) % 10 = 4. Slot 4 is empty ⇒ Insert 32 at Slot 4.",
+                "Step 4: Key 42: 42 % 10 = 2. Slots 2, 3, 4 are occupied! Probe (2 + 3) % 10 = 5. Slot 5 is empty ⇒ Insert 42 at Slot 5."
             ],
-            "answer": "Key 12 is placed into Slot 4."
+            "answer": "Key 42 is stored at Slot index 5."
         }
     ],
     "exam_traps": [
         {
-            "title": "GATE Trap: QuickSort Average vs Worst Case",
-            "warning": "Average time of QuickSort is Θ(n log n). Worst case time is Θ(n²). Read the question carefully to see whether it asks for average or worst-case!"
+            "title": "GATE Trap: Deletion in Open Addressing",
+            "warning": "In open addressing, you CANNOT simply erase an element and leave the slot empty! Leaving it empty will cause subsequent searches to terminate prematurely. You must mark deleted slots with a special 'DELETED' tombstone flag."
         }
     ]
 }
 
-# ALGO Chapter 2: Greedy & Dynamic Programming
+# ALGO Chapter 2: Algorithm Design Paradigms
 CHAPTERS_COA_PDS_ALGO[("ALGO", 2)] = {
     "sub_id": "ALGO",
     "chap_idx": 2,
-    "title": "Design Techniques - Greedy & Dynamic Programming",
+    "title": "Greedy Algorithms, Dynamic Programming & Divide-and-Conquer",
     "real_life_examples": [
         {
-            "title": "Real-Life Example 1: The ATM Cash Machine (Greedy Choice)",
-            "text": "When you withdraw ₹3,800 from an ATM, it dispenses the biggest notes first: ₹2000 (1 note), ₹500 (3 notes), ₹200 (1 note), ₹100 (1 note). Making the locally best choice at each step is the Greedy method. For standard banknotes, this guarantees the fewest total notes. But if notes were ₹1, ₹7, ₹10 and you needed ₹14: Greedy picks ₹10 + four ₹1s (5 notes), while Dynamic Programming finds ₹7 + ₹7 (just 2 notes!)."
-        },
-        {
-            "title": "Real-Life Example 2: The Math Homework Scratchpad (Dynamic Programming)",
-            "text": "Calculating Fibonacci(50) by hand branches into an impossible tree of billions of steps. But a smart student keeps a scratchpad: once Fib(3) is calculated, write down '2'. Anytime you need Fib(3) again, just look up your scratchpad in 1 second! Dynamic Programming turns an impossible exponential O(2^n) explosion into a fast linear O(n) table lookup."
-        },
-        {
-            "title": "Real-Life Example 3: Packing Your Flight Carry-On Bag (0/1 Knapsack)",
-            "text": "Airline carry-on limit is 15 kg. You have heavy items: laptop, DSLR camera, shoes. You cannot pack half a laptop—you either take the whole laptop or leave it (0 or 1 choice). Fractional items like gold dust can be solved greedily; solid 0/1 items require Dynamic Programming."
+            "title": "Real-Life Example 1: Indian Rupee Coin Change (When Greedy Fails)",
+            "text": (
+                "With Indian currency denominations [₹1, ₹2, ₹5, ₹10], making change for ₹18 greedily (pick largest first: 10 + 5 + 2 + 1 = 4 coins) always gives the optimal answer.\n"
+                "However, with custom coins like [₹1, ₹7, ₹10], to make ₹14:\n"
+                "• Greedy picks: ₹10 + ₹1 + ₹1 + ₹1 + ₹1 = 5 coins.\n"
+                "• Optimal Dynamic Programming picks: ₹7 + ₹7 = 2 coins!\n"
+                "This proves Greedy choice fails unless the coin system has a specific mathematical property."
+            )
         }
     ],
     "foundations": [
         {
             "number": "18.1",
-            "title": "Greedy Algorithms: Knapsack, Activity Selection & Huffman Coding",
+            "title": "Greedy Method vs Dynamic Programming",
             "content": (
-                "• <b>Fractional Knapsack:</b> Sort by Value/Weight ratio. Greedy is optimal. Time: O(n log n).<br/>"
-                "• <b>Activity Selection:</b> Sort by <b>EARLIEST FINISH TIME</b>. Pick next compatible task.<br/>"
-                "• <b>Huffman Coding:</b> Combines two least frequent characters using a Min-Heap. Generates variable-length optimal prefix codes. Time: O(n log n)."
+                "• <b>Greedy Method:</b><br/>"
+                "&nbsp;&nbsp;- Makes the locally best choice at every step without ever backtracking.<br/>"
+                "&nbsp;&nbsp;- Fast (typically O(n log n)), but only works if problem satisfies: (1) Greedy Choice Property, and (2) Optimal Substructure.<br/>"
+                "&nbsp;&nbsp;- Examples: Fractional Knapsack, Kruskal MST, Prim MST, Dijkstra, Huffman Coding.<br/><br/>"
+                "• <b>Dynamic Programming (DP):</b><br/>"
+                "&nbsp;&nbsp;- Explores all subproblems but avoids redundant calculations by saving results in a table.<br/>"
+                "&nbsp;&nbsp;- Required properties: (1) Optimal Substructure, and (2) <b>Overlapping Subproblems</b>.<br/>"
+                "&nbsp;&nbsp;- Examples: 0/1 Knapsack, Longest Common Subsequence (LCS), Matrix Chain Multiplication, Floyd-Warshall."
             ),
-            "crucial_rule": "GOLDEN RULE: A Huffman tree for n characters is ALWAYS a FULL binary tree with exactly 2n - 1 total nodes (n leaves and n - 1 internal nodes)!"
+            "crucial_rule": "GOLDEN RULE FOR GATE: Fractional Knapsack is solved in O(n log n) by Greedy (sort by value/weight ratio). But 0/1 Knapsack CANNOT be solved greedily; it requires Dynamic Programming in O(n * W) pseudo-polynomial time!"
         },
         {
             "number": "18.2",
-            "title": "Dynamic Programming: 0/1 Knapsack & Matrix Chain",
+            "title": "Longest Common Subsequence (LCS) Recurrence",
             "content": (
-                "• <b>0/1 Knapsack:</b> Table DP[i][w] = max(DP[i-1][w], val[i] + DP[i-1][w - wt[i]]). Time: O(n × W) (Pseudo-polynomial).<br/>"
-                "• <b>Matrix Chain Multiplication:</b> Computes optimal order to multiply matrices to minimize scalar multiplications. Time: O(n³)."
+                "Given two strings X of length m and Y of length n:<br/>"
+                "• If last characters match (<code>X[m-1] == Y[n-1]</code>):<br/>"
+                "&nbsp;&nbsp;<code>LCS(X, Y) = 1 + LCS(X[0..m-2], Y[0..n-2])</code>.<br/>"
+                "• If characters do NOT match:<br/>"
+                "&nbsp;&nbsp;<code>LCS(X, Y) = Max(LCS(X[0..m-2], Y), LCS(X, Y[0..n-2]))</code>.<br/>"
+                "• Time Complexity: <b>O(m × n)</b> using a 2D table."
             ),
-            "crucial_rule": "GOLDEN RULE: 0/1 Knapsack is NP-Complete! Its DP solution runs in pseudo-polynomial time because W is measured in binary bits."
+            "crucial_rule": "GOLDEN RULE FOR GATE: Matrix Chain Multiplication: To multiply matrices A1(p0×p1), A2(p1×p2)... An(pn-1×pn), the minimum scalar multiplications can be found in O(n^3) time using dynamic programming."
         }
     ],
     "worked_examples": [
         {
-            "title": "Step-by-Step Solved Problem: Multiplying 3 Matrices",
-            "problem": "Find minimum scalar multiplications to multiply A1(10 × 30), A2(30 × 5), and A3(5 × 60).",
+            "title": "Step-by-Step Solved Problem: Fractional Knapsack",
+            "problem": "Knapsack capacity W = 50 kg. Items: A (v=60, w=10), B (v=100, w=20), C (v=120, w=30). Find maximum value.",
             "steps": [
-                "Step 1: Two possible parenthesizations: (A1 × A2) × A3 OR A1 × (A2 × A3).",
-                "Step 2: Option 1: ((A1 × A2) × A3):<br/>"
-                "&nbsp;&nbsp;A1 × A2 takes 10 × 30 × 5 = 1,500 operations (result size 10×5).<br/>"
-                "&nbsp;&nbsp;Result × A3 takes 10 × 5 × 60 = 3,000 operations.<br/>"
-                "&nbsp;&nbsp;Total Option 1 = 1,500 + 3,000 = 4,500 multiplications.",
-                "Step 3: Option 2: (A1 × (A2 × A3)):<br/>"
-                "&nbsp;&nbsp;A2 × A3 takes 30 × 5 × 60 = 9,000 operations (result size 30×60).<br/>"
-                "&nbsp;&nbsp;A1 × Result takes 10 × 30 × 60 = 18,000 operations.<br/>"
-                "&nbsp;&nbsp;Total Option 2 = 9,000 + 18,000 = 27,000 multiplications.",
-                "Step 4: Minimum = min(4500, 27000) = 4,500."
+                "Step 1: Compute value-to-weight ratio for each item:",
+                "  - Item A: 60 / 10 = 6.0 per kg.",
+                "  - Item B: 100 / 20 = 5.0 per kg.",
+                "  - Item C: 120 / 30 = 4.0 per kg.",
+                "Step 2: Pick highest ratio first (Item A): Take full 10 kg. Value = 60. Remaining capacity = 50 - 10 = 40 kg.",
+                "Step 3: Next pick Item B: Take full 20 kg. Value = 60 + 100 = 160. Remaining capacity = 40 - 20 = 20 kg.",
+                "Step 4: Next pick Item C: Only 20 kg capacity left! Take fraction (20 / 30) of Item C. Value = 160 + (2/3 × 120) = 160 + 80 = 240."
             ],
-            "answer": "Minimum scalar multiplications = 4,500 with grouping ((A1 A2) A3)."
+            "answer": "Maximum attainable value = 240."
         }
     ],
     "exam_traps": [
         {
-            "title": "GATE Trap: Longest Common Subsequence Length",
-            "warning": "If characters match: LCS = 1 + DP[i-1][j-1]. If they don't match: LCS = max(DP[i-1][j], DP[i][j-1]). Never add 1 when characters differ!"
+            "title": "GATE Trap: Huffman Code Tree Uniqueness",
+            "warning": "Huffman code lengths and total bits for the message are ALWAYS optimal and unique. However, the exact binary codes (0 vs 1 assignment to left/right branches) are NOT unique!"
         }
     ]
 }
@@ -670,70 +832,77 @@ CHAPTERS_COA_PDS_ALGO[("ALGO", 2)] = {
 CHAPTERS_COA_PDS_ALGO[("ALGO", 3)] = {
     "sub_id": "ALGO",
     "chap_idx": 3,
-    "title": "Graph Algorithms - Traversals, MST & Shortest Paths",
+    "title": "Graph Traversals, MST & Shortest Paths",
     "real_life_examples": [
         {
-            "title": "Real-Life Example 1: Connecting Fiber Optic Cable Between Cities (MST)",
-            "text": "A telecom company wants to connect 10 cities with fiber optic cable so everyone can communicate. Laying cable is expensive. Kruskal's algorithm sorts all possible cable routes from cheapest to most expensive, laying down the cheapest cable first, as long as it doesn't form a useless closed loop. It guarantees the absolute cheapest total network cost."
+            "title": "Real-Life Example 1: Google Maps Navigation (Dijkstra's Algorithm)",
+            "text": (
+                "When Google Maps finds the fastest route from your home to college, cities and intersections are vertices, and roads with traffic delays are weighted edges.\n"
+                "Dijkstra's algorithm expands outward like a ripple in a pond, always visiting the closest unvisited intersection first, finding the absolute shortest path in O((V + E) log V) time."
+            )
         },
         {
-            "title": "Real-Life Example 2: Google Maps Shortest Driving Route (Dijkstra's Algorithm)",
-            "text": "When you want the fastest route home, Google Maps starts at your current location (distance 0) and ripples outward like water drops, visiting the nearest reachable intersection next. Because road travel times are never negative, once Dijkstra locks in an intersection, it has permanently found the best route."
-        },
-        {
-            "title": "Real-Life Example 3: Currency Exchange Arbitrage (Bellman-Ford & Negative Cycles)",
-            "text": "Converting 1 USD to Euros, then to Yen, then back to 1.05 USD creates free money! In math, taking the negative logarithm of exchange rates turns this into a Negative Weight Cycle. Dijkstra fails completely when edges are negative. Bellman-Ford runs for V - 1 rounds: if distances keep dropping on round V, a negative cycle is detected!"
+            "title": "Real-Life Example 2: Connecting Cities with Electric Power Lines (Minimum Spanning Tree)",
+            "text": (
+                "A power company wants to electrify 10 cities with the minimum total kilometers of wire.\n"
+                "You don't need a direct cable between every single city (no cycles needed!). You just need a Minimum Spanning Tree (MST): exactly V - 1 cables connecting all V cities at the lowest possible cost."
+            )
         }
     ],
     "foundations": [
         {
             "number": "19.1",
-            "title": "BFS vs DFS Traversals",
+            "title": "BFS vs DFS Comparison",
             "content": (
-                "• <b>BFS (Breadth-First):</b> Uses a <b>Queue</b>. Explores neighbors level by level. Finds shortest path in <b>unweighted graphs</b>. Time: O(V + E).<br/>"
-                "• <b>DFS (Depth-First):</b> Uses a <b>Stack</b> (or recursion). Explores deep down each path. Detects cycles in directed graph via <b>Back Edges</b>. Time: O(V + E).<br/>"
-                "• <b>Topological Sort:</b> Linear ordering of vertices in a Directed Acyclic Graph (DAG)."
+                "• <b>Breadth-First Search (BFS):</b><br/>"
+                "&nbsp;&nbsp;- Data Structure: <b>Queue (FIFO)</b>.<br/>"
+                "&nbsp;&nbsp;- Explores all immediate neighbors first, layer by layer.<br/>"
+                "&nbsp;&nbsp;- Key Application: Finds the <b>shortest path in an unweighted graph</b>!<br/>"
+                "&nbsp;&nbsp;- Time Complexity: <code>O(V + E)</code> using adjacency list.<br/><br/>"
+                "• <b>Depth-First Search (DFS):</b><br/>"
+                "&nbsp;&nbsp;- Data Structure: <b>Stack (LIFO / Recursion)</b>.<br/>"
+                "&nbsp;&nbsp;- Explores deep down a branch until it hits a dead end, then backtracks.<br/>"
+                "&nbsp;&nbsp;- Key Applications: Cycle detection, Topological Sorting, finding Strongly Connected Components (Tarjan/Kosaraju).<br/>"
+                "&nbsp;&nbsp;- Time Complexity: <code>O(V + E)</code>."
             ),
-            "crucial_rule": "GOLDEN RULE: Topological sort is possible IF AND ONLY IF the graph has NO cycles (it must be a DAG)!"
+            "crucial_rule": "GOLDEN RULE FOR GATE: In DFS of an undirected graph, every edge is either a Tree Edge or a Back Edge (Cross edges NEVER exist in undirected DFS)! A Back Edge indicates the presence of a cycle."
         },
         {
             "number": "19.2",
-            "title": "Minimum Spanning Tree (MST): Kruskal vs Prim",
+            "title": "Dijkstra vs Bellman-Ford vs Floyd-Warshall",
             "content": (
-                "• <b>Kruskal's Algorithm:</b> Sorts all edges by weight, adds edge if no cycle (uses Disjoint Set Union). Time: <b>O(E log V)</b>.<br/>"
-                "• <b>Prim's Algorithm:</b> Starts from 1 vertex and grows the tree by picking lightest connected edge (uses Min-Heap). Time: <b>O(E log V)</b>."
+                "• <b>Dijkstra's Algorithm (Single Source Shortest Path):</b><br/>"
+                "&nbsp;&nbsp;- Condition: Edge weights must be <b>NON-NEGATIVE</b> (fails on negative weights!).<br/>"
+                "&nbsp;&nbsp;- Time: <code>O((V + E) log V)</code> with Min-Heap.<br/><br/>"
+                "• <b>Bellman-Ford Algorithm (Single Source Shortest Path):</b><br/>"
+                "&nbsp;&nbsp;- Handles negative weights and detects negative weight cycles.<br/>"
+                "&nbsp;&nbsp;- Time: <code>O(V × E)</code>.<br/><br/>"
+                "• <b>Floyd-Warshall Algorithm (All-Pairs Shortest Path):</b><br/>"
+                "&nbsp;&nbsp;- Dynamic programming approach computing shortest paths between all pairs of nodes.<br/>"
+                "&nbsp;&nbsp;- Time: <code>O(V^3)</code>."
             ),
-            "crucial_rule": "GOLDEN RULE: If all edge weights in a connected graph are strictly UNIQUE, the Minimum Spanning Tree is 100% UNIQUE!"
-        },
-        {
-            "number": "19.3",
-            "title": "Shortest Path Algorithm Matrix",
-            "content": (
-                "• <b>Dijkstra:</b> Single Source. Works ONLY with <b>NON-NEGATIVE edge weights</b>. Greedy. Time: O((V + E) log V).<br/>"
-                "• <b>Bellman-Ford:</b> Single Source. Handles <b>NEGATIVE edge weights</b> and detects negative cycles. Time: <b>O(V × E)</b>.<br/>"
-                "• <b>Floyd-Warshall:</b> All-Pairs Shortest Path. Dynamic Programming. Time: <b>O(V³)</b>."
-            ),
-            "crucial_rule": "GOLDEN RULE: Dijkstra CANNOT work with negative edge weights, even if there are no negative cycles!"
+            "crucial_rule": "GOLDEN RULE FOR GATE: Prim's algorithm and Dijkstra's algorithm look almost identical, but their relaxation step differs: Dijkstra updates d[v] = min(d[v], d[u] + weight(u,v)). Prim updates key[v] = min(key[v], weight(u,v))!"
         }
     ],
     "worked_examples": [
         {
-            "title": "Step-by-Step Solved Problem: Dijkstra Algorithm Trace",
-            "problem": "Graph edges: A→B(4), A→C(2), C→B(1), B→D(5), C→D(8). Find shortest distance from source A to all vertices.",
+            "title": "Step-by-Step Solved Problem: Kruskal's MST Algorithm",
+            "problem": "A graph has vertices {A, B, C, D} and edges: (A-B: 1), (B-C: 2), (A-C: 3), (C-D: 4), (B-D: 5). Find the total weight of the MST.",
             "steps": [
-                "Step 1: Start at A: dist[A]=0, others=∞. Visited={}.",
-                "Step 2: Pick A(0): update dist[B]=4, dist[C]=2. Visited={A}.",
-                "Step 3: Pick smallest unvisited: C(2). Outgoing: C→B(1) ⇒ dist[B] = min(4, 2+1) = 3 (updated!). C→D(8) ⇒ dist[D] = min(∞, 2+8) = 10. Visited={A, C}.",
-                "Step 4: Pick smallest unvisited: B(3). Outgoing: B→D(5) ⇒ dist[D] = min(10, 3+5) = 8 (updated!). Visited={A, C, B}.",
-                "Step 5: Pick D(8). All visited."
+                "Step 1: Sort all edges in non-decreasing order of weight:\n  (A-B: 1), (B-C: 2), (A-C: 3), (C-D: 4), (B-D: 5).",
+                "Step 2: Pick smallest edge (A-B, wt 1). Add to MST. (Edges = 1).",
+                "Step 3: Pick next edge (B-C, wt 2). Add to MST. (Edges = 2).",
+                "Step 4: Pick next edge (A-C, wt 3). Both A and C are already in the same connected set! Adding A-C creates a cycle (A-B-C-A). Discard A-C!",
+                "Step 5: Pick next edge (C-D, wt 4). D is not yet connected. Add to MST. (Edges = 3).",
+                "Step 6: We have selected V - 1 = 4 - 1 = 3 edges. MST is complete!\n  Total MST weight = 1 + 2 + 4 = 7."
             ],
-            "answer": "Shortest distances from A: A=0, B=3, C=2, D=8."
+            "answer": "Minimum Spanning Tree Total Weight = 7."
         }
     ],
     "exam_traps": [
         {
-            "title": "GATE Trap: Adding a Constant to Fix Negative Weights",
-            "warning": "You CANNOT make negative edges positive for Dijkstra by adding a constant +10 to all edges! Paths with 5 edges get penalized more than paths with 2 edges, completely changing the shortest path!"
+            "title": "GATE Trap: Topological Sort",
+            "warning": "Topological Sort is ONLY possible on a Directed Acyclic Graph (DAG). If a graph has even one directed cycle, a valid topological sort does NOT exist!"
         }
     ]
 }

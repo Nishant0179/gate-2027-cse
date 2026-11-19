@@ -9,9 +9,9 @@
       "Calculus: Limits, Continuity, Differentiability, Maxima/Minima, Mean Value Theorem, Integration",
       "Probability and Statistics: Random Variables, Distributions, Bayes Theorem, Central Tendency"
     ],
-    "page_count": 10,
+    "page_count": 9,
     "file_path": "01_Engineering_Mathematics\\Subject_Complete_Notes.pdf",
-    "file_size_bytes": 30374,
+    "file_size_bytes": 26641,
     "generation_status": "Completed",
     "validation_status": "Valid",
     "category": "Complete Notes"
@@ -25,7 +25,7 @@
     ],
     "page_count": 4,
     "file_path": "01_Engineering_Mathematics\\Topic_01_Notes.pdf",
-    "file_size_bytes": 10753,
+    "file_size_bytes": 11186,
     "generation_status": "Completed",
     "validation_status": "Valid",
     "category": "Topic Notes"
@@ -37,9 +37,9 @@
     "topics_covered": [
       "Discrete Mathematics - Graph Theory & Combinatorics"
     ],
-    "page_count": 4,
+    "page_count": 3,
     "file_path": "01_Engineering_Mathematics\\Topic_02_Notes.pdf",
-    "file_size_bytes": 10831,
+    "file_size_bytes": 8954,
     "generation_status": "Completed",
     "validation_status": "Valid",
     "category": "Topic Notes"
@@ -51,9 +51,9 @@
     "topics_covered": [
       "Linear Algebra - Systems, Eigenvalues & LU Decomposition"
     ],
-    "page_count": 4,
+    "page_count": 3,
     "file_path": "01_Engineering_Mathematics\\Topic_03_Notes.pdf",
-    "file_size_bytes": 9896,
+    "file_size_bytes": 8146,
     "generation_status": "Completed",
     "validation_status": "Valid",
     "category": "Topic Notes"
@@ -67,7 +67,7 @@
     ],
     "page_count": 3,
     "file_path": "01_Engineering_Mathematics\\Topic_04_Notes.pdf",
-    "file_size_bytes": 9311,
+    "file_size_bytes": 7996,
     "generation_status": "Completed",
     "validation_status": "Valid",
     "category": "Topic Notes"
@@ -174,9 +174,9 @@
       "Design of sequential circuits: Latches, Flip-Flops, Registers, Counters, State Diagrams",
       "Number representation and arithmetic: Fixed point, Signed representations, Floating point (IEEE 754)"
     ],
-    "page_count": 9,
+    "page_count": 8,
     "file_path": "02_Digital_Logic\\Subject_Complete_Notes.pdf",
-    "file_size_bytes": 26188,
+    "file_size_bytes": 22793,
     "generation_status": "Completed",
     "validation_status": "Valid",
     "category": "Complete Notes"
@@ -188,9 +188,9 @@
     "topics_covered": [
       "Boolean Algebra, K-Maps & Tabular Method (Quine-McCluskey)"
     ],
-    "page_count": 4,
+    "page_count": 3,
     "file_path": "02_Digital_Logic\\Topic_01_Notes.pdf",
-    "file_size_bytes": 10561,
+    "file_size_bytes": 8982,
     "generation_status": "Completed",
     "validation_status": "Valid",
     "category": "Topic Notes"
@@ -204,7 +204,7 @@
     ],
     "page_count": 3,
     "file_path": "02_Digital_Logic\\Topic_02_Notes.pdf",
-    "file_size_bytes": 8321,
+    "file_size_bytes": 7658,
     "generation_status": "Completed",
     "validation_status": "Valid",
     "category": "Topic Notes"
@@ -218,7 +218,7 @@
     ],
     "page_count": 3,
     "file_path": "02_Digital_Logic\\Topic_03_Notes.pdf",
-    "file_size_bytes": 8380,
+    "file_size_bytes": 7760,
     "generation_status": "Completed",
     "validation_status": "Valid",
     "category": "Topic Notes"
@@ -232,7 +232,7 @@
     ],
     "page_count": 3,
     "file_path": "02_Digital_Logic\\Topic_04_Notes.pdf",
-    "file_size_bytes": 8546,
+    "file_size_bytes": 8126,
     "generation_status": "Completed",
     "validation_status": "Valid",
     "category": "Topic Notes"
@@ -340,9 +340,9 @@
       "I/O interface: interrupt and DMA mode",
       "Instruction pipelining, pipeline hazards, branch penalty and speedup"
     ],
-    "page_count": 9,
+    "page_count": 10,
     "file_path": "03_Computer_Organization\\Subject_Complete_Notes.pdf",
-    "file_size_bytes": 26386,
+    "file_size_bytes": 29214,
     "generation_status": "Completed",
     "validation_status": "Valid",
     "category": "Complete Notes"
@@ -356,7 +356,7 @@
     ],
     "page_count": 4,
     "file_path": "03_Computer_Organization\\Topic_01_Notes.pdf",
-    "file_size_bytes": 10313,
+    "file_size_bytes": 10901,
     "generation_status": "Completed",
     "validation_status": "Valid",
     "category": "Topic Notes"
@@ -370,7 +370,7 @@
     ],
     "page_count": 3,
     "file_path": "03_Computer_Organization\\Topic_02_Notes.pdf",
-    "file_size_bytes": 8864,
+    "file_size_bytes": 8938,
     "generation_status": "Completed",
     "validation_status": "Valid",
     "category": "Topic Notes"
@@ -384,7 +384,7 @@
     ],
     "page_count": 3,
     "file_path": "03_Computer_Organization\\Topic_03_Notes.pdf",
-    "file_size_bytes": 8609,
+    "file_size_bytes": 8970,
     "generation_status": "Completed",
     "validation_status": "Valid",
     "category": "Topic Notes"
@@ -398,7 +398,7 @@
     ],
     "page_count": 3,
     "file_path": "03_Computer_Organization\\Topic_04_Notes.pdf",
-    "file_size_bytes": 8213,
+    "file_size_bytes": 8982,
     "generation_status": "Completed",
     "validation_status": "Valid",
     "category": "Topic Notes"
@@ -504,9 +504,9 @@
       "Linear data structures: Arrays, address calculation, stacks, queues, linked lists",
       "Non-linear data structures: Trees, binary search trees (BST), binary heaps, graph representations"
     ],
-    "page_count": 7,
+    "page_count": 8,
     "file_path": "04_Programming_Data_Structures\\Subject_Complete_Notes.pdf",
-    "file_size_bytes": 19747,
+    "file_size_bytes": 22494,
     "generation_status": "Completed",
     "validation_status": "Valid",
     "category": "Complete Notes"
@@ -518,9 +518,9 @@
     "topics_covered": [
       "Programming in C & Recursion Tracing"
     ],
-    "page_count": 3,
+    "page_count": 4,
     "file_path": "04_Programming_Data_Structures\\Topic_01_Notes.pdf",
-    "file_size_bytes": 8474,
+    "file_size_bytes": 10743,
     "generation_status": "Completed",
     "validation_status": "Valid",
     "category": "Topic Notes"
@@ -534,7 +534,7 @@
     ],
     "page_count": 3,
     "file_path": "04_Programming_Data_Structures\\Topic_02_Notes.pdf",
-    "file_size_bytes": 8292,
+    "file_size_bytes": 8707,
     "generation_status": "Completed",
     "validation_status": "Valid",
     "category": "Topic Notes"
@@ -548,7 +548,7 @@
     ],
     "page_count": 3,
     "file_path": "04_Programming_Data_Structures\\Topic_03_Notes.pdf",
-    "file_size_bytes": 8472,
+    "file_size_bytes": 8840,
     "generation_status": "Completed",
     "validation_status": "Valid",
     "category": "Topic Notes"
@@ -657,7 +657,7 @@
     ],
     "page_count": 7,
     "file_path": "05_Algorithms\\Subject_Complete_Notes.pdf",
-    "file_size_bytes": 21956,
+    "file_size_bytes": 22096,
     "generation_status": "Completed",
     "validation_status": "Valid",
     "category": "Complete Notes"
@@ -671,7 +671,7 @@
     ],
     "page_count": 3,
     "file_path": "05_Algorithms\\Topic_01_Notes.pdf",
-    "file_size_bytes": 7830,
+    "file_size_bytes": 7894,
     "generation_status": "Completed",
     "validation_status": "Valid",
     "category": "Topic Notes"
@@ -685,7 +685,7 @@
     ],
     "page_count": 3,
     "file_path": "05_Algorithms\\Topic_02_Notes.pdf",
-    "file_size_bytes": 8547,
+    "file_size_bytes": 8714,
     "generation_status": "Completed",
     "validation_status": "Valid",
     "category": "Topic Notes"
@@ -699,7 +699,7 @@
     ],
     "page_count": 3,
     "file_path": "05_Algorithms\\Topic_03_Notes.pdf",
-    "file_size_bytes": 8130,
+    "file_size_bytes": 7917,
     "generation_status": "Completed",
     "validation_status": "Valid",
     "category": "Topic Notes"
@@ -713,7 +713,7 @@
     ],
     "page_count": 3,
     "file_path": "05_Algorithms\\Topic_04_Notes.pdf",
-    "file_size_bytes": 8113,
+    "file_size_bytes": 8109,
     "generation_status": "Completed",
     "validation_status": "Valid",
     "category": "Topic Notes"
@@ -822,7 +822,7 @@
     ],
     "page_count": 7,
     "file_path": "06_Theory_of_Computation\\Subject_Complete_Notes.pdf",
-    "file_size_bytes": 20469,
+    "file_size_bytes": 20342,
     "generation_status": "Completed",
     "validation_status": "Valid",
     "category": "Complete Notes"
@@ -836,7 +836,7 @@
     ],
     "page_count": 3,
     "file_path": "06_Theory_of_Computation\\Topic_01_Notes.pdf",
-    "file_size_bytes": 8409,
+    "file_size_bytes": 8628,
     "generation_status": "Completed",
     "validation_status": "Valid",
     "category": "Topic Notes"
@@ -850,7 +850,7 @@
     ],
     "page_count": 3,
     "file_path": "06_Theory_of_Computation\\Topic_02_Notes.pdf",
-    "file_size_bytes": 9076,
+    "file_size_bytes": 8886,
     "generation_status": "Completed",
     "validation_status": "Valid",
     "category": "Topic Notes"
@@ -864,7 +864,7 @@
     ],
     "page_count": 3,
     "file_path": "06_Theory_of_Computation\\Topic_03_Notes.pdf",
-    "file_size_bytes": 8715,
+    "file_size_bytes": 8599,
     "generation_status": "Completed",
     "validation_status": "Valid",
     "category": "Topic Notes"
@@ -974,7 +974,7 @@
     ],
     "page_count": 6,
     "file_path": "07_Compiler_Design\\Subject_Complete_Notes.pdf",
-    "file_size_bytes": 18382,
+    "file_size_bytes": 18025,
     "generation_status": "Completed",
     "validation_status": "Valid",
     "category": "Complete Notes"
@@ -988,7 +988,7 @@
     ],
     "page_count": 3,
     "file_path": "07_Compiler_Design\\Topic_01_Notes.pdf",
-    "file_size_bytes": 8009,
+    "file_size_bytes": 7976,
     "generation_status": "Completed",
     "validation_status": "Valid",
     "category": "Topic Notes"
@@ -1002,7 +1002,7 @@
     ],
     "page_count": 3,
     "file_path": "07_Compiler_Design\\Topic_02_Notes.pdf",
-    "file_size_bytes": 8499,
+    "file_size_bytes": 8378,
     "generation_status": "Completed",
     "validation_status": "Valid",
     "category": "Topic Notes"
@@ -1016,7 +1016,7 @@
     ],
     "page_count": 3,
     "file_path": "07_Compiler_Design\\Topic_03_Notes.pdf",
-    "file_size_bytes": 8352,
+    "file_size_bytes": 8173,
     "generation_status": "Completed",
     "validation_status": "Valid",
     "category": "Topic Notes"
@@ -1126,7 +1126,7 @@
     ],
     "page_count": 6,
     "file_path": "08_Operating_Systems\\Subject_Complete_Notes.pdf",
-    "file_size_bytes": 17969,
+    "file_size_bytes": 17616,
     "generation_status": "Completed",
     "validation_status": "Valid",
     "category": "Complete Notes"
@@ -1140,7 +1140,7 @@
     ],
     "page_count": 3,
     "file_path": "08_Operating_Systems\\Topic_01_Notes.pdf",
-    "file_size_bytes": 7960,
+    "file_size_bytes": 7913,
     "generation_status": "Completed",
     "validation_status": "Valid",
     "category": "Topic Notes"
@@ -1154,7 +1154,7 @@
     ],
     "page_count": 3,
     "file_path": "08_Operating_Systems\\Topic_02_Notes.pdf",
-    "file_size_bytes": 8155,
+    "file_size_bytes": 7816,
     "generation_status": "Completed",
     "validation_status": "Valid",
     "category": "Topic Notes"
@@ -1168,7 +1168,7 @@
     ],
     "page_count": 3,
     "file_path": "08_Operating_Systems\\Topic_03_Notes.pdf",
-    "file_size_bytes": 8183,
+    "file_size_bytes": 8135,
     "generation_status": "Completed",
     "validation_status": "Valid",
     "category": "Topic Notes"
@@ -1277,7 +1277,7 @@
     ],
     "page_count": 6,
     "file_path": "09_Databases\\Subject_Complete_Notes.pdf",
-    "file_size_bytes": 18386,
+    "file_size_bytes": 18162,
     "generation_status": "Completed",
     "validation_status": "Valid",
     "category": "Complete Notes"
@@ -1291,7 +1291,7 @@
     ],
     "page_count": 3,
     "file_path": "09_Databases\\Topic_01_Notes.pdf",
-    "file_size_bytes": 8192,
+    "file_size_bytes": 8191,
     "generation_status": "Completed",
     "validation_status": "Valid",
     "category": "Topic Notes"
@@ -1305,7 +1305,7 @@
     ],
     "page_count": 3,
     "file_path": "09_Databases\\Topic_02_Notes.pdf",
-    "file_size_bytes": 8686,
+    "file_size_bytes": 8726,
     "generation_status": "Completed",
     "validation_status": "Valid",
     "category": "Topic Notes"
@@ -1319,7 +1319,7 @@
     ],
     "page_count": 3,
     "file_path": "09_Databases\\Topic_03_Notes.pdf",
-    "file_size_bytes": 8079,
+    "file_size_bytes": 7995,
     "generation_status": "Completed",
     "validation_status": "Valid",
     "category": "Topic Notes"
@@ -1429,7 +1429,7 @@
     ],
     "page_count": 7,
     "file_path": "10_Computer_Networks\\Subject_Complete_Notes.pdf",
-    "file_size_bytes": 21622,
+    "file_size_bytes": 21227,
     "generation_status": "Completed",
     "validation_status": "Valid",
     "category": "Complete Notes"
@@ -1443,7 +1443,7 @@
     ],
     "page_count": 3,
     "file_path": "10_Computer_Networks\\Topic_01_Notes.pdf",
-    "file_size_bytes": 7988,
+    "file_size_bytes": 7902,
     "generation_status": "Completed",
     "validation_status": "Valid",
     "category": "Topic Notes"
@@ -1457,7 +1457,7 @@
     ],
     "page_count": 3,
     "file_path": "10_Computer_Networks\\Topic_02_Notes.pdf",
-    "file_size_bytes": 8009,
+    "file_size_bytes": 7878,
     "generation_status": "Completed",
     "validation_status": "Valid",
     "category": "Topic Notes"
@@ -1471,7 +1471,7 @@
     ],
     "page_count": 3,
     "file_path": "10_Computer_Networks\\Topic_03_Notes.pdf",
-    "file_size_bytes": 8082,
+    "file_size_bytes": 7786,
     "generation_status": "Completed",
     "validation_status": "Valid",
     "category": "Topic Notes"
@@ -1485,7 +1485,7 @@
     ],
     "page_count": 3,
     "file_path": "10_Computer_Networks\\Topic_04_Notes.pdf",
-    "file_size_bytes": 7954,
+    "file_size_bytes": 7974,
     "generation_status": "Completed",
     "validation_status": "Valid",
     "category": "Topic Notes"
@@ -1594,7 +1594,7 @@
     ],
     "page_count": 6,
     "file_path": "11_General_Aptitude\\Subject_Complete_Notes.pdf",
-    "file_size_bytes": 16915,
+    "file_size_bytes": 16847,
     "generation_status": "Completed",
     "validation_status": "Valid",
     "category": "Complete Notes"
@@ -1608,7 +1608,7 @@
     ],
     "page_count": 3,
     "file_path": "11_General_Aptitude\\Topic_01_Notes.pdf",
-    "file_size_bytes": 7844,
+    "file_size_bytes": 7797,
     "generation_status": "Completed",
     "validation_status": "Valid",
     "category": "Topic Notes"
@@ -1622,7 +1622,7 @@
     ],
     "page_count": 3,
     "file_path": "11_General_Aptitude\\Topic_02_Notes.pdf",
-    "file_size_bytes": 7794,
+    "file_size_bytes": 7802,
     "generation_status": "Completed",
     "validation_status": "Valid",
     "category": "Topic Notes"
@@ -1636,7 +1636,7 @@
     ],
     "page_count": 3,
     "file_path": "11_General_Aptitude\\Topic_03_Notes.pdf",
-    "file_size_bytes": 7842,
+    "file_size_bytes": 7844,
     "generation_status": "Completed",
     "validation_status": "Valid",
     "category": "Topic Notes"

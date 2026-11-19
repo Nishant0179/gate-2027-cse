@@ -444,23 +444,6 @@ export const SubjectLibraryView: React.FC<SubjectLibraryViewProps> = ({
                 >
                   ✨ All Sections
                 </button>
-                {chapter.structured_content?.real_life_examples && (
-                  <button
-                    onClick={() => setReaderSectionFilter('stories')}
-                    className={`px-3 py-1.5 rounded-xl text-xs font-bold transition flex items-center gap-1.5 ${
-                      readerSectionFilter === 'stories'
-                        ? 'bg-amber-600 text-white shadow-xs'
-                        : 'text-slate-600 dark:text-slate-300 hover:bg-white dark:hover:bg-slate-700'
-                    }`}
-                  >
-                    <span>💡 Real-Life Stories</span>
-                    <span className={`text-[10px] px-1.5 py-0.2 rounded-full ${
-                      readerSectionFilter === 'stories' ? 'bg-amber-700 text-white' : 'bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300'
-                    }`}>
-                      {chapter.structured_content.real_life_examples.length}
-                    </span>
-                  </button>
-                )}
                 {chapter.structured_content?.foundations && (
                   <button
                     onClick={() => setReaderSectionFilter('foundations')}
@@ -509,6 +492,23 @@ export const SubjectLibraryView: React.FC<SubjectLibraryViewProps> = ({
                       readerSectionFilter === 'traps' ? 'bg-rose-700 text-white' : 'bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300'
                     }`}>
                       {chapter.structured_content.exam_traps.length}
+                    </span>
+                  </button>
+                )}
+                {chapter.structured_content?.real_life_examples && (
+                  <button
+                    onClick={() => setReaderSectionFilter('stories')}
+                    className={`px-3 py-1.5 rounded-xl text-xs font-bold transition flex items-center gap-1.5 ${
+                      readerSectionFilter === 'stories'
+                        ? 'bg-amber-600 text-white shadow-xs'
+                        : 'text-slate-600 dark:text-slate-300 hover:bg-white dark:hover:bg-slate-700'
+                    }`}
+                  >
+                    <span>💡 Mental Models</span>
+                    <span className={`text-[10px] px-1.5 py-0.2 rounded-full ${
+                      readerSectionFilter === 'stories' ? 'bg-amber-700 text-white' : 'bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300'
+                    }`}>
+                      {chapter.structured_content.real_life_examples.length}
                     </span>
                   </button>
                 )}
@@ -623,62 +623,16 @@ export const SubjectLibraryView: React.FC<SubjectLibraryViewProps> = ({
               </div>
             )}
 
-            {/* Hinglish Concept Intuition Box */}
-            {chapter.hinglish && (readerSectionFilter === 'all' || readerSectionFilter === 'stories') && (
-              <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-blue-50/80 to-indigo-50/80 dark:from-slate-800/80 dark:to-slate-800/40 border border-blue-200/60 dark:border-slate-700 space-y-1">
-                <div className="flex items-center gap-2">
-                  <Lightbulb className="h-4 w-4 text-amber-500" />
-                  <span className="text-xs font-bold text-slate-900 dark:text-white">Quick Intuitive Mental Model</span>
-                </div>
-                <p className={`${fontSizeClasses.body} text-slate-700 dark:text-slate-300 leading-relaxed italic`}>
-                  "{chapter.hinglish}"
-                </p>
-              </div>
-            )}
-
-            {/* SECTION 1: EVERYDAY REAL-LIFE EXAMPLES */}
-            {chapter.structured_content?.real_life_examples && (readerSectionFilter === 'all' || readerSectionFilter === 'stories') && (
-              <div className="space-y-4">
-                <div className="border-b border-slate-200 dark:border-slate-800 pb-2">
-                  <h3 className="text-sm sm:text-base font-extrabold text-blue-700 dark:text-blue-400 uppercase tracking-wide flex items-center gap-2">
-                    <span>1. Everyday Real-Life Examples (Intuitive Mental Models)</span>
-                  </h3>
-                  <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
-                    Understand the fundamental logic using simple everyday analogies before diving into equations:
-                  </p>
-                </div>
-
-                <div className="space-y-3.5">
-                  {chapter.structured_content.real_life_examples.map((ex: any, exIdx: number) => (
-                    <div
-                      key={exIdx}
-                      className="p-4 sm:p-5 rounded-2xl bg-slate-50/90 dark:bg-slate-800/50 border border-slate-200/80 dark:border-slate-700/70 shadow-xs space-y-2 transition hover:border-amber-400/60"
-                    >
-                      <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-bold bg-amber-100 dark:bg-amber-950/70 text-amber-800 dark:text-amber-300 border border-amber-200 dark:border-amber-800/60">
-                        <Lightbulb className="h-3 w-3" />
-                        <span>Real-Life Analogy {exIdx + 1}</span>
-                      </div>
-                      <h4 className={`font-bold text-slate-900 dark:text-slate-100 ${fontSizeClasses.heading}`}>
-                        {ex.title}
-                      </h4>
-                      <p className={`${fontSizeClasses.body} text-slate-700 dark:text-slate-300 leading-relaxed whitespace-pre-line`}>
-                        {ex.text}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
-
-            {/* SECTION 2: IN-DEPTH FOUNDATIONS & THEOREMS */}
+            {/* SECTION 1: IN-DEPTH FOUNDATIONS & THEOREMS (POINT-BY-POINT STUDY GUIDE) */}
             {chapter.structured_content?.foundations && (readerSectionFilter === 'all' || readerSectionFilter === 'foundations') && (
-              <div className="space-y-4 pt-2">
+              <div className="space-y-4 pt-1">
                 <div className="border-b border-slate-200 dark:border-slate-800 pb-2">
                   <h3 className="text-sm sm:text-base font-extrabold text-blue-700 dark:text-blue-400 uppercase tracking-wide flex items-center gap-2">
-                    <span>2. In-Depth Conceptual & Architectural Foundations</span>
+                    <BookOpen className="h-4 w-4" />
+                    <span>1. Core Concept Foundations (Point-by-Point Study Guide)</span>
                   </h3>
                   <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
-                    Core principles, definitions, and high-yield rules directly tested in GATE:
+                    Crystal-clear bullet points, step-by-step logic, code, and key exam rules tested in GATE:
                   </p>
                 </div>
 
@@ -698,12 +652,12 @@ export const SubjectLibraryView: React.FC<SubjectLibraryViewProps> = ({
                       </div>
 
                       <div
-                        className={`${fontSizeClasses.body} text-slate-700 dark:text-slate-300 leading-relaxed space-y-1.5`}
+                        className={`${fontSizeClasses.body} text-slate-700 dark:text-slate-300 leading-relaxed space-y-2`}
                         dangerouslySetInnerHTML={{ __html: fnd.content }}
                       />
 
                       {fnd.crucial_rule && (
-                        <div className="mt-2.5 p-3.5 rounded-xl bg-emerald-50/90 dark:bg-emerald-950/40 border border-emerald-300/80 dark:border-emerald-700/60 text-emerald-950 dark:text-emerald-200 text-xs sm:text-sm font-semibold flex items-start gap-2.5 shadow-2xs">
+                        <div className="mt-3 p-3.5 rounded-xl bg-emerald-50/90 dark:bg-emerald-950/40 border border-emerald-300/80 dark:border-emerald-700/60 text-emerald-950 dark:text-emerald-200 text-xs sm:text-sm font-semibold flex items-start gap-2.5 shadow-2xs">
                           <Sparkles className="h-4 w-4 text-emerald-600 dark:text-emerald-400 flex-shrink-0 mt-0.5" />
                           <div className="leading-relaxed">{fnd.crucial_rule}</div>
                         </div>
@@ -714,15 +668,16 @@ export const SubjectLibraryView: React.FC<SubjectLibraryViewProps> = ({
               </div>
             )}
 
-            {/* SECTION 3: STEP-BY-STEP EXAM WORKED EXAMPLES */}
+            {/* SECTION 2: STEP-BY-STEP EXAM WORKED EXAMPLES */}
             {chapter.structured_content?.worked_examples && (readerSectionFilter === 'all' || readerSectionFilter === 'solved') && (
               <div className="space-y-4 pt-2">
                 <div className="border-b border-slate-200 dark:border-slate-800 pb-2">
-                  <h3 className="text-sm sm:text-base font-extrabold text-blue-700 dark:text-blue-400 uppercase tracking-wide flex items-center gap-2">
-                    <span>3. Step-by-Step Exam Worked Examples & Problem Traces</span>
+                  <h3 className="text-sm sm:text-base font-extrabold text-purple-700 dark:text-purple-400 uppercase tracking-wide flex items-center gap-2">
+                    <Sparkles className="h-4 w-4" />
+                    <span>2. Step-by-Step Exam Worked Examples & Problem Traces</span>
                   </h3>
                   <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
-                    Authentic exam-pattern numerical and conceptual problems solved with detailed derivations:
+                    Authentic exam-pattern numerical and conceptual problems solved with detailed step-by-step derivations:
                   </p>
                 </div>
 
@@ -768,12 +723,13 @@ export const SubjectLibraryView: React.FC<SubjectLibraryViewProps> = ({
               </div>
             )}
 
-            {/* SECTION 4: COMMON MISCONCEPTIONS & EXAM TRAPS */}
+            {/* SECTION 3: COMMON MISCONCEPTIONS & EXAM TRAPS */}
             {chapter.structured_content?.exam_traps && (readerSectionFilter === 'all' || readerSectionFilter === 'traps') && (
               <div className="space-y-3.5 pt-2">
                 <div className="border-b border-slate-200 dark:border-slate-800 pb-2">
-                  <h3 className="text-sm sm:text-base font-extrabold text-blue-700 dark:text-blue-400 uppercase tracking-wide flex items-center gap-2">
-                    <span>4. Common Misconceptions & Exam Trap Warnings</span>
+                  <h3 className="text-sm sm:text-base font-extrabold text-rose-700 dark:text-rose-400 uppercase tracking-wide flex items-center gap-2">
+                    <AlertTriangle className="h-4 w-4" />
+                    <span>3. Common Misconceptions & Exam Trap Warnings</span>
                   </h3>
                   <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
                     Critical negative-marking traps designed by IIT professors to catch unprepared candidates:
@@ -781,24 +737,62 @@ export const SubjectLibraryView: React.FC<SubjectLibraryViewProps> = ({
                 </div>
 
                 <div className="space-y-3">
-                  {chapter.structured_content.exam_traps.map((tr: any, trIdx: number) => (
+                  {chapter.structured_content.exam_traps.map((tr: any, trIdx: number) => {
+                    const trapTitle = typeof tr === 'object' && tr !== null ? tr.title : 'GATE Exam Trap';
+                    const trapWarning = typeof tr === 'object' && tr !== null ? tr.warning : String(tr);
+                    return (
+                      <div
+                        key={trIdx}
+                        className="p-4 rounded-xl bg-rose-50/80 dark:bg-rose-950/30 border border-rose-200/80 dark:border-rose-900/60 shadow-xs space-y-1.5"
+                      >
+                        <h4 className="font-bold text-rose-900 dark:text-rose-200 text-xs sm:text-sm flex items-center gap-1.5">
+                          <AlertTriangle className="h-4 w-4 text-rose-600 dark:text-rose-400 flex-shrink-0" />
+                          <span>⚠️ {trapTitle}</span>
+                        </h4>
+                        <p className={`${fontSizeClasses.body} text-slate-700 dark:text-slate-300 leading-relaxed`}>
+                          {trapWarning}
+                        </p>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+
+            {/* SECTION 4: QUICK INTUITIVE MENTAL MODELS (REAL-LIFE ANALOGIES) */}
+            {chapter.structured_content?.real_life_examples && (readerSectionFilter === 'all' || readerSectionFilter === 'stories') && (
+              <div className="space-y-4 pt-2">
+                <div className="border-b border-slate-200 dark:border-slate-800 pb-2">
+                  <h3 className="text-sm sm:text-base font-extrabold text-amber-700 dark:text-amber-400 uppercase tracking-wide flex items-center gap-2">
+                    <Lightbulb className="h-4 w-4" />
+                    <span>4. Quick Intuitive Mental Models (Real-Life Analogies)</span>
+                  </h3>
+                  <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
+                    Simple everyday analogies to connect technical concepts with natural intuition:
+                  </p>
+                </div>
+
+                <div className="space-y-3.5">
+                  {chapter.structured_content.real_life_examples.map((ex: any, exIdx: number) => (
                     <div
-                      key={trIdx}
-                      className="p-4 rounded-xl bg-rose-50/80 dark:bg-rose-950/30 border border-rose-200/80 dark:border-rose-900/60 shadow-xs space-y-1.5"
+                      key={exIdx}
+                      className="p-4 sm:p-5 rounded-2xl bg-slate-50/90 dark:bg-slate-800/50 border border-slate-200/80 dark:border-slate-700/70 shadow-xs space-y-2 transition hover:border-amber-400/60"
                     >
-                      <h4 className="font-bold text-rose-900 dark:text-rose-200 text-xs sm:text-sm flex items-center gap-1.5">
-                        <AlertTriangle className="h-4 w-4 text-rose-600 dark:text-rose-400 flex-shrink-0" />
-                        <span>⚠️ {tr.title}</span>
+                      <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-bold bg-amber-100 dark:bg-amber-950/70 text-amber-800 dark:text-amber-300 border border-amber-200 dark:border-amber-800/60">
+                        <Lightbulb className="h-3 w-3" />
+                        <span>Analogy {exIdx + 1}</span>
+                      </div>
+                      <h4 className={`font-bold text-slate-900 dark:text-slate-100 ${fontSizeClasses.heading}`}>
+                        {ex.title}
                       </h4>
-                      <p className={`${fontSizeClasses.body} text-slate-700 dark:text-slate-300 leading-relaxed`}>
-                        {tr.warning}
+                      <p className={`${fontSizeClasses.body} text-slate-700 dark:text-slate-300 leading-relaxed whitespace-pre-line`}>
+                        {ex.text}
                       </p>
                     </div>
                   ))}
                 </div>
               </div>
             )}
-
             {/* Fallback to HTML Theory if structured_content is absent */}
             {!chapter.structured_content && chapter.theory && (
               <div className="space-y-3">

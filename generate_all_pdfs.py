@@ -36,22 +36,17 @@ def render_chapter_to_builder(b_target, sub_id, idx, chap):
     
     ch_data = pte.MASTER_CHAPTER_STRUCTURED_DICT.get((sub_id, idx if idx is not None else 0))
     if ch_data:
-        # Section 1: Real-life examples
-        b_target.add_subsection_header("1. EVERYDAY REAL-LIFE EXAMPLES (INTUITIVE MENTAL MODELS)")
-        b_target.add_section_subhead("These everyday real-life examples illustrate the core concept using familiar situations before diving into theory:")
-        for ex in ch_data.get("real_life_examples", []):
-            b_target.add_real_life_example(ex["title"], ex["text"])
-            
-        # Section 2: In-Depth Conceptual & Architectural Foundations
-        b_target.add_subsection_header("2. IN-DEPTH CONCEPTUAL & ARCHITECTURAL FOUNDATIONS")
+        # Section 1: In-Depth Conceptual Foundations (Point-by-Point Study Guide)
+        b_target.add_subsection_header("1. CORE CONCEPTUAL FOUNDATIONS (POINT-BY-POINT STUDY GUIDE)")
+        b_target.add_section_subhead("Point-by-point conceptual breakdowns with step-by-step logic, code, and key exam rules:")
         for fnd in ch_data.get("foundations", []):
             b_target.add_sub_subsection_header(f"{fnd.get('number', '')} {fnd.get('title', '')}")
             b_target.add_paragraph(fnd.get("content", ""))
             if fnd.get("crucial_rule"):
-                b_target.add_callout("CRUCIAL RULE / THEOREM", fnd["crucial_rule"], "tip")
+                b_target.add_callout("GOLDEN RULE FOR GATE", fnd["crucial_rule"], "tip")
                 
-        # Section 3: Step-by-Step Exam Worked Examples
-        b_target.add_subsection_header("3. STEP-BY-STEP EXAM WORKED EXAMPLES & PROBLEM TRACES")
+        # Section 2: Step-by-Step Exam Worked Examples
+        b_target.add_subsection_header("2. STEP-BY-STEP EXAM WORKED EXAMPLES & PROBLEM TRACES")
         for w in ch_data.get("worked_examples", []):
             b_target.add_sub_subsection_header(w.get("title", "Worked Problem"))
             b_target.add_paragraph(f"<b>Problem:</b> {w.get('problem', '')}")
@@ -59,10 +54,20 @@ def render_chapter_to_builder(b_target, sub_id, idx, chap):
             b_target.add_paragraph(f"<b>Step-by-Step Solution & Traces:</b><br/>{steps_txt}")
             b_target.add_callout("Final Answer", w.get("answer", ""), "formula")
             
-        # Section 4: Common Misconceptions & Exam Trap Warnings
-        b_target.add_subsection_header("4. COMMON MISCONCEPTIONS & EXAM TRAP WARNINGS")
+        # Section 3: Common Misconceptions & Exam Trap Warnings
+        b_target.add_subsection_header("3. COMMON MISCONCEPTIONS & EXAM TRAP WARNINGS")
         for tr in ch_data.get("exam_traps", []):
-            b_target.add_callout(tr.get("title", "Exam Trap"), tr.get("warning", ""), "warn")
+            if isinstance(tr, dict):
+                b_target.add_callout(tr.get("title", "Exam Trap"), tr.get("warning", ""), "warn")
+            else:
+                b_target.add_callout("GATE Exam Trap / Warning", str(tr), "warn")
+
+        # Section 4: Quick Intuitive Mental Models
+        if ch_data.get("real_life_examples"):
+            b_target.add_subsection_header("4. QUICK INTUITIVE MENTAL MODELS (REAL-LIFE ANALOGIES)")
+            b_target.add_section_subhead("Everyday analogies to connect technical concepts with natural intuition:")
+            for ex in ch_data.get("real_life_examples", []):
+                b_target.add_real_life_example(ex["title"], ex["text"])
     else:
         b_target.add_paragraph(chap["theory"])
         for c_title, c_text, c_type in chap.get("callouts", []):

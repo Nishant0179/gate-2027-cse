@@ -59,6 +59,9 @@ def main():
             if (sub_id, idx) in pte.PROGRESSIVE_THEORY_DICT:
                 chap_copy["theory"] = pte.PROGRESSIVE_THEORY_DICT[(sub_id, idx)]
 
+            if (sub_id, idx) in pte.MASTER_CHAPTER_STRUCTURED_DICT:
+                chap_copy["structured_content"] = pte.MASTER_CHAPTER_STRUCTURED_DICT[(sub_id, idx)]
+
             if idx < len(res_list):
                 chap_copy["video_resources"] = res_list[idx].get("videos", [])
                 chap_copy["solved_examples"] = res_list[idx].get("solved_examples", [])

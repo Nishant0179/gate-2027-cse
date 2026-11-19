@@ -8,6 +8,7 @@ import {
   Lightbulb, 
   Sparkles, 
   ChevronRight,
+  ChevronLeft,
   ChevronDown,
   ChevronUp,
   Bookmark,
@@ -62,6 +63,30 @@ export const SubjectLibraryView: React.FC<SubjectLibraryViewProps> = ({
   const [practiceLimit, setPracticeLimit] = useState<number>(10);
   const [natInputs, setNatInputs] = useState<Record<string, string>>({});
   const [subjectViewMode, setSubjectViewMode] = useState<'chapters' | 'revision'>('chapters');
+  const [readerSectionFilter, setReaderSectionFilter] = useState<'all' | 'stories' | 'foundations' | 'solved' | 'traps' | 'videos' | 'practice'>('all');
+  const [readerFontSize, setReaderFontSize] = useState<'normal' | 'large' | 'xlarge'>('normal');
+
+  const fontSizeClasses = {
+    normal: { body: 'text-xs sm:text-sm', heading: 'text-sm sm:text-base', title: 'text-base sm:text-lg' },
+    large: { body: 'text-sm sm:text-base', heading: 'text-base sm:text-lg', title: 'text-lg sm:text-xl' },
+    xlarge: { body: 'text-base sm:text-lg', heading: 'text-lg sm:text-xl', title: 'text-xl sm:text-2xl' },
+  }[readerFontSize];
+
+  const handlePrevChapter = () => {
+    if (activeChapterIndex > 0) {
+      setActiveChapterIndex(activeChapterIndex - 1);
+      setReaderSectionFilter('all');
+      window.scrollTo({ top: 220, behavior: 'smooth' });
+    }
+  };
+
+  const handleNextChapter = () => {
+    if (activeChapterIndex < subject.chapters.length - 1) {
+      setActiveChapterIndex(activeChapterIndex + 1);
+      setReaderSectionFilter('all');
+      window.scrollTo({ top: 220, behavior: 'smooth' });
+    }
+  };
 
   const subject = gateData.subjects.find((s: any) => s.id === selectedSubjectId) || gateData.subjects[0];
   const currentRev = gateData.subjectRevision ? gateData.subjectRevision[subject.id] : null;
@@ -405,9 +430,155 @@ export const SubjectLibraryView: React.FC<SubjectLibraryViewProps> = ({
           </div>
 
           {/* Chapter Content Body */}
-          <div className="mt-6 space-y-8">
+          <div className="mt-6 space-y-6">
+            {/* Interactive Reader Toolbar: Section Filters & Font Size Adjuster */}
+            <div className="flex flex-wrap items-center justify-between gap-3 p-3 rounded-2xl bg-slate-100/90 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-800 shadow-xs">
+              <div className="flex flex-wrap items-center gap-1.5">
+                <button
+                  onClick={() => setReaderSectionFilter('all')}
+                  className={`px-3 py-1.5 rounded-xl text-xs font-bold transition ${
+                    readerSectionFilter === 'all'
+                      ? 'bg-blue-600 text-white shadow-xs'
+                      : 'text-slate-600 dark:text-slate-300 hover:bg-white dark:hover:bg-slate-700'
+                  }`}
+                >
+                  ✨ All Sections
+                </button>
+                {chapter.structured_content?.real_life_examples && (
+                  <button
+                    onClick={() => setReaderSectionFilter('stories')}
+                    className={`px-3 py-1.5 rounded-xl text-xs font-bold transition flex items-center gap-1.5 ${
+                      readerSectionFilter === 'stories'
+                        ? 'bg-amber-600 text-white shadow-xs'
+                        : 'text-slate-600 dark:text-slate-300 hover:bg-white dark:hover:bg-slate-700'
+                    }`}
+                  >
+                    <span>💡 Real-Life Stories</span>
+                    <span className={`text-[10px] px-1.5 py-0.2 rounded-full ${
+                      readerSectionFilter === 'stories' ? 'bg-amber-700 text-white' : 'bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300'
+                    }`}>
+                      {chapter.structured_content.real_life_examples.length}
+                    </span>
+                  </button>
+                )}
+                {chapter.structured_content?.foundations && (
+                  <button
+                    onClick={() => setReaderSectionFilter('foundations')}
+                    className={`px-3 py-1.5 rounded-xl text-xs font-bold transition flex items-center gap-1.5 ${
+                      readerSectionFilter === 'foundations'
+                        ? 'bg-blue-600 text-white shadow-xs'
+                        : 'text-slate-600 dark:text-slate-300 hover:bg-white dark:hover:bg-slate-700'
+                    }`}
+                  >
+                    <span>📖 Core Foundations</span>
+                    <span className={`text-[10px] px-1.5 py-0.2 rounded-full ${
+                      readerSectionFilter === 'foundations' ? 'bg-blue-700 text-white' : 'bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300'
+                    }`}>
+                      {chapter.structured_content.foundations.length}
+                    </span>
+                  </button>
+                )}
+                {chapter.structured_content?.worked_examples && (
+                  <button
+                    onClick={() => setReaderSectionFilter('solved')}
+                    className={`px-3 py-1.5 rounded-xl text-xs font-bold transition flex items-center gap-1.5 ${
+                      readerSectionFilter === 'solved'
+                        ? 'bg-purple-600 text-white shadow-xs'
+                        : 'text-slate-600 dark:text-slate-300 hover:bg-white dark:hover:bg-slate-700'
+                    }`}
+                  >
+                    <span>🔢 Solved Numericals</span>
+                    <span className={`text-[10px] px-1.5 py-0.2 rounded-full ${
+                      readerSectionFilter === 'solved' ? 'bg-purple-700 text-white' : 'bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300'
+                    }`}>
+                      {chapter.structured_content.worked_examples.length}
+                    </span>
+                  </button>
+                )}
+                {chapter.structured_content?.exam_traps && (
+                  <button
+                    onClick={() => setReaderSectionFilter('traps')}
+                    className={`px-3 py-1.5 rounded-xl text-xs font-bold transition flex items-center gap-1.5 ${
+                      readerSectionFilter === 'traps'
+                        ? 'bg-rose-600 text-white shadow-xs'
+                        : 'text-slate-600 dark:text-slate-300 hover:bg-white dark:hover:bg-slate-700'
+                    }`}
+                  >
+                    <span>⚠️ GATE Traps</span>
+                    <span className={`text-[10px] px-1.5 py-0.2 rounded-full ${
+                      readerSectionFilter === 'traps' ? 'bg-rose-700 text-white' : 'bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300'
+                    }`}>
+                      {chapter.structured_content.exam_traps.length}
+                    </span>
+                  </button>
+                )}
+                {chapter.video_resources && chapter.video_resources.length > 0 && (
+                  <button
+                    onClick={() => setReaderSectionFilter('videos')}
+                    className={`px-3 py-1.5 rounded-xl text-xs font-bold transition flex items-center gap-1.5 ${
+                      readerSectionFilter === 'videos'
+                        ? 'bg-red-600 text-white shadow-xs'
+                        : 'text-slate-600 dark:text-slate-300 hover:bg-white dark:hover:bg-slate-700'
+                    }`}
+                  >
+                    <span>🎥 Video Classes</span>
+                  </button>
+                )}
+                <button
+                  onClick={() => setReaderSectionFilter('practice')}
+                  className={`px-3 py-1.5 rounded-xl text-xs font-bold transition flex items-center gap-1.5 ${
+                    readerSectionFilter === 'practice'
+                      ? 'bg-emerald-600 text-white shadow-xs'
+                      : 'text-slate-600 dark:text-slate-300 hover:bg-white dark:hover:bg-slate-700'
+                  }`}
+                >
+                  <span>📝 Practice ({subjectQuestions.length})</span>
+                </button>
+              </div>
+
+              {/* Text Size Control */}
+              <div className="flex items-center gap-1 bg-white dark:bg-slate-900 px-2 py-1 rounded-xl border border-slate-200 dark:border-slate-700 text-xs shadow-2xs">
+                <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 mr-1">
+                  Font:
+                </span>
+                <button
+                  onClick={() => setReaderFontSize('normal')}
+                  className={`px-2 py-0.5 rounded-md font-bold text-xs transition ${
+                    readerFontSize === 'normal'
+                      ? 'bg-blue-600 text-white'
+                      : 'text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800'
+                  }`}
+                  title="Normal Text Size"
+                >
+                  A-
+                </button>
+                <button
+                  onClick={() => setReaderFontSize('large')}
+                  className={`px-2 py-0.5 rounded-md font-bold text-xs transition ${
+                    readerFontSize === 'large'
+                      ? 'bg-blue-600 text-white'
+                      : 'text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800'
+                  }`}
+                  title="Large Text Size"
+                >
+                  A
+                </button>
+                <button
+                  onClick={() => setReaderFontSize('xlarge')}
+                  className={`px-2 py-0.5 rounded-md font-bold text-xs transition ${
+                    readerFontSize === 'xlarge'
+                      ? 'bg-blue-600 text-white'
+                      : 'text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800'
+                  }`}
+                  title="Extra Large Text Size"
+                >
+                  A+
+                </button>
+              </div>
+            </div>
+
             {/* Curated YouTube Video Lectures */}
-            {chapter.video_resources && chapter.video_resources.length > 0 && (
+            {chapter.video_resources && chapter.video_resources.length > 0 && (readerSectionFilter === 'all' || readerSectionFilter === 'videos') && (
               <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-red-50/70 via-rose-50/50 to-orange-50/40 dark:from-red-950/20 dark:via-rose-950/20 dark:to-slate-900 border border-red-200 dark:border-red-900/60 shadow-xs">
                 <div className="flex items-center gap-2 mb-3">
                   <div className="p-1.5 rounded-lg bg-red-600 text-white">
@@ -453,68 +624,194 @@ export const SubjectLibraryView: React.FC<SubjectLibraryViewProps> = ({
             )}
 
             {/* Hinglish Concept Intuition Box */}
-            {chapter.hinglish && (
-              <div className="p-4 rounded-xl bg-gradient-to-r from-blue-50/80 to-indigo-50/80 dark:from-slate-800/80 dark:to-slate-800/40 border border-blue-200/60 dark:border-slate-700">
-                <div className="flex items-center gap-2 mb-1.5">
+            {chapter.hinglish && (readerSectionFilter === 'all' || readerSectionFilter === 'stories') && (
+              <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-blue-50/80 to-indigo-50/80 dark:from-slate-800/80 dark:to-slate-800/40 border border-blue-200/60 dark:border-slate-700 space-y-1">
+                <div className="flex items-center gap-2">
                   <Lightbulb className="h-4 w-4 text-amber-500" />
-                  <span className="text-xs font-bold text-slate-900 dark:text-white">Intuitive Concept Breakdown (Hinglish)</span>
+                  <span className="text-xs font-bold text-slate-900 dark:text-white">Quick Intuitive Mental Model</span>
                 </div>
-                <p className="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed italic">
+                <p className={`${fontSizeClasses.body} text-slate-700 dark:text-slate-300 leading-relaxed italic`}>
                   "{chapter.hinglish}"
                 </p>
               </div>
             )}
 
-            {/* Core Technical Theory */}
-            <div className="space-y-3">
-              <div className="flex flex-wrap items-center justify-between gap-2">
-                <h3 className="text-sm font-bold text-slate-900 dark:text-white flex items-center gap-2">
-                  <BookOpen className="h-4 w-4 text-blue-600" />
-                  <span>Comprehensive Master Textbook Chapter</span>
-                </h3>
-                <span className="text-[11px] font-medium px-2.5 py-0.5 rounded-full bg-blue-50 dark:bg-blue-950/60 text-blue-700 dark:text-blue-300 border border-blue-200 dark:border-blue-800">
-                  Intuitive Analogies • Deep Foundations • Step-by-Step Traces • Exam Traps
-                </span>
-              </div>
-              <div 
-                className="prose dark:prose-invert max-w-none text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed bg-white dark:bg-slate-900/60 p-5 sm:p-7 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-xs"
-                dangerouslySetInnerHTML={{ __html: chapter.theory }}
-              />
-            </div>
+            {/* SECTION 1: EVERYDAY REAL-LIFE EXAMPLES */}
+            {chapter.structured_content?.real_life_examples && (readerSectionFilter === 'all' || readerSectionFilter === 'stories') && (
+              <div className="space-y-4">
+                <div className="border-b border-slate-200 dark:border-slate-800 pb-2">
+                  <h3 className="text-sm sm:text-base font-extrabold text-blue-700 dark:text-blue-400 uppercase tracking-wide flex items-center gap-2">
+                    <span>1. Everyday Real-Life Examples (Intuitive Mental Models)</span>
+                  </h3>
+                  <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
+                    Understand the fundamental logic using simple everyday analogies before diving into equations:
+                  </p>
+                </div>
 
-            {/* Callouts (Tips, Traps, Formulas) */}
-            {chapter.callouts && chapter.callouts.length > 0 && !chapter.theory?.includes("master-chapter-textbook-container") && (
-              <div className="space-y-3 pt-2">
-                {chapter.callouts.map(([cTitle, cText, cType]: any, cIdx: number) => {
-                  const isWarn = cType === 'warn';
-                  const isFormula = cType === 'formula';
-                  return (
+                <div className="space-y-3.5">
+                  {chapter.structured_content.real_life_examples.map((ex: any, exIdx: number) => (
                     <div
-                      key={cIdx}
-                      className={`p-4 rounded-xl border ${
-                        isWarn
-                          ? 'bg-rose-50 dark:bg-rose-950/30 border-rose-200 dark:border-rose-900/60 text-rose-950 dark:text-rose-200'
-                          : isFormula
-                          ? 'bg-amber-50 dark:bg-amber-950/30 border-amber-200 dark:border-amber-900/60 text-amber-950 dark:text-amber-200'
-                          : 'bg-emerald-50 dark:bg-emerald-950/30 border-emerald-200 dark:border-emerald-900/60 text-emerald-950 dark:text-emerald-200'
-                      }`}
+                      key={exIdx}
+                      className="p-4 sm:p-5 rounded-2xl bg-slate-50/90 dark:bg-slate-800/50 border border-slate-200/80 dark:border-slate-700/70 shadow-xs space-y-2 transition hover:border-amber-400/60"
                     >
-                      <div className="flex items-center gap-2 mb-1">
-                        {isWarn ? (
-                          <AlertTriangle className="h-4 w-4 text-rose-600 dark:text-rose-400" />
-                        ) : isFormula ? (
-                          <Sparkles className="h-4 w-4 text-amber-600 dark:text-amber-400" />
-                        ) : (
-                          <Lightbulb className="h-4 w-4 text-emerald-600 dark:text-emerald-400" />
-                        )}
-                        <span className="text-xs font-bold tracking-tight">
-                          {isWarn ? 'COMMON EXAM TRAP / PITFALL:' : isFormula ? 'KEY FORMULA / RESULT:' : 'PRO STRATEGY:'} {cTitle}
-                        </span>
+                      <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-bold bg-amber-100 dark:bg-amber-950/70 text-amber-800 dark:text-amber-300 border border-amber-200 dark:border-amber-800/60">
+                        <Lightbulb className="h-3 w-3" />
+                        <span>Real-Life Analogy {exIdx + 1}</span>
                       </div>
-                      <p className="text-xs leading-relaxed">{cText}</p>
+                      <h4 className={`font-bold text-slate-900 dark:text-slate-100 ${fontSizeClasses.heading}`}>
+                        {ex.title}
+                      </h4>
+                      <p className={`${fontSizeClasses.body} text-slate-700 dark:text-slate-300 leading-relaxed whitespace-pre-line`}>
+                        {ex.text}
+                      </p>
                     </div>
-                  );
-                })}
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* SECTION 2: IN-DEPTH FOUNDATIONS & THEOREMS */}
+            {chapter.structured_content?.foundations && (readerSectionFilter === 'all' || readerSectionFilter === 'foundations') && (
+              <div className="space-y-4 pt-2">
+                <div className="border-b border-slate-200 dark:border-slate-800 pb-2">
+                  <h3 className="text-sm sm:text-base font-extrabold text-blue-700 dark:text-blue-400 uppercase tracking-wide flex items-center gap-2">
+                    <span>2. In-Depth Conceptual & Architectural Foundations</span>
+                  </h3>
+                  <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
+                    Core principles, definitions, and high-yield rules directly tested in GATE:
+                  </p>
+                </div>
+
+                <div className="space-y-4">
+                  {chapter.structured_content.foundations.map((fnd: any, fIdx: number) => (
+                    <div
+                      key={fIdx}
+                      className="p-4 sm:p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xs space-y-3"
+                    >
+                      <div className="flex items-center gap-2.5">
+                        <span className="text-xs font-mono font-extrabold px-2 py-0.5 rounded bg-blue-100 dark:bg-blue-950 text-blue-700 dark:text-blue-300 border border-blue-200 dark:border-blue-800">
+                          {fnd.number}
+                        </span>
+                        <h4 className={`font-bold text-slate-900 dark:text-slate-100 ${fontSizeClasses.heading}`}>
+                          {fnd.title}
+                        </h4>
+                      </div>
+
+                      <div
+                        className={`${fontSizeClasses.body} text-slate-700 dark:text-slate-300 leading-relaxed space-y-1.5`}
+                        dangerouslySetInnerHTML={{ __html: fnd.content }}
+                      />
+
+                      {fnd.crucial_rule && (
+                        <div className="mt-2.5 p-3.5 rounded-xl bg-emerald-50/90 dark:bg-emerald-950/40 border border-emerald-300/80 dark:border-emerald-700/60 text-emerald-950 dark:text-emerald-200 text-xs sm:text-sm font-semibold flex items-start gap-2.5 shadow-2xs">
+                          <Sparkles className="h-4 w-4 text-emerald-600 dark:text-emerald-400 flex-shrink-0 mt-0.5" />
+                          <div className="leading-relaxed">{fnd.crucial_rule}</div>
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* SECTION 3: STEP-BY-STEP EXAM WORKED EXAMPLES */}
+            {chapter.structured_content?.worked_examples && (readerSectionFilter === 'all' || readerSectionFilter === 'solved') && (
+              <div className="space-y-4 pt-2">
+                <div className="border-b border-slate-200 dark:border-slate-800 pb-2">
+                  <h3 className="text-sm sm:text-base font-extrabold text-blue-700 dark:text-blue-400 uppercase tracking-wide flex items-center gap-2">
+                    <span>3. Step-by-Step Exam Worked Examples & Problem Traces</span>
+                  </h3>
+                  <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
+                    Authentic exam-pattern numerical and conceptual problems solved with detailed derivations:
+                  </p>
+                </div>
+
+                <div className="space-y-4">
+                  {chapter.structured_content.worked_examples.map((w: any, wIdx: number) => (
+                    <div
+                      key={wIdx}
+                      className="p-4 sm:p-5 rounded-2xl bg-slate-50/80 dark:bg-slate-800/50 border border-slate-200/80 dark:border-slate-700/70 shadow-xs space-y-3"
+                    >
+                      <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-bold bg-purple-100 dark:bg-purple-950/80 text-purple-800 dark:text-purple-300 border border-purple-200 dark:border-purple-800/60">
+                        <Sparkles className="h-3 w-3" />
+                        <span>Solved Problem {wIdx + 1}</span>
+                      </div>
+                      <h4 className={`font-bold text-slate-900 dark:text-slate-100 ${fontSizeClasses.heading}`}>
+                        {w.title}
+                      </h4>
+                      <div className="text-xs sm:text-sm text-slate-900 dark:text-slate-100 bg-white dark:bg-slate-900 p-3.5 rounded-xl border border-slate-200 dark:border-slate-700">
+                        <span className="text-blue-600 dark:text-blue-400 font-bold block mb-1">Problem Statement:</span>
+                        {w.problem}
+                      </div>
+                      <div className="space-y-1.5 pt-1">
+                        <span className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
+                          Step-by-Step Solution & Traces:
+                        </span>
+                        <div className="space-y-1.5">
+                          {w.steps.map((st: string, sIdx: number) => (
+                            <div key={sIdx} className="flex items-start gap-2 text-xs sm:text-sm text-slate-700 dark:text-slate-300">
+                              <span className="flex-shrink-0 w-5 h-5 rounded-full bg-blue-100 dark:bg-blue-950 text-blue-700 dark:text-blue-300 font-bold text-[10px] flex items-center justify-center mt-0.5">
+                                {sIdx + 1}
+                              </span>
+                              <span className="leading-relaxed">{st}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                      <div className="p-3 rounded-xl bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-300 dark:border-emerald-700 text-emerald-900 dark:text-emerald-200 text-xs sm:text-sm font-bold flex items-center gap-2">
+                        <CheckCircle2 className="h-4 w-4 text-emerald-600 dark:text-emerald-400 flex-shrink-0" />
+                        <span>{w.answer}</span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* SECTION 4: COMMON MISCONCEPTIONS & EXAM TRAPS */}
+            {chapter.structured_content?.exam_traps && (readerSectionFilter === 'all' || readerSectionFilter === 'traps') && (
+              <div className="space-y-3.5 pt-2">
+                <div className="border-b border-slate-200 dark:border-slate-800 pb-2">
+                  <h3 className="text-sm sm:text-base font-extrabold text-blue-700 dark:text-blue-400 uppercase tracking-wide flex items-center gap-2">
+                    <span>4. Common Misconceptions & Exam Trap Warnings</span>
+                  </h3>
+                  <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
+                    Critical negative-marking traps designed by IIT professors to catch unprepared candidates:
+                  </p>
+                </div>
+
+                <div className="space-y-3">
+                  {chapter.structured_content.exam_traps.map((tr: any, trIdx: number) => (
+                    <div
+                      key={trIdx}
+                      className="p-4 rounded-xl bg-rose-50/80 dark:bg-rose-950/30 border border-rose-200/80 dark:border-rose-900/60 shadow-xs space-y-1.5"
+                    >
+                      <h4 className="font-bold text-rose-900 dark:text-rose-200 text-xs sm:text-sm flex items-center gap-1.5">
+                        <AlertTriangle className="h-4 w-4 text-rose-600 dark:text-rose-400 flex-shrink-0" />
+                        <span>⚠️ {tr.title}</span>
+                      </h4>
+                      <p className={`${fontSizeClasses.body} text-slate-700 dark:text-slate-300 leading-relaxed`}>
+                        {tr.warning}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Fallback to HTML Theory if structured_content is absent */}
+            {!chapter.structured_content && chapter.theory && (
+              <div className="space-y-3">
+                <div className="flex flex-wrap items-center justify-between gap-2">
+                  <h3 className="text-sm font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                    <BookOpen className="h-4 w-4 text-blue-600" />
+                    <span>Comprehensive Master Textbook Chapter</span>
+                  </h3>
+                </div>
+                <div 
+                  className="prose dark:prose-invert max-w-none text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed bg-white dark:bg-slate-900/60 p-5 sm:p-7 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-xs"
+                  dangerouslySetInnerHTML={{ __html: chapter.theory }}
+                />
               </div>
             )}
 
@@ -592,6 +889,7 @@ export const SubjectLibraryView: React.FC<SubjectLibraryViewProps> = ({
             )}
 
             {/* DIRECT TOPIC PRACTICE SECTION */}
+            {(readerSectionFilter === 'all' || readerSectionFilter === 'practice') && (
             <div className="pt-6 border-t border-slate-200 dark:border-slate-800 space-y-4">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                 <div>
@@ -804,6 +1102,48 @@ export const SubjectLibraryView: React.FC<SubjectLibraryViewProps> = ({
                   )}
                 </div>
               )}
+            </div>
+            )}
+
+            {/* Chapter Sequential Navigation Footer */}
+            <div className="pt-6 border-t border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+              <button
+                onClick={handlePrevChapter}
+                disabled={activeChapterIndex === 0}
+                className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-semibold border transition ${
+                  activeChapterIndex === 0
+                    ? 'opacity-40 cursor-not-allowed border-slate-200 dark:border-slate-800 text-slate-400'
+                    : 'bg-white dark:bg-slate-900 hover:bg-slate-50 dark:hover:bg-slate-800 border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-200 shadow-2xs'
+                }`}
+              >
+                <ChevronLeft className="h-4 w-4" />
+                <span>Previous Chapter</span>
+              </button>
+
+              <button
+                onClick={() => toggleTopicCompletion(topicUniqueId)}
+                className={`flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl text-xs font-bold border transition ${
+                  isCompleted
+                    ? 'bg-emerald-600 text-white border-emerald-600 shadow-sm'
+                    : 'bg-blue-50 dark:bg-blue-950/40 text-blue-700 dark:text-blue-300 border-blue-200 dark:border-blue-800 hover:bg-blue-100'
+                }`}
+              >
+                {isCompleted ? <CheckCircle className="h-4 w-4 text-white" /> : <Circle className="h-4 w-4" />}
+                <span>{isCompleted ? 'Chapter Completed ✓' : 'Mark Chapter as Done'}</span>
+              </button>
+
+              <button
+                onClick={handleNextChapter}
+                disabled={activeChapterIndex === subject.chapters.length - 1}
+                className={`flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-xs font-semibold border transition ${
+                  activeChapterIndex === subject.chapters.length - 1
+                    ? 'opacity-40 cursor-not-allowed border-slate-200 dark:border-slate-800 text-slate-400'
+                    : 'bg-blue-600 hover:bg-blue-700 border-blue-600 text-white shadow-sm'
+                }`}
+              >
+                <span>Next Chapter</span>
+                <ChevronRight className="h-4 w-4" />
+              </button>
             </div>
           </div>
         </div>

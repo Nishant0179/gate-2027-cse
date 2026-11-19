@@ -54,7 +54,7 @@ export const HomeDashboard: React.FC<HomeDashboardProps> = ({
             GATE 2027 Computer Science & IT Preparation System
           </h1>
           <p className="text-slate-300 text-sm sm:text-base leading-relaxed mb-6">
-            Comprehensive curriculum, 105+ downloadable PDF books and notes, verified previous year questions (2012–2026), interactive 180-minute CBT exam simulator, and personalized daily schedules.
+            Comprehensive curriculum, 120+ downloadable PDF books and notes, verified previous year questions (2012–2026), interactive 180-minute CBT exam simulator, and personalized daily schedules.
           </p>
 
           <div className="flex flex-wrap items-center gap-3">
@@ -77,7 +77,7 @@ export const HomeDashboard: React.FC<HomeDashboardProps> = ({
               className="flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white font-semibold px-4 py-2.5 rounded-xl border border-white/20 transition"
             >
               <FileDown className="h-4 w-4" />
-              <span>Download 105+ PDFs</span>
+              <span>Download 120+ PDFs</span>
             </button>
           </div>
         </div>

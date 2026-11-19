@@ -41,11 +41,14 @@ def compile_all():
         real_life_boxes = ""
         for ex in real_life:
             real_life_boxes += f"""
-      <div class="p-4 rounded-xl bg-amber-50/80 dark:bg-amber-950/25 border-l-4 border-l-amber-500 border border-amber-300 dark:border-amber-700/60 shadow-xs">
-        <h4 class="font-bold text-amber-950 dark:text-amber-200 text-xs sm:text-sm mb-1.5 flex items-center gap-1.5">
-          <span>{ex['title']}</span>
+      <div class="p-4 sm:p-5 rounded-2xl bg-slate-50/90 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700/70 shadow-xs space-y-2">
+        <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-bold bg-amber-100 dark:bg-amber-950/80 text-amber-800 dark:text-amber-300 border border-amber-200 dark:border-amber-800/60">
+          <span>💡 Real-Life Analogy</span>
+        </div>
+        <h4 class="font-bold text-slate-900 dark:text-slate-100 text-sm sm:text-base">
+          {ex['title']}
         </h4>
-        <p class="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
+        <p class="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed whitespace-pre-line">
           {ex['text']}
         </p>
       </div>"""
@@ -61,13 +64,13 @@ def compile_all():
             crucial_html = ""
             if crucial:
                 crucial_html = f"""
-        <div class="mt-2.5 p-3 rounded-lg bg-emerald-50/70 dark:bg-emerald-950/30 border-l-4 border-l-emerald-600 border border-emerald-200 dark:border-emerald-800 text-emerald-950 dark:text-emerald-200 text-xs sm:text-sm leading-relaxed font-semibold">
+        <div class="mt-3 p-3.5 rounded-xl bg-emerald-50/90 dark:bg-emerald-950/40 border border-emerald-300/80 dark:border-emerald-700/60 text-emerald-950 dark:text-emerald-200 text-xs sm:text-sm leading-relaxed font-semibold">
           {crucial}
         </div>"""
 
             foundations_content += f"""
-      <div class="space-y-1.5 pt-2">
-        <h3 class="text-sm sm:text-base font-bold text-teal-700 dark:text-teal-400 flex items-center gap-2">
+      <div class="p-4 sm:p-5 rounded-2xl bg-slate-50/60 dark:bg-slate-800/40 border border-slate-200/80 dark:border-slate-700/60 space-y-2">
+        <h3 class="text-sm sm:text-base font-bold text-blue-700 dark:text-blue-400 flex items-center gap-2">
           <span>{fnd_num} {fnd_title}</span>
         </h3>
         <div class="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed space-y-1.5">
@@ -86,18 +89,21 @@ def compile_all():
 
             steps_html = "<br/>".join([f"• {s}" for s in w_steps])
             worked_content += f"""
-      <div class="p-4 rounded-xl bg-purple-50/60 dark:bg-purple-950/20 border border-purple-200 dark:border-purple-800/60 space-y-2">
-        <h4 class="font-bold text-purple-900 dark:text-purple-200 text-xs sm:text-sm">
+      <div class="p-4 sm:p-5 rounded-2xl bg-slate-50/80 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700/70 space-y-3">
+        <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-bold bg-purple-100 dark:bg-purple-950/80 text-purple-800 dark:text-purple-300 border border-purple-200 dark:border-purple-800/60">
+          <span>🔢 Step-by-Step Solved Problem</span>
+        </div>
+        <h4 class="font-bold text-slate-900 dark:text-slate-100 text-sm sm:text-base">
           {w_title}
         </h4>
-        <div class="text-xs sm:text-sm text-slate-800 dark:text-slate-200 bg-white dark:bg-slate-900 p-3 rounded-lg border border-purple-100 dark:border-purple-900/40">
+        <div class="text-xs sm:text-sm text-slate-900 dark:text-slate-100 bg-white dark:bg-slate-900 p-3.5 rounded-xl border border-slate-200 dark:border-slate-700">
           <b>Problem:</b> {w_prob}
         </div>
-        <div class="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed pt-1 space-y-1">
+        <div class="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed pt-1 space-y-1.5">
           <b>Step-by-Step Solution & Traces:</b><br/>
           {steps_html}
         </div>
-        <div class="p-2.5 rounded-lg bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-300 dark:border-emerald-800 text-emerald-900 dark:text-emerald-200 text-xs sm:text-sm font-bold">
+        <div class="p-3 rounded-xl bg-emerald-50 dark:bg-emerald-950/50 border border-emerald-300 dark:border-emerald-700 text-emerald-900 dark:text-emerald-200 text-xs sm:text-sm font-bold">
           🎯 {w_ans}
         </div>
       </div>"""
@@ -106,8 +112,8 @@ def compile_all():
         traps_content = ""
         for tr in traps:
             traps_content += f"""
-      <div class="p-3.5 rounded-xl bg-rose-50/80 dark:bg-rose-950/25 border-l-4 border-l-rose-600 border border-rose-200 dark:border-rose-900/60">
-        <h4 class="font-bold text-rose-950 dark:text-rose-200 text-xs sm:text-sm mb-1 flex items-center gap-1.5">
+      <div class="p-4 rounded-xl bg-rose-50/80 dark:bg-rose-950/30 border border-rose-200/80 dark:border-rose-900/60 space-y-1.5">
+        <h4 class="font-bold text-rose-900 dark:text-rose-200 text-xs sm:text-sm flex items-center gap-1.5">
           <span>⚠️ {tr['title']}</span>
         </h4>
         <p class="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
@@ -118,8 +124,8 @@ def compile_all():
         full_html = f"""<div class="master-chapter-textbook-container space-y-8">
   <!-- SECTION 1: EVERYDAY REAL-LIFE EXAMPLES (INTUITIVE MENTAL MODELS) -->
   <div class="space-y-3">
-    <div class="border-b border-blue-100 dark:border-blue-900/40 pb-2">
-      <h2 class="text-sm sm:text-base md:text-lg font-black text-blue-900 dark:text-blue-300 tracking-wide uppercase flex items-center gap-2">
+    <div class="border-b border-slate-200 dark:border-slate-800 pb-2">
+      <h2 class="text-sm sm:text-base md:text-lg font-black text-blue-700 dark:text-blue-400 tracking-wide uppercase flex items-center gap-2">
         <span>1. EVERYDAY REAL-LIFE EXAMPLES (INTUITIVE MENTAL MODELS)</span>
       </h2>
       <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 italic mt-0.5">
@@ -133,8 +139,8 @@ def compile_all():
 
   <!-- SECTION 2: IN-DEPTH CONCEPTUAL & ARCHITECTURAL FOUNDATIONS -->
   <div class="space-y-4">
-    <div class="border-b border-teal-100 dark:border-teal-900/40 pb-2">
-      <h2 class="text-sm sm:text-base md:text-lg font-black text-blue-900 dark:text-blue-300 tracking-wide uppercase flex items-center gap-2">
+    <div class="border-b border-slate-200 dark:border-slate-800 pb-2">
+      <h2 class="text-sm sm:text-base md:text-lg font-black text-blue-700 dark:text-blue-400 tracking-wide uppercase flex items-center gap-2">
         <span>2. IN-DEPTH CONCEPTUAL & ARCHITECTURAL FOUNDATIONS</span>
       </h2>
     </div>
@@ -145,8 +151,8 @@ def compile_all():
 
   <!-- SECTION 3: STEP-BY-STEP EXAM WORKED EXAMPLES & PROBLEM TRACES -->
   <div class="space-y-4">
-    <div class="border-b border-purple-100 dark:border-purple-900/40 pb-2">
-      <h2 class="text-sm sm:text-base md:text-lg font-black text-blue-900 dark:text-blue-300 tracking-wide uppercase flex items-center gap-2">
+    <div class="border-b border-slate-200 dark:border-slate-800 pb-2">
+      <h2 class="text-sm sm:text-base md:text-lg font-black text-blue-700 dark:text-blue-400 tracking-wide uppercase flex items-center gap-2">
         <span>3. STEP-BY-STEP EXAM WORKED EXAMPLES & PROBLEM TRACES</span>
       </h2>
     </div>
@@ -157,8 +163,8 @@ def compile_all():
 
   <!-- SECTION 4: COMMON MISCONCEPTIONS & EXAM TRAP WARNINGS -->
   <div class="space-y-3">
-    <div class="border-b border-rose-100 dark:border-rose-900/40 pb-2">
-      <h2 class="text-sm sm:text-base md:text-lg font-black text-blue-900 dark:text-blue-300 tracking-wide uppercase flex items-center gap-2">
+    <div class="border-b border-slate-200 dark:border-slate-800 pb-2">
+      <h2 class="text-sm sm:text-base md:text-lg font-black text-blue-700 dark:text-blue-400 tracking-wide uppercase flex items-center gap-2">
         <span>4. COMMON MISCONCEPTIONS & EXAM TRAP WARNINGS</span>
       </h2>
     </div>
